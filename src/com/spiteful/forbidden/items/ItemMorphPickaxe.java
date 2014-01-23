@@ -21,44 +21,44 @@ import net.minecraftforge.common.ForgeHooks;
 
 public class ItemMorphPickaxe extends ItemPickaxe implements IRepairable
 {
-    public Icon[] icon;
+	public Icon[] icon;
 
-    public ItemMorphPickaxe(int i, EnumToolMaterial enumtoolmaterial)
-    {
-        super(i, enumtoolmaterial);
-        this.setCreativeTab(Forbidden.tab);
-    }
+	public ItemMorphPickaxe(int i, EnumToolMaterial enumtoolmaterial)
+	{
+		super(i, enumtoolmaterial);
+		this.setCreativeTab(Forbidden.tab);
+	}
 
-    @SideOnly(Side.CLIENT)
-    public void registerIcons(IconRegister ir)
-    {
-        icon = new Icon[2];
+	@SideOnly(Side.CLIENT)
+	public void registerIcons(IconRegister ir)
+	{
+		icon = new Icon[2];
 		this.icon[0] = ir.registerIcon("forbidden:chameleonpick");
 		this.icon[1] = ir.registerIcon("forbidden:eyepick");
-    }
+	}
 
 	@SideOnly(Side.CLIENT)
 	public Icon getIconFromDamageForRenderPass(int par1, int renderPass) {
 		return renderPass != 1?icon[0]:icon[1];
 	}
 
-    public EnumRarity getRarity(ItemStack itemstack)
-    {
-        return EnumRarity.epic;
-    }
+	public EnumRarity getRarity(ItemStack itemstack)
+	{
+		return EnumRarity.epic;
+	}
 
-    public boolean getIsRepairable(ItemStack par1ItemStack, ItemStack par2ItemStack)
-    {
-        return par2ItemStack.isItemEqual(new ItemStack(ForbiddenItems.deadlyShards, 1, 1)) ? true : super.getIsRepairable(par1ItemStack, par2ItemStack);
-    }
+	public boolean getIsRepairable(ItemStack par1ItemStack, ItemStack par2ItemStack)
+	{
+		return par2ItemStack.isItemEqual(new ItemStack(ForbiddenItems.deadlyShards, 1, 1)) ? true : super.getIsRepairable(par1ItemStack, par2ItemStack);
+	}
 
 	@Override
 	/**
-     * Called whenever this item is equipped and the right mouse button is pressed. Args: itemStack, world, entityPlayer
-     */
-    public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer player)
-    {
-        if(player.isSneaking() && itemstack.hasTagCompound() && getMaxDamage() - itemstack.getItemDamage() > 5){
+	 * Called whenever this item is equipped and the right mouse button is pressed. Args: itemStack, world, entityPlayer
+	 */
+	public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer player)
+	{
+		if(player.isSneaking() && itemstack.hasTagCompound() && getMaxDamage() - itemstack.getItemDamage() > 5){
 			NBTTagCompound tags = itemstack.getTagCompound();
 			byte phase = tags.getByte("phase");
 			NBTTagList enchants = itemstack.getEnchantmentTagList();
@@ -81,13 +81,13 @@ public class ItemMorphPickaxe extends ItemPickaxe implements IRepairable
 			world.playSoundEffect(player.posX, player.posY, player.posZ, "thaumcraft:wandfail", 0.2F, 0.2F + world.rand.nextFloat() * 0.2F);
 		}		
 		return itemstack;
-    }
+	}
 	
 	@Override
 	@SideOnly(Side.CLIENT)
-    public int getColorFromItemStack(ItemStack itemstack, int renderpass)
-    {
-        if(renderpass != 1)
+	public int getColorFromItemStack(ItemStack itemstack, int renderpass)
+	{
+		if(renderpass != 1)
 			return 16777215;
 		else
 		{
@@ -101,7 +101,7 @@ public class ItemMorphPickaxe extends ItemPickaxe implements IRepairable
 			else
 				return 0x980000;
 		}
-    }
+	}
 	
 	@SideOnly(Side.CLIENT)
 	public boolean requiresMultipleRenderPasses() {

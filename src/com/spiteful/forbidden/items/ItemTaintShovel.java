@@ -20,46 +20,46 @@ import net.minecraftforge.common.ForgeHooks;
 
 public class ItemTaintShovel extends ItemSpade implements IRepairable
 {
-    public Icon icon;
+	public Icon icon;
 
-    public ItemTaintShovel(int i, EnumToolMaterial enumtoolmaterial)
-    {
-        super(i, enumtoolmaterial);
-        this.setCreativeTab(Forbidden.tab);
-    }
+	public ItemTaintShovel(int i, EnumToolMaterial enumtoolmaterial)
+	{
+		super(i, enumtoolmaterial);
+		this.setCreativeTab(Forbidden.tab);
+	}
 
-    @SideOnly(Side.CLIENT)
-    public void registerIcons(IconRegister ir)
-    {
-        this.icon = ir.registerIcon("forbidden:taintshovel");
-    }
+	@SideOnly(Side.CLIENT)
+	public void registerIcons(IconRegister ir)
+	{
+		this.icon = ir.registerIcon("forbidden:taintshovel");
+	}
 
-    @SideOnly(Side.CLIENT)
-    public Icon getIconFromDamage(int par1)
-    {
-        return this.icon;
-    }
+	@SideOnly(Side.CLIENT)
+	public Icon getIconFromDamage(int par1)
+	{
+		return this.icon;
+	}
 
-    public EnumRarity getRarity(ItemStack itemstack)
-    {
-        return EnumRarity.rare;
-    }
+	public EnumRarity getRarity(ItemStack itemstack)
+	{
+		return EnumRarity.rare;
+	}
 
-    public boolean getIsRepairable(ItemStack par1ItemStack, ItemStack par2ItemStack)
-    {
-        return par2ItemStack.isItemEqual(new ItemStack(Config.thaumcraftResourceID, 1, 2)) ? true : super.getIsRepairable(par1ItemStack, par2ItemStack);
-    }
+	public boolean getIsRepairable(ItemStack par1ItemStack, ItemStack par2ItemStack)
+	{
+		return par2ItemStack.isItemEqual(new ItemStack(Config.thaumcraftResourceID, 1, 2)) ? true : super.getIsRepairable(par1ItemStack, par2ItemStack);
+	}
 
-    @Override
-    public float getStrVsBlock(ItemStack stack, Block block, int meta)
-    {
-        if (ForgeHooks.isToolEffective(stack, block, meta) || block.blockMaterial == Config.taintMaterial)
-        {
-            return efficiencyOnProperMaterial;
-        }
+	@Override
+	public float getStrVsBlock(ItemStack stack, Block block, int meta)
+	{
+		if (ForgeHooks.isToolEffective(stack, block, meta) || block.blockMaterial == Config.taintMaterial)
+		{
+			return efficiencyOnProperMaterial;
+		}
 
-        return getStrVsBlock(stack, block);
-    }
+		return getStrVsBlock(stack, block);
+	}
 	
 	@Override
 	public boolean onItemUse(ItemStack itemstack, EntityPlayer player, World world, int x, int y, int z, int side, float par8, float par9, float par10) {

@@ -20,59 +20,59 @@ import net.minecraft.world.World;
 
 public class BlockWrathCage extends BlockContainer
 {
-    protected BlockWrathCage(int par1)
-    {
-        super(par1, Material.iron);
+	protected BlockWrathCage(int par1)
+	{
+		super(par1, Material.iron);
 		this.setCreativeTab(Forbidden.tab);
-    }
+	}
 
-    /**
-     * Returns a new instance of a block's tile entity class. Called on placing the block.
-     */
-    public TileEntity createNewTileEntity(World par1World)
-    {
-        return new TileEntityWrathCage();
-    }
+	/**
+	 * Returns a new instance of a block's tile entity class. Called on placing the block.
+	 */
+	public TileEntity createNewTileEntity(World par1World)
+	{
+		return new TileEntityWrathCage();
+	}
 
-    /**
-     * Returns the ID of the items to drop on destruction.
-     */
-    public int idDropped(int par1, Random par2Random, int par3)
-    {
-        return blockID;
-    }
+	/**
+	 * Returns the ID of the items to drop on destruction.
+	 */
+	public int idDropped(int par1, Random par2Random, int par3)
+	{
+		return blockID;
+	}
 
-    /**
-     * Returns the quantity of items to drop on block destruction.
-     */
-    public int quantityDropped(Random par1Random)
-    {
-        return 1;
-    }
+	/**
+	 * Returns the quantity of items to drop on block destruction.
+	 */
+	public int quantityDropped(Random par1Random)
+	{
+		return 1;
+	}
 
-    /**
-     * Drops the block items with a specified chance of dropping the specified items
-     */
-    public void dropBlockAsItemWithChance(World par1World, int par2, int par3, int par4, int par5, float par6, int par7)
-    {
-        super.dropBlockAsItemWithChance(par1World, par2, par3, par4, par5, par6, par7);
-        int j1 = 15 + par1World.rand.nextInt(15) + par1World.rand.nextInt(15);
-        this.dropXpOnBlockBreak(par1World, par2, par3, par4, j1);
-    }
+	/**
+	 * Drops the block items with a specified chance of dropping the specified items
+	 */
+	public void dropBlockAsItemWithChance(World par1World, int par2, int par3, int par4, int par5, float par6, int par7)
+	{
+		super.dropBlockAsItemWithChance(par1World, par2, par3, par4, par5, par6, par7);
+		int j1 = 15 + par1World.rand.nextInt(15) + par1World.rand.nextInt(15);
+		this.dropXpOnBlockBreak(par1World, par2, par3, par4, j1);
+	}
 	
 	/**
-     * Called upon block activation (right click on the block.)
-     */
-    public boolean onBlockActivated(World par1World, int x, int y, int z, EntityPlayer player, int par6, float par7, float par8, float par9)
-    {
+	 * Called upon block activation (right click on the block.)
+	 */
+	public boolean onBlockActivated(World par1World, int x, int y, int z, EntityPlayer player, int par6, float par7, float par8, float par9)
+	{
 		ItemStack held = player.getCurrentEquippedItem();
 		if(held != null && held.itemID == ForbiddenItems.mobCrystal.itemID){
 			NBTTagCompound nbttagcompound = held.getTagCompound();
-            NBTTagString nbttagstring = (NBTTagString)nbttagcompound.getTag("mob");
+			NBTTagString nbttagstring = (NBTTagString)nbttagcompound.getTag("mob");
 
-            if (nbttagstring != null)
-            {
-                if(!par1World.isRemote){
+			if (nbttagstring != null)
+			{
+				if(!par1World.isRemote){
 					TileEntityWrathCage spawner = (TileEntityWrathCage)par1World.getBlockTileEntity(x, y, z);
 					String mob = null;
 					ItemStack crystal = null;
@@ -90,18 +90,18 @@ public class BlockWrathCage extends BlockContainer
 				}
 				player.swingItem();
 				return true;
-            }
+			}
 		}
 		return false;
-    }
+	}
 	
 	/**
-     * Called on server worlds only when the block has been replaced by a different block ID, or the same block with a
-     * different metadata value, but before the new metadata value is set. Args: World, x, y, z, old block ID, old
-     * metadata
-     */
-    public void breakBlock(World par1World, int x, int y, int z, int par5, int par6)
-    {
+	 * Called on server worlds only when the block has been replaced by a different block ID, or the same block with a
+	 * different metadata value, but before the new metadata value is set. Args: World, x, y, z, old block ID, old
+	 * metadata
+	 */
+	public void breakBlock(World par1World, int x, int y, int z, int par5, int par6)
+	{
 		TileEntityWrathCage spawner = (TileEntityWrathCage)par1World.getBlockTileEntity(x, y, z);
 
 		if (spawner != null && spawner.getSpawnerLogic().isMobSet())
@@ -124,25 +124,25 @@ public class BlockWrathCage extends BlockContainer
 
 		}
 
-        super.breakBlock(par1World, x, y, z, par5, par6);
-    }
+		super.breakBlock(par1World, x, y, z, par5, par6);
+	}
 
-    /**
-     * Is this block (a) opaque and (b) a full 1m cube?  This determines whether or not to render the shared face of two
-     * adjacent blocks and also whether the player can attach torches, redstone wire, etc to this block.
-     */
-    public boolean isOpaqueCube()
-    {
-        return false;
-    }
+	/**
+	 * Is this block (a) opaque and (b) a full 1m cube?  This determines whether or not to render the shared face of two
+	 * adjacent blocks and also whether the player can attach torches, redstone wire, etc to this block.
+	 */
+	public boolean isOpaqueCube()
+	{
+		return false;
+	}
 
-    @SideOnly(Side.CLIENT)
+	@SideOnly(Side.CLIENT)
 
-    /**
-     * only called by clickMiddleMouseButton , and passed to inventory.setCurrentItem (along with isCreative)
-     */
-    public int idPicked(World par1World, int par2, int par3, int par4)
-    {
-        return blockID;
-    }
+	/**
+	 * only called by clickMiddleMouseButton , and passed to inventory.setCurrentItem (along with isCreative)
+	 */
+	public int idPicked(World par1World, int par2, int par3, int par4)
+	{
+		return blockID;
+	}
 }

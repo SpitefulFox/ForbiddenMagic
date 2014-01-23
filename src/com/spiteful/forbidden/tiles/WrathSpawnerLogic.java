@@ -28,60 +28,60 @@ import thaumcraft.common.Thaumcraft;
 
 public class WrathSpawnerLogic
 {
-    /** The mob spawner we deal with */
-    final TileEntityWrathCage mobSpawnerEntity;
+	/** The mob spawner we deal with */
+	final TileEntityWrathCage mobSpawnerEntity;
 	
 	public boolean mobSet = false;
 	
 	/** The delay to spawn. */
-    public int spawnDelay = 20;
-    private String mobID = "Pig";
+	public int spawnDelay = 20;
+	private String mobID = "Pig";
 	Aspect aspect = Aspect.GREED;
 	private boolean slothful = false;
 	private int fuel = 0;
 
-    public double field_98287_c;
-    public double field_98284_d;
-    private int minSpawnDelay = 200;
-    private int maxSpawnDelay = 300;
+	public double field_98287_c;
+	public double field_98284_d;
+	private int minSpawnDelay = 200;
+	private int maxSpawnDelay = 300;
 
-    /** A counter for spawn tries. */
-    private int spawnCount = 3;
-    private Entity renderEntity;
-    private int maxNearbyEntities = 6;
+	/** A counter for spawn tries. */
+	private int spawnCount = 3;
+	private Entity renderEntity;
+	private int maxNearbyEntities = 6;
 
-    /** The distance from which a player activates the spawner. */
-    private int activatingRangeFromPlayer = 16;
+	/** The distance from which a player activates the spawner. */
+	private int activatingRangeFromPlayer = 16;
 
-    /** The range coefficient for spawning entities around. */
-    private int spawnRange = 4;
+	/** The range coefficient for spawning entities around. */
+	private int spawnRange = 4;
 
-    WrathSpawnerLogic(TileEntityWrathCage par1TileEntityMobSpawner)
-    {
-        this.mobSpawnerEntity = par1TileEntityMobSpawner;
-    }
+	WrathSpawnerLogic(TileEntityWrathCage par1TileEntityMobSpawner)
+	{
+		this.mobSpawnerEntity = par1TileEntityMobSpawner;
+	}
 	
 	/**
-     * Gets the entity name that should be spawned.
-     */
-    public String getEntityNameToSpawn()
-    {
-        return this.mobID;
-    }
+	 * Gets the entity name that should be spawned.
+	 */
+	public String getEntityNameToSpawn()
+	{
+		return this.mobID;
+	}
 	
 	public Aspect getAspect()
 	{
 		return aspect;
 	}
 
-    public void setMobID(String par1Str)
-    {
-        this.mobID = par1Str;
+	public void setMobID(String par1Str)
+	{
+		this.mobID = par1Str;
 		if(Config.spawnerMobs.containsKey(mobID))
 			aspect = Config.spawnerMobs.get(mobID);
 		else
 			aspect = Aspect.GREED;
-    }
+	}
 	
 	public void mobIsSet(boolean inp){
 		mobSet = inp;
@@ -92,33 +92,33 @@ public class WrathSpawnerLogic
 		return mobSet;
 	}
 	
-    public void updateSpawnerBlock(int par1)
-    {
-        this.mobSpawnerEntity.worldObj.addBlockEvent(this.mobSpawnerEntity.xCoord, this.mobSpawnerEntity.yCoord, this.mobSpawnerEntity.zCoord, Block.mobSpawner.blockID, par1, 0);
-    }
+	public void updateSpawnerBlock(int par1)
+	{
+		this.mobSpawnerEntity.worldObj.addBlockEvent(this.mobSpawnerEntity.xCoord, this.mobSpawnerEntity.yCoord, this.mobSpawnerEntity.zCoord, Block.mobSpawner.blockID, par1, 0);
+	}
 
-    public World getSpawnerWorld()
-    {
-        return this.mobSpawnerEntity.worldObj;
-    }
+	public World getSpawnerWorld()
+	{
+		return this.mobSpawnerEntity.worldObj;
+	}
 
-    public int getSpawnerX()
-    {
-        return this.mobSpawnerEntity.xCoord;
-    }
+	public int getSpawnerX()
+	{
+		return this.mobSpawnerEntity.xCoord;
+	}
 
-    public int getSpawnerY()
-    {
-        return this.mobSpawnerEntity.yCoord;
-    }
+	public int getSpawnerY()
+	{
+		return this.mobSpawnerEntity.yCoord;
+	}
 
-    public int getSpawnerZ()
-    {
-        return this.mobSpawnerEntity.zCoord;
-    }
+	public int getSpawnerZ()
+	{
+		return this.mobSpawnerEntity.zCoord;
+	}
 	
 	public void updateSpawner()
-    {
+	{
 		if(!mobSet)
 			return;
 
@@ -222,37 +222,37 @@ public class WrathSpawnerLogic
 			}
 
 		}
-    }
+	}
 	
 	/**
-     * Checks if the entity's current position is a valid location to spawn this entity.
-     */
-    public boolean entityCanSpawn(EntityLiving entity)
-    {
-        return entity.worldObj.checkNoEntityCollision(entity.boundingBox) && entity.worldObj.getCollidingBoundingBoxes(entity, entity.boundingBox).isEmpty() && !entity.worldObj.isAnyLiquid(entity.boundingBox);
-    }
+	 * Checks if the entity's current position is a valid location to spawn this entity.
+	 */
+	public boolean entityCanSpawn(EntityLiving entity)
+	{
+		return entity.worldObj.checkNoEntityCollision(entity.boundingBox) && entity.worldObj.getCollidingBoundingBoxes(entity, entity.boundingBox).isEmpty() && !entity.worldObj.isAnyLiquid(entity.boundingBox);
+	}
 	
 	private void updateDelay()
-    {
-        if (this.maxSpawnDelay <= this.minSpawnDelay)
-        {
-            this.spawnDelay = this.minSpawnDelay;
-        }
-        else
-        {
-            int i = this.maxSpawnDelay - this.minSpawnDelay;
-            this.spawnDelay = this.minSpawnDelay + this.getSpawnerWorld().rand.nextInt(i);
-        }
+	{
+		if (this.maxSpawnDelay <= this.minSpawnDelay)
+		{
+			this.spawnDelay = this.minSpawnDelay;
+		}
+		else
+		{
+			int i = this.maxSpawnDelay - this.minSpawnDelay;
+			this.spawnDelay = this.minSpawnDelay + this.getSpawnerWorld().rand.nextInt(i);
+		}
 		
 		if(slothful)
 			spawnDelay += 200;
 
-        this.updateSpawnerBlock(1);
-    }
+		this.updateSpawnerBlock(1);
+	}
 	
 	public void readFromNBT(NBTTagCompound par1NBTTagCompound)
-    {
-        mobID = par1NBTTagCompound.getString("EntityId");
+	{
+		mobID = par1NBTTagCompound.getString("EntityId");
 		if(Config.spawnerMobs.containsKey(mobID))
 			aspect = Config.spawnerMobs.get(mobID);
 		else
@@ -260,84 +260,84 @@ public class WrathSpawnerLogic
 		mobSet = par1NBTTagCompound.getBoolean("MobSet");
 		slothful = par1NBTTagCompound.getBoolean("Slothful");
 		this.fuel = par1NBTTagCompound.getShort("Fuel");
-        this.spawnDelay = par1NBTTagCompound.getShort("Delay");
+		this.spawnDelay = par1NBTTagCompound.getShort("Delay");
 
-        //if (par1NBTTagCompound.hasKey("MinSpawnDelay"))
-        //{
-        //    this.minSpawnDelay = par1NBTTagCompound.getShort("MinSpawnDelay");
-        //    this.maxSpawnDelay = par1NBTTagCompound.getShort("MaxSpawnDelay");
-        //    this.spawnCount = par1NBTTagCompound.getShort("SpawnCount");
-        //}
+		//if (par1NBTTagCompound.hasKey("MinSpawnDelay"))
+		//{
+		//	this.minSpawnDelay = par1NBTTagCompound.getShort("MinSpawnDelay");
+		//	this.maxSpawnDelay = par1NBTTagCompound.getShort("MaxSpawnDelay");
+		//	this.spawnCount = par1NBTTagCompound.getShort("SpawnCount");
+		//}
 
-        if (par1NBTTagCompound.hasKey("MaxNearbyEntities"))
-        {
-            this.maxNearbyEntities = par1NBTTagCompound.getShort("MaxNearbyEntities");
-        }
+		if (par1NBTTagCompound.hasKey("MaxNearbyEntities"))
+		{
+			this.maxNearbyEntities = par1NBTTagCompound.getShort("MaxNearbyEntities");
+		}
 
-        if (par1NBTTagCompound.hasKey("SpawnRange"))
-        {
-            this.spawnRange = par1NBTTagCompound.getShort("SpawnRange");
-        }
+		if (par1NBTTagCompound.hasKey("SpawnRange"))
+		{
+			this.spawnRange = par1NBTTagCompound.getShort("SpawnRange");
+		}
 
-        if (this.getSpawnerWorld() != null && this.getSpawnerWorld().isRemote)
-        {
-            this.renderEntity = null;
-        }
-    }
+		if (this.getSpawnerWorld() != null && this.getSpawnerWorld().isRemote)
+		{
+			this.renderEntity = null;
+		}
+	}
 
-    public void writeToNBT(NBTTagCompound par1NBTTagCompound)
-    {
-        par1NBTTagCompound.setString("EntityId", this.getEntityNameToSpawn());
+	public void writeToNBT(NBTTagCompound par1NBTTagCompound)
+	{
+		par1NBTTagCompound.setString("EntityId", this.getEntityNameToSpawn());
 		par1NBTTagCompound.setBoolean("MobSet", mobSet);
 		par1NBTTagCompound.setBoolean("Slothful", slothful);
 		par1NBTTagCompound.setShort("Fuel", (short)this.fuel);
-        par1NBTTagCompound.setShort("Delay", (short)this.spawnDelay);
-        //par1NBTTagCompound.setShort("MinSpawnDelay", (short)this.minSpawnDelay);
-        //par1NBTTagCompound.setShort("MaxSpawnDelay", (short)this.maxSpawnDelay);
-        //par1NBTTagCompound.setShort("SpawnCount", (short)this.spawnCount);
-        par1NBTTagCompound.setShort("MaxNearbyEntities", (short)this.maxNearbyEntities);
-        par1NBTTagCompound.setShort("SpawnRange", (short)this.spawnRange);
+		par1NBTTagCompound.setShort("Delay", (short)this.spawnDelay);
+		//par1NBTTagCompound.setShort("MinSpawnDelay", (short)this.minSpawnDelay);
+		//par1NBTTagCompound.setShort("MaxSpawnDelay", (short)this.maxSpawnDelay);
+		//par1NBTTagCompound.setShort("SpawnCount", (short)this.spawnCount);
+		par1NBTTagCompound.setShort("MaxNearbyEntities", (short)this.maxNearbyEntities);
+		par1NBTTagCompound.setShort("SpawnRange", (short)this.spawnRange);
 
-    }
+	}
 	
 	public Entity spawnMob(Entity par1Entity)
-    {
-        if (par1Entity instanceof EntityLivingBase && par1Entity.worldObj != null)
-        {
-            ((EntityLiving)par1Entity).onSpawnWithEgg((EntityLivingData)null);
-            this.getSpawnerWorld().spawnEntityInWorld(par1Entity);
-        }
+	{
+		if (par1Entity instanceof EntityLivingBase && par1Entity.worldObj != null)
+		{
+			((EntityLiving)par1Entity).onSpawnWithEgg((EntityLivingData)null);
+			this.getSpawnerWorld().spawnEntityInWorld(par1Entity);
+		}
 
-        return par1Entity;
-    }
+		return par1Entity;
+	}
 	
 	/**
-     * Sets the delay to minDelay if parameter given is 1, else return false.
-     */
-    public boolean setDelayToMin(int par1)
-    {
-        if (par1 == 1 && this.getSpawnerWorld().isRemote)
-        {
-            this.spawnDelay = this.minSpawnDelay;
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
+	 * Sets the delay to minDelay if parameter given is 1, else return false.
+	 */
+	public boolean setDelayToMin(int par1)
+	{
+		if (par1 == 1 && this.getSpawnerWorld().isRemote)
+		{
+			this.spawnDelay = this.minSpawnDelay;
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
 
-    @SideOnly(Side.CLIENT)
-    public Entity getEntityForRender()
-    {
-        if (this.renderEntity == null)
-        {
-            Entity entity = EntityList.createEntityByName(this.getEntityNameToSpawn(), (World)null);
-            entity = this.spawnMob(entity);
-            this.renderEntity = entity;
-        }
+	@SideOnly(Side.CLIENT)
+	public Entity getEntityForRender()
+	{
+		if (this.renderEntity == null)
+		{
+			Entity entity = EntityList.createEntityByName(this.getEntityNameToSpawn(), (World)null);
+			entity = this.spawnMob(entity);
+			this.renderEntity = entity;
+		}
 
-        return this.renderEntity;
-    }
+		return this.renderEntity;
+	}
 
 }

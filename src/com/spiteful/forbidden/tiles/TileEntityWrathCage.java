@@ -27,38 +27,38 @@ import thaumcraft.api.aspects.IEssentiaTransport;
 
 public class TileEntityWrathCage extends TileEntity implements IAspectContainer, IEssentiaTransport
 {
-    private final WrathSpawnerLogic spawnLogic = new WrathSpawnerLogic(this);
+	private final WrathSpawnerLogic spawnLogic = new WrathSpawnerLogic(this);
 	public int wrath = 0;
 	public int sloth = 0;
 	public int special = 0;
 	Aspect aspect;
 
-    @Override
+	@Override
 	/**
-     * Reads a tile entity from NBT.
-     */
-    public void readFromNBT(NBTTagCompound par1NBTTagCompound)
-    {
-        super.readFromNBT(par1NBTTagCompound);
-        this.spawnLogic.readFromNBT(par1NBTTagCompound);
+	 * Reads a tile entity from NBT.
+	 */
+	public void readFromNBT(NBTTagCompound par1NBTTagCompound)
+	{
+		super.readFromNBT(par1NBTTagCompound);
+		this.spawnLogic.readFromNBT(par1NBTTagCompound);
 		this.wrath = par1NBTTagCompound.getShort("Wrath");
 		this.sloth = par1NBTTagCompound.getShort("Sloth");
 		this.special = par1NBTTagCompound.getShort("Special");
 		aspect = spawnLogic.getAspect();
-    }
+	}
 
-    @Override
+	@Override
 	/**
-     * Writes a tile entity to NBT.
-     */
-    public void writeToNBT(NBTTagCompound par1NBTTagCompound)
-    {
-        super.writeToNBT(par1NBTTagCompound);
-        this.spawnLogic.writeToNBT(par1NBTTagCompound);
+	 * Writes a tile entity to NBT.
+	 */
+	public void writeToNBT(NBTTagCompound par1NBTTagCompound)
+	{
+		super.writeToNBT(par1NBTTagCompound);
+		this.spawnLogic.writeToNBT(par1NBTTagCompound);
 		par1NBTTagCompound.setShort("Wrath", (short)this.wrath);
 		par1NBTTagCompound.setShort("Sloth", (short)this.sloth);
 		par1NBTTagCompound.setShort("Special", (short)this.special);
-    }
+	}
 	
 	@Override
 	public void onDataPacket(INetworkManager net, Packet132TileEntityData pkt) {
@@ -73,21 +73,21 @@ public class TileEntityWrathCage extends TileEntity implements IAspectContainer,
 		return new Packet132TileEntityData(xCoord, yCoord, zCoord, 0, tag);
 	}
 
-    /**
-     * Allows the entity to update its state. Overridden in most subclasses, e.g. the mob spawner uses this to count
-     * ticks and creates a new spawn inside its implementation.
-     */
-    public void updateEntity()
-    {
-        if(!worldObj.isBlockIndirectlyGettingPowered(xCoord, yCoord, zCoord)){
+	/**
+	 * Allows the entity to update its state. Overridden in most subclasses, e.g. the mob spawner uses this to count
+	 * ticks and creates a new spawn inside its implementation.
+	 */
+	public void updateEntity()
+	{
+		if(!worldObj.isBlockIndirectlyGettingPowered(xCoord, yCoord, zCoord)){
 			this.spawnLogic.updateSpawner();
 		}
 		
 		if(Config.wrathCost > 0 && spawnLogic.isMobSet() && !(special >= 64 || wrath >= 64 || sloth >= 64))
 				drawEssentia();
-        
+		
 		super.updateEntity();
-    }
+	}
 	
 	void drawEssentia()
 	{
@@ -124,21 +124,21 @@ public class TileEntityWrathCage extends TileEntity implements IAspectContainer,
 		aspect = spawnLogic.getAspect();
 	}
 	
-    /**
-     * Called when a client event is received with the event number and argument, see World.sendClientEvent
-     */
-    public boolean receiveClientEvent(int par1, int par2)
-    {
-        return this.spawnLogic.setDelayToMin(par1) ? true : super.receiveClientEvent(par1, par2);
-    }
+	/**
+	 * Called when a client event is received with the event number and argument, see World.sendClientEvent
+	 */
+	public boolean receiveClientEvent(int par1, int par2)
+	{
+		return this.spawnLogic.setDelayToMin(par1) ? true : super.receiveClientEvent(par1, par2);
+	}
 
-    /**
-     * Returns the spawner logic associated with this spawner
-     */
-    public WrathSpawnerLogic getSpawnerLogic()
-    {
-        return this.spawnLogic;
-    }
+	/**
+	 * Returns the spawner logic associated with this spawner
+	 */
+	public WrathSpawnerLogic getSpawnerLogic()
+	{
+		return this.spawnLogic;
+	}
 	
 	public AspectList getAspects()
 	{
@@ -154,11 +154,11 @@ public class TileEntityWrathCage extends TileEntity implements IAspectContainer,
 	}
 	
 	/**
-     * This method is used to determine of a specific aspect can be added to this container.
-     * @param tag
-     * @return true or false
-     */
-    public boolean doesContainerAccept(Aspect tag)
+	 * This method is used to determine of a specific aspect can be added to this container.
+	 * @param tag
+	 * @return true or false
+	 */
+	public boolean doesContainerAccept(Aspect tag)
 	{
 		if(Config.wrathCost <= 0)
 			return false;
@@ -167,12 +167,12 @@ public class TileEntityWrathCage extends TileEntity implements IAspectContainer,
 	}
 	
 	/**
-     * This method is used to add a certain amount of an aspect to the tile entity.
-     * @param tag
-     * @param amount
-     * @return the amount of aspect left over that could not be added.
-     */
-    public int addToContainer(Aspect tag, int amount)
+	 * This method is used to add a certain amount of an aspect to the tile entity.
+	 * @param tag
+	 * @param amount
+	 * @return the amount of aspect left over that could not be added.
+	 */
+	public int addToContainer(Aspect tag, int amount)
 	{
 		if(Config.wrathCost <= 0)
 			return amount;
@@ -192,34 +192,34 @@ public class TileEntityWrathCage extends TileEntity implements IAspectContainer,
 			return amount;
 	}
 
-    /**
-     * Removes a certain amount of a specific aspect from the tile entity
-     * @param tag
-     * @param amount
-     * @return true if that amount of aspect was available and was removed
-     */
-    public boolean takeFromContainer(Aspect tag, int amount)
+	/**
+	 * Removes a certain amount of a specific aspect from the tile entity
+	 * @param tag
+	 * @param amount
+	 * @return true if that amount of aspect was available and was removed
+	 */
+	public boolean takeFromContainer(Aspect tag, int amount)
 	{
 		return false;
 	}
 
-    /**
-     * removes a bunch of different aspects and amounts from the tile entity.
-     * @param ot the ObjectTags object that contains the aspects and their amounts.
-     * @return true if all the aspects and their amounts were available and successfully removed
-     */
-    public boolean takeFromContainer(AspectList ot)
+	/**
+	 * removes a bunch of different aspects and amounts from the tile entity.
+	 * @param ot the ObjectTags object that contains the aspects and their amounts.
+	 * @return true if all the aspects and their amounts were available and successfully removed
+	 */
+	public boolean takeFromContainer(AspectList ot)
 	{
 		return false;
 	}
 
-    /**
-     * Checks if the tile entity contains the listed amount (or more) of the aspect
-     * @param tag
-     * @param amount
-     * @return
-     */
-    public boolean doesContainerContainAmount(Aspect tag, int amount)
+	/**
+	 * Checks if the tile entity contains the listed amount (or more) of the aspect
+	 * @param tag
+	 * @param amount
+	 * @return
+	 */
+	public boolean doesContainerContainAmount(Aspect tag, int amount)
 	{
 		if(tag == DarkAspects.WRATH)
 			return wrath >= amount;
@@ -231,15 +231,15 @@ public class TileEntityWrathCage extends TileEntity implements IAspectContainer,
 			return false;
 	}
 
-    /**
-     * Checks if the tile entity contains all the listed aspects and their amounts
-     * @param ot the ObjectTags object that contains the aspects and their amounts.
-     * @return
-     */
-    public boolean doesContainerContain(AspectList ot){
+	/**
+	 * Checks if the tile entity contains all the listed aspects and their amounts
+	 * @param ot the ObjectTags object that contains the aspects and their amounts.
+	 * @return
+	 */
+	public boolean doesContainerContain(AspectList ot){
 		for (Aspect asp: ot.getAspects())
-        {
-            if(asp == DarkAspects.WRATH && wrath < ot.getAmount(DarkAspects.WRATH))
+		{
+			if(asp == DarkAspects.WRATH && wrath < ot.getAmount(DarkAspects.WRATH))
 				return false;
 			else if(asp == DarkAspects.SLOTH && sloth < ot.getAmount(DarkAspects.SLOTH))
 				return false;
@@ -247,16 +247,16 @@ public class TileEntityWrathCage extends TileEntity implements IAspectContainer,
 				return false;
 			else if(asp != DarkAspects.WRATH && asp != DarkAspects.SLOTH && asp != aspect)
 				return false;
-        }
+		}
 		return true;
 	}
 
-    /**
-     * Returns how much of the aspect this tile entity contains
-     * @param tag
-     * @return the amount of that aspect found
-     */
-    public int containerContains(Aspect tag)
+	/**
+	 * Returns how much of the aspect this tile entity contains
+	 * @param tag
+	 * @return the amount of that aspect found
+	 */
+	public int containerContains(Aspect tag)
 	{
 		if(tag == DarkAspects.WRATH)
 			return wrath;
@@ -269,60 +269,60 @@ public class TileEntityWrathCage extends TileEntity implements IAspectContainer,
 	}
 	
 	/**
-     * Is this tile able to connect to other vis users/sources on the specified side?
-     * @param face
-     * @return
-     */
-    public boolean isConnectable(ForgeDirection face)
+	 * Is this tile able to connect to other vis users/sources on the specified side?
+	 * @param face
+	 * @return
+	 */
+	public boolean isConnectable(ForgeDirection face)
 	{
 		return true;
 	}
 
-    /**
-     * Is this side used to input essentia?
-     * @param face
-     * @return
-     */
-    public boolean canInputFrom(ForgeDirection face)
+	/**
+	 * Is this side used to input essentia?
+	 * @param face
+	 * @return
+	 */
+	public boolean canInputFrom(ForgeDirection face)
 	{
 		return true;
 	}
 
-    /**
-     * Is this side used to output essentia?
-     * @param face
-     * @return
-     */
-    public boolean canOutputTo(ForgeDirection face)
+	/**
+	 * Is this side used to output essentia?
+	 * @param face
+	 * @return
+	 */
+	public boolean canOutputTo(ForgeDirection face)
 	{
 		return false;
 	}
 
-    /**
-     * Sets the amount of suction this block will apply
-     * @param suction
-     */
-    public void setSuction(AspectList suction)
+	/**
+	 * Sets the amount of suction this block will apply
+	 * @param suction
+	 */
+	public void setSuction(AspectList suction)
 	{
 	
 	}
 
-    /**
-     * Sets the amount of suction this block will apply
-     * @param suction
-     */
-    public void setSuction(Aspect aspect, int amount)
+	/**
+	 * Sets the amount of suction this block will apply
+	 * @param suction
+	 */
+	public void setSuction(Aspect aspect, int amount)
 	{
 	
 	}
 
-    /**
-     * Returns the amount of suction this block is applying.
-     * @param loc
-     * 		the location from where the suction is being checked
-     * @return
-     */
-    public AspectList getSuction(ForgeDirection face)
+	/**
+	 * Returns the amount of suction this block is applying.
+	 * @param loc
+	 * 		the location from where the suction is being checked
+	 * @return
+	 */
+	public AspectList getSuction(ForgeDirection face)
 	{
 		AspectList list = new AspectList();
 		if(Config.wrathCost <= 0)
@@ -337,36 +337,36 @@ public class TileEntityWrathCage extends TileEntity implements IAspectContainer,
 		return list;
 	}
 
-    /**
-     * remove the specified amount of vis from this transport tile
-     * @param suction
-     * @return how much was actually taken
-     */
-    public int takeVis(Aspect aspect, int amount)
+	/**
+	 * remove the specified amount of vis from this transport tile
+	 * @param suction
+	 * @return how much was actually taken
+	 */
+	public int takeVis(Aspect aspect, int amount)
 	{
 		return 0;
 	}
 
-    public AspectList getEssentia(ForgeDirection face)
+	public AspectList getEssentia(ForgeDirection face)
 	{
 		return getAspects();
 	}
 
-    /**
-     * Essentia will not be drawn from this container unless the suction exceeds this amount.
-     * @return the amount
-     */
-    public int getMinimumSuction()
+	/**
+	 * Essentia will not be drawn from this container unless the suction exceeds this amount.
+	 * @return the amount
+	 */
+	public int getMinimumSuction()
 	{
 		return 9000;
 	}
 
-    /**
-     * Return true if you want the conduit to extend a little further into the block.
-     * Used by jars and alembics that have smaller than normal hitboxes
-     * @return
-     */
-    public boolean renderExtendedTube()
+	/**
+	 * Return true if you want the conduit to extend a little further into the block.
+	 * Used by jars and alembics that have smaller than normal hitboxes
+	 * @return
+	 */
+	public boolean renderExtendedTube()
 	{
 		return false;
 	}

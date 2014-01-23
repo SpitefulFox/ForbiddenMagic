@@ -20,40 +20,40 @@ import net.minecraftforge.common.ForgeHooks;
 
 public class ItemTaintPickaxe extends ItemPickaxe implements IRepairable
 {
-    public Icon icon;
+	public Icon icon;
 
-    public ItemTaintPickaxe(int i, EnumToolMaterial enumtoolmaterial)
-    {
-        super(i, enumtoolmaterial);
-        this.setCreativeTab(Forbidden.tab);
-    }
+	public ItemTaintPickaxe(int i, EnumToolMaterial enumtoolmaterial)
+	{
+		super(i, enumtoolmaterial);
+		this.setCreativeTab(Forbidden.tab);
+	}
 
-    @SideOnly(Side.CLIENT)
-    public void registerIcons(IconRegister ir)
-    {
-        this.icon = ir.registerIcon("forbidden:taintpickaxe");
-    }
+	@SideOnly(Side.CLIENT)
+	public void registerIcons(IconRegister ir)
+	{
+		this.icon = ir.registerIcon("forbidden:taintpickaxe");
+	}
 
-    @SideOnly(Side.CLIENT)
-    public Icon getIconFromDamage(int par1)
-    {
-        return this.icon;
-    }
+	@SideOnly(Side.CLIENT)
+	public Icon getIconFromDamage(int par1)
+	{
+		return this.icon;
+	}
 
-    public EnumRarity getRarity(ItemStack itemstack)
-    {
-        return EnumRarity.rare;
-    }
+	public EnumRarity getRarity(ItemStack itemstack)
+	{
+		return EnumRarity.rare;
+	}
 
-    public boolean getIsRepairable(ItemStack par1ItemStack, ItemStack par2ItemStack)
-    {
-        return par2ItemStack.isItemEqual(new ItemStack(Config.thaumcraftResourceID, 1, 2)) ? true : super.getIsRepairable(par1ItemStack, par2ItemStack);
-    }
+	public boolean getIsRepairable(ItemStack par1ItemStack, ItemStack par2ItemStack)
+	{
+		return par2ItemStack.isItemEqual(new ItemStack(Config.thaumcraftResourceID, 1, 2)) ? true : super.getIsRepairable(par1ItemStack, par2ItemStack);
+	}
 
-    @Override
-    public float getStrVsBlock(ItemStack stack, Block block, int meta)
-    {
-        if(block.blockHardness == 0.0F)
+	@Override
+	public float getStrVsBlock(ItemStack stack, Block block, int meta)
+	{
+		if(block.blockHardness == 0.0F)
 			return 0.0F;
 		else if(block.blockHardness < 5.0F)
 			return 0.1F;
@@ -62,5 +62,5 @@ public class ItemTaintPickaxe extends ItemPickaxe implements IRepairable
 		else
 			return 5.0F + block.blockHardness;
 			
-    }
+	}
 }

@@ -50,13 +50,13 @@ import thaumcraft.api.aspects.Aspect;
 
 public class FMEventHandler
 {
-    Random randy = new Random();
+	Random randy = new Random();
 	final Aspect[] primals = {Aspect.ENTROPY, Aspect.ORDER, Aspect.FIRE, Aspect.WATER, Aspect.EARTH, Aspect.AIR};
 
-    @ForgeSubscribe
-    public void onLivingDrops(LivingDropsEvent event)
-    {
-        if(Config.silverfishEmeralds && event.entityLiving instanceof EntitySilverfish){
+	@ForgeSubscribe
+	public void onLivingDrops(LivingDropsEvent event)
+	{
+		if(Config.silverfishEmeralds && event.entityLiving instanceof EntitySilverfish){
 			
 			if(event.entityLiving.worldObj.getBiomeGenForCoords((int)event.entityLiving.posX, (int)event.entityLiving.posZ).biomeID ==
 				BiomeGenBase.extremeHills.biomeID){
@@ -88,131 +88,131 @@ public class FMEventHandler
 		}
 		
 		if (event.entityLiving.getClass() == EntitySkeleton.class && event.recentlyHit && event.source.getEntity() != null
-                && event.source.getEntity() instanceof EntityPlayer)
-        {
-            ItemStack weap = ((EntityPlayer)event.source.getEntity()).getCurrentEquippedItem();
+				&& event.source.getEntity() instanceof EntityPlayer)
+		{
+			ItemStack weap = ((EntityPlayer)event.source.getEntity()).getCurrentEquippedItem();
 
-            if (weap != null && weap.itemID == ForbiddenItems.skullAxe.itemID && randy.nextInt(26) <= (3 + EnchantmentHelper.getEnchantmentLevel(Enchantment.looting.effectId, weap)))
-            {
-                addDrop(event, new ItemStack(Item.skull.itemID, 1, ((EntitySkeleton)event.entityLiving).getSkeletonType()));
-            }
-        }
+			if (weap != null && weap.itemID == ForbiddenItems.skullAxe.itemID && randy.nextInt(26) <= (3 + EnchantmentHelper.getEnchantmentLevel(Enchantment.looting.effectId, weap)))
+			{
+				addDrop(event, new ItemStack(Item.skull.itemID, 1, ((EntitySkeleton)event.entityLiving).getSkeletonType()));
+			}
+		}
 
-        if (event.entityLiving.getClass() == EntityZombie.class && event.recentlyHit && event.source.getEntity() != null
-                && event.source.getEntity() instanceof EntityPlayer)
-        {
-            ItemStack weap = ((EntityPlayer)event.source.getEntity()).getCurrentEquippedItem();
+		if (event.entityLiving.getClass() == EntityZombie.class && event.recentlyHit && event.source.getEntity() != null
+				&& event.source.getEntity() instanceof EntityPlayer)
+		{
+			ItemStack weap = ((EntityPlayer)event.source.getEntity()).getCurrentEquippedItem();
 
-            if (weap != null && weap.itemID == ForbiddenItems.skullAxe.itemID && randy.nextInt(26) <= (2 + 2 * EnchantmentHelper.getEnchantmentLevel(Enchantment.looting.effectId, weap)))
-            {
-                addDrop(event, new ItemStack(Item.skull.itemID, 1, 2));
-            }
-        }
+			if (weap != null && weap.itemID == ForbiddenItems.skullAxe.itemID && randy.nextInt(26) <= (2 + 2 * EnchantmentHelper.getEnchantmentLevel(Enchantment.looting.effectId, weap)))
+			{
+				addDrop(event, new ItemStack(Item.skull.itemID, 1, 2));
+			}
+		}
 
-        if (event.entityLiving.getClass() == EntityCreeper.class && event.recentlyHit && event.source.getEntity() != null
-                && event.source.getEntity() instanceof EntityPlayer)
-        {
-            ItemStack weap = ((EntityPlayer)event.source.getEntity()).getCurrentEquippedItem();
+		if (event.entityLiving.getClass() == EntityCreeper.class && event.recentlyHit && event.source.getEntity() != null
+				&& event.source.getEntity() instanceof EntityPlayer)
+		{
+			ItemStack weap = ((EntityPlayer)event.source.getEntity()).getCurrentEquippedItem();
 
-            if (weap != null && weap.itemID == ForbiddenItems.skullAxe.itemID && randy.nextInt(26) <= (2 + 2 * EnchantmentHelper.getEnchantmentLevel(Enchantment.looting.effectId, weap)))
-            {
-                addDrop(event, new ItemStack(Item.skull.itemID, 1, 4));
-            }
-        }
+			if (weap != null && weap.itemID == ForbiddenItems.skullAxe.itemID && randy.nextInt(26) <= (2 + 2 * EnchantmentHelper.getEnchantmentLevel(Enchantment.looting.effectId, weap)))
+			{
+				addDrop(event, new ItemStack(Item.skull.itemID, 1, 4));
+			}
+		}
 
-        if (event.entityLiving instanceof EntityPlayer && event.recentlyHit && event.source.getEntity() != null
-                && event.source.getEntity() instanceof EntityPlayer)
-        {
-            ItemStack weap = ((EntityPlayer)event.source.getEntity()).getCurrentEquippedItem();
+		if (event.entityLiving instanceof EntityPlayer && event.recentlyHit && event.source.getEntity() != null
+				&& event.source.getEntity() instanceof EntityPlayer)
+		{
+			ItemStack weap = ((EntityPlayer)event.source.getEntity()).getCurrentEquippedItem();
 
-            if (weap != null && weap.itemID == ForbiddenItems.skullAxe.itemID && randy.nextInt(11) <= (1 + EnchantmentHelper.getEnchantmentLevel(Enchantment.looting.effectId, weap)))
-            {
-                ItemStack head = new ItemStack(Item.skull.itemID, 1, 3);
-                NBTTagCompound nametag = new NBTTagCompound();
-                nametag.setString("SkullOwner", ((EntityPlayer)event.entityLiving).username);
-                head.setTagInfo("SkullOwner", nametag);
-                addDrop(event, head);
-            }
-        }
+			if (weap != null && weap.itemID == ForbiddenItems.skullAxe.itemID && randy.nextInt(11) <= (1 + EnchantmentHelper.getEnchantmentLevel(Enchantment.looting.effectId, weap)))
+			{
+				ItemStack head = new ItemStack(Item.skull.itemID, 1, 3);
+				NBTTagCompound nametag = new NBTTagCompound();
+				nametag.setString("SkullOwner", ((EntityPlayer)event.entityLiving).username);
+				head.setTagInfo("SkullOwner", nametag);
+				addDrop(event, head);
+			}
+		}
 
-        if (event.entityLiving.worldObj.provider.dimensionId != -1)
-            return;
+		if (event.entityLiving.worldObj.provider.dimensionId != -1)
+			return;
 
-        if (!event.recentlyHit || event.source.getEntity() == null || !(event.source.getEntity() instanceof EntityPlayer)
-                || event.source.getEntity() instanceof FakePlayer)
-        {
-            if (randy.nextInt(30) < 4)
-            {
-                addDrop(event, new ItemStack(ForbiddenItems.deadlyShards, 1 + randy.nextInt(3), 5));
-            }
-        }
+		if (!event.recentlyHit || event.source.getEntity() == null || !(event.source.getEntity() instanceof EntityPlayer)
+				|| event.source.getEntity() instanceof FakePlayer)
+		{
+			if (randy.nextInt(30) < 4)
+			{
+				addDrop(event, new ItemStack(ForbiddenItems.deadlyShards, 1 + randy.nextInt(3), 5));
+			}
+		}
 
-        if (event.recentlyHit && event.source.getEntity() != null && event.source.getEntity() instanceof EntityPlayer
+		if (event.recentlyHit && event.source.getEntity() != null && event.source.getEntity() instanceof EntityPlayer
 			&& !(event.source.getEntity() instanceof FakePlayer))
-        {
-            if (event.entityLiving instanceof IMob)
-            {
-                int wrath = 2;
-                ItemStack heldItem = ((EntityPlayer)event.source.getEntity()).getCurrentEquippedItem();
+		{
+			if (event.entityLiving instanceof IMob)
+			{
+				int wrath = 2;
+				ItemStack heldItem = ((EntityPlayer)event.source.getEntity()).getCurrentEquippedItem();
 
-                if (heldItem != null)
-                {
-                    if (heldItem.getItem() instanceof ItemTool)
-                    {
-                        wrath += (int)(((ItemTool)heldItem.getItem()).damageVsEntity);
-                    }
-                    else if (heldItem.getItem() instanceof ItemSword)
-                    {
-                        wrath += (int)(((ItemSword)heldItem.getItem()).func_82803_g() + 4.0F);
-                    }
+				if (heldItem != null)
+				{
+					if (heldItem.getItem() instanceof ItemTool)
+					{
+						wrath += (int)(((ItemTool)heldItem.getItem()).damageVsEntity);
+					}
+					else if (heldItem.getItem() instanceof ItemSword)
+					{
+						wrath += (int)(((ItemSword)heldItem.getItem()).func_82803_g() + 4.0F);
+					}
 
-                    wrath += EnchantmentHelper.getEnchantmentLevel(Enchantment.sharpness.effectId, heldItem);
-                    wrath += EnchantmentHelper.getEnchantmentLevel(Enchantment.power.effectId, heldItem);
+					wrath += EnchantmentHelper.getEnchantmentLevel(Enchantment.sharpness.effectId, heldItem);
+					wrath += EnchantmentHelper.getEnchantmentLevel(Enchantment.power.effectId, heldItem);
 
-                    if (!event.entityLiving.isImmuneToFire())
-                    {
-                        wrath += EnchantmentHelper.getEnchantmentLevel(Enchantment.fireAspect.effectId, heldItem);
-                        wrath += EnchantmentHelper.getEnchantmentLevel(Enchantment.flame.effectId, heldItem);
-                    }
+					if (!event.entityLiving.isImmuneToFire())
+					{
+						wrath += EnchantmentHelper.getEnchantmentLevel(Enchantment.fireAspect.effectId, heldItem);
+						wrath += EnchantmentHelper.getEnchantmentLevel(Enchantment.flame.effectId, heldItem);
+					}
 
-                    if (event.entityLiving.isEntityUndead())
-                    {
-                        wrath += EnchantmentHelper.getEnchantmentLevel(Enchantment.smite.effectId, heldItem);
-                    }
+					if (event.entityLiving.isEntityUndead())
+					{
+						wrath += EnchantmentHelper.getEnchantmentLevel(Enchantment.smite.effectId, heldItem);
+					}
 
-                    if (event.entityLiving.getCreatureAttribute() == EnumCreatureAttribute.ARTHROPOD)
-                    {
-                        wrath += EnchantmentHelper.getEnchantmentLevel(Enchantment.baneOfArthropods.effectId, heldItem);
-                    }
-                }
+					if (event.entityLiving.getCreatureAttribute() == EnumCreatureAttribute.ARTHROPOD)
+					{
+						wrath += EnchantmentHelper.getEnchantmentLevel(Enchantment.baneOfArthropods.effectId, heldItem);
+					}
+				}
 
-                if (randy.nextInt(61) <= wrath)
-                {
-                    addDrop(event, new ItemStack(ForbiddenItems.deadlyShards, 1, 0));
-                }
+				if (randy.nextInt(61) <= wrath)
+				{
+					addDrop(event, new ItemStack(ForbiddenItems.deadlyShards, 1, 0));
+				}
 				
 				if(event.entityLiving instanceof IBossDisplayData){
 					addDrop(event, new ItemStack(ForbiddenItems.deadlyShards, 2 + randy.nextInt(1 + event.lootingLevel), 3));
 				}
-            }
+			}
 
-            if (event.entityLiving instanceof EntityPigZombie && !(event.source.getEntity() instanceof FakePlayer))
-            {
+			if (event.entityLiving instanceof EntityPigZombie && !(event.source.getEntity() instanceof FakePlayer))
+			{
 				if (event.entityLiving.getHeldItem() != null && event.entityLiving.getHeldItem().itemID == ForbiddenItems.deadlyShards.itemID
 					&& event.entityLiving.getHeldItem().getItemDamage() == 1)
 				{
 					addDrop(event, new ItemStack(ForbiddenItems.deadlyShards, 1, 1));
 				}
-            }
-        }
-    }
+			}
+		}
+	}
 
-    public void addDrop(LivingDropsEvent event, ItemStack drop)
-    {
-        EntityItem entityitem = new EntityItem(event.entityLiving.worldObj, event.entityLiving.posX, event.entityLiving.posY, event.entityLiving.posZ, drop);
-        entityitem.delayBeforeCanPickup = 10;
-        event.drops.add(entityitem);
-    }
+	public void addDrop(LivingDropsEvent event, ItemStack drop)
+	{
+		EntityItem entityitem = new EntityItem(event.entityLiving.worldObj, event.entityLiving.posX, event.entityLiving.posY, event.entityLiving.posZ, drop);
+		entityitem.delayBeforeCanPickup = 10;
+		event.drops.add(entityitem);
+	}
 	
 	@ForgeSubscribe
 	public void onDeath(LivingDeathEvent event){
@@ -346,9 +346,9 @@ public class FMEventHandler
 			return;
 		if(event.itemStack.getItem() instanceof ItemWandCasting && ((ItemWandCasting)event.itemStack.getItem()).getRod(event.itemStack).getTag().equals("blood")){
 			if (!event.itemStack.stackTagCompound.getString("ownerName").equals(""))
-            {
-                event.toolTip.add("Current owner: " + event.itemStack.stackTagCompound.getString("ownerName"));
-            }
+			{
+				event.toolTip.add("Current owner: " + event.itemStack.stackTagCompound.getString("ownerName"));
+			}
 		}
 	}
 	

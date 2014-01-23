@@ -14,23 +14,23 @@ import net.minecraftforge.common.ForgeDirection;
 
 public class BlockBlackFlower extends BlockFlower
 {
-    protected BlockBlackFlower(int par1)
-    {
-        super(par1);
-        float f = 0.2F;
-        this.setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, f * 2.0F, 0.5F + f);
-        this.setTickRandomly(true);
+	protected BlockBlackFlower(int par1)
+	{
+		super(par1);
+		float f = 0.2F;
+		this.setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, f * 2.0F, 0.5F + f);
+		this.setTickRandomly(true);
 		this.setCreativeTab(Forbidden.tab);
-    }
+	}
 
-    /**
-     * Ticks the block if it's been scheduled
-     */
-    public void updateTick(World par1World, int par2, int par3, int par4, Random par5Random)
-    {
-        if (!par1World.isRemote && par5Random.nextInt(16) == 1)
+	/**
+	 * Ticks the block if it's been scheduled
+	 */
+	public void updateTick(World par1World, int par2, int par3, int par4, Random par5Random)
+	{
+		if (!par1World.isRemote && par5Random.nextInt(16) == 1)
 			spreadFlowers(par1World, par2, par3, par4, par5Random);
-    }
+	}
 	
 	public void spreadFlowers(World par1World, int par2, int par3, int par4, Random par5Random){
 		int l = 15;
@@ -81,29 +81,29 @@ public class BlockBlackFlower extends BlockFlower
 		}
 	}
 	
-    /**
-     * Checks to see if its valid to put this block at the specified coordinates. Args: world, x, y, z
-     */
-    public boolean canPlaceBlockAt(World par1World, int par2, int par3, int par4)
-    {
-        return super.canPlaceBlockAt(par1World, par2, par3, par4) && this.canBlockStay(par1World, par2, par3, par4);
-    }
+	/**
+	 * Checks to see if its valid to put this block at the specified coordinates. Args: world, x, y, z
+	 */
+	public boolean canPlaceBlockAt(World par1World, int par2, int par3, int par4)
+	{
+		return super.canPlaceBlockAt(par1World, par2, par3, par4) && this.canBlockStay(par1World, par2, par3, par4);
+	}
 
-    /**
-     * Gets passed in the blockID of the block below and supposed to return true if its allowed to grow on the type of
-     * blockID passed in. Args: blockID
-     */
-    protected boolean canThisPlantGrowOnThisBlockID(int par1)
-    {
-        return Block.opaqueCubeLookup[par1];
-    }
+	/**
+	 * Gets passed in the blockID of the block below and supposed to return true if its allowed to grow on the type of
+	 * blockID passed in. Args: blockID
+	 */
+	protected boolean canThisPlantGrowOnThisBlockID(int par1)
+	{
+		return Block.opaqueCubeLookup[par1];
+	}
 
-    /**
-     * Can this block stay at this position.  Similar to canPlaceBlockAt except gets checked often with plants.
-     */
-    public boolean canBlockStay(World par1World, int par2, int par3, int par4)
-    {
+	/**
+	 * Can this block stay at this position.  Similar to canPlaceBlockAt except gets checked often with plants.
+	 */
+	public boolean canBlockStay(World par1World, int par2, int par3, int par4)
+	{
 		int l = par1World.getBlockId(par2, par3 - 1, par4);
 		return (l == Block.dirt.blockID || l == Block.grass.blockID);
-    }
+	}
 }

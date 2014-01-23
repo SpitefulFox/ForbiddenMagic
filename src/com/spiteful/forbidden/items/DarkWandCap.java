@@ -16,15 +16,15 @@ import thaumcraft.api.wands.WandCap;
  */
 public class DarkWandCap extends WandCap
 {
-    public DarkWandCap(String tag, float discount, ItemStack item, int craftCost, ResourceLocation skin)
-    {
-        super(tag, discount, item, craftCost);
+	public DarkWandCap(String tag, float discount, ItemStack item, int craftCost, ResourceLocation skin)
+	{
+		super(tag, discount, item, craftCost);
 		setTexture(skin);
-    }
+	}
 
-    public DarkWandCap(String tag, float discount, List<Aspect> specialAspects, float discountSpecial, ItemStack item, int craftCost, ResourceLocation skin)
-    {
-        super(tag, discount, specialAspects, discountSpecial, item, craftCost);
-        setTexture(skin);
-    }
+	public DarkWandCap(String tag, float discount, List<Aspect> specialAspects, float discountSpecial, ItemStack item, int craftCost, ResourceLocation skin)
+	{
+		super(tag, discount, specialAspects, discountSpecial, item, craftCost);
+		setTexture(skin);
+	}
 }

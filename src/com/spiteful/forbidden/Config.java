@@ -24,11 +24,11 @@ import thaumcraft.api.ItemApi;
 
 public class Config
 {
-    public static HashMap<String, Aspect> spawnerMobs = new HashMap<String, Aspect>();
+	public static HashMap<String, Aspect> spawnerMobs = new HashMap<String, Aspect>();
 	
 	public static int shardID;
-    public static int skullAxeID;
-    public static int arcaneCakeItemID;
+	public static int skullAxeID;
+	public static int arcaneCakeItemID;
 	public static int taintShovelID;
 	public static int wandCoreID;
 	public static int resourceID;
@@ -40,7 +40,7 @@ public class Config
 	public static int morphShovelID;
 	public static int morphAxeID;
 
-    public static int arcaneCakeBlockID;
+	public static int arcaneCakeBlockID;
 	public static int blackFlowerBlockID;
 	public static int wrathCageID;
 	
@@ -49,12 +49,12 @@ public class Config
 	public static int greedyEnchID;
 	public static int consumingEnchID;
 
-    public static int thaumcraftResourceID;
+	public static int thaumcraftResourceID;
 	public static int thaumcraftTaintBlockID;
 	public static int thaumcraftTaintPotionID;
 	public static int thaumcraftTaintBiomeID;
 	
-    public static boolean noLust = false;
+	public static boolean noLust = false;
 	public static boolean silverfishEmeralds = true;
 	public static boolean noMeddling = false;
 	public static boolean tagResearch = true;
@@ -67,17 +67,17 @@ public class Config
 	
 	public static Material taintMaterial;
 
-    public static void configurate(File targ)
-    {
-        Configuration conf = new Configuration(targ);
+	public static void configurate(File targ)
+	{
+		Configuration conf = new Configuration(targ);
 
-        try
-        {
-            conf.load();
-            int idCount = 9342;
-            shardID = conf.getItem("Nether Shards", idCount++).getInt();
-            skullAxeID = conf.getItem("Axe of the Skulltaker", idCount++).getInt();
-            arcaneCakeItemID = conf.getItem("Thaumic Cake", idCount++).getInt();
+		try
+		{
+			conf.load();
+			int idCount = 9342;
+			shardID = conf.getItem("Nether Shards", idCount++).getInt();
+			skullAxeID = conf.getItem("Axe of the Skulltaker", idCount++).getInt();
+			arcaneCakeItemID = conf.getItem("Thaumic Cake", idCount++).getInt();
 			taintShovelID = conf.getItem("Shovel of the Purifier", idCount++).getInt();
 			wandCoreID = conf.getItem("Wand Cores", idCount++).getInt();
 			resourceID = conf.getItem("Various Resources", idCount++).getInt();
@@ -88,9 +88,9 @@ public class Config
 			morphSwordID = conf.getItem("Chameleon Sword", idCount++).getInt();
 			morphShovelID = conf.getItem("Chameleon Shovel", idCount++).getInt();
 			morphAxeID = conf.getItem("Chameleon Axe", idCount++).getInt();
-            
+			
 			int blockCount = 3000;
-            arcaneCakeBlockID = conf.getBlock("Thaumic Cake", blockCount++).getInt();
+			arcaneCakeBlockID = conf.getBlock("Thaumic Cake", blockCount++).getInt();
 			blackFlowerBlockID = conf.getBlock("Umbral Rose", blockCount++).getInt();
 			wrathCageID = conf.getBlock("Wrath Cage", blockCount++).getInt();
 			
@@ -129,15 +129,15 @@ public class Config
 			Property sd = conf.get("general", "Spork of Doom", spork);
 			sd.comment = "What is this?  I don't even...";
 			spork = sd.getBoolean(false);
-        }
-        catch (Exception e)
-        {
-            FMLLog.log(Level.SEVERE, e, "Forbidden Magic has a problem loading its configuration.");
-        }
-        finally
-        {
-            conf.save();
-        }
+		}
+		catch (Exception e)
+		{
+			FMLLog.log(Level.SEVERE, e, "Forbidden Magic has a problem loading its configuration.");
+		}
+		finally
+		{
+			conf.save();
+		}
 		
 		try {
 		
@@ -154,7 +154,7 @@ public class Config
 			e.printStackTrace();
 		}
 		
-    }
+	}
 	
 	public static void spawnilify()
 	{

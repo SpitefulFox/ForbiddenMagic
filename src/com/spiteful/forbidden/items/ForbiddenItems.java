@@ -17,9 +17,9 @@ import thaumcraft.api.wands.WandRod;
 
 public class ForbiddenItems
 {
-    public static Item deadlyShards;
-    public static Item skullAxe;
-    public static Item arcaneCakeItem;
+	public static Item deadlyShards;
+	public static Item skullAxe;
+	public static Item arcaneCakeItem;
 	public static Item taintShovel;
 	public static Item wandCore;
 	public static Item resource;
@@ -38,19 +38,19 @@ public class ForbiddenItems
 	public static WandRod WAND_ROD_BLOOD;
 	public static WandCap WAND_CAP_ORICHALCUM;
 
-    public static void addItems()
-    {
-        deadlyShards = new ItemDeadlyShard(Config.shardID).setUnlocalizedName("NetherShard");
-        GameRegistry.registerItem(deadlyShards, "NetherShard");
-        
+	public static void addItems()
+	{
+		deadlyShards = new ItemDeadlyShard(Config.shardID).setUnlocalizedName("NetherShard");
+		GameRegistry.registerItem(deadlyShards, "NetherShard");
+		
 		skullAxe = new ItemSkullAxe(Config.skullAxeID, ThaumcraftApi.toolMatElemental).setUnlocalizedName("SkullAxe");
-        GameRegistry.registerItem(skullAxe, "SkullAxe");
-        
+		GameRegistry.registerItem(skullAxe, "SkullAxe");
+		
 		arcaneCakeItem = new ItemArcaneCake(Config.arcaneCakeItemID).setUnlocalizedName("ArcaneCake");
-        GameRegistry.registerItem(arcaneCakeItem, "ArcaneCakeItem");
+		GameRegistry.registerItem(arcaneCakeItem, "ArcaneCakeItem");
 		
 		taintShovel = new ItemTaintShovel(Config.taintShovelID, ThaumcraftApi.toolMatElemental).setUnlocalizedName("TaintShovel");
-        GameRegistry.registerItem(taintShovel, "TaintShovel");
+		GameRegistry.registerItem(taintShovel, "TaintShovel");
 		MinecraftForge.setToolClass(taintShovel, "shovel", 3);
 		
 		taintPickaxe = new ItemTaintPickaxe(Config.taintPickaxeID, ThaumcraftApi.toolMatElemental).setUnlocalizedName("TaintPickaxe");
@@ -96,5 +96,5 @@ public class ForbiddenItems
 			fork.setUnlocalizedName("DiabolistSpork");
 		GameRegistry.registerItem(fork, "DiabolistFork");
 		
-    }
+	}
 }

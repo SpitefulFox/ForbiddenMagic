@@ -34,73 +34,73 @@ public class ItemDiabolistFork extends ItemSword implements IRepairable {
 	
 	@Override
 	@SideOnly(Side.CLIENT)
-    public void registerIcons(IconRegister ir)
-    {
-        if(Config.spork)
+	public void registerIcons(IconRegister ir)
+	{
+		if(Config.spork)
 			this.icon = ir.registerIcon("forbidden:spork");
 		else
 			this.icon = ir.registerIcon("forbidden:fork");
-    }
+	}
 
-    @Override
+	@Override
 	@SideOnly(Side.CLIENT)
-    public Icon getIconFromDamage(int par1)
-    {
-        return this.icon;
-    }
+	public Icon getIconFromDamage(int par1)
+	{
+		return this.icon;
+	}
 	
 	@Override
 	/**
-     * Returns the strength of the stack against a given block. 1.0F base, (Quality+1)*2 if correct blocktype, 1.5F if
-     * sword
-     */
-    public float getStrVsBlock(ItemStack par1ItemStack, Block par2Block)
-    {
-        return 1.0F;
-    }
+	 * Returns the strength of the stack against a given block. 1.0F base, (Quality+1)*2 if correct blocktype, 1.5F if
+	 * sword
+	 */
+	public float getStrVsBlock(ItemStack par1ItemStack, Block par2Block)
+	{
+		return 1.0F;
+	}
 	
 	@Override
 	/**
-     * returns the action that specifies what animation to play when the items is being used
-     */
-    public EnumAction getItemUseAction(ItemStack par1ItemStack)
-    {
-        return EnumAction.none;
-    }
+	 * returns the action that specifies what animation to play when the items is being used
+	 */
+	public EnumAction getItemUseAction(ItemStack par1ItemStack)
+	{
+		return EnumAction.none;
+	}
 	
 	@Override
 	/**
-     * How long it takes to use or consume an item
-     */
-    public int getMaxItemUseDuration(ItemStack par1ItemStack)
-    {
-        return 0;
-    }
+	 * How long it takes to use or consume an item
+	 */
+	public int getMaxItemUseDuration(ItemStack par1ItemStack)
+	{
+		return 0;
+	}
 	
 	@Override
 	/**
-     * Called whenever this item is equipped and the right mouse button is pressed. Args: itemStack, world, entityPlayer
-     */
-    public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
-    {
-        return par1ItemStack;
-    }
+	 * Called whenever this item is equipped and the right mouse button is pressed. Args: itemStack, world, entityPlayer
+	 */
+	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
+	{
+		return par1ItemStack;
+	}
 	
 	@Override
 	/**
-     * Return whether this item is repairable in an anvil.
-     */
-    public boolean getIsRepairable(ItemStack par1ItemStack, ItemStack par2ItemStack)
-    {
-        return par2ItemStack.itemID == Item.netherQuartz.itemID ? true : super.getIsRepairable(par1ItemStack, par2ItemStack);
-    }
+	 * Return whether this item is repairable in an anvil.
+	 */
+	public boolean getIsRepairable(ItemStack par1ItemStack, ItemStack par2ItemStack)
+	{
+		return par2ItemStack.itemID == Item.netherQuartz.itemID ? true : super.getIsRepairable(par1ItemStack, par2ItemStack);
+	}
 	
 	@Override
 	/**
-     * Returns if the item (tool) can harvest results from the block type.
-     */
-    public boolean canHarvestBlock(Block par1Block)
-    {
-        return false;
-    }
+	 * Returns if the item (tool) can harvest results from the block type.
+	 */
+	public boolean canHarvestBlock(Block par1Block)
+	{
+		return false;
+	}
 }
