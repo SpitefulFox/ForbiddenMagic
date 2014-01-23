@@ -34,14 +34,14 @@ public class BloodWandUpdate implements IWandRodOnUpdate {
 			if(energyItems == null)
 				return;
 			checkOwner = energyItems.getDeclaredMethod("checkAndSetItemOwner", new Class[] {ItemStack.class, EntityPlayer.class});
-			syphon = energyItems.getDeclaredMethod("syphonBatteries", new Class[] {ItemStack.class, EntityPlayer.class, Integer.TYPE});
+			syphon = energyItems.getDeclaredMethod("syphonWhileInContainer", new Class[] {ItemStack.class, Integer.TYPE});
 		}
 		catch(Exception e){}
 	}
 	
 	public void onUpdate(ItemStack itemstack, EntityPlayer player)
 	{
-		if(Compat.bm && player.ticksExisted % 80 == 0 && player.getCurrentEquippedItem() == itemstack)
+		if(Compat.bm && player.ticksExisted % 100 == 0 && player.getCurrentEquippedItem() == itemstack)
 		{
 			try
 			{
@@ -51,8 +51,15 @@ public class BloodWandUpdate implements IWandRodOnUpdate {
 				{
 					if(((ItemWandCasting)itemstack.getItem()).getVis(itemstack, primals[x]) < ((ItemWandCasting)itemstack.getItem()).getMaxVis(itemstack))
 					{
-						if(((Boolean)(syphon.invoke(null, itemstack, player, 100))).booleanValue())
+						if(player.capabilities.isCreativeMode)
 							((ItemWandCasting)itemstack.getItem()).addVis(itemstack, primals[x], 1, true);
+						else if(((Boolean)(syphon.invoke(null, itemstack, 1000))).booleanValue())
+							((ItemWandCasting)itemstack.getItem()).addVis(itemstack, primals[x], 1, true);
+						else if(syphonHealth(player))
+						{
+							((ItemWandCasting)itemstack.getItem()).addVis(itemstack, primals[x], 1, true);
+							return;
+						}
 						else
 							return;
 					}
@@ -65,5 +72,16 @@ public class BloodWandUpdate implements IWandRodOnUpdate {
 			}
 		}
 		
+	}
+	
+	public boolean syphonHealth(EntityPlayer player)
+	{
+		if(player.getHealth() > 6)
+		{
+			player.setHealth(player.getHealth() - 1);
+			return true;
+		}
+		else
+			return false;
 	}
 }
