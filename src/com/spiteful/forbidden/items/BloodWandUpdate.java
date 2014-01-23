@@ -41,7 +41,7 @@ public class BloodWandUpdate implements IWandRodOnUpdate {
 	
 	public void onUpdate(ItemStack itemstack, EntityPlayer player)
 	{
-		if(Compat.bm && player.ticksExisted % 100 == 0 && player.getCurrentEquippedItem() == itemstack)
+		if(Compat.bm && player.ticksExisted % 100 == 0)
 		{
 			try
 			{
@@ -78,7 +78,7 @@ public class BloodWandUpdate implements IWandRodOnUpdate {
 	{
 		if(player.getHealth() > 6)
 		{
-			player.setHealth(player.getHealth() - 1);
+			player.setHealth(player.getHealth() - 2);
 			return true;
 		}
 		else

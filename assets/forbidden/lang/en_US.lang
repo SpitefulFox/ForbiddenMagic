@@ -29,7 +29,7 @@ item.MorphAxe.name=Chameleon Axe
 item.WandCores.tainted.name=Tainted Rod
 item.WandCores.infernal.name=Infernal Rod
 item.WandCores.soul.name=Eldritch Rod
-item.WandCores.blood.name=Blood Rod
+item.WandCores.blood.name=Bloody Rod
 item.Wand.tainted.rod=Tainted
 item.Wand.infernal.rod=Infernal
 item.Wand.neutronium.rod=Cosmic Neutronium
@@ -97,9 +97,9 @@ forbidden.research_name.ROD_soul=Eldritch Wand Core
 forbidden.research_text.ROD_soul=Corrupting vis storage
 forbidden.research_page.ROD_soul.1=You've discovered a way to tap the energy flowing through a Player Beacon and turn it into vis. As long as you're in a dimension with an active Player Beacon attuned to yourself, the Eldritch Wand Core will slowly charge all its internal reserves, which can hold up to 100 vis.<BR><BR>Channeling such great amounts of energy through your soul comes at a price, however. Each point of vis creates large amounts of corruption in your soul. It's best not to rely on its recharge abilities too greatly...
 #
-forbidden.research_name.ROD_blood=Blood Wand Core
-forbidden.research_text.ROD_blood=Bloody vis storage
-forbidden.research_page.ROD_blood.1=You've created a bridge between Thaumaturgy and Alchemical Wizardry. The Blood Wand can store up to 100 vis and will gradually fill itself using Life Points.<BR><BR>Be very careful with this wand! It will bind itself to the first person to pick it up and can be excessively lethal if you have no Life Points to spare.
+forbidden.research_name.ROD_blood=Bloody Wand Core
+forbidden.research_text.ROD_blood=Alchemical vis storage
+forbidden.research_page.ROD_blood.1=You've created a bridge between Thaumaturgy and Alchemical Wizardry. The Blood Wand can store up to 100 vis and will gradually fill itself using Life Points.<BR><BR>The wand will bind itself to the first person to pick it up. As long as the rod is empty, it will try to fill itself using LP from its owner's network. If there are not enough Life Points to fuel it, it will resort to drawing health from whoever is carrying it, but this conversion is less efficient. If it has no LP to draw from and its holder falls below three hearts, the wand stops charging itself.
 #
 forbidden.research_name.TRANSEMERALD=Emerald Transmutation
 forbidden.research_text.TRANSEMERALD=Transformation of valuables into emerald
