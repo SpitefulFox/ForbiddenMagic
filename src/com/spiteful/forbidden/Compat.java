@@ -40,7 +40,7 @@ public class Compat {
 	public static boolean bm = false;
 	
 	public static int tabletID = -1;
-	public static int curedBrainID = -1;
+	//public static int curedBrainID = -1;
 	
 	public static void initiate()
 	{
