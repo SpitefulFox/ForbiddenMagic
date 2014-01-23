@@ -42,8 +42,6 @@ import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.event.world.BlockEvent.HarvestDropsEvent;
 import net.minecraftforge.event.Event.Result;
 import net.minecraftforge.event.entity.player.BonemealEvent;
-import thaumcraft.common.entities.ITaintedMob;
-import thaumcraft.common.entities.monster.EntityFireBat;
 import thaumcraft.common.items.wands.ItemWandCasting;
 import thaumcraft.common.lib.Utils;
 import thaumcraft.api.aspects.Aspect;
