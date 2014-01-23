@@ -16,15 +16,15 @@ import java.util.Iterator;
 
 public class DarkAspects
 {
-    public static Aspect NETHER;
-    public static Aspect WRATH;
-    public static Aspect ENVY;
-    public static Aspect GLUTTONY;
-    public static Aspect PRIDE;
-    public static Aspect LUST;
-    public static Aspect SLOTH;
+	public static Aspect NETHER;
+	public static Aspect WRATH;
+	public static Aspect ENVY;
+	public static Aspect GLUTTONY;
+	public static Aspect PRIDE;
+	public static Aspect LUST;
+	public static Aspect SLOTH;
 
-    public static void initAspects()
+	public static void initAspects()
 	{
 		NETHER = new Aspect("infernus", 0xff0000, new Aspect[] {Aspect.FIRE, Aspect.MAGIC}, new ResourceLocation("forbidden", "textures/aspects/infernus.png"), 771);
 		if(!Config.noLust){
@@ -38,9 +38,9 @@ public class DarkAspects
 	}
 	
 	public static void addAspects()
-    {
-        AspectList list;
-        
+	{
+		AspectList list;
+
 		list = ThaumcraftApiHelper.getObjectAspects(new ItemStack(Block.netherrack));
 		list.add(NETHER, 1);
 		ThaumcraftApi.registerObjectTag(Block.netherrack.blockID, -1, list);
@@ -258,5 +258,5 @@ public class DarkAspects
 		ThaumcraftApi.registerObjectTag(ForbiddenItems.resource.itemID, 0, (new AspectList()).add(Aspect.CRYSTAL, 1));
 		ThaumcraftApi.registerObjectTag(ForbiddenItems.resource.itemID, 1, (new AspectList()).add(Aspect.DARKNESS, 1));
 		ThaumcraftApi.registerObjectTag(ForbiddenBlocks.blackFlower.blockID, -1, (new AspectList()).add(Aspect.PLANT, 1).add(Aspect.LIFE, 1).add(Aspect.SENSES, 1).add(Aspect.DARKNESS, 1));
-    }
+	}
 }
