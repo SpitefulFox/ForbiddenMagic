@@ -48,6 +48,7 @@ public class Config
 	public static int pigBaneEnchID;
 	public static int greedyEnchID;
 	public static int consumingEnchID;
+	public static int educationalEnchID;
 
 	public static int thaumcraftResourceID;
 	public static int thaumcraftTaintBlockID;
@@ -95,10 +96,11 @@ public class Config
 			wrathCageID = conf.getBlock("Wrath Cage", blockCount++).getInt();
 			
 			int enchCount = 66;
-			clusterEnchID = conf.get("enchantments", "Lucrative", enchCount++).getInt();
+			clusterEnchID = conf.get("enchantments", "Fiery Core", enchCount++).getInt();
 			pigBaneEnchID = conf.get("enchantments", "Porcivore", enchCount++).getInt();
 			greedyEnchID = conf.get("enchantments", "Greedy", enchCount++).getInt();
 			consumingEnchID = conf.get("enchantments", "Consuming", enchCount++).getInt();
+			educationalEnchID = conf.get("enchantments", "Educational", enchCount++).getInt();
 			
 			Property nl = conf.get("general", "No Lust", noLust);
 			nl.comment = "Enable to remove Luxuria aspect and related items.";

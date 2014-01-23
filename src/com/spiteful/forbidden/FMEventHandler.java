@@ -13,6 +13,7 @@ import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.boss.IBossDisplayData;
+import net.minecraft.entity.item.EntityXPOrb;
 import net.minecraft.entity.monster.IMob;
 import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.entity.monster.EntityPigZombie;
@@ -215,8 +216,11 @@ public class FMEventHandler
 	@ForgeSubscribe
 	public void onDeath(LivingDeathEvent event){
 		if(event.source.getEntity() != null && event.source.getEntity() instanceof EntityPlayer
-			&& ((EntityPlayer)event.source.getEntity()).getCurrentEquippedItem() != null
-			&& ((EntityPlayer)event.source.getEntity()).getCurrentEquippedItem().itemID == ForbiddenItems.fork.itemID){
+			&& ((EntityPlayer)event.source.getEntity()).getCurrentEquippedItem() != null)
+		{
+			ItemStack equip = ((EntityPlayer)event.source.getEntity()).getCurrentEquippedItem();
+			
+			if(equip.itemID == ForbiddenItems.fork.itemID){
 				String name = null;
 				try {
 					name = EntityList.getEntityString(event.entityLiving);
@@ -235,6 +239,19 @@ public class FMEventHandler
 				}
 				if(Config.spawnerMobs.containsKey(name))
 					imprintCrystal((EntityPlayer)(event.source.getEntity()), name);
+			}
+			
+			if(EnchantmentHelper.getEnchantmentLevel(DarkEnchantments.educational.effectId, equip) > 0 && event.entityLiving instanceof EntityLiving)
+			{
+				int learning = 3 * ((EntityLiving)event.entityLiving).experienceValue * EnchantmentHelper.getEnchantmentLevel(DarkEnchantments.educational.effectId, equip);
+				while(learning > 0)
+				{
+					int xp = EntityXPOrb.getXPSplit(learning);
+					learning -= xp;
+					event.entityLiving.worldObj.spawnEntityInWorld(new EntityXPOrb(event.entityLiving.worldObj, event.entityLiving.posX, event.entityLiving.posY, event.entityLiving.posZ, xp));
+				}
+				
+			}
 		}
 	}
 	

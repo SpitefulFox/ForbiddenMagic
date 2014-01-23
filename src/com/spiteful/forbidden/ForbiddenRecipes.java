@@ -58,6 +58,10 @@ public class ForbiddenRecipes
 			ForbiddenResearch.recipes.put("Greedy", ThaumcraftApi.addInfusionEnchantmentRecipe("GREEDY", DarkEnchantments.greedy, 4, (new AspectList()).add(DarkAspects.NETHER, 16).add(Aspect.WEAPON, 8).add(Aspect.GREED, 16), new ItemStack[]{new ItemStack(Item.swordGold), new ItemStack(Item.diamond), new ItemStack(Block.blockGold), ItemApi.getItem("itemResource", 14)}));
 		ForbiddenResearch.recipes.put("Consuming", ThaumcraftApi.addInfusionEnchantmentRecipe("CONSUMING", DarkEnchantments.consuming, 3, (new AspectList()).add(Aspect.VOID, 8).add(Aspect.TOOL, 8).add(Aspect.HUNGER, 8), new ItemStack[]{new ItemStack(Item.pickaxeIron), new ItemStack(Item.bucketLava), ItemApi.getItem("itemResource", 14)}));
 		ForbiddenResearch.recipes.put("Pigbane", ThaumcraftApi.addInfusionEnchantmentRecipe("PIGBANE", DarkEnchantments.pigBane, 1, (new AspectList()).add(Aspect.HUNGER, 4).add(Aspect.WEAPON, 4).add(Aspect.BEAST, 4), new ItemStack[]{new ItemStack(Item.swordIron), new ItemStack(Item.porkRaw), ItemApi.getItem("itemResource", 14)}));
+		//if(Compat.tx && Compat.curedBrainID != -1)
+			//ForbiddenResearch.recipes.put("Educational", ThaumcraftApi.addInfusionEnchantmentRecipe("EDUCATIONAL", DarkEnchantments.educational, 3, (new AspectList()).add(Aspect.MAGIC, 4).add(Aspect.WEAPON, 4).add(Aspect.MIND, 8), new ItemStack[]{new ItemStack(Compat.curedBrainID, 1, 0), new ItemStack(Item.book), ItemApi.getItem("itemResource", 14)}));
+		//else
+			ForbiddenResearch.recipes.put("Educational", ThaumcraftApi.addInfusionEnchantmentRecipe("EDUCATIONAL", DarkEnchantments.educational, 3, (new AspectList()).add(Aspect.MAGIC, 4).add(Aspect.WEAPON, 4).add(Aspect.MIND, 8), new ItemStack[]{ItemApi.getItem("itemResource", 5), new ItemStack(Item.book), ItemApi.getItem("itemResource", 14)}));
 		
 		CraftingManager.getInstance().addRecipe(new ItemStack(Item.emerald, 1, 0), new Object[]{"###", "###", "###", Character.valueOf('#'), new ItemStack(ForbiddenItems.resource, 1, 0)});
 		CraftingManager.getInstance().addRecipe(new ItemStack(ForbiddenItems.resource, 9, 0), new Object[]{"#", Character.valueOf('#'), new ItemStack(Item.emerald, 1, 0)});

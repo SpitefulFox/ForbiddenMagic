@@ -21,23 +21,7 @@ public class EnchantmentEducational extends Enchantment
 	 */
 	public int getMaxLevel()
 	{
-		return 1;
-	}
-	
-	/**
-	 * Returns the minimal value of enchantability needed on the enchantment level passed.
-	 */
-	public int getMinEnchantability(int par1)
-	{
-		return 15;
-	}
-
-	/**
-	 * Returns the maximum value of enchantability nedded on the enchantment level passed.
-	 */
-	public int getMaxEnchantability(int par1)
-	{
-		return super.getMinEnchantability(par1) + 50;
+		return 5;
 	}
 	
 	@Override

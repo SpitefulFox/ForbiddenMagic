@@ -40,6 +40,7 @@ public class Compat {
 	public static boolean bm = false;
 	
 	public static int tabletID = -1;
+	public static int curedBrainID = -1;
 	
 	public static void initiate()
 	{
@@ -92,6 +93,19 @@ public class Compat {
 				e.printStackTrace();
 			}
 		}
+		
+		//if(tx)
+		//{
+			//try
+			//{
+				//curedBrainID = ((Item)(Class.forName("flaxbeard.thaumicexploration.ThaumicExploration").getField("pureZombieBrain").get(null))).itemID;
+			//}
+			//catch(Exception e)
+			//{
+				//FMLLog.log(Level.INFO, e, "Forbidden Magic trusts not a man who's made of flax.");
+				//e.printStackTrace();
+			//}
+		//}
 		
 		if(natura)
 		{
