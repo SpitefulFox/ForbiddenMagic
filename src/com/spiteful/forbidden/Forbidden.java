@@ -27,22 +27,22 @@ import thaumcraft.api.aspects.Aspect;
 import java.util.logging.Level;
 
 @Mod(
-    modid = "ForbiddenMagic",
-    name = "Forbidden Magic",
-    version = "0.2",
-    dependencies = "required-after:Thaumcraft;after:Natura;after:ThaumicTinkerer;after:ThaumicExplorer"
+	modid = "ForbiddenMagic",
+	name = "Forbidden Magic",
+	version = "0.2",
+	dependencies = "required-after:Thaumcraft;after:Natura;after:ThaumicTinkerer;after:ThaumicExplorer"
 )
 @NetworkMod(
-    clientSideRequired = true,
-    serverSideRequired = false
+	clientSideRequired = true,
+	serverSideRequired = false
 	//channels = {"forbiddenmagic"},
 	//packetHandler = PacketHandler.class
 )
 public class Forbidden
 {
-    @Instance("ForbiddenMagic")
-    public static Forbidden instance;
-    public static ForbiddenTab tab = new ForbiddenTab("forbidden");
+	@Instance("ForbiddenMagic")
+	public static Forbidden instance;
+	public static ForbiddenTab tab = new ForbiddenTab("forbidden");
 	public static ForbiddenTab crysTab = new ForbiddenTab("mobcrystal", true);
 	@SidedProxy(
 		clientSide = "com.spiteful.forbidden.client.ClientProxy",
@@ -50,32 +50,32 @@ public class Forbidden
 	)
 	public static CommonProxy proxy;
 
-    @EventHandler
-    public void prelude(FMLPreInitializationEvent event)
-    {
-        instance = this;
-        Config.configurate(event.getSuggestedConfigurationFile());
+	@EventHandler
+	public void prelude(FMLPreInitializationEvent event)
+	{
+		instance = this;
+		Config.configurate(event.getSuggestedConfigurationFile());
 		Compat.initiate();
 		DarkAspects.initAspects();
 		Config.spawnilify();
-        ForbiddenItems.addItems();
-        ForbiddenBlocks.addBlocks();
+		ForbiddenItems.addItems();
+		ForbiddenBlocks.addBlocks();
 		DarkEnchantments.hex();
 		proxy.registerRenderInfo();
-    }
+	}
 
-    @EventHandler
-    public void crescendo(FMLInitializationEvent event)
-    {
-        MinecraftForge.EVENT_BUS.register(new FMEventHandler());
-    }
+	@EventHandler
+	public void crescendo(FMLInitializationEvent event)
+	{
+		MinecraftForge.EVENT_BUS.register(new FMEventHandler());
+	}
 
-    @EventHandler
-    public void outro(FMLPostInitializationEvent event)
-    {
-        DarkAspects.addAspects();
-        ForbiddenRecipes.addRecipes();
-        ForbiddenResearch.addResearch();
+	@EventHandler
+	public void outro(FMLPostInitializationEvent event)
+	{
+		DarkAspects.addAspects();
+		ForbiddenRecipes.addRecipes();
+		ForbiddenResearch.addResearch();
 		Compat.compatify();
-    }
+	}
 }
