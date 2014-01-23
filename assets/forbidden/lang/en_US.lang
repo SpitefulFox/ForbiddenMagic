@@ -1,0 +1,142 @@
+#
+# Aspects
+tc.aspect.infernus=The Nether, Demons, Hellfire
+tc.aspect.ira=Wrath, Anger, Rage
+tc.aspect.gula=Gluttony, Consumption, Indulgence
+tc.aspect.invidia=Envy, Jealousy, Insecurity
+tc.aspect.superbia=Pride, Arrogance, Disdain
+tc.aspect.desidia=Sloth, Laziness, Procrastination
+tc.aspect.luxuria=Lust, Desire, Excess
+#
+# Items
+item.NetherShard.wrath.name=Wrath Shard
+item.NetherShard.envy.name=Envy Shard
+item.NetherShard.gluttony.name=Gluttony Shard
+item.NetherShard.pride.name=Pride Shard
+item.NetherShard.lust.name=Lust Shard
+item.NetherShard.sloth.name=Sloth Shard
+item.NetherShard.greed.name=Greed Shard
+item.NetherShard.taint.name=Taint Shard
+item.NetherShard.despair.name=Despair Shard
+item.SkullAxe.name=Axe of the Skulltaker
+item.ArcaneCake.name=Thaumic Cake
+item.TaintShovel.name=Shovel of the Purifier
+item.TaintPickaxe.name=Pickaxe of Distortion
+item.MorphPickaxe.name=Chameleon Pickaxe
+item.MorphSword.name=Chameleon Sword
+item.MorphShovel.name=Chameleon Shovel
+item.MorphAxe.name=Chameleon Axe
+item.WandCores.tainted.name=Tainted Rod
+item.WandCores.infernal.name=Infernal Rod
+item.WandCores.soul.name=Eldritch Rod
+item.WandCores.blood.name=Blood Rod
+item.Wand.tainted.rod=Tainted
+item.Wand.infernal.rod=Infernal
+item.Wand.neutronium.rod=Cosmic Neutronium
+item.Wand.soul.rod=Eldritch
+item.Wand.blood.rod=Blood
+item.Wand.orichalcum.cap=Orichalcum Studded
+item.FMResource.0.name=Emerald Fragment
+item.FMResource.1.name=Shadow Ink
+item.MobCrystalEmpty.name=Blank Imprinting Crystal
+item.MobCrystal.name=Imprinted Crystal
+item.DiabolistFork.name=Diabolist Fork
+item.DiabolistSpork.name=Spork of Doom
+#
+# Blocks
+tile.ArcaneCake.name=Thaumic Cake
+tile.InkFlower.name=Umbral Rose
+tile.WrathCage.name=Wrath Cage
+#
+# Enchantments
+enchantment.cluster=Fiery Core
+enchantment.pigbane=Porcivore
+enchantment.greedy=Greedy
+enchantment.consuming=Consuming
+#
+# Misc
+itemGroup.forbidden=Forbidden Magic
+itemGroup.mobcrystal=Imprinting Crystals
+tc.research_category.INFERNALISM=Infernalism
+#
+# Research
+forbidden.research_name.NETHERSHARDS=Nether Shards
+forbidden.research_text.NETHERSHARDS=Aim to misbehave.
+forbidden.research_page.NETHERSHARDS.1=Strange energies swirl through the Nether. On occasion, they have been known to solidify into crystal shards when certain sympathetic events occur.
+forbidden.research_page.NETHERSHARDS.2=These crystals are imbued with different vices and have many uses for more unscrupulous Thaumaturges.<BR>There are seven documented types of nether shard, each attuned to a different "deadly sin."<BR><BR><IMG>forbidden:textures/misc/research.png:0:0:111:16:1</IMG><BR>
+forbidden.research_page.NETHERSHARDS.2b=These crystals are imbued with different vices and have many uses for more unscrupulous Thaumaturges.<BR>There are six documented types of nether shard, each attuned to a different "deadly sin."<BR><BR><IMG>forbidden:textures/misc/research.png:0:16:95:16:1</IMG><BR>
+forbidden.research_page.NETHERSHARDS.3=Wrath Shards crystallize around acts of violence. The more excessive the physical force used, the more likely it is for a Wrath Shard to appear.<BR><BR>Sloth Shards congeal when proxies and accidents are used to collect resources without effort.<BR><BR>Envy Shards are taken from those who have them by those that covet them.<BR><BR>Pride Shards materialize when a creature of truly great power is cut down to size.<BR><BR>More sympathetic events may reveal themselves as time goes on.
+#
+forbidden.research_name.SKULLAXE=Axe of the Skulltaker
+forbidden.research_text.SKULLAXE=Off with their heads!
+forbidden.research_page.SKULLAXE.1=Some monsters just really boil your blood. Skeletons! Always clacking around and using you for target practice. Or those Creepers! They just creep around blowing things up like they own the place! You wish you could just chop all their smug heads off and place them on pikes.<BR><BR>Fortunately, you've discovered an item that will let you do just that.  The Axe of the Skulltaker has a chance to remove the heads of monsters it slays. It might even work on other humans! Unfortunately, the infusion leaves the axe far too bloodthirsty to effectively cleave through boring plant matter.
+#
+forbidden.research_name.ARCANECAKE=Thaumic Cake
+forbidden.research_text.ARCANECAKE=Let them eat cake.
+forbidden.research_page.ARCANECAKE.1=If there's one thing you love, it's cake. You would eat its delicious goodness all day if you could, but it always runs out in the end.<BR><BR>To remedy this, you have devised a recipe to infuse a cake with longevity-enhancing magic.  The Thaumic Cake lasts significantly longer than a mundane one and will slowly repair itself as long as there's at least a sliver left.  The enchantments are unstable, however, and the cake cannot be moved again through conventional means once placed down.
+#
+forbidden.research_name.TAINTSHOVEL=Shovel of the Purifier
+forbidden.research_text.TAINTSHOVEL=Like a hot knife through really gross butter
+forbidden.research_page.TAINTSHOVEL.1=Sometimes, the easiest way to remove patches of taint is to just physically remove them.<BR><BR>By reinforcing a thaumium shovel with Silverwood and Order Shards, you have created a tool capable of combating Taint.  The Shovel of the Purifier can dig through pulpy tainted lands as effectively as it can through normal earth.  If held in your hand and right-clicked, the shovel cures you of Flux Taint at the cost of durability.
+forbidden.research_page.TAINTSHOVEL.2=When digging through taint with the shovel, there's a chance that the twisted energies released will crystallize into Taint Shards.  Unlike other tainted materials, the crystalline pattern keeps these shards stable enough to carry around.
+#
+forbidden.research_name.TAINTPICK=Pickaxe of Distortion
+forbidden.research_text.TAINTPICK=Obsidian Buster
+forbidden.research_page.TAINTPICK.1=By infusing a thaumium pickaxe with taint, you create a tool capable of cutting through difficult materials.<BR><BR>The Pickaxe of Distortion infects hard materials with taint, weakening them. The harder the material, the more effective the pickaxe is at removing it. Unfortunately, the effects of the taint have an inverse effect when mining softer materials, rendering the pickaxe less effective than just pawing at the block with your bare hands.
+#
+forbidden.research_name.ROD_tainted=Tainted Wand Core
+forbidden.research_text.ROD_tainted=Squiggly vis storage
+forbidden.research_page.ROD_tainted.1=Tainted Lands are places of great and terrible power for those Thaumaturges who know how to tap into them.<BR><BR>The Tainted Wand Core can store up to 150 vis of each type and slowly replenishes itself up to 10% in every aspect as long as it is being held inside of a Tainted Land.  While the wand is held in your hand, it can also feed off of taint coursing through your veins, randomly restoring vis every time you take damage from flux taint.
+#
+forbidden.research_name.ROD_infernal=Infernal Wand Core
+forbidden.research_text.ROD_infernal=Devilish vis storage
+forbidden.research_page.ROD_infernal.1=A great and powerful thaumaturge like you deserves a powerful and imposing wand befitting your station. Some hippy silverwood wand just won't cut it. You need a wand that will serve as your scepter of authority.<BR><BR>You've discovered a way to create a wand infused with the power of the Nether.  The Infernal Wand Core can hold up to 150 vis and will slowly replenish its supply of Ignis up to 20%.  While within the Nether, the wand will also replenish its other aspects to 10%.
+forbidden.research_page.ROD_infernal.2=The wand also imbues you with some protection from the Nether's hazards, extinguishing you if you are on fire or protecting you from the effects of Withering as long as it is in your inventory.  While the wand is held in your hand, it will completely protect you from all fire damage.
+#
+forbidden.research_name.ROD_soul=Eldritch Wand Core
+forbidden.research_text.ROD_soul=Corrupting vis storage
+forbidden.research_page.ROD_soul.1=You've discovered a way to tap the energy flowing through a Player Beacon and turn it into vis. As long as you're in a dimension with an active Player Beacon attuned to yourself, the Eldritch Wand Core will slowly charge all its internal reserves, which can hold up to 100 vis.<BR><BR>Channeling such great amounts of energy through your soul comes at a price, however. Each point of vis creates large amounts of corruption in your soul. It's best not to rely on its recharge abilities too greatly...
+#
+forbidden.research_name.ROD_blood=Blood Wand Core
+forbidden.research_text.ROD_blood=Bloody vis storage
+forbidden.research_page.ROD_blood.1=You've created a bridge between Thaumaturgy and Alchemical Wizardry. The Blood Wand can store up to 100 vis and will gradually fill itself using Life Points.<BR><BR>Be very careful with this wand! It will bind itself to the first person to pick it up and can be excessively lethal if you have no Life Points to spare.
+#
+forbidden.research_name.TRANSEMERALD=Emerald Transmutation
+forbidden.research_text.TRANSEMERALD=Transformation of valuables into emerald
+forbidden.research_page.TRANSEMERALD.1=You have discovered a way to multiply emeralds by steeping emerald fragments in lucrum harvested from other substances.
+#
+forbidden.research_name.BLACKFLOWER=Umbral Rose
+forbidden.research_text.BLACKFLOWER=Save the squid!
+forbidden.research_page.BLACKFLOWER.1=There's no sight more pathetic than a soggy Thaumaturge.  For all your great and miraculous powers, you still have to go jump in the nearest lake and hunt for squids every time you want to refill your inkwell.<BR><BR>You're done squid hunting.  By infusing a rose with tenebrae and victus, you create a flower that spreads like a weed and whose petals can be crushed for ink.
+#
+forbidden.research_name.WRATHCAGE=Wrath Cage
+forbidden.research_text.WRATHCAGE=Neverending battle
+forbidden.research_page.WRATHCAGE.1=Sometimes, it's not enough to just kill something. Sure, slaying a single monster may be rather cathartic, but imagine just mowing down a crowd of the obnoxious little jerks.<BR><BR>To that end, you've discovered a way to recreate the monster spawners found in the ancient ruins. Unlike the original monster spawners, the Wrath Cage responds to redstone controls instead of the presence of human beings and can run much faster than the ancient devices.
+forbidden.research_page.WRATHCAGE.2=However, you haven't been able to duplicate the original method of infinite creation. For every creature spawned, the Wrath Cage requires a bit of essentia piped into its internal reserves. The device will accept different types of essentia depending on the creature it is attuned to. Alternatively, piping Ira into the cage can serve as a fuel. The cage can also accept Desidia for some reason.
+forbidden.research_page.WRATHCAGE.3=To attune a wrath cage to a specific creature, right click on it with an imprinted crystal.  Slaying a compatible creature with a Diabolist Fork while carrying a blank imprinting crystal will attune the crystal to that monster.
+#
+forbidden.research_name.FORK=Diabolist Fork
+forbidden.research_text.FORK=Arcane tinkering tool
+forbidden.research_page.FORK.1=You've created a tool to help you tinker with various infernal contraptions. The quartz prongs on the Diabolist Fork allow it to attune itself to arcane energies.<BR><BR>Along with being used to tune devices, the fork also makes for a functional weapon.<BR><BR>More information should appear in the following pages as you uncover more research.
+forbidden.research_page.FORK.wc=If the Diabolist Fork is used to slay a compatible creature with a Blank Imprinting Crystal in your inventory, it will imprint on the crystal.  The Imprinted Crystal can then be used to attune a Wrath Cage to that monster.
+#
+forbidden.research_name.MORPHTOOLS=Chameleon Tools
+forbidden.research_text.MORPHTOOLS=There's an enchantment for that...
+forbidden.research_page.MORPHTOOLS.1=Chameleon Tools are like three tools in one. When first enchanted, right-clicking while sneaking with the tool in your hand changes it to a blank new enchanting slate, allowing you to enchant it with a completely different set of enchantments. Each tool can hold up to three separate enchantment sets which can be alternated between by right-clicking while sneaking.<BR><BR>The tools have no innate way to remove enchantments once fully enchanted, so make each enchantment count!
+#
+forbidden.research_name.CLUSTER=Enchantment: Fiery Core
+forbidden.research_text.CLUSTER=Chameleon of the Core
+forbidden.research_page.CLUSTER.1=You've discovered an enchantment to allow the Chameleon Pickaxe to imitate the effects of the Pickaxe of the Core.  A Chameleon Pickaxe with the Fiery Core enchantment has a chance of dropping clusters when mining certain ores.  Clusters are a lot purer than raw ore and can be smelted for two of the ore's normal smelting result.  Higher levels of Fiery Core increase the chance of dropping clusters.
+#
+forbidden.research_name.GREEDY=Enchantment: Greedy
+forbidden.research_text.GREEDY=I want your money AND your life!
+forbidden.research_page.GREEDY.1=You've discovered a weapon enchantment that allows you to profit from taking lives. Every time a Greedy weapon slays a hostile creature, there's a chance to drop an Emerald Fragment. If a Greedy Weapon is used to kill a villager, it will instead drop one of the villager's emeralds.
+#
+forbidden.research_name.CONSUMING=Enchantment: Consuming
+forbidden.research_text.CONSUMING=Garbage Disposal
+forbidden.research_page.CONSUMING.1=Sick of having to empty your pack of worthless junk, you've devised an enchantment that will automatically destroy common, unwanted materials.  Any Cobblestone, Dirt, or Netherrack mined by a Consuming tool will be destroyed instead of falling to the ground.
+#
+forbidden.research_name.PIGBANE=Enchantment: Porcivore
+forbidden.research_text.PIGBANE=Show those Zombie Pigmen who's at the top of the food chain!
+forbidden.research_page.PIGBANE.1=Zombie Pigmen think they're so great. They're always stomping around the Nether ganging up on innocent travelers. It's time someone put a stop to them.<BR><BR>Weapons with the Porcivore enchantment will do excessive amounts of damage to Pigs and Zombie Pigmen.
+#
