@@ -49,7 +49,8 @@ public class ForbiddenRecipes
 		
 		ForbiddenResearch.recipes.put("Fork", ThaumcraftApi.addInfusionCraftingRecipe("FORK", new ItemStack(ForbiddenItems.fork, 1, 0), 1, (new AspectList()).add(DarkAspects.NETHER, 8).add(Aspect.MECHANISM, 8).add(Aspect.ENERGY, 8), ItemApi.getItem("itemSwordThaumium", 0), new ItemStack[]{new ItemStack(Item.netherQuartz), new ItemStack(Item.netherQuartz), new ItemStack(Item.netherQuartz), new ItemStack(Item.redstone)}));
 		
-		ForbiddenResearch.recipes.put("TransEmerald", ThaumcraftApi.addCrucibleRecipe("TRANSEMERALD", new ItemStack(ForbiddenItems.resource, 4, 0), "nuggetEmerald", (new AspectList()).merge(Aspect.CRYSTAL, 2).merge(Aspect.GREED, 2)));
+		if(Config.emeraldTrans)
+			ForbiddenResearch.recipes.put("TransEmerald", ThaumcraftApi.addCrucibleRecipe("TRANSEMERALD", new ItemStack(ForbiddenItems.resource, 4, 0), "nuggetEmerald", (new AspectList()).merge(Aspect.CRYSTAL, 2).merge(Aspect.GREED, 2)));
 		ForbiddenResearch.recipes.put("BlackFlower", ThaumcraftApi.addCrucibleRecipe("BLACKFLOWER", new ItemStack(ForbiddenBlocks.blackFlower, 1, 0), new ItemStack(Block.plantRed), (new AspectList()).merge(Aspect.DARKNESS, 5).merge(Aspect.LIFE, 5)));
 		ForbiddenResearch.recipes.put("BlackInk", CraftingManager.getInstance().addRecipe(new ItemStack(ForbiddenItems.resource, 2, 1), new Object[]{"#", Character.valueOf('#'), new ItemStack(ForbiddenBlocks.blackFlower, 1, 0)}));
 		

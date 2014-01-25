@@ -39,6 +39,7 @@ public class Config
 	public static int morphSwordID;
 	public static int morphShovelID;
 	public static int morphAxeID;
+	public static int wandCapID;
 
 	public static int arcaneCakeBlockID;
 	public static int blackFlowerBlockID;
@@ -62,6 +63,7 @@ public class Config
 	public static boolean wrathCage = true;
 	public static boolean spork = false;
 	public static boolean greedyEnch = true;
+	public static boolean emeraldTrans = true;
 	
 	public static int wrathCost = 5;
 	public static int wrathEff = 4;
@@ -89,6 +91,7 @@ public class Config
 			morphSwordID = conf.getItem("Chameleon Sword", idCount++).getInt();
 			morphShovelID = conf.getItem("Chameleon Shovel", idCount++).getInt();
 			morphAxeID = conf.getItem("Chameleon Axe", idCount++).getInt();
+			wandCapID = conf.getItem("Wand Caps", idCount++).getInt();
 			
 			int blockCount = 3000;
 			arcaneCakeBlockID = conf.getBlock("Thaumic Cake", blockCount++).getInt();
@@ -111,6 +114,9 @@ public class Config
 			Property ge = conf.get("general", "Greedy Enchantment", greedyEnch);
 			ge.comment = "Disable to remove the recipe and effects of the Greedy enchantment.";
 			greedyEnch = ge.getBoolean(true);
+			Property et = conf.get("general", "Emerald Transmutation", emeraldTrans);
+			et.comment = "Disable to remove the Emerald Transmutation research and recipe.";
+			emeraldTrans = et.getBoolean(true);
 			Property nm = conf.get("general", "Don't Be That Guy", noMeddling);
 			nm.comment = "Enable to turn the Infernal Furnace and Wand Focus: Nine Hells back to normal.";
 			noMeddling = nm.getBoolean(true);
