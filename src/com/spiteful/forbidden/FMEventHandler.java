@@ -241,7 +241,8 @@ public class FMEventHandler
 					imprintCrystal((EntityPlayer)(event.source.getEntity()), name);
 			}
 			
-			if(EnchantmentHelper.getEnchantmentLevel(DarkEnchantments.educational.effectId, equip) > 0 && event.entityLiving instanceof EntityLiving)
+			if(EnchantmentHelper.getEnchantmentLevel(DarkEnchantments.educational.effectId, equip) > 0 && event.entityLiving instanceof EntityLiving
+				&& EnchantmentHelper.getEnchantmentLevel(Enchantment.looting.effectId, equip) == 0)
 			{
 				int learning = 3 * ((EntityLiving)event.entityLiving).experienceValue * EnchantmentHelper.getEnchantmentLevel(DarkEnchantments.educational.effectId, equip);
 				while(learning > 0)
