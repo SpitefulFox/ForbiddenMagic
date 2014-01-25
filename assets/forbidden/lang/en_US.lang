@@ -30,12 +30,14 @@ item.WandCores.tainted.name=Tainted Rod
 item.WandCores.infernal.name=Infernal Rod
 item.WandCores.soul.name=Eldritch Rod
 item.WandCores.blood.name=Bloody Rod
+item.WandCaps.alchemical.name=Alchemical Cap
 item.Wand.tainted.rod=Tainted
 item.Wand.infernal.rod=Infernal
 item.Wand.neutronium.rod=Cosmic Neutronium
 item.Wand.soul.rod=Eldritch
 item.Wand.blood.rod=Blood
 item.Wand.orichalcum.cap=Orichalcum Studded
+item.Wand.alchemical.cap=Alchemically Crowned
 item.FMResource.0.name=Emerald Fragment
 item.FMResource.1.name=Shadow Ink
 item.MobCrystalEmpty.name=Blank Imprinting Crystal
@@ -53,6 +55,7 @@ enchantment.cluster=Fiery Core
 enchantment.pigbane=Porcivore
 enchantment.greedy=Greedy
 enchantment.consuming=Consuming
+enchantment.educational=Educational
 #
 # Misc
 itemGroup.forbidden=Forbidden Magic
@@ -139,4 +142,8 @@ forbidden.research_page.CONSUMING.1=Sick of having to empty your pack of worthle
 forbidden.research_name.PIGBANE=Enchantment: Porcivore
 forbidden.research_text.PIGBANE=Show those Zombie Pigmen who's at the top of the food chain!
 forbidden.research_page.PIGBANE.1=Zombie Pigmen think they're so great. They're always stomping around the Nether ganging up on innocent travelers. It's time someone put a stop to them.<BR><BR>Weapons with the Porcivore enchantment will do excessive amounts of damage to Pigs and Zombie Pigmen.
+#
+forbidden.research_name.EDUCATIONAL=Enchantment: Educational
+forbidden.research_text.EDUCATIONAL=Get a learn job!
+forbidden.research_page.EDUCATIONAL.1=You've created an enchantment to infuse a weapon with the very essence of knowledge and learning. Hammering such learning into monsters' heads will result in them dropping more experience than normal, depending on the level of enchantment.
 #

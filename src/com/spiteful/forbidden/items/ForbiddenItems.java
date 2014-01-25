@@ -22,6 +22,7 @@ public class ForbiddenItems
 	public static Item arcaneCakeItem;
 	public static Item taintShovel;
 	public static Item wandCore;
+	public static Item wandCap;
 	public static Item resource;
 	public static Item taintPickaxe;
 	public static Item mobCrystal;
@@ -37,6 +38,7 @@ public class ForbiddenItems
 	public static WandRod WAND_ROD_SOUL;
 	public static WandRod WAND_ROD_BLOOD;
 	public static WandCap WAND_CAP_ORICHALCUM;
+	public static WandCap WAND_CAP_ALCHEMICAL;
 
 	public static void addItems()
 	{
@@ -73,7 +75,9 @@ public class ForbiddenItems
 		MinecraftForge.setToolClass(morphAxe, "axe", 4);
 		
 		wandCore = new ItemWandCores(Config.wandCoreID).setUnlocalizedName("WandCores");
-		GameRegistry.registerItem(wandCore, "WandCores");		
+		GameRegistry.registerItem(wandCore, "WandCores");
+		wandCap = new ItemWandCaps(Config.wandCapID).setUnlocalizedName("WandCaps");
+		GameRegistry.registerItem(wandCap, "WandCaps");
 		WAND_ROD_TAINTED = new WandRod("tainted", 150, new ItemStack(wandCore, 1, 0), 12, new TaintedWandUpdate(), new ResourceLocation("forbidden", "textures/models/wand_rod_tainted.png"));
 		WAND_ROD_INFERNAL = new WandRod("infernal", 150, new ItemStack(wandCore, 1, 1), 12, new InfernalWandUpdate(), new ResourceLocation("forbidden", "textures/models/wand_rod_infernal.png"));
 		WAND_ROD_NEUTRONIUM = new WandRod("neutronium", 9001, new ItemStack(Block.bedrock, 1), 1000, new CreativeWandUpdate(), new ResourceLocation("forbidden", "textures/models/wand_rod_neutronium.png"));
@@ -82,6 +86,7 @@ public class ForbiddenItems
 		WAND_ROD_SOUL.setGlowing(true);
 		WAND_ROD_BLOOD = new WandRod("blood", 100, new ItemStack(wandCore, 1, 3), 12, new BloodWandUpdate(), new ResourceLocation("forbidden", "textures/models/wand_rod_blood.png"));
 		WAND_CAP_ORICHALCUM = new DarkWandCap("orichalcum", 0.0F, new ItemStack(Block.commandBlock, 1), 1000, new ResourceLocation("forbidden", "textures/models/wand_cap_orichalcum.png"));
+		WAND_CAP_ALCHEMICAL = new DarkWandCap("alchemical", 0.95F, Arrays.asList(new Aspect[]{Aspect.WATER}), 0.8F, new ItemStack(wandCap, 1, 0), 7, new ResourceLocation("forbidden", "textures/models/wand_cap_alchemical.png"));
 		
 		resource = new ItemResource(Config.resourceID).setUnlocalizedName("FMResource");
 		GameRegistry.registerItem(resource, "FMResource");

@@ -69,7 +69,7 @@ public class ItemWandCores extends Item {
 		if(Compat.bm)
 		{
 			ItemStack blood = ItemApi.getItem("itemWandCasting", 72);
-			((ItemWandCasting)creative.getItem()).setCap(blood, (WandCap)WandCap.caps.get("thaumium"));
+			((ItemWandCasting)creative.getItem()).setCap(blood, (WandCap)WandCap.caps.get("alchemical"));
 			((ItemWandCasting)creative.getItem()).setRod(blood, (WandRod)WandRod.rods.get("blood"));
 			par3List.add(blood);
 		}
