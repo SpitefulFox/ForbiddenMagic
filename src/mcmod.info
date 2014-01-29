@@ -1,0 +1,18 @@
+[
+{
+  "modid" : "ForbiddenMagic",
+  "name" : "Forbidden Magic",
+  "version" : "v0.23",
+  "url" : "http://www.minecraftforum.net/topic/2305054-/",
+  "credits" : "Azanor, Flaxbeard, Killajoke, LycaonX, Nieue, Succubism, Vazkii",
+  "authors": [
+    "SpitefulFox"
+  ],
+  "description": "Forbidden Magic is an addon to add many dark-themed things to Thaumcraft.",
+  "logoFile" : "",
+  "updateUrl" : "",
+  "parent" : "",
+  "screenshots": [
+  ]
+}
+]
