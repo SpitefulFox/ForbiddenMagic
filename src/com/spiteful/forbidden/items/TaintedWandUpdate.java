@@ -21,11 +21,5 @@ public class TaintedWandUpdate implements IWandRodOnUpdate {
 			}
 		}
 		
-		//if(player.isPotionActive(Config.thaumcraftTaintPotionID)) {
-		//	if(player.worldObj.isRemote)
-		//		player.removePotionEffectClient(Config.thaumcraftTaintPotionID);
-		//	else
-		//		player.removePotionEffect(Config.thaumcraftTaintPotionID);
-		//}
 	}
 }
