@@ -26,24 +26,30 @@ item.MorphPickaxe.name=Chameleon Pickaxe
 item.MorphSword.name=Chameleon Sword
 item.MorphShovel.name=Chameleon Shovel
 item.MorphAxe.name=Chameleon Axe
-item.WandCores.tainted.name=Tainted Rod
-item.WandCores.infernal.name=Infernal Rod
-item.WandCores.soul.name=Eldritch Rod
-item.WandCores.blood.name=Bloody Rod
-item.WandCaps.alchemical.name=Alchemical Cap
-item.Wand.tainted.rod=Tainted
-item.Wand.infernal.rod=Infernal
-item.Wand.neutronium.rod=Cosmic Neutronium
-item.Wand.soul.rod=Eldritch
-item.Wand.blood.rod=Blood
-item.Wand.orichalcum.cap=Orichalcum Studded
-item.Wand.alchemical.cap=Alchemically Crowned
 item.FMResource.0.name=Emerald Fragment
 item.FMResource.1.name=Shadow Ink
 item.MobCrystalEmpty.name=Blank Imprinting Crystal
 item.MobCrystal.name=Imprinted Crystal
 item.DiabolistFork.name=Diabolist Fork
 item.DiabolistSpork.name=Spork of Doom
+#
+# Wand components
+item.Wand.tainted.rod=Tainted
+item.Wand.infernal.rod=Infernal
+item.Wand.neutronium.rod=Cosmic Neutronium
+item.Wand.soul.rod=Eldritch
+item.Wand.blood.rod=Blood
+item.Wand.witchwood.rod=Witchwood
+item.Wand.orichalcum.cap=Orichalcum Studded
+item.Wand.alchemical.cap=Alchemically Crowned
+item.Wand.vinteum.cap=Vinteum Infused
+item.WandCores.tainted.name=Tainted Rod
+item.WandCores.infernal.name=Infernal Rod
+item.WandCores.soul.name=Eldritch Rod
+item.WandCores.blood.name=Bloody Rod
+item.WandCores.witchwood.name=Witchwood Rod
+item.WandCaps.alchemical.name=Alchemical Cap
+item.WandCaps.vinteum.name=Vinteum Cap
 #
 # Blocks
 tile.ArcaneCake.name=Thaumic Cake

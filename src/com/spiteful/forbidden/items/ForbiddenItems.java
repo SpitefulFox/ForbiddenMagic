@@ -37,8 +37,10 @@ public class ForbiddenItems
 	public static WandRod WAND_ROD_NEUTRONIUM;
 	public static WandRod WAND_ROD_SOUL;
 	public static WandRod WAND_ROD_BLOOD;
+	public static WandRod WAND_ROD_WITCHWOOD;
 	public static WandCap WAND_CAP_ORICHALCUM;
 	public static WandCap WAND_CAP_ALCHEMICAL;
+	public static WandCap WAND_CAP_VINTEUM;
 
 	public static void addItems()
 	{
@@ -85,8 +87,10 @@ public class ForbiddenItems
 		WAND_ROD_SOUL = new WandRod("soul", 100, new ItemStack(wandCore, 1, 2), 12, new SoulWandUpdate(), new ResourceLocation("forbidden", "textures/models/wand_rod_soul.png"));
 		WAND_ROD_SOUL.setGlowing(true);
 		WAND_ROD_BLOOD = new WandRod("blood", 100, new ItemStack(wandCore, 1, 3), 12, new BloodWandUpdate(), new ResourceLocation("forbidden", "textures/models/wand_rod_blood.png"));
+		WAND_ROD_WITCHWOOD = new WandRod("witchwood", 100, new ItemStack(wandCore, 1, 4), 12, new ManaWandUpdate(), new ResourceLocation("forbidden", "textures/models/wand_rod_witchwood.png"));
 		WAND_CAP_ORICHALCUM = new DarkWandCap("orichalcum", 0.0F, new ItemStack(Block.commandBlock, 1), 1000, new ResourceLocation("forbidden", "textures/models/wand_cap_orichalcum.png"));
 		WAND_CAP_ALCHEMICAL = new DarkWandCap("alchemical", 0.95F, Arrays.asList(new Aspect[]{Aspect.WATER}), 0.8F, new ItemStack(wandCap, 1, 0), 7, new ResourceLocation("forbidden", "textures/models/wand_cap_alchemical.png"));
+		WAND_CAP_VINTEUM = new DarkWandCap("vinteum", 0.9F, new ItemStack(wandCap, 1, 1), 7, new ResourceLocation("forbidden", "textures/models/wand_cap_vinteum.png"));
 		
 		resource = new ItemResource(Config.resourceID).setUnlocalizedName("FMResource");
 		GameRegistry.registerItem(resource, "FMResource");

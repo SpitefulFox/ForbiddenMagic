@@ -38,6 +38,7 @@ public class Compat {
 	public static boolean natura = false;
 	public static boolean pb = false;
 	public static boolean bm = false;
+	public static boolean am2 = false;
 	
 	public static int tabletID = -1;
 	
@@ -55,6 +56,8 @@ public class Compat {
 			pb = true;
 		if(Loader.isModLoaded("AWWayofTime"))
 			bm = true;
+		if(Loader.isModLoaded("arsmagica2"))
+			am2 = true;
 	}
 	
 	public static void compatify()

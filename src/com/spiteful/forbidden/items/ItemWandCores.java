@@ -18,8 +18,8 @@ import thaumcraft.common.items.wands.ItemWandCasting;
 
 public class ItemWandCores extends Item {
 
-	public final String[] types = {"tainted", "infernal", "soul", "blood"};
-	public Icon[] icon = new Icon[4];
+	public final String[] types = {"tainted", "infernal", "soul", "blood", "witchwood"};
+	public Icon[] icon;
 
 
 	public ItemWandCores(int par1) {
@@ -32,6 +32,7 @@ public class ItemWandCores extends Item {
 
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister ir) {
+		icon = new Icon[types.length];
 		for(int x = 0; x < types.length; x++)
 			this.icon[x] = ir.registerIcon("forbidden:wand_rod_" + types[x]);
 	}
@@ -72,6 +73,13 @@ public class ItemWandCores extends Item {
 			((ItemWandCasting)creative.getItem()).setCap(blood, (WandCap)WandCap.caps.get("alchemical"));
 			((ItemWandCasting)creative.getItem()).setRod(blood, (WandRod)WandRod.rods.get("blood"));
 			par3List.add(blood);
+		}
+		if(Compat.am2)
+		{
+			ItemStack mana = ItemApi.getItem("itemWandCasting", 72);
+			((ItemWandCasting)creative.getItem()).setCap(mana, (WandCap)WandCap.caps.get("vinteum"));
+			((ItemWandCasting)creative.getItem()).setRod(mana, (WandRod)WandRod.rods.get("witchwood"));
+			par3List.add(mana);
 		}
 	}
 

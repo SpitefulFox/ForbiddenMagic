@@ -18,7 +18,7 @@ import thaumcraft.common.items.wands.ItemWandCasting;
 
 public class ItemWandCaps extends Item {
 
-	public final String[] types = {"alchemical"};
+	public final String[] types = {"alchemical", "vinteum"};
 	public Icon[] icon;
 
 
