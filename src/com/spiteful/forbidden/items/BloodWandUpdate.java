@@ -47,13 +47,19 @@ public class BloodWandUpdate implements IWandRodOnUpdate {
 			{
 				checkOwner.invoke(null, itemstack, player);
 				
+				int cost;
+				if(((ItemWandCasting)itemstack.getItem()).getCap(itemstack).getTag().equals("alchemical"))
+					cost = 900;
+				else
+					cost = 1000;
+				
 				for(int x = 0;x < primals.length;x++)
 				{
 					if(((ItemWandCasting)itemstack.getItem()).getVis(itemstack, primals[x]) < ((ItemWandCasting)itemstack.getItem()).getMaxVis(itemstack))
 					{
 						if(player.capabilities.isCreativeMode)
 							((ItemWandCasting)itemstack.getItem()).addVis(itemstack, primals[x], 1, true);
-						else if(((Boolean)(syphon.invoke(null, itemstack, 1000))).booleanValue())
+						else if(((Boolean)(syphon.invoke(null, itemstack, cost))).booleanValue())
 							((ItemWandCasting)itemstack.getItem()).addVis(itemstack, primals[x], 1, true);
 						else if(syphonHealth(player))
 						{
