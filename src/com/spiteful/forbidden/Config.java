@@ -127,10 +127,10 @@ public class Config
 			wc.comment = "Disable if you don't want players using the Wrath Cage.";
 			wrathCage = wc.getBoolean(true);
 			Property wf = conf.get("general", "Wrath Cage Fuel Cost", wrathCost);
-			wf.comment = "Cost of essentia per round of spawns in the Wrath Cage.  Raise to increase essentia costs.  Defaults to 1.  Set to 0 to remove the need to fuel the Wrath Cage.  Setting the cost above 64 is not recommended.";
+			wf.comment = "Cost of essentia per round of spawns in the Wrath Cage.  Raise to increase essentia costs.  Defaults to 5.  Set to 0 to remove the need to fuel the Wrath Cage.  Setting the cost above 64 is not recommended.";
 			wrathCost = wf.getInt(5);
 			Property we = conf.get("general", "Wrath Cage Fuel Efficiency", wrathEff);
-			we.comment = "Number of spawns a Wrath Cage can get per fuel cost.  Defaults to 5.  Lower to make the cage less efficient and raise to make it more efficient.";
+			we.comment = "Number of spawns a Wrath Cage can get per fuel cost.  Defaults to 4.  Lower to make the cage less efficient and raise to make it more efficient.";
 			wrathEff = we.getInt(4);
 			if(wrathEff < 0)
 				wrathEff = 4;
