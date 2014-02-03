@@ -6,6 +6,7 @@ import com.spiteful.forbidden.Compat;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.tileentity.TileEntitySkull;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.wands.IWandRodOnUpdate;
 import thaumcraft.common.items.wands.ItemWandCasting;
@@ -33,7 +34,7 @@ public class SoulWandUpdate implements IWandRodOnUpdate {
 				int z = info.getInteger("z");
 				
 				TileEntityPlayerBeacon bacon = (TileEntityPlayerBeacon) player.worldObj.getBlockTileEntity(x, y, z);
-				if(bacon != null)
+				if(bacon != null && bacon.hasSkull())
 				{
 					if(Compat.tt)
 					{
@@ -46,6 +47,19 @@ public class SoulWandUpdate implements IWandRodOnUpdate {
 						if(player.worldObj.getBlockId(x, y, z - 1) == Compat.tabletID)
 							return;
 					}
+					
+					TileEntitySkull skull = (TileEntitySkull) bacon.worldObj.getBlockTileEntity(bacon.xCoord, bacon.yCoord + 1, bacon.zCoord);
+					if(skull == null)
+						return;
+					else if (!skull.getExtraType().equals(bacon.getOwner()))
+						return;
+					
+					int cost;
+					if(((ItemWandCasting)itemstack.getItem()).getCap(itemstack).getTag().equals("soul"))
+						cost = 20;
+					else
+						cost = 50;
+					
 					int charge = 0;
 					for(int j = 0;j < primals.length;j++)
 					{
@@ -63,6 +77,10 @@ public class SoulWandUpdate implements IWandRodOnUpdate {
 				}
 			}
 			catch(Exception e)
+			{
+				return;
+			}
+			catch(NoClassDefFoundError e)
 			{
 				return;
 			}
