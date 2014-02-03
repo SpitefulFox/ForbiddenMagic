@@ -153,10 +153,11 @@ public class Compat {
 				InfusionRecipe soul_recipe = ThaumcraftApi.addInfusionCraftingRecipe("ROD_soul", new ItemStack(ForbiddenItems.wandCore, 1, 2), 5, (new AspectList()).add(Aspect.ELDRITCH, 32).add(Aspect.MAGIC, 12).add(Aspect.SOUL, 16), new ItemStack(PlayerBeacons.defiledSoulPylonBlock), new ItemStack[]{ItemApi.getItem("itemResource", 14), new ItemStack(PlayerBeacons.defiledSoulConductorBlock), new ItemStack(PlayerBeacons.defiledSoulConductorBlock), new ItemStack(PlayerBeacons.defiledSoulConductorBlock), new ItemStack(PlayerBeacons.defiledSoulConductorBlock), new ItemStack(Item.eyeOfEnder), new ItemStack(Item.eyeOfEnder)});
 				(new DarkResearchItem("ROD_soul", "THAUMATURGY", (new AspectList()).add(Aspect.ELDRITCH, 2).add(Aspect.SOUL, 1).add(Aspect.TOOL, 1), -5, 7, 4, new ItemStack(ForbiddenItems.wandCore, 1, 2))).setPages(new ResearchPage[]{new ResearchPage("forbidden.research_page.ROD_soul.1"), new ResearchPage(soul_recipe)}).setParents(new String[]{"ROD_silverwood", "PB_CRYSTAL"}).setConcealed().registerResearchItem();
 			}
-			catch(Exception e)
+			catch(NoClassDefFoundError e)
 			{
 				FMLLog.log(Level.INFO, e, "Player Beacons showed Forbidden Magic who the Alpha Fox is.");
-				e.printStackTrace();
+				//e.printStackTrace();
+				pb = false;
 			}
 		}
 		if(bm)
@@ -185,11 +186,39 @@ public class Compat {
 				InfusionRecipe blood_recipe = ThaumcraftApi.addInfusionCraftingRecipe("ROD_blood", new ItemStack(ForbiddenItems.wandCore, 1, 3), 2, (new AspectList()).add(Aspect.LIFE, 32).add(Aspect.MAGIC, 12).add(Aspect.WATER, 16), new ItemStack(masterOrb), new ItemStack[]{new ItemStack(magicales), new ItemStack(imbuedSlate), new ItemStack(imbuedSlate), new ItemStack(tennebrae), new ItemStack(sanctus), new ItemStack(aquasalus), new ItemStack(incendium), new ItemStack(terrae), new ItemStack(aether)});
 				(new DarkResearchItem("ROD_blood", "THAUMATURGY", (new AspectList()).add(Aspect.LIFE, 2).add(Aspect.WATER, 1).add(Aspect.WEAPON, 1), -5, 9, 4, new ItemStack(ForbiddenItems.wandCore, 1, 3))).setPages(new ResearchPage[]{new ResearchPage("forbidden.research_page.ROD_blood.1"), new ResearchPage(blood_recipe)}).setParents(new String[]{"ROD_silverwood"}).setConcealed().registerResearchItem();
 				
+				InfusionRecipe alchemical_recipe = ThaumcraftApi.addInfusionCraftingRecipe("CAP_alchemical", new ItemStack(ForbiddenItems.wandCap, 1, 0), 3, (new AspectList()).add(Aspect.LIFE, 12).add(Aspect.WATER, 6), ItemApi.getItem("itemWandCap", 1), new ItemStack[]{new ItemStack(magicales), new ItemStack(magicales), new ItemStack(magicales)});
+				(new DarkResearchItem("CAP_alchemical", "THAUMATURGY", (new AspectList()).add(Aspect.METAL, 1).add(Aspect.MAGIC, 2).add(Aspect.TOOL, 1).add(Aspect.ENERGY, 1), -7, 9, 5, new ItemStack(ForbiddenItems.wandCap, 1, 0))).setPages(new ResearchPage[]{new ResearchPage("forbidden.research_page.CAP_alchemical.1"), new ResearchPage(alchemical_recipe)}).setParents(new String[]{"ROD_blood"}).setConcealed().registerResearchItem();
+				
 			}
 			catch(Exception e)
 			{
 				FMLLog.log(Level.INFO, e, "Forbidden Magic tried to do some Blood Magic, but bled out.");
 				e.printStackTrace();
+				bm = false;
+			}
+		}
+		if(am2)
+		{
+			try
+			{
+				Class amItems = Class.forName("am2.items.ItemsCommonProxy");
+				Class amBlocks = Class.forName("am2.blocks.BlocksCommonProxy");
+				Item essence = (Item)(amItems.getField("essence").get(null));
+				Item amOre = (Item)(amItems.getField("itemOre").get(null));
+				Item rune = (Item)(amItems.getField("rune").get(null));
+				Block witchwood = (Block)(amBlocks.getField("witchwoodLog").get(null));
+				
+				InfusionRecipe witchwood_recipe = ThaumcraftApi.addInfusionCraftingRecipe("ROD_witchwood", new ItemStack(ForbiddenItems.wandCore, 1, 4), 5, (new AspectList()).add(Aspect.MAGIC, 16).add(Aspect.EARTH, 9).add(Aspect.WATER, 9).add(Aspect.FIRE, 9).add(Aspect.AIR, 9), new ItemStack(witchwood), new ItemStack[]{new ItemStack(amOre.itemID, 1, 3), new ItemStack(essence.itemID, 1, 1), new ItemStack(essence.itemID, 1, 2), new ItemStack(essence.itemID, 1, 3), new ItemStack(essence.itemID, 1, 4), new ItemStack(rune.itemID, 1, 7), new ItemStack(rune.itemID, 1, 8), new ItemStack(amOre.itemID, 1, 2)});
+				(new DarkResearchItem("ROD_witchwood", "THAUMATURGY", (new AspectList()).add(Aspect.MAGIC, 2).add(Aspect.TREE, 1).add(Aspect.TOOL, 1), -3, 7, 4, new ItemStack(ForbiddenItems.wandCore, 1, 4))).setPages(new ResearchPage[]{new ResearchPage("forbidden.research_page.ROD_witchwood.1"), new ResearchPage(witchwood_recipe)}).setParents(new String[]{"ROD_silverwood"}).setConcealed().registerResearchItem();
+				
+				InfusionRecipe vinteum_recipe = ThaumcraftApi.addInfusionCraftingRecipe("CAP_vinteum", new ItemStack(ForbiddenItems.wandCap, 1, 1), 5, (new AspectList()).add(Aspect.ENERGY, 12).add(Aspect.MAGIC, 6), ItemApi.getItem("itemWandCap", 6), new ItemStack[]{new ItemStack(amOre.itemID, 1, 0), new ItemStack(amOre.itemID, 1, 0), new ItemStack(amOre.itemID, 1, 0)});
+				(new DarkResearchItem("CAP_vinteum", "THAUMATURGY", (new AspectList()).add(Aspect.METAL, 1).add(Aspect.MAGIC, 2).add(Aspect.TOOL, 1).add(Aspect.ENERGY, 1), -3, 9, 5, new ItemStack(ForbiddenItems.wandCap, 1, 1))).setPages(new ResearchPage[]{new ResearchPage("forbidden.research_page.CAP_vinteum.1"), new ResearchPage(vinteum_recipe)}).setParents(new String[]{"ROD_witchwood"}).setConcealed().registerResearchItem();
+			}
+			catch(Exception e)
+			{
+				FMLLog.log(Level.INFO, e, "Forbidden Magic was slain by a Hecate.");
+				e.printStackTrace();
+				am2 = false;
 			}
 		}
 	}

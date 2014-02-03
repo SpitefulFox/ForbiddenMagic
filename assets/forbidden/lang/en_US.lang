@@ -42,7 +42,8 @@ item.Wand.blood.rod=Blood
 item.Wand.witchwood.rod=Witchwood
 item.Wand.orichalcum.cap=Orichalcum Studded
 item.Wand.alchemical.cap=Alchemically Crowned
-item.Wand.vinteum.cap=Vinteum Infused
+item.Wand.vinteum.cap=Vinteum Bound
+item.Wand.soul.cap=Ender Shielded
 item.WandCores.tainted.name=Tainted Rod
 item.WandCores.infernal.name=Infernal Rod
 item.WandCores.soul.name=Eldritch Rod
@@ -50,6 +51,7 @@ item.WandCores.blood.name=Bloody Rod
 item.WandCores.witchwood.name=Witchwood Rod
 item.WandCaps.alchemical.name=Alchemical Cap
 item.WandCaps.vinteum.name=Vinteum Cap
+item.WandCaps.soul.name=Ender Cap
 #
 # Blocks
 tile.ArcaneCake.name=Thaumic Cake
@@ -109,6 +111,22 @@ forbidden.research_page.ROD_soul.1=You've discovered a way to tap the energy flo
 forbidden.research_name.ROD_blood=Bloody Wand Core
 forbidden.research_text.ROD_blood=Alchemical vis storage
 forbidden.research_page.ROD_blood.1=You've created a bridge between Thaumaturgy and Alchemical Wizardry. The Blood Wand can store up to 100 vis and will gradually fill itself using Life Points.<BR><BR>The wand will bind itself to the first person to pick it up. As long as the rod is empty, it will try to fill itself using LP from its owner's network. If there are not enough Life Points to fuel it, it will resort to drawing health from whoever is carrying it, but this conversion is less efficient. If it has no LP to draw from and its holder falls below three hearts, the wand stops charging itself.
+#
+forbidden.research_name.ROD_witchwood=Witchwood Wand Core
+forbidden.research_text.ROD_witchwood=Mana converter
+forbidden.research_page.ROD_witchwood.1=By creating a wand core out of Witchwood, you've discovered a way to convert mana into Vis.  The Witchwood Wand Core holds up to 100 vis and will gradually charge itself at the cost of 150 mana per point of vis.<BR><BR>Further research may reveal ways to lower this price.
+#
+forbidden.research_name.CAP_alchemical=Alchemical Caps
+forbidden.research_text.CAP_alchemical=When Thaumium isn't bloody enough
+forbidden.research_page.CAP_alchemical.1=You've developed a wand cap that merges Thaumaturgy and Alchemical Wizardry.  Alchemical Caps are very effective at channeling Aqua, only using 80% of the normal vis cost.  Unfortunately, they're less effective than Thaumium at channeling other aspects, offering only a 95% rate on everything else.<BR><BR>If combined with a Bloody Wand Core, Alchemical Caps discount the amount of LP consumed by the wand, costing only 900 LP per vis.  The caps also cause all attacks from a blood wand to inflict Weakness.
+#
+forbidden.research_name.CAP_vinteum=Vinteum Caps
+forbidden.research_text.CAP_vinteum=Magical wand caps
+forbidden.research_page.CAP_vinteum.1=By infusing a Thaumium cap with Vinteum, you create a cap that, when combined with a Witchwood Wand Core, lowers its mana cost to only 90 per point of vis.<BR><BR>The Thaumium cap seems to meld well with Vinteum, offering the same 90% vis rate.
+#
+forbidden.research_name.CAP_soul=Ender Caps
+forbidden.research_text.CAP_soul=Protection for your soul
+forbidden.research_page.CAP_soul.1=You've created a wand cap that can safely channel the destructive energy of The End.  Ender Caps have an 80% vis rate on Perditio, but only 95% for other aspects.<BR><BR>When combined with an Eldritch Wand Core, Ender Caps also reduce the amount of corruption your soul suffers from channeling vis out of the End.
 #
 forbidden.research_name.TRANSEMERALD=Emerald Transmutation
 forbidden.research_text.TRANSEMERALD=Transformation of valuables into emerald
