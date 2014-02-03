@@ -69,6 +69,7 @@ enchantment.educational=Educational
 itemGroup.forbidden=Forbidden Magic
 itemGroup.mobcrystal=Imprinting Crystals
 tc.research_category.INFERNALISM=Infernalism
+tc.research_category.TAINT=Tainted Arts
 #
 # Research
 forbidden.research_name.NETHERSHARDS=Nether Shards
@@ -170,4 +171,9 @@ forbidden.research_page.PIGBANE.1=Zombie Pigmen think they're so great. They're 
 forbidden.research_name.EDUCATIONAL=Enchantment: Educational
 forbidden.research_text.EDUCATIONAL=Get a learn job!
 forbidden.research_page.EDUCATIONAL.1=You've created an enchantment to infuse a weapon with the very essence of knowledge and learning. Hammering such learning into monsters' heads will result in them dropping more experience than normal, depending on the level of enchantment.
+#
+forbidden.research_name.TAINTBASICS=Tainted Lands
+forbidden.research_text.TAINTBASICS=Deep Purple
+forbidden.research_page.TAINTBASICS.1=Sometimes, Thaumaturgy goes horribly wrong. Miracles become twisted calamities and the very landscape twists into hideous forms. Tainted Lands are places infected by the sick runoff of magical workings, flux. Local flora and fauna become warped and mutated into forms hostile to normal life and the very ground of a tainted land infects those who tread upon its pulsing fibres.
+forbidden.research_page.TAINTBASICS.2=Tainted Lands can be found naturally in the world, but can also form when a careless Thaumaturge allows flux goo to stagnate for too long. They are recognizable by their telltale purple fibres and bright violet stalks. Left alone, the tainted land will gradually extend its tendrils outwards, infecting more and more of the surrounding land. Dirt becomes thick, pulpy Tainted Soil while trees and other natural materials are slowly covered in fibres and converted into structurally unsound crust which can collapse or melt into flux goo at any moment.
 #
