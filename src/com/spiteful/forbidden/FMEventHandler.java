@@ -30,6 +30,8 @@ import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagString;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.FakePlayer;
 import net.minecraftforge.event.ForgeSubscribe;
@@ -351,6 +353,19 @@ public class FMEventHandler
 				&& ((ItemWandCasting)wand.getItem()).getRod(wand).getTag().equals("infernal")){
 				
 				event.setCanceled(true);
+			}
+		}
+		
+		if(event.source.getEntity() != null && event.source.getEntity() instanceof EntityPlayer)
+		{
+			ItemStack equip = ((EntityPlayer)event.source.getEntity()).getCurrentEquippedItem();
+			if(equip.getItem() instanceof ItemWandCasting)
+			{
+				if(((ItemWandCasting)equip.getItem()).getCap(equip).getTag().equals("alchemical")
+					&& ((ItemWandCasting)equip.getItem()).getRod(equip).getTag().equals("blood"))
+				{
+					event.entityLiving.addPotionEffect(new PotionEffect(Potion.weakness.id, 60, 2));
+				}
 			}
 		}
 	}
