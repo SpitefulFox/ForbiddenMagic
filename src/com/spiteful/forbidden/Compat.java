@@ -23,6 +23,7 @@ import thaumcraft.api.aspects.IEssentiaContainerItem;
 import thaumcraft.api.wands.WandCap;
 import thaumcraft.api.wands.WandRod;
 import thaumcraft.api.wands.WandTriggerRegistry;
+import thaumcraft.api.crafting.IArcaneRecipe;
 import thaumcraft.api.crafting.InfusionRecipe;
 import thaumcraft.api.research.ResearchCategories;
 import thaumcraft.api.research.ResearchCategoryList;
@@ -151,9 +152,13 @@ public class Compat {
 			try
 			{
 				InfusionRecipe soul_recipe = ThaumcraftApi.addInfusionCraftingRecipe("ROD_soul", new ItemStack(ForbiddenItems.wandCore, 1, 2), 5, (new AspectList()).add(Aspect.ELDRITCH, 32).add(Aspect.MAGIC, 12).add(Aspect.SOUL, 16), new ItemStack(PlayerBeacons.defiledSoulPylonBlock), new ItemStack[]{ItemApi.getItem("itemResource", 14), new ItemStack(PlayerBeacons.defiledSoulConductorBlock), new ItemStack(PlayerBeacons.defiledSoulConductorBlock), new ItemStack(PlayerBeacons.defiledSoulConductorBlock), new ItemStack(PlayerBeacons.defiledSoulConductorBlock), new ItemStack(Item.eyeOfEnder), new ItemStack(Item.eyeOfEnder)});
-				(new DarkResearchItem("ROD_soul", "THAUMATURGY", (new AspectList()).add(Aspect.ELDRITCH, 2).add(Aspect.SOUL, 1).add(Aspect.TOOL, 1), -5, 7, 4, new ItemStack(ForbiddenItems.wandCore, 1, 2))).setPages(new ResearchPage[]{new ResearchPage("forbidden.research_page.ROD_soul.1"), new ResearchPage(soul_recipe)}).setParents(new String[]{"ROD_silverwood", "PB_CRYSTAL"}).setConcealed().registerResearchItem();
+				(new DarkResearchItem("ROD_soul", "THAUMATURGY", (new AspectList()).add(Aspect.ELDRITCH, 2).add(Aspect.SOUL, 1).add(Aspect.TOOL, 1), -5, 7, 5, new ItemStack(ForbiddenItems.wandCore, 1, 2))).setPages(new ResearchPage[]{new ResearchPage("forbidden.research_page.ROD_soul.1"), new ResearchPage(soul_recipe)}).setParents(new String[]{"ROD_silverwood", "PB_CRYSTAL"}).setConcealed().registerResearchItem();
+				
+				IArcaneRecipe soul_cap = ThaumcraftApi.addArcaneCraftingRecipe("CAP_soul", new ItemStack(ForbiddenItems.wandCap, 1, 2), (new AspectList()).add(Aspect.ENTROPY, 20).add(Aspect.FIRE, 5).add(Aspect.WATER, 5).add(Aspect.AIR, 5).add(Aspect.EARTH, 5), new Object[]{"NXN", "N N", Character.valueOf('N'), Item.enderPearl, Character.valueOf('X'), PlayerBeacons.crystalItem});
+				(new DarkResearchItem("CAP_soul", "THAUMATURGY", (new AspectList()).add(Aspect.ELDRITCH, 1).add(Aspect.MAGIC, 1).add(Aspect.ENTROPY, 2), -7, 7, 3, new ItemStack(ForbiddenItems.wandCap, 1, 2))).setPages(new ResearchPage[]{new ResearchPage("forbidden.research_page.CAP_soul.1"), new ResearchPage(soul_cap)}).setParents(new String[]{"ROD_soul"}).setConcealed().registerResearchItem();
+				 
 			}
-			catch(NoClassDefFoundError e)
+			catch(LinkageError e)
 			{
 				FMLLog.log(Level.INFO, e, "Player Beacons showed Forbidden Magic who the Alpha Fox is.");
 				//e.printStackTrace();
