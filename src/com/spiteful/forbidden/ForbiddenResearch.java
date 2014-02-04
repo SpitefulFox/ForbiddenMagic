@@ -57,6 +57,9 @@ public class ForbiddenResearch
 	
 	public static void addInfernalism()
 	{
+		if(Config.noHell)
+			return;
+		
 		ResearchCategories.registerCategory("INFERNALISM", new ResourceLocation("forbidden", "textures/misc/infernalism.png"), new ResourceLocation("thaumcraft", "textures/gui/gui_researchback.png"));
 		(new FauxResearchItem("INFAUXSION", "INFERNALISM", "INFUSION", "ARTIFICE", -5, 0, ItemApi.getBlock("blockStoneDevice", 2))).registerResearchItem();
 		if(!Compat.tt)
@@ -91,8 +94,9 @@ public class ForbiddenResearch
 		{
 			((ResearchCategoryList)ResearchCategories.researchCategories.get("THAUMATURGY")).research.remove("FOCUSHELLBAT");
 			(new ResearchItem("FOCUSHELLBAT", "INFERNALISM", (new AspectList()).add(Aspect.TRAVEL, 1).add(DarkAspects.NETHER, 2).add(Aspect.FIRE, 1).add(DarkAspects.WRATH, 1), -8, -1, 4, ItemApi.getItem("itemFocusHellbat", 0))).setPages(new ResearchPage[]{new ResearchPage("tc.research_page.FOCUSHELLBAT.1"), new ResearchPage((InfusionRecipe)recipes.get("FocusHellbat"))}).setConcealed().setParents(new String[]{"FOCUSTRADE", "INFAUXSION"}).registerResearchItem();
+			ResearchPage[] pages = ((ResearchCategoryList)ResearchCategories.researchCategories.get("ARTIFICE")).research.get("INFERNALFURNACE").getPages();
 			((ResearchCategoryList)ResearchCategories.researchCategories.get("ARTIFICE")).research.remove("INFERNALFURNACE");
-			(new ResearchItem("INFERNALFURNACE", "INFERNALISM", (new AspectList()).add(Aspect.FIRE, 2).add(DarkAspects.NETHER, 1).add(Aspect.CRAFT, 1).add(Aspect.AURA, 1), -1, -2, 4, new ResourceLocation("thaumcraft", "textures/misc/r_infernalfurnace.png"))).setPages(new ResearchPage[]{new ResearchPage("tc.research_page.INFERNALFURNACE.1"), new ResearchPage((List)recipes.get("InfernalFurnace")), new ResearchPage("tc.research_page.INFERNALFURNACE.2")}).setParents(new String[]{"NITOR", "ALUMENTUM"}).setConcealed().registerResearchItem();
+			(new ResearchItem("INFERNALFURNACE", "INFERNALISM", (new AspectList()).add(Aspect.FIRE, 2).add(DarkAspects.NETHER, 1).add(Aspect.CRAFT, 1).add(Aspect.AURA, 1), -1, -2, 4, new ResourceLocation("thaumcraft", "textures/misc/r_infernalfurnace.png"))).setPages(pages).setParents(new String[]{"NITOR", "ALUMENTUM"}).setConcealed().registerResearchItem();
 		}
 	}
 	

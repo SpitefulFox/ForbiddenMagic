@@ -43,7 +43,7 @@ public class Forbidden
 	@Instance("ForbiddenMagic")
 	public static Forbidden instance;
 	public static ForbiddenTab tab = new ForbiddenTab("forbidden");
-	public static ForbiddenTab crysTab = new ForbiddenTab("mobcrystal", true);
+	public static ForbiddenTab crysTab;
 	@SidedProxy(
 		clientSide = "com.spiteful.forbidden.client.ClientProxy",
 		serverSide = "com.spiteful.forbidden.CommonProxy"
@@ -55,9 +55,12 @@ public class Forbidden
 	{
 		instance = this;
 		Config.configurate(event.getSuggestedConfigurationFile());
+		if(!Config.noHell)
+			crysTab = new ForbiddenTab("mobcrystal", true);
 		Compat.initiate();
 		DarkAspects.initAspects();
-		Config.spawnilify();
+		if(!Config.noHell)
+			Config.spawnilify();
 		ForbiddenItems.addItems();
 		ForbiddenBlocks.addBlocks();
 		DarkEnchantments.hex();

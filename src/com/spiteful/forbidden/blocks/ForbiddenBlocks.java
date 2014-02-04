@@ -21,12 +21,16 @@ public class ForbiddenBlocks
 
 	public static void addBlocks()
 	{
-		arcaneCake = new BlockArcaneCake(Config.arcaneCakeBlockID).setHardness(0.5F).setStepSound(Block.soundClothFootstep).setUnlocalizedName("ArcaneCake");
-		GameRegistry.registerBlock(arcaneCake, "ArcaneCake");
+		if(!Config.noHell)
+		{
+			arcaneCake = new BlockArcaneCake(Config.arcaneCakeBlockID).setHardness(0.5F).setStepSound(Block.soundClothFootstep).setUnlocalizedName("ArcaneCake");
+			GameRegistry.registerBlock(arcaneCake, "ArcaneCake");
+			wrathCage = new BlockWrathCage(Config.wrathCageID).setHardness(5.0F).setResistance(2000.0F).setStepSound(Block.soundMetalFootstep).setTextureName("forbidden:spirit_box").setUnlocalizedName("WrathCage");
+			GameRegistry.registerBlock(wrathCage, "WrathCage");
+			GameRegistry.registerTileEntity(TileEntityWrathCage.class, "WrathCage");
+		}
+		
 		blackFlower = new BlockBlackFlower(Config.blackFlowerBlockID).setStepSound(Block.soundGrassFootstep).setTextureName("forbidden:flower_black").setUnlocalizedName("InkFlower");
 		GameRegistry.registerBlock(blackFlower, "InkFlower");
-		wrathCage = new BlockWrathCage(Config.wrathCageID).setHardness(5.0F).setResistance(2000.0F).setStepSound(Block.soundMetalFootstep).setTextureName("forbidden:spirit_box").setUnlocalizedName("WrathCage");
-		GameRegistry.registerBlock(wrathCage, "WrathCage");
-		GameRegistry.registerTileEntity(TileEntityWrathCage.class, "WrathCage");
 	}
 }

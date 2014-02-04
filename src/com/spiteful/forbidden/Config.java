@@ -57,6 +57,7 @@ public class Config
 	public static int thaumcraftTaintBiomeID;
 	
 	public static boolean noLust = false;
+	public static boolean noHell = false;
 	public static boolean silverfishEmeralds = true;
 	public static boolean noMeddling = false;
 	public static boolean tagResearch = true;
@@ -108,6 +109,9 @@ public class Config
 			Property nl = conf.get("general", "No Lust", noLust);
 			nl.comment = "Enable to remove Luxuria aspect and related items.";
 			noLust = nl.getBoolean(false);
+			Property nh = conf.get("general", "No New Aspects", noHell);
+			nh.comment = "Enable to remove all new aspects and related items.";
+			noHell = nh.getBoolean(false);
 			Property sf = conf.get("general", "Silverfish Drop Emerald Nuggets", silverfishEmeralds);
 			sf.comment = "Disable to prevent Silverfish from dropping emerald nuggets.";
 			silverfishEmeralds = sf.getBoolean(true);
@@ -118,7 +122,7 @@ public class Config
 			et.comment = "Disable to remove the Emerald Transmutation research and recipe.";
 			emeraldTrans = et.getBoolean(true);
 			Property nm = conf.get("general", "Don't Be That Guy", noMeddling);
-			nm.comment = "Enable to turn the Infernal Furnace and Wand Focus: Nine Hells back to normal.";
+			nm.comment = "Enable to undo all changes to Vanilla Thaumcraft, such as the Infernal Furnace, Wand Focus: Nine Hells, or Ethereal Bloom.";
 			noMeddling = nm.getBoolean(true);
 			Property tr = conf.get("general", "Tag Research Items", tagResearch);
 			tr.comment = "Disable to get rid of the [FM] tags in the Thaumonomicon.";

@@ -26,6 +26,8 @@ public class DarkAspects
 
 	public static void initAspects()
 	{
+		if(Config.noHell)
+			return;
 		NETHER = new Aspect("infernus", 0xff0000, new Aspect[] {Aspect.FIRE, Aspect.MAGIC}, new ResourceLocation("forbidden", "textures/aspects/infernus.png"), 771);
 		if(!Config.noLust){
 			LUST = new Aspect("luxuria", 0xffc1ce, new Aspect[] {Aspect.FLESH, Aspect.HUNGER}, new ResourceLocation("forbidden", "textures/aspects/luxuria.png"), 1);
@@ -39,6 +41,9 @@ public class DarkAspects
 	
 	public static void addAspects()
 	{
+		if(Config.noHell)
+			return;
+		
 		AspectList list;
 
 		list = ThaumcraftApiHelper.getObjectAspects(new ItemStack(Block.netherrack));
