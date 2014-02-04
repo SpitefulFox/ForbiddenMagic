@@ -63,7 +63,7 @@ public class ItemWandCores extends Item {
 		if(Compat.pb)
 		{
 			ItemStack soul = ItemApi.getItem("itemWandCasting", 72);
-			((ItemWandCasting)creative.getItem()).setCap(soul, (WandCap)WandCap.caps.get("thaumium"));
+			((ItemWandCasting)creative.getItem()).setCap(soul, (WandCap)WandCap.caps.get("soul"));
 			((ItemWandCasting)creative.getItem()).setRod(soul, (WandRod)WandRod.rods.get("soul"));
 			par3List.add(soul);
 		}
