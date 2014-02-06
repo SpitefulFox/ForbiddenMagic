@@ -39,7 +39,8 @@ public class ForbiddenResearch
 			(new DarkResearchItem("TRANSEMERALD", "ALCHEMY", (new AspectList()).add(Aspect.CRYSTAL, 1).add(Aspect.EXCHANGE, 1).add(Aspect.GREED, 2), -6, 3, 3, new ItemStack(ForbiddenItems.resource, 1, 0))).setPages(new ResearchPage[]{new ResearchPage("forbidden.research_page.TRANSEMERALD.1"), new ResearchPage((CrucibleRecipe)recipes.get("TransEmerald"))}).setConcealed().setParents(new String[]{"TRANSGOLD"}).registerResearchItem();
 		(new DarkResearchItem("BLACKFLOWER", "ALCHEMY", (new AspectList()).add(Aspect.PLANT, 1).add(Aspect.SENSES, 1).add(Aspect.DARKNESS, 2), -4, -1, 3, new ItemStack(ForbiddenBlocks.blackFlower, 1, 0))).setPages(new ResearchPage[]{new ResearchPage("forbidden.research_page.BLACKFLOWER.1"), new ResearchPage((CrucibleRecipe)recipes.get("BlackFlower")), new ResearchPage((IRecipe)recipes.get("BlackInk"))}).setParents(new String[]{"CRUCIBLE"}).registerResearchItem();
 		
-		if(Compat.tt)
+		if(ResearchCategories.researchCategories.containsKey("TT_ENCHANTING")
+			&& ResearchCategories.researchCategories.get("TT_ENCHANTING").research.containsKey("INFUSIONENCHANTMENT"))
 		{
 			(new DarkResearchItem("CONSUMING", "TT_ENCHANTING", (new AspectList()).add(Aspect.VOID, 2).add(Aspect.ENTROPY, 1).add(Aspect.MAGIC, 1), -6, -4, 3, new ResourceLocation("forbidden", "textures/misc/consuming.png"))).setPages(new ResearchPage[]{new ResearchPage("forbidden.research_page.CONSUMING.1"), new ResearchPage((InfusionEnchantmentRecipe)recipes.get("Consuming"))}).setParents(new String[]{"INFUSIONENCHANTMENT"}).setConcealed().registerResearchItem();
 			(new DarkResearchItem("PIGBANE", "TT_ENCHANTING", (new AspectList()).add(Aspect.HUNGER, 2).add(Aspect.WEAPON, 1).add(Aspect.MAGIC, 1), -6, -3, 2, new ResourceLocation("forbidden", "textures/misc/pigbane.png"))).setPages(new ResearchPage[]{new ResearchPage("forbidden.research_page.PIGBANE.1"), new ResearchPage((InfusionEnchantmentRecipe)recipes.get("Pigbane"))}).setParents(new String[]{"INFUSIONENCHANTMENT"}).setConcealed().registerResearchItem();
@@ -62,10 +63,11 @@ public class ForbiddenResearch
 		
 		ResearchCategories.registerCategory("INFERNALISM", new ResourceLocation("forbidden", "textures/misc/infernalism.png"), new ResourceLocation("thaumcraft", "textures/gui/gui_researchback.png"));
 		(new FauxResearchItem("INFAUXSION", "INFERNALISM", "INFUSION", "ARTIFICE", -5, 0, ItemApi.getBlock("blockStoneDevice", 2))).registerResearchItem();
-		if(!Compat.tt)
-			(new FauxResearchItem("INFAUXSIONENCHANTMENT", "INFERNALISM", "INFUSIONENCHANTMENT", "ARTIFICE", -3, 3, new ResourceLocation("thaumcraft", "textures/misc/r_enchant.png"))).setParents(new String[]{"INFAUXSION"}).registerResearchItem();
-		else
+		if(ResearchCategories.researchCategories.containsKey("TT_ENCHANTING")
+			&& ResearchCategories.researchCategories.get("TT_ENCHANTING").research.containsKey("INFUSIONENCHANTMENT"))
 			(new FauxResearchItem("INFAUXSIONENCHANTMENT", "INFERNALISM", "INFUSIONENCHANTMENT", "TT_ENCHANTING", -3, 3, new ResourceLocation("thaumcraft", "textures/misc/r_enchant.png"))).setParents(new String[]{"INFAUXSION"}).registerResearchItem();
+		else
+			(new FauxResearchItem("INFAUXSIONENCHANTMENT", "INFERNALISM", "INFUSIONENCHANTMENT", "ARTIFICE", -3, 3, new ResourceLocation("thaumcraft", "textures/misc/r_enchant.png"))).setParents(new String[]{"INFAUXSION"}).registerResearchItem();
 		
 		if(!Config.noLust)
 			(new DarkResearchItem("NETHERSHARDS", "INFERNALISM", new AspectList(), 0, 0, 0, new ItemStack(ForbiddenItems.deadlyShards, 1, 0))).setPages(new ResearchPage[] {new ResearchPage("forbidden.research_page.NETHERSHARDS.1"), new ResearchPage("forbidden.research_page.NETHERSHARDS.2"), new ResearchPage("forbidden.research_page.NETHERSHARDS.3")}).setStub().setRound().setAutoUnlock().registerResearchItem();
