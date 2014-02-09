@@ -114,12 +114,10 @@ public class Compat {
 				
 				i = GameRegistry.findItemStack("Natura", "Dark Tree", 1);
 				if(i != null){
-					list = ThaumcraftApiHelper.getObjectAspects(new ItemStack(i.itemID, 1, 1));
-					list.add(DarkAspects.WRATH, 2);
+					list = (new AspectList()).add(Aspect.TREE, 3).add(DarkAspects.WRATH, 2);
 					ThaumcraftApi.registerObjectTag(i.itemID, 1, list);
-					list = ThaumcraftApiHelper.getObjectAspects(new ItemStack(i.itemID, 1, 0));
-					list.add(Aspect.DARKNESS, 2);
-					ThaumcraftApi.registerObjectTag(i.itemID, 0, list);				
+					list = (new AspectList()).add(Aspect.TREE, 3).add(Aspect.DARKNESS, 2);
+					ThaumcraftApi.registerObjectTag(i.itemID, 0, list);
 				}
 				i = GameRegistry.findItemStack("Natura", "soil.tainted", 1);
 				if(i != null){
