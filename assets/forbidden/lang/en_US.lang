@@ -68,7 +68,7 @@ enchantment.educational=Educational
 # Misc
 itemGroup.forbidden=Forbidden Magic
 itemGroup.mobcrystal=Imprinting Crystals
-tc.research_category.INFERNALISM=Infernalism
+tc.research_category.FORBIDDEN=Apocrypha
 tc.research_category.TAINT=Tainted Arts
 #
 # Research

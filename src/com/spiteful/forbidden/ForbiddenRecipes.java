@@ -105,24 +105,5 @@ public class ForbiddenRecipes
 			}
 		}
 		
-		if(!Config.noMeddling && !Config.noHell){
-		
-			i$ = ThaumcraftApi.getCraftingRecipes().iterator();
-			
-			while(i$.hasNext()){
-				Object recipe = i$.next();
-				if(recipe instanceof InfusionRecipe){
-					InfusionRecipe fuse = (InfusionRecipe)recipe;
-					if(fuse.getResearch().equals("FOCUSHELLBAT")){
-						fuse.aspects = (new AspectList()).add(Aspect.FIRE, 25).add(DarkAspects.WRATH, 15).add(DarkAspects.NETHER, 15).add(Aspect.ENTROPY, 25);
-						fuse.recipeInput = new ItemStack(ForbiddenItems.deadlyShards, 1, 0);
-						ForbiddenResearch.recipes.put("FocusHellbat", fuse);
-						break;
-					
-					}
-				}
-			}
-			
-		}
 	}
 }

@@ -59,7 +59,6 @@ public class Config
 	public static boolean noLust = false;
 	public static boolean noHell = false;
 	public static boolean silverfishEmeralds = true;
-	public static boolean noMeddling = false;
 	public static boolean tagResearch = true;
 	public static boolean wrathCage = true;
 	public static boolean spork = false;
@@ -121,9 +120,6 @@ public class Config
 			Property et = conf.get("general", "Emerald Transmutation", emeraldTrans);
 			et.comment = "Disable to remove the Emerald Transmutation research and recipe.";
 			emeraldTrans = et.getBoolean(true);
-			Property nm = conf.get("general", "Don't Be That Guy", noMeddling);
-			nm.comment = "Enable to undo all changes to Vanilla Thaumcraft, such as the Infernal Furnace, Wand Focus: Nine Hells, or Ethereal Bloom.";
-			noMeddling = nm.getBoolean(true);
 			Property tr = conf.get("general", "Tag Research Items", tagResearch);
 			tr.comment = "Disable to get rid of the [FM] tags in the Thaumonomicon.";
 			tagResearch = tr.getBoolean(true);
