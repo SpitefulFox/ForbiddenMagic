@@ -29,7 +29,7 @@ import java.util.logging.Level;
 @Mod(
 	modid = "ForbiddenMagic",
 	name = "Forbidden Magic",
-	version = "0.23",
+	version = "0.24",
 	dependencies = "required-after:Thaumcraft;after:Natura;after:ThaumicTinkerer;after:ThaumicExploration"
 )
 @NetworkMod(
@@ -77,8 +77,8 @@ public class Forbidden
 	public void outro(FMLPostInitializationEvent event)
 	{
 		DarkAspects.addAspects();
-		Compat.compatify();
 		ForbiddenRecipes.addRecipes();
 		ForbiddenResearch.addResearch();
+		Compat.compatify();
 	}
 }
