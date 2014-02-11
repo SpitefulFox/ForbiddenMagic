@@ -71,7 +71,7 @@ public class DarkAspects
 		ThaumcraftApi.registerObjectTag(Item.netherrackBrick.itemID, -1, list);
 
 		list = ThaumcraftApiHelper.getObjectAspects(new ItemStack(Item.ghastTear));
-		list.add(NETHER, 4);
+		list.add(NETHER, 2).add(WRATH, 4);
 		ThaumcraftApi.registerObjectTag(Item.ghastTear.itemID, -1, list);
 
 		list = ThaumcraftApiHelper.getObjectAspects(new ItemStack(Item.skull.itemID, 1, 1));
@@ -85,10 +85,6 @@ public class DarkAspects
 		list = ThaumcraftApiHelper.getObjectAspects(new ItemStack(Item.enderPearl));
 		list.add(PRIDE, 1);
 		ThaumcraftApi.registerObjectTag(Item.enderPearl.itemID, -1, list);
-
-		list = ThaumcraftApiHelper.getObjectAspects(new ItemStack(Item.rottenFlesh));
-		list.add(GLUTTONY, 1);
-		ThaumcraftApi.registerObjectTag(Item.rottenFlesh.itemID, -1, list);
 
 		list = ThaumcraftApiHelper.getObjectAspects(new ItemStack(Block.slowSand));
 		list.add(NETHER, 1);
@@ -120,7 +116,9 @@ public class DarkAspects
 		ThaumcraftApi.registerObjectTag(Item.swordGold.itemID, -1, list);
 
 		list = ThaumcraftApiHelper.getObjectAspects(new ItemStack(Item.bed));
-		list.add(SLOTH, 2);
+		list.add(SLOTH, 4);
+		if(!Config.noLust)
+			list.add(LUST, 1);
 		ThaumcraftApi.registerObjectTag(Item.bed.itemID, -1, list);
 
 		list = ThaumcraftApiHelper.getObjectAspects(new ItemStack(Item.eyeOfEnder));
@@ -134,6 +132,24 @@ public class DarkAspects
 		list = ThaumcraftApiHelper.getObjectAspects(new ItemStack(Item.cookie));
 		list.add(GLUTTONY, 1);
 		ThaumcraftApi.registerObjectTag(Item.cookie.itemID, -1, list);
+		
+		list = ThaumcraftApiHelper.getObjectAspects(new ItemStack(Item.fireballCharge));
+		list.add(WRATH, 1);
+		ThaumcraftApi.registerObjectTag(Item.fireballCharge.itemID, -1, list);
+		
+		list = ThaumcraftApiHelper.getObjectAspects(new ItemStack(Item.comparator));
+		list.add(ENVY, 1);
+		ThaumcraftApi.registerObjectTag(Item.comparator.itemID, -1, list);
+		
+		list = (new AspectList()).add(Aspect.FLESH, 6).add(Aspect.LIFE, 6).add(Aspect.ENERGY, 6).add(Aspect.BEAST, 4).add(GLUTTONY, 6);
+		ThaumcraftApi.registerObjectTag("itemBacon", list);
+		
+		if(!Config.noLust)
+		{
+			list = ThaumcraftApiHelper.getObjectAspects(new ItemStack(Item.saddle));
+			list.add(LUST, 2);
+			ThaumcraftApi.registerObjectTag(Item.saddle.itemID, -1, list);
+		}
 
 		Iterator mobCount = ThaumcraftApi.scanEntities.iterator();
 
