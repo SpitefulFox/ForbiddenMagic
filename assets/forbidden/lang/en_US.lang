@@ -32,6 +32,7 @@ item.MobCrystalEmpty.name=Blank Imprinting Crystal
 item.MobCrystal.name=Imprinted Crystal
 item.DiabolistFork.name=Diabolist Fork
 item.DiabolistSpork.name=Spork of Doom
+item.GluttonyShard.name=Gluttony Shard
 #
 # Wand components
 item.Wand.tainted.rod=Tainted
@@ -61,9 +62,10 @@ tile.WrathCage.name=Wrath Cage
 # Enchantments
 enchantment.cluster=Fiery Core
 enchantment.pigbane=Porcivore
-enchantment.greedy=Greedy
+enchantment.greedy=Capitalist
 enchantment.consuming=Consuming
 enchantment.educational=Educational
+enchantment.corrupting=Corrupting
 #
 # Misc
 itemGroup.forbidden=Forbidden Magic
@@ -156,9 +158,9 @@ forbidden.research_name.CLUSTER=Enchantment: Fiery Core
 forbidden.research_text.CLUSTER=Chameleon of the Core
 forbidden.research_page.CLUSTER.1=You've discovered an enchantment to allow the Chameleon Pickaxe to imitate the effects of the Pickaxe of the Core.  A Chameleon Pickaxe with the Fiery Core enchantment has a chance of dropping clusters when mining certain ores.  Clusters are a lot purer than raw ore and can be smelted for two of the ore's normal smelting result.  Higher levels of Fiery Core increase the chance of dropping clusters.
 #
-forbidden.research_name.GREEDY=Enchantment: Greedy
-forbidden.research_text.GREEDY=I want your money AND your life!
-forbidden.research_page.GREEDY.1=You've discovered a weapon enchantment that allows you to profit from taking lives. Every time a Greedy weapon slays a hostile creature, there's a chance to drop an Emerald Fragment. If a Greedy Weapon is used to kill a villager, it will instead drop one of the villager's emeralds.
+forbidden.research_name.GREEDY=Enchantment: Capitalist
+forbidden.research_text.GREEDY=Unregulated enchanting
+forbidden.research_page.GREEDY.1=You've discovered a weapon enchantment that allows you to profit from taking lives. Every time a Capitalist weapon slays a hostile creature, there's a chance to drop an Emerald Fragment. If a Capitalist Weapon is used to kill a villager, it will instead drop one of the villager's emeralds.
 #
 forbidden.research_name.CONSUMING=Enchantment: Consuming
 forbidden.research_text.CONSUMING=Garbage Disposal
@@ -169,8 +171,12 @@ forbidden.research_text.PIGBANE=Show those Zombie Pigmen who's at the top of the
 forbidden.research_page.PIGBANE.1=Zombie Pigmen think they're so great. They're always stomping around the Nether ganging up on innocent travelers. It's time someone put a stop to them.<BR><BR>Weapons with the Porcivore enchantment will do excessive amounts of damage to Pigs and Zombie Pigmen.
 #
 forbidden.research_name.EDUCATIONAL=Enchantment: Educational
-forbidden.research_text.EDUCATIONAL=Get a learn job!
+forbidden.research_text.EDUCATIONAL=You will LEARN!
 forbidden.research_page.EDUCATIONAL.1=You've created an enchantment to infuse a weapon with the very essence of knowledge and learning. Hammering such learning into monsters' heads will result in them dropping more experience than normal, depending on the level of enchantment.
+#
+forbidden.research_name.CORRUPTING=Enchantment: Corrupting
+forbidden.research_text.CORRUPTING=A bad influence on shards
+forbidden.research_page.CORRUPTING.1=The Nether is great and all, but it's also kind of a... Hell Hole.<BR><BR>The Corrupting enchant allows you to harvest Nether Shards without having to be in the Nether.  A pickaxe enchanted with Corrupting will randomly corrupt harvested elemental shards, changing them into nether shards. The shards only seem susceptible while they are encased in infused stone, so corrupting a shard cluster will have no effect.
 #
 forbidden.research_name.TAINTBASICS=Tainted Lands
 forbidden.research_text.TAINTBASICS=Deep Purple

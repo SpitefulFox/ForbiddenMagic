@@ -72,6 +72,7 @@ public class ForbiddenResearch
 		(new DarkResearchItem("CLUSTER", "FORBIDDEN", (new AspectList()).add(Aspect.METAL, 1).add(Aspect.FIRE, 2).add(DarkAspects.ENVY, 1), -7, 7, 3, new ResourceLocation("forbidden", "textures/misc/lucrative.png"))).setPages(new ResearchPage[]{new ResearchPage("forbidden.research_page.CLUSTER.1"), new ResearchPage((InfusionEnchantmentRecipe)recipes.get("Cluster"))}).setParents(new String[]{"MORPHTOOLS", "ELEMENTALPICK"}).setConcealed().registerResearchItem();
 		if(Config.greedyEnch)
 			(new DarkResearchItem("GREEDY", "FORBIDDEN", (new AspectList()).add(Aspect.MAGIC, 1).add(Aspect.WEAPON, 1).add(Aspect.GREED, 2), -1, 5, 4, new ResourceLocation("forbidden", "textures/misc/greedy.png"))).setPages(new ResearchPage[]{new ResearchPage("forbidden.research_page.GREEDY.1"), new ResearchPage((InfusionEnchantmentRecipe)recipes.get("Greedy"))}).setParents(new String[]{"INFAUXSIONENCHANTMENT"}).setConcealed().registerResearchItem();
+		(new DarkResearchItem("CORRUPTING", "FORBIDDEN", (new AspectList()).add(DarkAspects.NETHER, 2).add(Aspect.CRYSTAL, 1).add(Aspect.EXCHANGE, 1), -1, 6, 4, new ResourceLocation("forbidden", "textures/misc/corrupting.png"))).setPages(new ResearchPage[]{new ResearchPage("forbidden.research_page.CORRUPTING.1"), new ResearchPage((InfusionEnchantmentRecipe)recipes.get("Corrupting"))}).setParents(new String[]{"INFAUXSIONENCHANTMENT"}).setConcealed().registerResearchItem();
 		
 		if(Config.wrathCage){
 			if(Config.wrathCost > 0)

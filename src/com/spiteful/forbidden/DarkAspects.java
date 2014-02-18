@@ -71,7 +71,7 @@ public class DarkAspects
 		ThaumcraftApi.registerObjectTag(Item.netherrackBrick.itemID, -1, list);
 
 		list = ThaumcraftApiHelper.getObjectAspects(new ItemStack(Item.ghastTear));
-		list.add(NETHER, 2).add(WRATH, 4);
+		list.add(WRATH, 4);
 		ThaumcraftApi.registerObjectTag(Item.ghastTear.itemID, -1, list);
 
 		list = ThaumcraftApiHelper.getObjectAspects(new ItemStack(Item.skull.itemID, 1, 1));
@@ -86,9 +86,9 @@ public class DarkAspects
 		list.add(PRIDE, 1);
 		ThaumcraftApi.registerObjectTag(Item.enderPearl.itemID, -1, list);
 
-		list = ThaumcraftApiHelper.getObjectAspects(new ItemStack(Block.slowSand));
-		list.add(NETHER, 1);
-		ThaumcraftApi.registerObjectTag(Block.slowSand.blockID, -1, list);
+		//list = ThaumcraftApiHelper.getObjectAspects(new ItemStack(Block.slowSand));
+		//list.add(NETHER, 1);
+		//ThaumcraftApi.registerObjectTag(Block.slowSand.blockID, -1, list);
 
 		list = ThaumcraftApiHelper.getObjectAspects(new ItemStack(Block.tnt));
 		list.add(WRATH, 2);

@@ -40,6 +40,7 @@ public class Config
 	public static int morphShovelID;
 	public static int morphAxeID;
 	public static int wandCapID;
+	public static int gluttonyShardID;
 
 	public static int arcaneCakeBlockID;
 	public static int blackFlowerBlockID;
@@ -50,11 +51,14 @@ public class Config
 	public static int greedyEnchID;
 	public static int consumingEnchID;
 	public static int educationalEnchID;
+	public static int corruptingEnchID;
 
 	public static int thaumcraftResourceID;
 	public static int thaumcraftTaintBlockID;
 	public static int thaumcraftTaintPotionID;
 	public static int thaumcraftTaintBiomeID;
+	public static int thaumcraftOreID;
+	public static int thaumcraftShardID;
 	
 	public static boolean noLust = false;
 	public static boolean noHell = false;
@@ -92,6 +96,7 @@ public class Config
 			morphShovelID = conf.getItem("Chameleon Shovel", idCount++).getInt();
 			morphAxeID = conf.getItem("Chameleon Axe", idCount++).getInt();
 			wandCapID = conf.getItem("Wand Caps", idCount++).getInt();
+			gluttonyShardID = conf.getItem("Gluttony Shard", idCount++).getInt();
 			
 			int blockCount = 3000;
 			arcaneCakeBlockID = conf.getBlock("Thaumic Cake", blockCount++).getInt();
@@ -101,9 +106,10 @@ public class Config
 			int enchCount = 66;
 			clusterEnchID = conf.get("enchantments", "Fiery Core", enchCount++).getInt();
 			pigBaneEnchID = conf.get("enchantments", "Porcivore", enchCount++).getInt();
-			greedyEnchID = conf.get("enchantments", "Greedy", enchCount++).getInt();
+			greedyEnchID = conf.get("enchantments", "Capitalist", enchCount++).getInt();
 			consumingEnchID = conf.get("enchantments", "Consuming", enchCount++).getInt();
 			educationalEnchID = conf.get("enchantments", "Educational", enchCount++).getInt();
+			corruptingEnchID = conf.get("enchantments", "Corrupting", enchCount++).getInt();
 			
 			Property nl = conf.get("general", "No Lust", noLust);
 			nl.comment = "Enable to remove Luxuria aspect and related items.";
@@ -114,8 +120,8 @@ public class Config
 			Property sf = conf.get("general", "Silverfish Drop Emerald Nuggets", silverfishEmeralds);
 			sf.comment = "Disable to prevent Silverfish from dropping emerald nuggets.";
 			silverfishEmeralds = sf.getBoolean(true);
-			Property ge = conf.get("general", "Greedy Enchantment", greedyEnch);
-			ge.comment = "Disable to remove the recipe and effects of the Greedy enchantment.";
+			Property ge = conf.get("general", "Capitalist Enchantment", greedyEnch);
+			ge.comment = "Disable to remove the recipe and effects of the Capitalist enchantment.";
 			greedyEnch = ge.getBoolean(true);
 			Property et = conf.get("general", "Emerald Transmutation", emeraldTrans);
 			et.comment = "Disable to remove the Emerald Transmutation research and recipe.";
@@ -150,7 +156,9 @@ public class Config
 		try {
 		
 			thaumcraftResourceID = ItemApi.getItem("itemResource", 0).itemID;
+			thaumcraftShardID = ItemApi.getItem("itemShard", 0).itemID;
 			thaumcraftTaintBlockID = ItemApi.getBlock("blockTaint", 0).itemID;
+			thaumcraftOreID = ItemApi.getBlock("blockCustomOre", 0).itemID;
 			taintMaterial = Block.blocksList[thaumcraftTaintBlockID].blockMaterial;
 			
 			thaumcraftTaintPotionID = Class.forName("thaumcraft.common.config.Config").getField("potionFluxTaintID").getInt(null);

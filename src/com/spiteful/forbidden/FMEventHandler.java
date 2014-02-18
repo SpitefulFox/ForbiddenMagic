@@ -5,6 +5,8 @@ import com.spiteful.forbidden.blocks.ForbiddenBlocks;
 import com.spiteful.forbidden.blocks.BlockBlackFlower;
 import com.spiteful.forbidden.enchantments.*;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EnumCreatureAttribute;
@@ -309,15 +311,65 @@ public class FMEventHandler
 					}
 				}
 			}
-			if(EnchantmentHelper.getEnchantmentLevel(DarkEnchantments.consuming.effectId, equip) > 0){
+			if(EnchantmentHelper.getEnchantmentLevel(DarkEnchantments.consuming.effectId, equip) > 0)
+			{
 				for(int x = 0;x < event.drops.size();x++)
 				{
 					ItemStack drop = (ItemStack)event.drops.get(x);
-					if(drop != null && (drop.itemID == Block.cobblestone.blockID || drop.itemID == Block.dirt.blockID || drop.itemID == Block.netherrack.blockID))
+					if(drop != null && (drop.itemID == Block.cobblestone.blockID || drop.itemID == Block.dirt.blockID || drop.itemID == Block.netherrack.blockID
+						|| drop.itemID == Block.gravel.blockID))
 						event.drops.remove(x);
 				}
 			}
+			if(EnchantmentHelper.getEnchantmentLevel(DarkEnchantments.corrupting.effectId, equip) > 0 && event.block.blockID == Config.thaumcraftOreID &&  randy.nextInt(3) == 1)
+			{
+				ArrayList<ItemStack> moarDrops = new ArrayList<ItemStack>();
+				ArrayList<ItemStack> deadDrops = new ArrayList<ItemStack>();
+				Iterator current = event.drops.iterator();
+				while(current.hasNext())
+				{
+					ItemStack curDrop = (ItemStack)current.next();
+					if(curDrop != null && curDrop.itemID == Config.thaumcraftShardID)
+					{
+						int x = curDrop.stackSize;
+						for(int i = 0;i < x;i++)
+						{
+							moarDrops.add(getSinShard());
+						}
+						deadDrops.add(curDrop);
+					}
+				}
+				current = deadDrops.iterator();
+				while(current.hasNext())
+				{
+					event.drops.remove((ItemStack)(current.next()));
+				}
+				current = moarDrops.iterator();
+				while(current.hasNext())
+				{
+					event.drops.add((ItemStack)(current.next()));
+				}
+			}
 		}
+	}
+	
+	public ItemStack getSinShard()
+	{
+		int x = randy.nextInt(7);
+		switch(x)
+		{
+			case 0:
+			case 1:
+			case 3:
+			case 5:
+			case 6: return new ItemStack(ForbiddenItems.deadlyShards, 1, x);
+			case 2: return new ItemStack(ForbiddenItems.gluttonyShard, 1, 0);
+			case 4:	if(Config.noLust)
+						return getSinShard();
+					else
+						return new ItemStack(ForbiddenItems.deadlyShards, 1, 4);
+		}
+		return null;
 	}
 	
 	@ForgeSubscribe
