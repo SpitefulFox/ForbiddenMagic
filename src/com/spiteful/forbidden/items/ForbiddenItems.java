@@ -32,6 +32,7 @@ public class ForbiddenItems
 	public static Item morphSword;
 	public static Item morphShovel;
 	public static Item morphAxe;
+	public static Item bloodwell;
 	
 	public static WandRod WAND_ROD_TAINTED;
 	public static WandRod WAND_ROD_INFERNAL;
@@ -123,6 +124,12 @@ public class ForbiddenItems
 		GameRegistry.registerItem(resource, "FMResource");
 		OreDictionary.registerOre("nuggetEmerald", new ItemStack(resource, 1, 0));
 		OreDictionary.registerOre("dyeBlack", new ItemStack(resource, 1, 1));
+		
+		if(Compat.bm)
+		{
+			bloodwell = new ItemBloodwell(Config.bloodwellID).setUnlocalizedName("Bloodwell");
+			GameRegistry.registerItem(bloodwell, "Bloodwell");
+		}
 		
 	}
 }

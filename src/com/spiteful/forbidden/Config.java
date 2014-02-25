@@ -41,6 +41,7 @@ public class Config
 	public static int morphAxeID;
 	public static int wandCapID;
 	public static int gluttonyShardID;
+	public static int bloodwellID;
 
 	public static int arcaneCakeBlockID;
 	public static int blackFlowerBlockID;
@@ -68,6 +69,7 @@ public class Config
 	public static boolean spork = false;
 	public static boolean greedyEnch = true;
 	public static boolean emeraldTrans = true;
+	public static boolean wrathCrazy = false;
 	
 	public static int wrathCost = 5;
 	public static int wrathEff = 4;
@@ -97,6 +99,7 @@ public class Config
 			morphAxeID = conf.getItem("Chameleon Axe", idCount++).getInt();
 			wandCapID = conf.getItem("Wand Caps", idCount++).getInt();
 			gluttonyShardID = conf.getItem("Gluttony Shard", idCount++).getInt();
+			bloodwellID = conf.getItem("Bloody Scrivener's Tools", idCount++).getInt();
 			
 			int blockCount = 3000;
 			arcaneCakeBlockID = conf.getBlock("Thaumic Cake", blockCount++).getInt();
@@ -140,6 +143,10 @@ public class Config
 			wrathEff = we.getInt(4);
 			if(wrathEff < 0)
 				wrathEff = 4;
+			Property cw = conf.get("general", "Wrath Cage Cries Havoc", wrathCrazy);
+			cw.comment = "Enable to let the Wrath Cage imprint on ANY non-boss mob.  May break your game or make your game Awesome.";
+			wrathCrazy = cw.getBoolean(false);
+			
 			Property sd = conf.get("general", "Spork of Doom", spork);
 			sd.comment = "What is this?  I don't even...";
 			spork = sd.getBoolean(false);
@@ -201,17 +208,17 @@ public class Config
 			spawnerMobs.put("Blaze", Aspect.FIRE);
 			spawnerMobs.put("LavaSlime", Aspect.FIRE);
 			spawnerMobs.put("Witch", Aspect.MAGIC);
-			spawnerMobs.put("Firebat", Aspect.FIRE);
-			spawnerMobs.put("Wisp", Aspect.AURA);
-			spawnerMobs.put("ThaumSlime", Aspect.TAINT);
-			spawnerMobs.put("BrainyZombie", Aspect.MIND);
-			spawnerMobs.put("TaintSpider", Aspect.TAINT);
-			spawnerMobs.put("TaintSwarm", Aspect.TAINT);
-			spawnerMobs.put("TaintedPig", Aspect.TAINT);
-			//spawnerMobs.put("TaintedSheep", Aspect.TAINT);
-			spawnerMobs.put("TaintedCow", Aspect.TAINT);
-			spawnerMobs.put("TaintedChicken", Aspect.TAINT);
-			spawnerMobs.put("TaintedVillager", Aspect.TAINT);
+			spawnerMobs.put("Thaumcraft.Firebat", Aspect.FIRE);
+			spawnerMobs.put("Thaumcraft.Wisp", Aspect.AURA);
+			spawnerMobs.put("Thaumcraft.ThaumSlime", Aspect.TAINT);
+			spawnerMobs.put("Thaumcraft.BrainyZombie", Aspect.MIND);
+			spawnerMobs.put("Thaumcraft.TaintSpider", Aspect.TAINT);
+			spawnerMobs.put("Thaumcraft.TaintSwarm", Aspect.TAINT);
+			spawnerMobs.put("Thaumcraft.TaintedPig", Aspect.TAINT);
+			spawnerMobs.put("Thaumcraft.TaintedSheep", Aspect.TAINT);
+			spawnerMobs.put("Thaumcraft.TaintedCow", Aspect.TAINT);
+			spawnerMobs.put("Thaumcraft.TaintedChicken", Aspect.TAINT);
+			spawnerMobs.put("Thaumcraft.TaintedVillager", Aspect.TAINT);
 			//spawnerMobs.put("Taintacle", DarkAspects.LUST);
 			
 		}
