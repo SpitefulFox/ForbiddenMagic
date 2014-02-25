@@ -31,7 +31,8 @@ public class TileEntityWrathCage extends TileEntity implements IAspectContainer,
 	public int wrath = 0;
 	public int sloth = 0;
 	public int special = 0;
-	Aspect aspect;
+	public byte mode = 0;
+	Aspect aspect = Aspect.GREED;
 
 	@Override
 	/**
@@ -44,6 +45,7 @@ public class TileEntityWrathCage extends TileEntity implements IAspectContainer,
 		this.wrath = par1NBTTagCompound.getShort("Wrath");
 		this.sloth = par1NBTTagCompound.getShort("Sloth");
 		this.special = par1NBTTagCompound.getShort("Special");
+		this.mode = par1NBTTagCompound.getByte("Mode");
 		aspect = spawnLogic.getAspect();
 	}
 
@@ -58,6 +60,7 @@ public class TileEntityWrathCage extends TileEntity implements IAspectContainer,
 		par1NBTTagCompound.setShort("Wrath", (short)this.wrath);
 		par1NBTTagCompound.setShort("Sloth", (short)this.sloth);
 		par1NBTTagCompound.setShort("Special", (short)this.special);
+		par1NBTTagCompound.setByte("Mode", this.mode);
 	}
 	
 	@Override
@@ -97,19 +100,19 @@ public class TileEntityWrathCage extends TileEntity implements IAspectContainer,
 			if(te != null) {
 				IEssentiaTransport ic = (IEssentiaTransport)te;
 				if(ic.canOutputTo(current.getOpposite()) && special < 64
-					&& ic.getSuction(current.getOpposite()).getAmount(aspect) < this.getSuction(current).getAmount(aspect) && ic.takeVis(aspect, 1) == 1) {
+					&& ic.getEssentiaType(current.getOpposite()) == aspect && ic.getEssentiaAmount(current.getOpposite()) > 0 && ic.takeVis(aspect, 1) == 1) {
 					special++;
 					worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
 					return;
 				}
 				else if(ic.canOutputTo(current.getOpposite()) && wrath < 64 && special < Config.wrathCost
-					&& ic.getSuction(current.getOpposite()).getAmount(DarkAspects.WRATH) < this.getSuction(current).getAmount(DarkAspects.WRATH) && ic.takeVis(DarkAspects.WRATH, 1) == 1) {
+					&& ic.getEssentiaType(current.getOpposite()) == DarkAspects.WRATH && ic.getEssentiaAmount(current.getOpposite()) > 0 && ic.takeVis(DarkAspects.WRATH, 1) == 1) {
 					wrath++;
 					worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
 					return;
 				}
 				else if(ic.canOutputTo(current.getOpposite()) && sloth < 64 && special < Config.wrathCost && wrath < Config.wrathCost
-					&& ic.getSuction(current.getOpposite()).getAmount(DarkAspects.SLOTH) < this.getSuction(current).getAmount(DarkAspects.SLOTH) && ic.takeVis(DarkAspects.SLOTH, 1) == 1) {
+					&& ic.getEssentiaType(current.getOpposite()) == DarkAspects.SLOTH && ic.getEssentiaAmount(current.getOpposite()) > 0 && ic.takeVis(DarkAspects.SLOTH, 1) == 1) {
 					sloth++;
 					worldObj.markBlockForUpdate(xCoord, yCoord, zCoord);
 					return;
@@ -144,7 +147,14 @@ public class TileEntityWrathCage extends TileEntity implements IAspectContainer,
 	{
 		AspectList list = new AspectList();
 		if(Config.wrathCost > 0 && spawnLogic.isMobSet())
-			list.add(DarkAspects.WRATH, wrath).add(DarkAspects.SLOTH, sloth).add(aspect, special);
+		{
+			if(mode == 0)
+				list.add(aspect, special);
+			else if(mode == 1)
+				list.add(DarkAspects.WRATH, wrath);
+			else
+				list.add(DarkAspects.SLOTH, sloth);
+		}
 		return list;
 	}
 	
@@ -204,16 +214,6 @@ public class TileEntityWrathCage extends TileEntity implements IAspectContainer,
 	}
 
 	/**
-	 * removes a bunch of different aspects and amounts from the tile entity.
-	 * @param ot the ObjectTags object that contains the aspects and their amounts.
-	 * @return true if all the aspects and their amounts were available and successfully removed
-	 */
-	public boolean takeFromContainer(AspectList ot)
-	{
-		return false;
-	}
-
-	/**
 	 * Checks if the tile entity contains the listed amount (or more) of the aspect
 	 * @param tag
 	 * @param amount
@@ -229,26 +229,6 @@ public class TileEntityWrathCage extends TileEntity implements IAspectContainer,
 			return special >= amount;
 		else
 			return false;
-	}
-
-	/**
-	 * Checks if the tile entity contains all the listed aspects and their amounts
-	 * @param ot the ObjectTags object that contains the aspects and their amounts.
-	 * @return
-	 */
-	public boolean doesContainerContain(AspectList ot){
-		for (Aspect asp: ot.getAspects())
-		{
-			if(asp == DarkAspects.WRATH && wrath < ot.getAmount(DarkAspects.WRATH))
-				return false;
-			else if(asp == DarkAspects.SLOTH && sloth < ot.getAmount(DarkAspects.SLOTH))
-				return false;
-			else if(asp == aspect && special < ot.getAmount(aspect))
-				return false;
-			else if(asp != DarkAspects.WRATH && asp != DarkAspects.SLOTH && asp != aspect)
-				return false;
-		}
-		return true;
 	}
 
 	/**
@@ -269,13 +249,42 @@ public class TileEntityWrathCage extends TileEntity implements IAspectContainer,
 	}
 	
 	/**
+	 * Checks if the tile entity contains all the listed aspects and their amounts
+	 * @param ot the ObjectTags object that contains the aspects and their amounts.
+	 * @return
+	 * 
+	 * Going away in the next major patch
+	 */
+	@Deprecated
+	public boolean doesContainerContain(AspectList ot)
+	{
+		return false;
+	}
+	
+	/**
+	 * removes a bunch of different aspects and amounts from the tile entity.
+	 * @param ot the ObjectTags object that contains the aspects and their amounts.
+	 * @return true if all the aspects and their amounts were available and successfully removed
+	 * 
+	 * Going away in the next major patch
+	 */
+	@Deprecated
+	public boolean takeFromContainer(AspectList ot)
+	{
+		return false;
+	}
+	
+	/**
 	 * Is this tile able to connect to other vis users/sources on the specified side?
 	 * @param face
 	 * @return
 	 */
 	public boolean isConnectable(ForgeDirection face)
 	{
-		return true;
+		if(Config.wrathCost > 0)
+			return true;
+		else
+			return false;
 	}
 
 	/**
@@ -302,41 +311,65 @@ public class TileEntityWrathCage extends TileEntity implements IAspectContainer,
 	 * Sets the amount of suction this block will apply
 	 * @param suction
 	 */
-	public void setSuction(AspectList suction)
-	{
-	
-	}
-
-	/**
-	 * Sets the amount of suction this block will apply
-	 * @param suction
-	 */
 	public void setSuction(Aspect aspect, int amount)
 	{
 	
 	}
 
+	//**
+	 //* Returns the amount of suction this block is applying.
+	 //* @param loc
+	 //* 		the location from where the suction is being checked
+	 //* @return
+	 //*/
+	//public AspectList getSuction(ForgeDirection face)
+	//{
+		//AspectList list = new AspectList();
+		//if(Config.wrathCost <= 0)
+			//return list;
+		//if(special < 64)
+			//list.add(aspect, 256);
+		//if(special < Config.wrathCost && wrath < 64)
+			//list.add(DarkAspects.WRATH, 256);
+		//if(special < Config.wrathCost && wrath < Config.wrathCost && sloth < 64)
+			//list.add(DarkAspects.SLOTH, 256);
+		
+		//return list;
+	//}
+
 	/**
-	 * Returns the amount of suction this block is applying.
+	 * Returns the type of suction this block is applying. 
+	 * @param loc
+	 * 		the location from where the suction is being checked
+	 * @return
+	 * 		a return type of null indicates the suction is untyped and the first thing available will be drawn
+	 */
+	public Aspect getSuctionType(ForgeDirection face)
+	{
+		if(Config.wrathCost <= 0)
+			return null;
+		if(mode == 0)
+			return aspect;
+		else if(mode == 1)
+			return DarkAspects.WRATH;
+		else
+			return DarkAspects.SLOTH;
+	}
+	
+	/**
+	 * Returns the strength of suction this block is applying. 
 	 * @param loc
 	 * 		the location from where the suction is being checked
 	 * @return
 	 */
-	public AspectList getSuction(ForgeDirection face)
+	public int getSuctionAmount(ForgeDirection face)
 	{
-		AspectList list = new AspectList();
-		if(Config.wrathCost <= 0)
-			return list;
-		if(special < 64)
-			list.add(aspect, 256);
-		if(special < Config.wrathCost && wrath < 64)
-			list.add(DarkAspects.WRATH, 256);
-		if(special < Config.wrathCost && wrath < Config.wrathCost && sloth < 64)
-			list.add(DarkAspects.SLOTH, 256);
-		
-		return list;
+		if(Config.wrathCost > 0)
+			return 256;
+		else
+			return 0;
 	}
-
+	
 	/**
 	 * remove the specified amount of vis from this transport tile
 	 * @param suction
@@ -346,10 +379,55 @@ public class TileEntityWrathCage extends TileEntity implements IAspectContainer,
 	{
 		return 0;
 	}
-
-	public AspectList getEssentia(ForgeDirection face)
+	
+	/**
+	 * add the specified amount of vis to this transport tile
+	 * @return how much was actually added
+	 */
+	public int addVis(Aspect inp, int amount)
 	{
-		return getAspects();
+		if(inp == aspect)
+		{
+			special += Math.min(amount, 64);
+			return Math.min(amount, 64);
+		}
+		else if(inp == DarkAspects.WRATH)
+		{
+			wrath += Math.min(amount, 64);
+			return Math.min(amount, 64);
+		}
+		else if(inp == DarkAspects.SLOTH)
+		{
+			sloth += Math.min(amount, 64);
+			return Math.min(amount, 64);
+		}
+		else
+			return amount;
+	}
+	
+	/**
+	 * What type of essentia this contains
+	 * @param face
+	 * @return
+	 */
+	public Aspect getEssentiaType(ForgeDirection face)
+	{
+		return getSuctionType(face);
+	}
+	
+	/**
+	 * How much essentia this block contains
+	 * @param face
+	 * @return
+	 */
+	public int getEssentiaAmount(ForgeDirection face)
+	{
+		if(mode == 0)
+			return special;
+		else if(mode == 1)
+			return wrath;
+		else
+			return sloth;
 	}
 
 	/**

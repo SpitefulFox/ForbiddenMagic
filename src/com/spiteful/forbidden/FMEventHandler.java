@@ -241,7 +241,7 @@ public class FMEventHandler
 					if(name == null)
 						return;
 				}
-				if(Config.spawnerMobs.containsKey(name))
+				if(Config.spawnerMobs.containsKey(name) ||(Config.wrathCrazy && !(event.entityLiving instanceof IBossDisplayData)))
 					imprintCrystal((EntityPlayer)(event.source.getEntity()), name);
 			}
 			

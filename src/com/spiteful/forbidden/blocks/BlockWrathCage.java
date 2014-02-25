@@ -3,6 +3,7 @@ package com.spiteful.forbidden.blocks;
 import com.spiteful.forbidden.tiles.TileEntityWrathCage;
 import com.spiteful.forbidden.items.ForbiddenItems;
 import com.spiteful.forbidden.Forbidden;
+import com.spiteful.forbidden.Config;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -91,6 +92,12 @@ public class BlockWrathCage extends BlockContainer
 				player.swingItem();
 				return true;
 			}
+		}
+		else if(held != null && held.itemID == ForbiddenItems.fork.itemID && Config.wrathCost > 0){
+			TileEntityWrathCage spawner = (TileEntityWrathCage)par1World.getBlockTileEntity(x, y, z);
+			if(++spawner.mode > 2)
+				spawner.mode = 0;
+			player.swingItem();
 		}
 		return false;
 	}

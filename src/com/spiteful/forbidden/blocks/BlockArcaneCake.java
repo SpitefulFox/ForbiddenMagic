@@ -143,7 +143,7 @@ public class BlockArcaneCake extends Block
 	{
 		if (par5EntityPlayer.canEat(false))
 		{
-			par5EntityPlayer.getFoodStats().addStats(2, 3.0F);
+			par5EntityPlayer.getFoodStats().addStats(2, 1.0F);
 			int l = par1World.getBlockMetadata(par2, par3, par4) + 1;
 
 			if (l >= 12)

@@ -11,6 +11,8 @@ import thaumcraft.api.research.ResearchItem;
 
 public class DarkResearchItem extends ResearchItem
 {
+	String inter = null;
+	
 	public DarkResearchItem(String par1, String par2)
 	{
 		super(par1, par2);
@@ -25,6 +27,18 @@ public class DarkResearchItem extends ResearchItem
 	{
 		super(par1, par2, tags, par3, par4, par5, icon);
 	}
+	
+	public DarkResearchItem(String par1, String par2, String mod, AspectList tags, int par3, int par4, int par5, ResourceLocation icon)
+	{
+		super(par1, par2, tags, par3, par4, par5, icon);
+		inter = mod;
+	}
+	
+	public DarkResearchItem(String par1, String par2, String mod, AspectList tags, int par3, int par4, int par5, ItemStack icon)
+	{
+		super(par1, par2, tags, par3, par4, par5, icon);
+		inter = mod;
+	}
 
 	@SideOnly(Side.CLIENT)
 	public String getName()
@@ -36,7 +50,12 @@ public class DarkResearchItem extends ResearchItem
 	public String getText()
 	{
 		if(Config.tagResearch)
-			return "[FM] " + StatCollector.translateToLocal("forbidden.research_text." + key);
+		{
+			if(inter == null)
+				return "[FM] " + StatCollector.translateToLocal("forbidden.research_text." + key);
+			else
+				return "[FM] " + inter + " " + StatCollector.translateToLocal("forbidden.research_text." + key);
+		}
 		else
 			return StatCollector.translateToLocal("forbidden.research_text." + key);
 	}
