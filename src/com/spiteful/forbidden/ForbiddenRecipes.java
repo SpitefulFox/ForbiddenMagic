@@ -58,6 +58,8 @@ public class ForbiddenRecipes
 		ForbiddenResearch.recipes.put("BlackFlower", ThaumcraftApi.addCrucibleRecipe("BLACKFLOWER", new ItemStack(ForbiddenBlocks.blackFlower, 1, 0), new ItemStack(Block.plantRed), (new AspectList()).merge(Aspect.DARKNESS, 5).merge(Aspect.LIFE, 5)));
 		ForbiddenResearch.recipes.put("BlackInk", CraftingManager.getInstance().addRecipe(new ItemStack(ForbiddenItems.resource, 2, 1), new Object[]{"#", Character.valueOf('#'), new ItemStack(ForbiddenBlocks.blackFlower, 1, 0)}));
 		
+		ForbiddenResearch.recipes.put("Crystalwell", ThaumcraftApi.addShapelessArcaneCraftingRecipe("CRYSTALWELL", new ItemStack(ForbiddenItems.crystalwell, 1, 0), (new AspectList()).add(Aspect.EARTH, 5).add(Aspect.FIRE, 5).add(Aspect.AIR, 5).add(Aspect.WATER, 5).add(Aspect.ORDER, 5).add(Aspect.ENTROPY, 5), new Object[]{ItemApi.getItem("itemInkwell", 100), "dyeBlack", ItemApi.getBlock("blockCrystal", 6)}));
+		
 		ForbiddenResearch.recipes.put("Cluster", ThaumcraftApi.addInfusionEnchantmentRecipe("CLUSTER", DarkEnchantments.cluster, 3, (new AspectList()).add(Aspect.FIRE, 4).add(Aspect.METAL, 4).add(Aspect.GREED, 4), new ItemStack[]{ItemApi.getItem("itemPickElemental", 0), ItemApi.getItem("itemResource", 14)}));
 		if(Config.greedyEnch)
 			ForbiddenResearch.recipes.put("Greedy", ThaumcraftApi.addInfusionEnchantmentRecipe("GREEDY", DarkEnchantments.greedy, 4, (new AspectList()).add(DarkAspects.NETHER, 16).add(Aspect.WEAPON, 8).add(Aspect.GREED, 16), new ItemStack[]{new ItemStack(Item.swordGold), new ItemStack(Item.diamond), new ItemStack(Block.blockGold), ItemApi.getItem("itemResource", 14)}));

@@ -33,6 +33,7 @@ public class ForbiddenItems
 	public static Item morphShovel;
 	public static Item morphAxe;
 	public static Item bloodwell;
+	public static Item crystalwell;
 	
 	public static WandRod WAND_ROD_TAINTED;
 	public static WandRod WAND_ROD_INFERNAL;
@@ -130,6 +131,9 @@ public class ForbiddenItems
 			bloodwell = new ItemBloodwell(Config.bloodwellID).setUnlocalizedName("Bloodwell");
 			GameRegistry.registerItem(bloodwell, "Bloodwell");
 		}
+		
+		crystalwell = new ItemCrystalwell(Config.crystalwellID).setUnlocalizedName("Crystalwell");
+		GameRegistry.registerItem(crystalwell, "Crystalwell");
 		
 	}
 }

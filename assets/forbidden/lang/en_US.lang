@@ -34,6 +34,7 @@ item.DiabolistFork.name=Diabolist Fork
 item.DiabolistSpork.name=Spork of Doom
 item.GluttonyShard.name=Gluttony Shard
 item.Bloodwell.name=Bloody Scrivener's Tools
+item.Crystalwell.name=Crystal Scribing Tools
 #
 # Wand components
 item.Wand.tainted.rod=Tainted
@@ -187,4 +188,8 @@ forbidden.research_page.TAINTBASICS.2=Tainted Lands can be found naturally in th
 forbidden.research_name.BLOODWELL=Bloody Scrivener's Tools
 forbidden.research_text.BLOODWELL="I'll complete this research if it kills me!"
 forbidden.research_page.BLOODWELL.1=There's nothing more frustrating than having to pause your research to refill your inkwell. Sometimes, you're just so desperate to complete a research you'd rather use your own blood as ink than stop to go find a refill.<BR><BR>The Bloody Scrivener's Tools will refill using Life Points from their owner's network, at a rate of 25 LP per point. This ability requires human warmth to activate, requiring you to remove the tools from the research table, but without having to actually leave the research area.
+#
+forbidden.research_name.CRYSTALWELL=Crystal Scribing Tools
+forbidden.research_text.CRYSTALWELL=Arcane Research Grant
+forbidden.research_page.CRYSTALWELL.1=Combining elemental shards with your inkwell results in some interesting effects. The Crystal Scribing Tools seem to absorb knowledge as you use them to write. Once the well is empty of ink, you can absorb this knowledge for a small burst of research points by holding the tools in your hand and right clicking. Unfortunately, this burns the tool out and turns it back into a mundane Scribing Tool again.
 #
