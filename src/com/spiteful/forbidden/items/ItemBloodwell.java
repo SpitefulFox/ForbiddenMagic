@@ -69,7 +69,7 @@ public class ItemBloodwell extends Item implements IScribeTools {
 	*/
 	public void onUpdate(ItemStack stack, World world, Entity fauxplayer, int par4, boolean par5)
 	{
-		if(stack.getItemDamage() > 0 && stack.hasTagCompound())
+		if(Compat.bm && stack.getItemDamage() > 0 && stack.hasTagCompound())
 		{
 			EntityPlayer player = null;
 			if(fauxplayer instanceof EntityPlayer)
@@ -79,7 +79,7 @@ public class ItemBloodwell extends Item implements IScribeTools {
 			
 			try
 			{
-				if(player instanceof EntityPlayer && ((EntityPlayer)player).capabilities.isCreativeMode)
+				if(player.capabilities.isCreativeMode)
 					stack.setItemDamage(0);
 				else if(((Boolean)(syphon.invoke(null, stack, 25))).booleanValue())
 					stack.setItemDamage(stack.getItemDamage() - 1);
