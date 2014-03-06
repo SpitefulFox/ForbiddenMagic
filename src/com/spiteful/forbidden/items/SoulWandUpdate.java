@@ -10,8 +10,8 @@ import net.minecraft.tileentity.TileEntitySkull;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.wands.IWandRodOnUpdate;
 import thaumcraft.common.items.wands.ItemWandCasting;
-import playerbeacons.common.PlayerBeacons;
-import playerbeacons.tileentity.TileEntityPlayerBeacon;
+import kihira.playerbeacons.common.PlayerBeacons;
+import kihira.playerbeacons.tileentity.TileEntityPlayerBeacon;
 
 public class SoulWandUpdate implements IWandRodOnUpdate {
 
@@ -36,18 +36,7 @@ public class SoulWandUpdate implements IWandRodOnUpdate {
 				TileEntityPlayerBeacon bacon = (TileEntityPlayerBeacon) player.worldObj.getBlockTileEntity(x, y, z);
 				if(bacon != null && bacon.hasSkull())
 				{
-					if(Compat.tt)
-					{
-						if(player.worldObj.getBlockId(x - 1, y, z) == Compat.tabletID)
-							 return;
-						if(player.worldObj.getBlockId(x + 1, y, z) == Compat.tabletID)
-							return;
-						if(player.worldObj.getBlockId(x, y, z + 1) == Compat.tabletID)
-							return;
-						if(player.worldObj.getBlockId(x, y, z - 1) == Compat.tabletID)
-							return;
-					}
-					
+			
 					TileEntitySkull skull = (TileEntitySkull) bacon.worldObj.getBlockTileEntity(bacon.xCoord, bacon.yCoord + 1, bacon.zCoord);
 					if(skull == null)
 						return;

@@ -29,7 +29,7 @@ import thaumcraft.api.research.ResearchCategories;
 import thaumcraft.api.research.ResearchCategoryList;
 import thaumcraft.api.research.ResearchItem;
 import thaumcraft.api.research.ResearchPage;
-import playerbeacons.common.PlayerBeacons;
+import kihira.playerbeacons.common.PlayerBeacons;
 
 public class Compat {
 	
@@ -40,8 +40,6 @@ public class Compat {
 	public static boolean pb = false;
 	public static boolean bm = false;
 	public static boolean am2 = false;
-	
-	public static int tabletID = -1;
 	
 	public static void initiate()
 	{
@@ -66,19 +64,6 @@ public class Compat {
 		ItemStack i;
 		AspectList list;
 
-		if(tt && pb)
-		{
-			try
-			{
-				tabletID = ((Block)(Class.forName("vazkii.tinkerer.common.block.ModBlocks").getField("animationTablet").get(null))).blockID;
-			}
-			catch(Exception e)
-			{
-				FMLLog.log(Level.INFO, e, "Forbidden Magic doesn't have Thaumic Tinkerer's nose.");
-				e.printStackTrace();
-			}
-		}
-		
 		if(tt && kami)
 		{
 			try {
@@ -197,6 +182,65 @@ public class Compat {
 				IArcaneRecipe bloodwell_recipe = ThaumcraftApi.addShapelessArcaneCraftingRecipe("BLOODWELL", new ItemStack(ForbiddenItems.bloodwell, 1, 0), (new AspectList()).add(Aspect.WATER, 10).add(Aspect.EARTH, 10), new Object[]{new ItemStack(Item.feather, 1, 0), new ItemStack(bloodBucket, 1, 0), new ItemStack(Item.glassBottle, 1, 0), new ItemStack(crapOrb, 1, 0)});
 				(new DarkResearchItem("BLOODWELL", "FORBIDDEN", "[BM]", (new AspectList()).add(Aspect.LIFE, 5).add(Aspect.MIND, 4).add(Aspect.SENSES, 3), -10, 4, 3, new ItemStack(ForbiddenItems.bloodwell, 1, 0))).setPages(new ResearchPage[]{new ResearchPage("forbidden.research_page.BLOODWELL.1"), new ResearchPage(bloodwell_recipe)}).setParents(new String[]{"RESEARCH"}).setAspectTriggers(new Aspect[]{Aspect.LIFE}).setConcealed().registerResearchItem();
 				
+				list = (new AspectList()).add(Aspect.LIFE, 2).add(Aspect.MAGIC, 2).add(Aspect.CRYSTAL, 4);
+				ThaumcraftApi.registerObjectTag(crapOrb.itemID, -1, list);
+				
+				list = (new AspectList()).add(Aspect.LIFE, 4).add(Aspect.MAGIC, 4).add(Aspect.CRYSTAL, 4);
+				aspectBloodItem("apprenticeBloodOrb", -1, list);
+				
+				list = (new AspectList()).add(Aspect.LIFE, 6).add(Aspect.MAGIC, 6).add(Aspect.CRYSTAL, 4);
+				aspectBloodItem("magicianBloodOrb", -1, list);
+				
+				list = (new AspectList()).add(Aspect.LIFE, 16).add(Aspect.MAGIC, 8).add(Aspect.CRYSTAL, 4);
+				ThaumcraftApi.registerObjectTag(masterOrb.itemID, -1, list);
+				
+				list = (new AspectList()).add(Aspect.LIFE, 32).add(DarkAspects.NETHER, 4).add(Aspect.MAGIC, 8).add(Aspect.CRYSTAL, 4);
+				aspectBloodItem("archmageBloodOrb", -1, list);
+				
+				list = (new AspectList()).add(Aspect.ELDRITCH, 5).add(Aspect.WEAPON, 5).add(DarkAspects.WRATH, 5).add(Aspect.POISON, 1);
+				aspectBloodItem("energySword", -1, list);
+				
+				list = (new AspectList()).add(Aspect.ELDRITCH, 5).add(Aspect.WEAPON, 6).add(DarkAspects.WRATH, 6).add(Aspect.POISON, 1);
+				aspectBloodItem("energyBlaster", -1, list);
+				
+				list = (new AspectList()).add(Aspect.ELDRITCH, 6).add(Aspect.MINE, 5).add(DarkAspects.WRATH, 4).add(Aspect.TRAP, 4);
+				aspectBloodItem("boundPickaxe", -1, list);
+				
+				list = (new AspectList()).add(Aspect.ELDRITCH, 4).add(Aspect.TOOL, 5).add(DarkAspects.WRATH, 2).add(Aspect.TRAP, 2);
+				aspectBloodItem("boundShovel", -1, list);
+				
+				list = (new AspectList()).add(Aspect.ELDRITCH, 6).add(Aspect.TOOL, 5).add(DarkAspects.WRATH, 4).add(Aspect.TRAP, 4);
+				aspectBloodItem("boundAxe", -1, list);
+				
+				list = (new AspectList()).add(Aspect.METAL, 8).add(Aspect.VOID, 1).add(Aspect.LIFE, 4);
+				ThaumcraftApi.registerObjectTag(bloodBucket.itemID, -1, list);
+				
+				list = (new AspectList()).add(Aspect.LIGHT, 6).add(Aspect.ENERGY, 3);
+				ThaumcraftApi.registerObjectTag(sanctus.itemID, -1, list);
+				
+				list = (new AspectList()).add(Aspect.DARKNESS, 6).add(Aspect.ENERGY, 3);
+				ThaumcraftApi.registerObjectTag(tennebrae.itemID, -1, list);
+				
+				list = (new AspectList()).add(Aspect.MAGIC, 6).add(Aspect.ENERGY, 3);
+				ThaumcraftApi.registerObjectTag(magicales.itemID, -1, list);
+				
+				list = (new AspectList()).add(Aspect.AIR, 6).add(Aspect.ENERGY, 3);
+				ThaumcraftApi.registerObjectTag(aether.itemID, -1, list);
+				
+				list = (new AspectList()).add(Aspect.EARTH, 6).add(Aspect.ENERGY, 3);
+				ThaumcraftApi.registerObjectTag(terrae.itemID, -1, list);
+				
+				list = (new AspectList()).add(Aspect.WATER, 6).add(Aspect.ENERGY, 3);
+				ThaumcraftApi.registerObjectTag(aquasalus.itemID, -1, list);
+				
+				list = (new AspectList()).add(Aspect.FIRE, 6).add(Aspect.ENERGY, 3);
+				ThaumcraftApi.registerObjectTag(incendium.itemID, -1, list);
+				
+				list = (new AspectList()).add(Aspect.ICE, 6).add(Aspect.ENERGY, 3);
+				aspectBloodItem("crystallos", -1, list);
+				
+				list = (new AspectList()).add(Aspect.ENTROPY, 6).add(Aspect.ENERGY, 3);
+				aspectBloodItem("crepitous", -1, list);
 			}
 			catch(Exception e)
 			{
@@ -228,6 +272,36 @@ public class Compat {
 				e.printStackTrace();
 				am2 = false;
 			}
+		}
+	}
+	
+	private static void aspectBloodItem(String target, int damage, AspectList list)
+	{
+		try
+		{
+			Class bloodItems = Class.forName("WayofTime.alchemicalWizardry.AlchemicalWizardry");
+			Item item = (Item)(bloodItems.getField(target).get(null));
+			
+			ThaumcraftApi.registerObjectTag(item.itemID, damage, list);
+		}
+		catch(Exception e)
+		{
+			FMLLog.log(Level.INFO, e, "Forbidden Magic was unable to add aspects to " + target);
+		}
+	}
+	
+	private static void aspectBloodBlock(String target, int damage, AspectList list)
+	{
+		try
+		{
+			Class bloodItems = Class.forName("WayofTime.alchemicalWizardry.AlchemicalWizardry");
+			Block block = (Block)(bloodItems.getField(target).get(null));
+			
+			ThaumcraftApi.registerObjectTag(block.blockID, damage, list);
+		}
+		catch(Exception e)
+		{
+			FMLLog.log(Level.INFO, e, "Forbidden Magic was unable to add aspects to " + target);
 		}
 	}
 }
