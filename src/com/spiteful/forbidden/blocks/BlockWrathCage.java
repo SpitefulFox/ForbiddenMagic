@@ -69,6 +69,8 @@ public class BlockWrathCage extends BlockContainer
 		ItemStack held = player.getCurrentEquippedItem();
 		if(held != null && held.itemID == ForbiddenItems.mobCrystal.itemID){
 			NBTTagCompound nbttagcompound = held.getTagCompound();
+			if(nbttagcompound == null)
+				return false;
 			NBTTagString nbttagstring = (NBTTagString)nbttagcompound.getTag("mob");
 
 			if (nbttagstring != null)
