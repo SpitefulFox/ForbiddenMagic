@@ -115,12 +115,11 @@ public class DarkAspects
 			list.add(PRIDE, 2);
 		ThaumcraftApi.registerObjectTag(Item.swordGold.itemID, -1, list);
 
-		list = ThaumcraftApiHelper.getObjectAspects(new ItemStack(Item.bed));
-		list.add(SLOTH, 4);
-		if(!Config.noLust)
-			list.add(LUST, 1);
+		//list = ThaumcraftApiHelper.getObjectAspects(new ItemStack(Item.bed));
+		//list.add(SLOTH, 4);
+		list = (new AspectList()).add(Aspect.CRAFT, 3).add(Aspect.CLOTH, 6).add(SLOTH, 4);
 		ThaumcraftApi.registerObjectTag(Item.bed.itemID, -1, list);
-
+		
 		list = ThaumcraftApiHelper.getObjectAspects(new ItemStack(Item.eyeOfEnder));
 		list.add(ENVY, 4);
 		ThaumcraftApi.registerObjectTag(Item.eyeOfEnder.itemID, -1, list);
@@ -149,6 +148,11 @@ public class DarkAspects
 			list = ThaumcraftApiHelper.getObjectAspects(new ItemStack(Item.saddle));
 			list.add(LUST, 2);
 			ThaumcraftApi.registerObjectTag(Item.saddle.itemID, -1, list);
+			
+			//list = ThaumcraftApiHelper.getObjectAspects(new ItemStack(Item.leash));
+			list = (new AspectList()).add(Aspect.BEAST, 2).add(Aspect.CLOTH, 2).add(Aspect.SLIME, 1);
+			list.add(LUST, 2);
+			ThaumcraftApi.registerObjectTag(Item.leash.itemID, -1, list);
 		}
 
 		Iterator mobCount = ThaumcraftApi.scanEntities.iterator();
@@ -264,6 +268,10 @@ public class DarkAspects
 			{
 				mobTag.aspects.add(PRIDE, 4);
 			}
+			else if(mobTag.entityName.equals("witchery.demon"))
+			{
+				mobTag.aspects.add(NETHER, 8);
+			}
 		}
 
 		ThaumcraftApi.registerObjectTag(ForbiddenItems.deadlyShards.itemID, 0, (new AspectList()).add(NETHER, 1).add(WRATH, 2).add(Aspect.CRYSTAL, 1));
@@ -274,10 +282,13 @@ public class DarkAspects
 			ThaumcraftApi.registerObjectTag(ForbiddenItems.deadlyShards.itemID, 4, (new AspectList()).add(NETHER, 1).add(LUST, 2).add(Aspect.CRYSTAL, 1));
 		else
 			ThaumcraftApi.registerObjectTag(ForbiddenItems.deadlyShards.itemID, 4, (new AspectList()).add(Aspect.VOID, 1));
+		ThaumcraftApi.registerObjectTag(ForbiddenItems.gluttonyShard.itemID, -1, (new AspectList()).add(NETHER, 1).add(GLUTTONY, 2).add(Aspect.CRYSTAL, 1));
 		ThaumcraftApi.registerObjectTag(ForbiddenItems.deadlyShards.itemID, 5, (new AspectList()).add(NETHER, 1).add(SLOTH, 2).add(Aspect.CRYSTAL, 1));
 		ThaumcraftApi.registerObjectTag(ForbiddenItems.deadlyShards.itemID, 6, (new AspectList()).add(NETHER, 1).add(Aspect.GREED, 2).add(Aspect.CRYSTAL, 1));
 		ThaumcraftApi.registerObjectTag(ForbiddenItems.resource.itemID, 0, (new AspectList()).add(Aspect.CRYSTAL, 1));
 		ThaumcraftApi.registerObjectTag(ForbiddenItems.resource.itemID, 1, (new AspectList()).add(Aspect.DARKNESS, 1));
 		ThaumcraftApi.registerObjectTag(ForbiddenBlocks.blackFlower.blockID, -1, (new AspectList()).add(Aspect.PLANT, 1).add(Aspect.LIFE, 1).add(Aspect.SENSES, 1).add(Aspect.DARKNESS, 1));
+		if(!Config.noLust)
+			ThaumcraftApi.registerObjectTag(ForbiddenItems.ridingCrop.itemID, -1, (new AspectList()).add(Aspect.TREE, 2).add(Aspect.CLOTH, 2).add(Aspect.BEAST, 1).add(LUST, 1).add(Aspect.WEAPON, 1));
 	}
 }

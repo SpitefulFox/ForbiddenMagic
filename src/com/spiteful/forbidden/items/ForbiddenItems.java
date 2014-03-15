@@ -5,6 +5,7 @@ import com.spiteful.forbidden.*;
 import cpw.mods.fml.common.registry.GameRegistry;
 import java.util.Arrays;
 import net.minecraft.block.Block;
+import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
@@ -34,6 +35,7 @@ public class ForbiddenItems
 	public static Item morphAxe;
 	public static Item bloodwell;
 	public static Item crystalwell;
+	public static Item ridingCrop;
 	
 	public static WandRod WAND_ROD_TAINTED;
 	public static WandRod WAND_ROD_INFERNAL;
@@ -134,6 +136,9 @@ public class ForbiddenItems
 		
 		crystalwell = new ItemCrystalwell(Config.crystalwellID).setUnlocalizedName("Crystalwell");
 		GameRegistry.registerItem(crystalwell, "Crystalwell");
+		
+		ridingCrop = new ItemRidingCrop(Config.ridingCropID, EnumToolMaterial.WOOD).setUnlocalizedName("RidingCrop");
+		GameRegistry.registerItem(ridingCrop, "RidingCrop");
 		
 	}
 }

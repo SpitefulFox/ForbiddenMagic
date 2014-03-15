@@ -58,7 +58,7 @@ public class ForbiddenRecipes
 		ForbiddenResearch.recipes.put("BlackFlower", ThaumcraftApi.addCrucibleRecipe("BLACKFLOWER", new ItemStack(ForbiddenBlocks.blackFlower, 1, 0), new ItemStack(Block.plantRed), (new AspectList()).merge(Aspect.DARKNESS, 5).merge(Aspect.LIFE, 5)));
 		ForbiddenResearch.recipes.put("BlackInk", CraftingManager.getInstance().addRecipe(new ItemStack(ForbiddenItems.resource, 2, 1), new Object[]{"#", Character.valueOf('#'), new ItemStack(ForbiddenBlocks.blackFlower, 1, 0)}));
 		
-		ForbiddenResearch.recipes.put("Crystalwell", ThaumcraftApi.addShapelessArcaneCraftingRecipe("CRYSTALWELL", new ItemStack(ForbiddenItems.crystalwell, 1, 0), (new AspectList()).add(Aspect.EARTH, 5).add(Aspect.FIRE, 5).add(Aspect.AIR, 5).add(Aspect.WATER, 5).add(Aspect.ORDER, 5).add(Aspect.ENTROPY, 5), new Object[]{ItemApi.getItem("itemInkwell", 100), "dyeBlack", ItemApi.getBlock("blockCrystal", 6)}));
+		ForbiddenResearch.recipes.put("Crystalwell", ThaumcraftApi.addShapelessArcaneCraftingRecipe("CRYSTALWELL", new ItemStack(ForbiddenItems.crystalwell, 1, 0), (new AspectList()).add(Aspect.EARTH, 2).add(Aspect.FIRE, 2).add(Aspect.AIR, 2).add(Aspect.WATER, 2).add(Aspect.ORDER, 2).add(Aspect.ENTROPY, 2), new Object[]{ItemApi.getItem("itemInkwell", 32767), "dyeBlack", ItemApi.getItem("itemShard", 32767), ItemApi.getItem("itemShard", 32767)}));
 		
 		ForbiddenResearch.recipes.put("Cluster", ThaumcraftApi.addInfusionEnchantmentRecipe("CLUSTER", DarkEnchantments.cluster, 3, (new AspectList()).add(Aspect.FIRE, 4).add(Aspect.METAL, 4).add(Aspect.GREED, 4), new ItemStack[]{ItemApi.getItem("itemPickElemental", 0), ItemApi.getItem("itemResource", 14)}));
 		if(Config.greedyEnch)
@@ -70,6 +70,7 @@ public class ForbiddenRecipes
 		
 		CraftingManager.getInstance().addRecipe(new ItemStack(Item.emerald, 1, 0), new Object[]{"###", "###", "###", Character.valueOf('#'), new ItemStack(ForbiddenItems.resource, 1, 0)});
 		CraftingManager.getInstance().addRecipe(new ItemStack(ForbiddenItems.resource, 9, 0), new Object[]{"#", Character.valueOf('#'), new ItemStack(Item.emerald, 1, 0)});
+		ForbiddenResearch.recipes.put("RidingCrop", CraftingManager.getInstance().addRecipe(new ItemStack(ForbiddenItems.ridingCrop, 1, 0), new Object[]{"X", "#", "#", Character.valueOf('#'), Item.stick, Character.valueOf('X'), Item.leather}));
 		ThaumcraftApi.addSmeltingBonus(new ItemStack(Item.emerald), new ItemStack(ForbiddenItems.resource, 0, 0));
 		
 		Iterator i$ = WandCap.caps.keySet().iterator();
