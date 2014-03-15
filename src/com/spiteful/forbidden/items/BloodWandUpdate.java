@@ -23,20 +23,13 @@ public class BloodWandUpdate implements IWandRodOnUpdate {
 		try
 		{
 			Class energyItems;
-			try
-			{
-				energyItems = Class.forName("WayofTime.alchemicalWizardry.EnergyItems");
-			}
-			catch(Exception e)
-			{
-				energyItems = Class.forName("WayofTime.alchemicalWizardry.common.itemsEnergyItems");
-			}
-			if(energyItems == null)
-				return;
+			energyItems = Class.forName("WayofTime.alchemicalWizardry.common.items.EnergyItems");
+
 			checkOwner = energyItems.getDeclaredMethod("checkAndSetItemOwner", new Class[] {ItemStack.class, EntityPlayer.class});
 			syphon = energyItems.getDeclaredMethod("syphonWhileInContainer", new Class[] {ItemStack.class, Integer.TYPE});
 		}
-		catch(Exception e){}
+		catch(Exception e){
+		e.printStackTrace(); }
 	}
 	
 	public void onUpdate(ItemStack itemstack, EntityPlayer player)
@@ -84,7 +77,7 @@ public class BloodWandUpdate implements IWandRodOnUpdate {
 	{
 		if(player.getHealth() > 6)
 		{
-			player.setHealth(player.getHealth() - 2);
+			player.setHealth(player.getHealth() - 3);
 			return true;
 		}
 		else

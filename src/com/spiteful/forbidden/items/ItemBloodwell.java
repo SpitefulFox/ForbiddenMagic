@@ -37,20 +37,13 @@ public class ItemBloodwell extends Item implements IScribeTools {
 		try
 		{
 			Class energyItems;
-			try
-			{
-				energyItems = Class.forName("WayofTime.alchemicalWizardry.EnergyItems");
-			}
-			catch(Exception e)
-			{
-				energyItems = Class.forName("WayofTime.alchemicalWizardry.common.itemsEnergyItems");
-			}
-			if(energyItems == null)
-				return;
+			energyItems = Class.forName("WayofTime.alchemicalWizardry.common.items.EnergyItems");
+
 			checkOwner = energyItems.getDeclaredMethod("checkAndSetItemOwner", new Class[] {ItemStack.class, EntityPlayer.class});
 			syphon = energyItems.getDeclaredMethod("syphonWhileInContainer", new Class[] {ItemStack.class, Integer.TYPE});
 		}
-		catch(Exception e){}
+		catch(Exception e){
+		e.printStackTrace(); }
 	}
 
 	@SideOnly(Side.CLIENT)

@@ -153,14 +153,8 @@ public class Compat {
 			try
 			{
 				Class bloodItems;
-				try
-				{
-					bloodItems = Class.forName("WayofTime.alchemicalWizardry.common.ModItems");
-				}
-				catch(Exception e)
-				{
-					bloodItems = Class.forName("WayofTime.alchemicalWizardry.AlchemicalWizardry");
-				}
+				bloodItems = Class.forName("WayofTime.alchemicalWizardry.ModItems");
+				
 				Item masterOrb = (Item)(bloodItems.getField("masterBloodOrb").get(null));
 				Item imbuedSlate = (Item)(bloodItems.getField("imbuedSlate").get(null));
 				Item magicales = (Item)(bloodItems.getField("magicales").get(null));
@@ -170,11 +164,13 @@ public class Compat {
 				Item incendium = (Item)(bloodItems.getField("incendium").get(null));
 				Item sanctus = (Item)(bloodItems.getField("sanctus").get(null));
 				Item tennebrae = (Item)(bloodItems.getField("tennebrae").get(null));
-				Item bloodBucket = (Item)(bloodItems.getField("bucketLife").get(null));
 				Item crapOrb = (Item)(bloodItems.getField("weakBloodOrb").get(null));
 				
+				bloodItems = Class.forName("WayofTime.alchemicalWizardry.AlchemicalWizardry");
+				Item bloodBucket = (Item)(bloodItems.getField("bucketLife").get(null));
+				
 				InfusionRecipe blood_recipe = ThaumcraftApi.addInfusionCraftingRecipe("ROD_blood", new ItemStack(ForbiddenItems.wandCore, 1, 3), 2, (new AspectList()).add(Aspect.LIFE, 32).add(Aspect.MAGIC, 12).add(Aspect.WATER, 16), new ItemStack(masterOrb), new ItemStack[]{new ItemStack(magicales), new ItemStack(imbuedSlate), new ItemStack(imbuedSlate), new ItemStack(tennebrae), new ItemStack(sanctus), new ItemStack(aquasalus), new ItemStack(incendium), new ItemStack(terrae), new ItemStack(aether)});
-				(new DarkResearchItem("ROD_blood", "FORBIDDEN", "[BM]", (new AspectList()).add(Aspect.LIFE, 5).add(Aspect.WATER, 4).add(Aspect.WEAPON, 3), -5, -3, 4, new ItemStack(ForbiddenItems.wandCore, 1, 3))).setPages(new ResearchPage[]{new ResearchPage("forbidden.research_page.ROD_blood.1"), new ResearchPage(blood_recipe)}).setParents(new String[]{"ROD_silverwood"}).setConcealed().registerResearchItem();
+				(new DarkResearchItem("ROD_blood", "FORBIDDEN", "[BM]", (new AspectList()).add(Aspect.LIFE, 5).add(Aspect.WATER, 4).add(Aspect.WEAPON, 3), -5, -3, 4, new ItemStack(ForbiddenItems.wandCore, 1, 3))).setPages(new ResearchPage[]{new ResearchPage("forbidden.research_page.ROD_blood.1"), new ResearchPage(blood_recipe)}).setParents(new String[]{"ROD_silverwood"}).setAspectTriggers(new Aspect[]{Aspect.LIFE}).setConcealed().registerResearchItem();
 				
 				InfusionRecipe alchemical_recipe = ThaumcraftApi.addInfusionCraftingRecipe("CAP_alchemical", new ItemStack(ForbiddenItems.wandCap, 1, 0), 3, (new AspectList()).add(Aspect.LIFE, 12).add(Aspect.WATER, 6), ItemApi.getItem("itemWandCap", 1), new ItemStack[]{new ItemStack(magicales), new ItemStack(magicales), new ItemStack(magicales)});
 				(new DarkResearchItem("CAP_alchemical", "FORBIDDEN", "[BM]", (new AspectList()).add(Aspect.LIFE, 4).add(Aspect.TOOL, 1).add(Aspect.WATER, 3), -5, -5, 5, new ItemStack(ForbiddenItems.wandCap, 1, 0))).setPages(new ResearchPage[]{new ResearchPage("forbidden.research_page.CAP_alchemical.1"), new ResearchPage(alchemical_recipe)}).setParents(new String[]{"ROD_blood"}).setSecondary().setConcealed().registerResearchItem();
@@ -279,7 +275,7 @@ public class Compat {
 	{
 		try
 		{
-			Class bloodItems = Class.forName("WayofTime.alchemicalWizardry.AlchemicalWizardry");
+			Class bloodItems = Class.forName("WayofTime.alchemicalWizardry.ModItems");
 			Item item = (Item)(bloodItems.getField(target).get(null));
 			
 			ThaumcraftApi.registerObjectTag(item.itemID, damage, list);
@@ -294,7 +290,7 @@ public class Compat {
 	{
 		try
 		{
-			Class bloodItems = Class.forName("WayofTime.alchemicalWizardry.AlchemicalWizardry");
+			Class bloodItems = Class.forName("WayofTime.alchemicalWizardry.ModBlocks");
 			Block block = (Block)(bloodItems.getField(target).get(null));
 			
 			ThaumcraftApi.registerObjectTag(block.blockID, damage, list);

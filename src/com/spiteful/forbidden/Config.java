@@ -43,6 +43,7 @@ public class Config
 	public static int gluttonyShardID;
 	public static int bloodwellID;
 	public static int crystalwellID;
+	public static int ridingCropID;
 
 	public static int arcaneCakeBlockID;
 	public static int blackFlowerBlockID;
@@ -102,6 +103,7 @@ public class Config
 			gluttonyShardID = conf.getItem("Gluttony Shard", idCount++).getInt();
 			bloodwellID = conf.getItem("Bloody Scrivener's Tools", idCount++).getInt();
 			crystalwellID = conf.getItem("Crystal Scribing Tools", idCount++).getInt();
+			ridingCropID = conf.getItem("Riding Crop", idCount++).getInt();
 			
 			int blockCount = 3000;
 			arcaneCakeBlockID = conf.getBlock("Thaumic Cake", blockCount++).getInt();
