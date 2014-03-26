@@ -1,6 +1,7 @@
 package com.spiteful.forbidden.items;
 
 import com.spiteful.forbidden.*;
+import com.spiteful.forbidden.items.wands.*;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import java.util.Arrays;
@@ -33,9 +34,11 @@ public class ForbiddenItems
 	public static Item morphSword;
 	public static Item morphShovel;
 	public static Item morphAxe;
-	public static Item bloodwell;
 	public static Item crystalwell;
 	public static Item ridingCrop;
+	
+	public static Item bloodwell;
+	public static Item bloodOrb;
 	
 	public static WandRod WAND_ROD_TAINTED;
 	public static WandRod WAND_ROD_INFERNAL;
@@ -43,10 +46,13 @@ public class ForbiddenItems
 	public static WandRod WAND_ROD_SOUL;
 	public static WandRod WAND_ROD_BLOOD;
 	public static WandRod WAND_ROD_WITCHWOOD;
+	public static WandRod WAND_ROD_TOTEM;
+	public static WandRod WAND_ROD_LIVINGWOOD;
 	public static WandCap WAND_CAP_ORICHALCUM;
 	public static WandCap WAND_CAP_ALCHEMICAL;
 	public static WandCap WAND_CAP_VINTEUM;
 	public static WandCap WAND_CAP_SOUL;
+	public static WandCap WAND_CAP_MANASTEEL;
 
 	public static void addItems()
 	{
@@ -118,10 +124,13 @@ public class ForbiddenItems
 		WAND_ROD_SOUL.setGlowing(true);
 		WAND_ROD_BLOOD = new WandRod("blood", 100, new ItemStack(wandCore, 1, 3), 12, new BloodWandUpdate(), new ResourceLocation("forbidden", "textures/models/wand_rod_blood.png"));
 		WAND_ROD_WITCHWOOD = new WandRod("witchwood", 100, new ItemStack(wandCore, 1, 4), 12, new ManaWandUpdate(), new ResourceLocation("forbidden", "textures/models/wand_rod_witchwood.png"));
+		WAND_ROD_TOTEM = new WandRod("totem", 50, new ItemStack(wandCore, 1, 5), 4, new TotemWandUpdate(), new ResourceLocation("forbidden", "textures/models/wand_rod_totem.png"));
+		WAND_ROD_LIVINGWOOD = new WandRod("livingwood", 100, new ItemStack(wandCore, 1, 7), 12, new YandereWandUpdate(), new ResourceLocation("forbidden", "textures/models/wand_rod_livingwood.png"));
 		WAND_CAP_ORICHALCUM = new DarkWandCap("orichalcum", 0.0F, new ItemStack(Block.commandBlock, 1), 1000, new ResourceLocation("forbidden", "textures/models/wand_cap_orichalcum.png"));
-		WAND_CAP_ALCHEMICAL = new DarkWandCap("alchemical", 0.95F, Arrays.asList(new Aspect[]{Aspect.WATER}), 0.8F, new ItemStack(wandCap, 1, 0), 7, new ResourceLocation("forbidden", "textures/models/wand_cap_alchemical.png"));
-		WAND_CAP_VINTEUM = new DarkWandCap("vinteum", 0.9F, new ItemStack(wandCap, 1, 1), 7, new ResourceLocation("forbidden", "textures/models/wand_cap_vinteum.png"));
-		WAND_CAP_SOUL = new DarkWandCap("soul", 0.95F, Arrays.asList(new Aspect[]{Aspect.ENTROPY}), 0.8F, new ItemStack(wandCap, 1, 2), 7, new ResourceLocation("forbidden", "textures/models/wand_cap_soul.png"));
+		WAND_CAP_ALCHEMICAL = new DarkWandCap("alchemical", 0.9F, Arrays.asList(new Aspect[]{Aspect.WATER}), 0.8F, new ItemStack(wandCap, 1, 0), 7, new ResourceLocation("forbidden", "textures/models/wand_cap_alchemical.png"));
+		WAND_CAP_VINTEUM = new DarkWandCap("vinteum", 0.9F, new ItemStack(wandCap, 1, 1), 6, new ResourceLocation("forbidden", "textures/models/wand_cap_vinteum.png"));
+		WAND_CAP_SOUL = new DarkWandCap("soul", 0.9F, Arrays.asList(new Aspect[]{Aspect.ENTROPY}), 0.8F, new ItemStack(wandCap, 1, 2), 7, new ResourceLocation("forbidden", "textures/models/wand_cap_soul.png"));
+		WAND_CAP_MANASTEEL = new DarkWandCap("manasteel", 0.9F, new ItemStack(wandCap, 1, 3), 7, new ResourceLocation("forbidden", "textures/models/wand_cap_manasteel.png"));
 		
 		resource = new ItemResource(Config.resourceID).setUnlocalizedName("FMResource");
 		GameRegistry.registerItem(resource, "FMResource");
@@ -130,8 +139,18 @@ public class ForbiddenItems
 		
 		if(Compat.bm)
 		{
-			bloodwell = new ItemBloodwell(Config.bloodwellID).setUnlocalizedName("Bloodwell");
-			GameRegistry.registerItem(bloodwell, "Bloodwell");
+			try
+			{
+				bloodwell = new ItemBloodwell(Config.bloodwellID).setUnlocalizedName("Bloodwell");
+				GameRegistry.registerItem(bloodwell, "Bloodwell");
+				
+				bloodOrb = new ItemDivineOrb(Config.bloodOrbID).setUnlocalizedName("DivineOrb");
+				GameRegistry.registerItem(bloodOrb, "DivineOrb");
+			}
+			catch(Throwable e)
+			{
+				e.printStackTrace();
+			}
 		}
 		
 		crystalwell = new ItemCrystalwell(Config.crystalwellID).setUnlocalizedName("Crystalwell");

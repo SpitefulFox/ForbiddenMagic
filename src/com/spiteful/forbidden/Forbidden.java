@@ -6,6 +6,7 @@ import com.spiteful.forbidden.enchantments.DarkEnchantments;
 import com.spiteful.forbidden.client.ClientProxy;
 
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraft.block.Block;
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
@@ -24,12 +25,13 @@ import cpw.mods.fml.common.network.NetworkMod;
 import cpw.mods.fml.common.network.NetworkRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import thaumcraft.api.aspects.Aspect;
+import thaumcraft.api.wands.WandTriggerRegistry;
 import java.util.logging.Level;
 
 @Mod(
 	modid = "ForbiddenMagic",
 	name = "Forbidden Magic",
-	version = "0.32",
+	version = "0.33",
 	dependencies = "required-after:Thaumcraft;after:Natura;after:ThaumicTinkerer;after:ThaumicExploration"
 )
 @NetworkMod(
@@ -49,6 +51,7 @@ public class Forbidden
 		serverSide = "com.spiteful.forbidden.CommonProxy"
 	)
 	public static CommonProxy proxy;
+	public static WandOverlord wandLord;
 
 	@EventHandler
 	public void prelude(FMLPreInitializationEvent event)
@@ -80,5 +83,9 @@ public class Forbidden
 		ForbiddenRecipes.addRecipes();
 		ForbiddenResearch.addResearch();
 		Compat.compatify();
+		
+		wandLord = new WandOverlord();
+		WandTriggerRegistry.registerWandBlockTrigger(wandLord, 1, Block.obsidian.blockID, -1);
+		WandTriggerRegistry.registerWandBlockTrigger(wandLord, 1, Block.netherrack.blockID, -1);
 	}
 }

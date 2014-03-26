@@ -1,4 +1,4 @@
-package com.spiteful.forbidden.items;
+package com.spiteful.forbidden.items.wands;
 
 import com.spiteful.forbidden.Forbidden;
 import com.spiteful.forbidden.Compat;
@@ -18,7 +18,7 @@ import thaumcraft.common.items.wands.ItemWandCasting;
 
 public class ItemWandCaps extends Item {
 
-	public final String[] types = {"alchemical", "vinteum", "soul"};
+	public final String[] types = {"alchemical", "vinteum", "soul", "manasteel", "manasteel_inert"};
 	public Icon[] icon;
 
 

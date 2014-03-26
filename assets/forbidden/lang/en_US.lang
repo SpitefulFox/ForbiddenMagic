@@ -28,12 +28,14 @@ item.MorphShovel.name=Chameleon Shovel
 item.MorphAxe.name=Chameleon Axe
 item.FMResource.0.name=Emerald Fragment
 item.FMResource.1.name=Shadow Ink
+item.FMResource.2.name=Manasteel Nugget
 item.MobCrystalEmpty.name=Blank Imprinting Crystal
 item.MobCrystal.name=Imprinted Crystal
 item.DiabolistFork.name=Diabolist Fork
 item.DiabolistSpork.name=Spork of Doom
 item.GluttonyShard.name=Gluttony Shard
 item.Bloodwell.name=Bloody Scrivener's Tools
+item.DivineOrb.name=Transcendent Blood Orb
 item.Crystalwell.name=Crystal Scribing Tools
 item.RidingCrop.name=Riding Crop
 #
@@ -44,18 +46,27 @@ item.Wand.neutronium.rod=Cosmic Neutronium
 item.Wand.soul.rod=Eldritch
 item.Wand.blood.rod=Blood
 item.Wand.witchwood.rod=Witchwood
+item.Wand.totem.rod=Totem
+item.Wand.livingwood.rod=Livingwood
 item.Wand.orichalcum.cap=Orichalcum Studded
 item.Wand.alchemical.cap=Alchemically Crowned
-item.Wand.vinteum.cap=Vinteum Bound
+item.Wand.vinteum.cap=Vinteum Bossed
 item.Wand.soul.cap=Ender Shielded
+item.Wand.manasteel.cap=Manasteel Entwined
 item.WandCores.tainted.name=Tainted Rod
 item.WandCores.infernal.name=Infernal Rod
 item.WandCores.soul.name=Eldritch Rod
-item.WandCores.blood.name=Bloody Rod
+item.WandCores.blood.name=Blood Rod
 item.WandCores.witchwood.name=Witchwood Rod
+item.WandCores.totem.name=Totemic Rod
+item.WandCores.blood_inert.name=Inert Blood Rod
+item.WandCores.livingwood.name=Livingwood Rod
+item.WandCores.livingwood_inert.name=Dormant Livingwood Rod
 item.WandCaps.alchemical.name=Alchemical Cap
 item.WandCaps.vinteum.name=Vinteum Cap
 item.WandCaps.soul.name=Ender Cap
+item.WandCaps.manasteel.name=Manasteel Cap
+item.WandCaps.manasteel_inert.name=Inert Manasteel Cap
 #
 # Blocks
 tile.ArcaneCake.name=Thaumic Cake
@@ -114,13 +125,22 @@ forbidden.research_name.ROD_soul=Eldritch Wand Core
 forbidden.research_text.ROD_soul=Corrupting vis storage
 forbidden.research_page.ROD_soul.1=You've discovered a way to tap the energy flowing through a Player Beacon and turn it into vis. As long as you're in a dimension with an active Player Beacon attuned to yourself, the Eldritch Wand Core will slowly charge all its internal reserves, which can hold up to 100 vis.<BR><BR>Channeling such great amounts of energy through your soul comes at a price, however. Each point of vis creates large amounts of corruption in your soul. It's best not to rely on its recharge abilities too greatly...
 #
-forbidden.research_name.ROD_blood=Bloody Wand Core
+forbidden.research_name.ROD_blood=Blood Wand Core
 forbidden.research_text.ROD_blood=Alchemical vis storage
 forbidden.research_page.ROD_blood.1=You've created a bridge between Thaumaturgy and Alchemical Wizardry. The Blood Wand can store up to 100 vis and will gradually fill itself using Life Points.<BR><BR>The wand will bind itself to the first person to pick it up. As long as the rod is empty, it will try to fill itself using LP from its owner's network. If there are not enough Life Points to fuel it, it will resort to drawing health from whoever is carrying it, but this conversion is less efficient. If it has no LP to draw from and its holder falls below three hearts, the wand stops charging itself.
+forbidden.research_page.ROD_blood.2=The infusion process alone isn't enough to complete a Blood Wand. Once the Inert Blood Rod has been infused, it must be imbued with life essence in a Blood Altar to be completed.
 #
 forbidden.research_name.ROD_witchwood=Witchwood Wand Core
 forbidden.research_text.ROD_witchwood=Mana converter
 forbidden.research_page.ROD_witchwood.1=By creating a wand core out of Witchwood, you've discovered a way to convert mana into Vis.  The Witchwood Wand Core holds up to 100 vis and will gradually charge itself at the cost of 150 mana per point of vis.<BR><BR>Further research may reveal ways to lower this price.
+#
+forbidden.research_name.ROD_totem=Totemic Wand Core
+forbidden.research_text.ROD_totem=Verdant vis storage
+forbidden.research_page.ROD_totem.1=Hunting down nodes for their power can be quite a pain sometimes. Perhaps there is another discipline you can tap for power...<BR><BR>By carving a wand core from Infused Wood and inlaying it with chlorophyllic metal, you create a wand that can draw power from plant energy. The Totemic Wand Core holds 50 vis and can draw energy from Chlorophyll Crystals in your inventory to recharge its own vis.
+#
+forbidden.research_name.ROD_livingwood=Livingwood Wand Core
+forbidden.research_text.ROD_livingwood=Botanical vis storage
+forbidden.research_page.ROD_livingwood.1=Livingwood has the fantastic ability to manipulate mana. When combined with the right reagents, it can even convert mana into vis.<BR><BR>The Livingwood Wand will quickly draw mana from storage items in your inventory in order to charge itself. Each point of vis costs 800 mana, but further research may ameliorate this.<BR><BR>The infusion process burns out the livingwood, unfortunately. Once infused, the wand rod must be charged in a mana pool in order to be awakened.
 #
 forbidden.research_name.CAP_alchemical=Alchemical Caps
 forbidden.research_text.CAP_alchemical=When Thaumium isn't bloody enough
@@ -133,6 +153,10 @@ forbidden.research_page.CAP_vinteum.1=By infusing a Thaumium cap with Vinteum, y
 forbidden.research_name.CAP_soul=Ender Caps
 forbidden.research_text.CAP_soul=Protection for your soul
 forbidden.research_page.CAP_soul.1=You've created a wand cap that can safely channel the destructive energy of The End.  Ender Caps have an 80% vis rate on Perditio, but only 95% for other aspects.<BR><BR>When combined with an Eldritch Wand Core, Ender Caps also reduce the amount of corruption your soul suffers from channeling vis out of the End.
+#
+forbidden.research_name.CAP_manasteel=Manasteel Caps
+forbidden.research_text.CAP_manasteel=The secret of mana
+forbidden.research_page.CAP_manasteel.1=Manasteel has very useful properties when it comes to mana manipulation. When crafted into a wand cap, it offers a 90% vis rate. If combined with a Livingwood Wand, it makes the conversion process more efficient, needing only 600 mana per point of vis.<BR><BR>In order to be used in the creation of a wand, the Inert Manasteel Caps must be infused in a Mana Pool.
 #
 forbidden.research_name.TRANSEMERALD=Emerald Transmutation
 forbidden.research_text.TRANSEMERALD=Transformation of valuables into emerald
@@ -190,6 +214,10 @@ forbidden.research_name.BLOODWELL=Bloody Scrivener's Tools
 forbidden.research_text.BLOODWELL="I'll complete this research if it kills me!"
 forbidden.research_page.BLOODWELL.1=There's nothing more frustrating than having to pause your research to refill your inkwell. Sometimes, you're just so desperate to complete a research you'd rather use your own blood as ink than stop to go find a refill.<BR><BR>The Bloody Scrivener's Tools will refill using Life Points from their owner's network, at a rate of 25 LP per point. This ability requires human warmth to activate, requiring you to remove the tools from the research table, but without having to actually leave the research area.
 #
+forbidden.research_name.DIVINEORB=Transcendent Blood Orb
+forbidden.research_text.DIVINEORB=Orb of Armok
+forbidden.research_page.DIVINEORB.1=It is whispered among some Thaumaturgic circles that Ichor is actually the blood of the divine. You don't know whether this is true or not, but Ichor does seem to have an affinity with more advanced alchemical devices.<BR><BR>The Transcendent Blood Orb is what happens when you combine the most advanced Thaumaturgy and Alchemical Wizardry available. The infusion vastly increases the orb's carrying capacity, allowing it to hold a whopping 70,000,000 LP. What would you ever need that much LP for?
+#
 forbidden.research_name.CRYSTALWELL=Crystal Scribing Tools
 forbidden.research_text.CRYSTALWELL=Arcane Research Grant
 forbidden.research_page.CRYSTALWELL.1=Combining elemental shards with your inkwell results in some interesting effects. The Crystal Scribing Tools seem to absorb knowledge as you use them to write. Once the well is empty of ink, you can absorb this knowledge for a small burst of research points by holding the tools in your hand and right clicking. Unfortunately, this burns the tool out and turns it back into a mundane Scribing Tool again.
@@ -197,4 +225,8 @@ forbidden.research_page.CRYSTALWELL.1=Combining elemental shards with your inkwe
 forbidden.research_name.RIDINGCROP=Riding Crop
 forbidden.research_text.RIDINGCROP=Motivating Pain
 forbidden.research_page.RIDINGCROP.1=A riding crop is, as its name suggests, a tool used to motivate mounts to move faster.  Right clicking with it in your hand while riding a horse or other mount will give the mount a quick lash of pain and cause it to move faster for a little while.<BR><BR>You could hit other creatures with the crop too, but what would possess you to do something like that?
+#
+forbidden.research_name.HELLFIRE=Lord of Hellfire
+forbidden.research_text.HELLFIRE=Never get stranded again
+forbidden.research_page.HELLFIRE.1=Getting stranded in the Nether is the worst. You go through all the trouble of grabbing what you need, but before you can go home, some stupid ghast decides to rain on your parade by blasting the portal shut. Sure, this can be amended by carrying a flint and steel around, but who actually walks around with those things?<BR><BR>You've discovered a way to use vis in your wand to light fires on certain materials.  Right click with a focus-less wand in your hand on the top of netherrack or obsidian to light a flame using some Ignis from your wand.
 #

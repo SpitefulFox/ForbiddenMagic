@@ -52,16 +52,6 @@ public class BlockWrathCage extends BlockContainer
 	}
 
 	/**
-	 * Drops the block items with a specified chance of dropping the specified items
-	 */
-	public void dropBlockAsItemWithChance(World par1World, int par2, int par3, int par4, int par5, float par6, int par7)
-	{
-		super.dropBlockAsItemWithChance(par1World, par2, par3, par4, par5, par6, par7);
-		int j1 = 15 + par1World.rand.nextInt(15) + par1World.rand.nextInt(15);
-		this.dropXpOnBlockBreak(par1World, par2, par3, par4, j1);
-	}
-	
-	/**
 	 * Called upon block activation (right click on the block.)
 	 */
 	public boolean onBlockActivated(World par1World, int x, int y, int z, EntityPlayer player, int par6, float par7, float par8, float par9)

@@ -1,4 +1,4 @@
-package com.spiteful.forbidden.items;
+package com.spiteful.forbidden.items.wands;
 
 import java.util.LinkedHashMap;
 import java.util.List;

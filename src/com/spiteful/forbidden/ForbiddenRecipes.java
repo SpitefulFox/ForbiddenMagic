@@ -75,39 +75,39 @@ public class ForbiddenRecipes
 		
 		Iterator i$ = WandCap.caps.keySet().iterator();
 
-		while(i$.hasNext()) {
-			String captag = (String)i$.next();
-			Iterator i$1 = WandRod.rods.keySet().iterator();
+		//while(i$.hasNext()) {
+		//	String captag = (String)i$.next();
+		//	Iterator i$1 = WandRod.rods.keySet().iterator();
 
-			while(i$1.hasNext()) {
-				String rodtag = (String)i$1.next();
-				if((rodtag.equals("tainted") || rodtag.equals("infernal") || rodtag.equals("soul") || rodtag.equals("blood") || rodtag.equals("witchwood") || captag.equals("alchemical") || captag.equals("vinteum")) 
-					&& !rodtag.equals("mercurial") && !rodtag.equals("neutronium") && !captag.equals("orichalcum"))
-				{
-					int cost = ((WandCap)WandCap.caps.get(captag)).getCraftCost() * ((WandRod)WandRod.rods.get(rodtag)).getCraftCost();
-					ItemStack wand = ItemApi.getItem("itemWandCasting", cost);
-					((ItemWandCasting)wand.getItem()).setCap(wand, (WandCap)WandCap.caps.get(captag));
-					((ItemWandCasting)wand.getItem()).setRod(wand, (WandRod)WandRod.rods.get(rodtag));
-					String key = "WAND_" + captag + "_" + rodtag;
-					String res = "THAUMIUM";
-					if(rodtag.equals("tainted"))
-						res = "ROD_tainted";
-					else if(rodtag.equals("infernal"))
-						res = "ROD_infernal";
-					else if(rodtag.equals("soul"))
-						res = "ROD_soul";
-					else if(rodtag.equals("blood"))
-						res = "ROD_blood";
-					else if(rodtag.equals("witchwood"))
-						res = "ROD_witchwood";
-					else if(captag.equals("alchemical"))
-						res = "CAP_alchemical";
-					else if(captag.equals("vinteum"))
-						res = "CAP_vinteum";
-					ForbiddenResearch.recipes.put(key, ThaumcraftApi.addArcaneCraftingRecipe(res, wand, (new AspectList()).add(Aspect.AIR, cost).add(Aspect.ORDER, cost).add(Aspect.EARTH, cost).add(Aspect.FIRE, cost).add(Aspect.WATER, cost).add(Aspect.ENTROPY, cost), new Object[]{"  C", " R ", "C  ", Character.valueOf('C'), ((WandCap)WandCap.caps.get(captag)).getItem(), Character.valueOf('R'), ((WandRod)WandRod.rods.get(rodtag)).getItem()}));
-				}
-			}
-		}
+		//	while(i$1.hasNext()) {
+		//		String rodtag = (String)i$1.next();
+		//		if((rodtag.equals("tainted") || rodtag.equals("infernal") || rodtag.equals("soul") || rodtag.equals("blood") || rodtag.equals("witchwood") || captag.equals("alchemical") || captag.equals("vinteum")) 
+		//			&& !rodtag.equals("mercurial") && !rodtag.equals("neutronium") && !captag.equals("orichalcum"))
+		//		{
+		//			int cost = ((WandCap)WandCap.caps.get(captag)).getCraftCost() * ((WandRod)WandRod.rods.get(rodtag)).getCraftCost();
+		//			ItemStack wand = ItemApi.getItem("itemWandCasting", cost);
+		//			((ItemWandCasting)wand.getItem()).setCap(wand, (WandCap)WandCap.caps.get(captag));
+		//			((ItemWandCasting)wand.getItem()).setRod(wand, (WandRod)WandRod.rods.get(rodtag));
+		//			String key = "WAND_" + captag + "_" + rodtag;
+		//			String res = "THAUMIUM";
+		//			if(rodtag.equals("tainted"))
+		//				res = "ROD_tainted";
+		//			else if(rodtag.equals("infernal"))
+		//				res = "ROD_infernal";
+		//			else if(rodtag.equals("soul"))
+		//				res = "ROD_soul";
+		//			else if(rodtag.equals("blood"))
+		//				res = "ROD_blood";
+		//			else if(rodtag.equals("witchwood"))
+		//				res = "ROD_witchwood";
+		//			else if(captag.equals("alchemical"))
+		//				res = "CAP_alchemical";
+		//			else if(captag.equals("vinteum"))
+		//				res = "CAP_vinteum";
+		//			ForbiddenResearch.recipes.put(key, ThaumcraftApi.addArcaneCraftingRecipe(res, wand, (new AspectList()).add(Aspect.AIR, cost).add(Aspect.ORDER, cost).add(Aspect.EARTH, cost).add(Aspect.FIRE, cost).add(Aspect.WATER, cost).add(Aspect.ENTROPY, cost), new Object[]{"  C", " R ", "C  ", Character.valueOf('C'), ((WandCap)WandCap.caps.get(captag)).getItem(), Character.valueOf('R'), ((WandRod)WandRod.rods.get(rodtag)).getItem()}));
+		//		}
+		//	}
+		//}
 		
 	}
 }

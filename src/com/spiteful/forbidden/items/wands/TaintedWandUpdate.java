@@ -1,4 +1,4 @@
-package com.spiteful.forbidden.items;
+package com.spiteful.forbidden.items.wands;
 
 import com.spiteful.forbidden.Config;
 

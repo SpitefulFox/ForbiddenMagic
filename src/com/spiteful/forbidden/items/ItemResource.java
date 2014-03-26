@@ -32,10 +32,11 @@ public class ItemResource extends Item
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IconRegister ir)
 	{
-		icons = new Icon[2];
+		icons = new Icon[3];
 
 		icons[0] = ir.registerIcon("forbidden:emerald_nugget");
 		icons[1] = ir.registerIcon("forbidden:dye_powder_black");
+		icons[2] = ir.registerIcon("forbidden:nuggetmanasteel");
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -50,7 +51,7 @@ public class ItemResource extends Item
 	 */
 	public String getUnlocalizedName(ItemStack par1ItemStack)
 	{
-		int i = MathHelper.clamp_int(par1ItemStack.getItemDamage(), 0, 6);
+		int i = MathHelper.clamp_int(par1ItemStack.getItemDamage(), 0, 2);
 		return super.getUnlocalizedName() + "." + i;
 	}
 
@@ -60,7 +61,7 @@ public class ItemResource extends Item
 	 */
 	public void getSubItems(int par1, CreativeTabs par2CreativeTabs, List par3List)
 	{
-		for (int j = 0; j < 2; ++j)
+		for (int j = 0; j < 3; ++j)
 		{
 			par3List.add(new ItemStack(par1, 1, j));
 		}
