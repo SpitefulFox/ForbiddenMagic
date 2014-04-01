@@ -138,7 +138,7 @@ public class FMEventHandler
 			}
 		}
 
-		if (Config.noHell || event.entityLiving.worldObj.provider.dimensionId != -1)
+		if (event.entityLiving.worldObj.provider.dimensionId != -1)
 			return;
 
 		if (!event.recentlyHit || event.source.getEntity() == null || !(event.source.getEntity() instanceof EntityPlayer)

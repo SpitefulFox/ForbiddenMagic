@@ -59,7 +59,7 @@ public class ItemRidingCrop extends ItemSword {
 			victim.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 75, 1));
 			victim.addPotionEffect(new PotionEffect(Potion.digSpeed.id, 75, 1));
 		}
-		if(!player.worldObj.isRemote && !Config.noLust && !Config.noHell && player.worldObj.provider.dimensionId == -1 && player.worldObj.rand.nextInt(30) == 1)
+		if(!player.worldObj.isRemote && !Config.noLust && player.worldObj.provider.dimensionId == -1 && player.worldObj.rand.nextInt(30) == 1)
 		{
 			EntityItem ent = victim.entityDropItem(new ItemStack(ForbiddenItems.deadlyShards, 1, 4), 1.0F);
 			ent.motionY += player.worldObj.rand.nextFloat() * 0.05F;

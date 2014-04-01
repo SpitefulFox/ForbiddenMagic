@@ -60,9 +60,6 @@ public class ForbiddenResearch
 	
 	public static void addInfernalism()
 	{
-		if(Config.noHell)
-			return;
-		
 		if(!Config.noLust)
 			(new DarkResearchItem("NETHERSHARDS", "FORBIDDEN", new AspectList(), -8, -2, 0, new ItemStack(ForbiddenItems.deadlyShards, 1, 0))).setPages(new ResearchPage[] {new ResearchPage("forbidden.research_page.NETHERSHARDS.1"), new ResearchPage("forbidden.research_page.NETHERSHARDS.2"), new ResearchPage("forbidden.research_page.NETHERSHARDS.3")}).setStub().setRound().setAutoUnlock().registerResearchItem();
 		else

@@ -58,12 +58,11 @@ public class Forbidden
 	{
 		instance = this;
 		Config.configurate(event.getSuggestedConfigurationFile());
-		if(!Config.noHell)
+		if(Config.wrathCage)
 			crysTab = new ForbiddenTab("mobcrystal", true);
 		Compat.initiate();
 		DarkAspects.initAspects();
-		if(!Config.noHell)
-			Config.spawnilify();
+		Config.spawnilify();
 		ForbiddenItems.addItems();
 		ForbiddenBlocks.addBlocks();
 		DarkEnchantments.hex();

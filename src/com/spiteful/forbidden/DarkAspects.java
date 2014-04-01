@@ -26,8 +26,6 @@ public class DarkAspects
 
 	public static void initAspects()
 	{
-		if(Config.noHell)
-			return;
 		NETHER = new Aspect("infernus", 0xff0000, new Aspect[] {Aspect.FIRE, Aspect.MAGIC}, new ResourceLocation("forbidden", "textures/aspects/infernus.png"), 771);
 		if(!Config.noLust){
 			LUST = new Aspect("luxuria", 0xffc1ce, new Aspect[] {Aspect.FLESH, Aspect.HUNGER}, new ResourceLocation("forbidden", "textures/aspects/luxuria.png"), 1);
@@ -41,9 +39,6 @@ public class DarkAspects
 	
 	public static void addAspects()
 	{
-		if(Config.noHell)
-			return;
-		
 		AspectList list;
 
 		list = ThaumcraftApiHelper.getObjectAspects(new ItemStack(Block.netherrack));
@@ -58,7 +53,7 @@ public class DarkAspects
 		list.add(NETHER, 2);
 		ThaumcraftApi.registerObjectTag(Block.oreNetherQuartz.blockID, -1, list);
 
-		list = ThaumcraftApiHelper.getObjectAspects(new ItemStack(Item.netherStar));
+		list = ThaumcraftApiHelper.getObjectAspects(new ItemStack(Item.netherStar)).copy();
 		list.add(NETHER, 8).add(PRIDE, 8);
 		ThaumcraftApi.registerObjectTag(Item.netherStar.itemID, -1, list);
 
@@ -120,7 +115,7 @@ public class DarkAspects
 		list = (new AspectList()).add(Aspect.CRAFT, 3).add(Aspect.CLOTH, 6).add(SLOTH, 4);
 		ThaumcraftApi.registerObjectTag(Item.bed.itemID, -1, list);
 		
-		list = ThaumcraftApiHelper.getObjectAspects(new ItemStack(Item.eyeOfEnder));
+		list = ThaumcraftApiHelper.getObjectAspects(new ItemStack(Item.eyeOfEnder)).copy();
 		list.add(ENVY, 4);
 		ThaumcraftApi.registerObjectTag(Item.eyeOfEnder.itemID, -1, list);
 
@@ -136,7 +131,7 @@ public class DarkAspects
 		list.add(WRATH, 1);
 		ThaumcraftApi.registerObjectTag(Item.fireballCharge.itemID, -1, list);
 		
-		list = ThaumcraftApiHelper.getObjectAspects(new ItemStack(Item.comparator));
+		list = ThaumcraftApiHelper.getObjectAspects(new ItemStack(Item.comparator)).copy();
 		list.add(ENVY, 1);
 		ThaumcraftApi.registerObjectTag(Item.comparator.itemID, -1, list);
 		

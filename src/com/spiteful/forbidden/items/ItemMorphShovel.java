@@ -2,10 +2,14 @@ package com.spiteful.forbidden.items;
 
 import com.spiteful.forbidden.Forbidden;
 import com.spiteful.forbidden.Config;
+import com.spiteful.forbidden.enchantments.DarkEnchantments;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.EnumToolMaterial;
@@ -106,6 +110,16 @@ public class ItemMorphShovel extends ItemSpade implements IRepairable
 	@SideOnly(Side.CLIENT)
 	public boolean requiresMultipleRenderPasses() {
 		return true;
+	}
+	
+	/**
+     * Called each tick as long the item is on a player inventory. Uses by maps to check if is on a player hand and
+     * update it's contents.
+     */
+    public void onUpdate(ItemStack stack, World world, Entity player, int wat, boolean waat)
+	{
+		if(stack.getItemDamage() > 0 && EnchantmentHelper.getEnchantmentLevel(DarkEnchantments.eternal.effectId, stack) > 0)
+			stack.setItemDamage(0);
 	}
 	
 }

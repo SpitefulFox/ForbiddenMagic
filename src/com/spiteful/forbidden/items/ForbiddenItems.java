@@ -78,39 +78,37 @@ public class ForbiddenItems
 		GameRegistry.registerItem(taintPickaxe, "TaintPickaxe");
 		MinecraftForge.setToolClass(taintPickaxe, "pickaxe", 5);
 		
-		if(!Config.noHell)
-		{
+		arcaneCakeItem = new ItemArcaneCake(Config.arcaneCakeItemID).setUnlocalizedName("ArcaneCake");
+		GameRegistry.registerItem(arcaneCakeItem, "ArcaneCakeItem");
 		
-			arcaneCakeItem = new ItemArcaneCake(Config.arcaneCakeItemID).setUnlocalizedName("ArcaneCake");
-			GameRegistry.registerItem(arcaneCakeItem, "ArcaneCakeItem");
-			
-			skullAxe = new ItemSkullAxe(Config.skullAxeID, ThaumcraftApi.toolMatElemental).setUnlocalizedName("SkullAxe");
-			GameRegistry.registerItem(skullAxe, "SkullAxe");
-			
-			morphPickaxe = new ItemMorphPickaxe(Config.morphPickaxeID, ThaumcraftApi.toolMatElemental).setUnlocalizedName("MorphPickaxe");
-			GameRegistry.registerItem(morphPickaxe, "MorphPickaxe");
-			MinecraftForge.setToolClass(morphPickaxe, "pickaxe", 4);
-			
-			morphSword = new ItemMorphSword(Config.morphSwordID, ThaumcraftApi.toolMatElemental).setUnlocalizedName("MorphSword");
-			GameRegistry.registerItem(morphSword, "MorphSword");
-			
-			morphShovel = new ItemMorphShovel(Config.morphShovelID, ThaumcraftApi.toolMatElemental).setUnlocalizedName("MorphShovel");
-			GameRegistry.registerItem(morphShovel, "MorphShovel");
-			MinecraftForge.setToolClass(morphShovel, "shovel", 4);
-			
-			morphAxe = new ItemMorphAxe(Config.morphAxeID, ThaumcraftApi.toolMatElemental).setUnlocalizedName("MorphAxe");
-			GameRegistry.registerItem(morphAxe, "MorphAxe");
-			MinecraftForge.setToolClass(morphAxe, "axe", 4);
-			
+		skullAxe = new ItemSkullAxe(Config.skullAxeID, ThaumcraftApi.toolMatElemental).setUnlocalizedName("SkullAxe");
+		GameRegistry.registerItem(skullAxe, "SkullAxe");
+		
+		morphPickaxe = new ItemMorphPickaxe(Config.morphPickaxeID, ThaumcraftApi.toolMatElemental).setUnlocalizedName("MorphPickaxe");
+		GameRegistry.registerItem(morphPickaxe, "MorphPickaxe");
+		MinecraftForge.setToolClass(morphPickaxe, "pickaxe", 4);
+		
+		morphSword = new ItemMorphSword(Config.morphSwordID, ThaumcraftApi.toolMatElemental).setUnlocalizedName("MorphSword");
+		GameRegistry.registerItem(morphSword, "MorphSword");
+		
+		morphShovel = new ItemMorphShovel(Config.morphShovelID, ThaumcraftApi.toolMatElemental).setUnlocalizedName("MorphShovel");
+		GameRegistry.registerItem(morphShovel, "MorphShovel");
+		MinecraftForge.setToolClass(morphShovel, "shovel", 4);
+		
+		morphAxe = new ItemMorphAxe(Config.morphAxeID, ThaumcraftApi.toolMatElemental).setUnlocalizedName("MorphAxe");
+		GameRegistry.registerItem(morphAxe, "MorphAxe");
+		MinecraftForge.setToolClass(morphAxe, "axe", 4);
+		
+		if(Config.wrathCage)
+		{
 			mobCrystal = new ItemMobCrystal(Config.mobCrystalID).setUnlocalizedName("MobCrystal");
 			GameRegistry.registerItem(mobCrystal, "MobCrystal");
-			
-			fork = new ItemDiabolistFork(Config.forkID, ThaumcraftApi.toolMatThaumium).setUnlocalizedName("DiabolistFork");
-			if(Config.spork)
-				fork.setUnlocalizedName("DiabolistSpork");
-			GameRegistry.registerItem(fork, "DiabolistFork");
-		
 		}
+		
+		fork = new ItemDiabolistFork(Config.forkID, ThaumcraftApi.toolMatThaumium).setUnlocalizedName("DiabolistFork");
+		if(Config.spork)
+			fork.setUnlocalizedName("DiabolistSpork");
+		GameRegistry.registerItem(fork, "DiabolistFork");
 		
 		wandCore = new ItemWandCores(Config.wandCoreID).setUnlocalizedName("WandCores");
 		GameRegistry.registerItem(wandCore, "WandCores");

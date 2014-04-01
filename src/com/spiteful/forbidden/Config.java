@@ -49,6 +49,7 @@ public class Config
 	public static int arcaneCakeBlockID;
 	public static int blackFlowerBlockID;
 	public static int wrathCageID;
+	public static int starBlockID;
 	
 	public static int clusterEnchID;
 	public static int pigBaneEnchID;
@@ -56,6 +57,7 @@ public class Config
 	public static int consumingEnchID;
 	public static int educationalEnchID;
 	public static int corruptingEnchID;
+	public static int eternalEnchID;
 
 	public static int thaumcraftResourceID;
 	public static int thaumcraftTaintBlockID;
@@ -65,7 +67,6 @@ public class Config
 	public static int thaumcraftShardID;
 	
 	public static boolean noLust = false;
-	public static boolean noHell = false;
 	public static boolean silverfishEmeralds = true;
 	public static boolean tagResearch = true;
 	public static boolean wrathCage = true;
@@ -111,6 +112,7 @@ public class Config
 			arcaneCakeBlockID = conf.getBlock("Thaumic Cake", blockCount++).getInt();
 			blackFlowerBlockID = conf.getBlock("Umbral Rose", blockCount++).getInt();
 			wrathCageID = conf.getBlock("Wrath Cage", blockCount++).getInt();
+			starBlockID = conf.getBlock("Nether Star Block", blockCount++).getInt();
 			
 			int enchCount = 66;
 			clusterEnchID = conf.get("enchantments", "Fiery Core", enchCount++).getInt();
@@ -119,13 +121,11 @@ public class Config
 			consumingEnchID = conf.get("enchantments", "Consuming", enchCount++).getInt();
 			educationalEnchID = conf.get("enchantments", "Educational", enchCount++).getInt();
 			corruptingEnchID = conf.get("enchantments", "Corrupting", enchCount++).getInt();
+			eternalEnchID = conf.get("enchantments", "Eternal", enchCount++).getInt();
 			
 			Property nl = conf.get("general", "No Lust", noLust);
 			nl.comment = "Enable to remove Luxuria aspect and related items.";
 			noLust = nl.getBoolean(false);
-			Property nh = conf.get("general", "No New Aspects", noHell);
-			nh.comment = "Enable to remove all new aspects and related items.";
-			noHell = nh.getBoolean(false);
 			Property sf = conf.get("general", "Silverfish Drop Emerald Nuggets", silverfishEmeralds);
 			sf.comment = "Disable to prevent Silverfish from dropping emerald nuggets.";
 			silverfishEmeralds = sf.getBoolean(true);
@@ -153,7 +153,7 @@ public class Config
 			cw.comment = "Enable to let the Wrath Cage imprint on ANY non-boss mob.  May break your game or make your game Awesome.";
 			wrathCrazy = cw.getBoolean(false);
 			
-			Property sd = conf.get("general", "Spork of Doom", spork);
+			Property sd = conf.get("silly", "Spork of Doom", spork);
 			sd.comment = "What is this?  I don't even...";
 			spork = sd.getBoolean(false);
 		}
