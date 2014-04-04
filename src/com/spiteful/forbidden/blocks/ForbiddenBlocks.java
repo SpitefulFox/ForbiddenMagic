@@ -30,7 +30,7 @@ public class ForbiddenBlocks
 		GameRegistry.registerTileEntity(TileEntityWrathCage.class, "WrathCage");
 		blackFlower = new BlockBlackFlower(Config.blackFlowerBlockID).setStepSound(Block.soundGrassFootstep).setTextureName("forbidden:flower_black").setUnlocalizedName("InkFlower");
 		GameRegistry.registerBlock(blackFlower, "InkFlower");
-		starBlock = new Block(Config.starBlockID, Material.rock).setHardness(5.0F).setStepSound(Block.soundMetalFootstep).setTextureName("forbidden:starblock").setUnlocalizedName("StarBlock");
+		starBlock = new BlockResource(Config.starBlockID).setHardness(5.0F).setStepSound(Block.soundMetalFootstep).setTextureName("forbidden:starblock").setUnlocalizedName("StarBlock");
 		GameRegistry.registerBlock(starBlock, "StarBlock");
 	}
 }

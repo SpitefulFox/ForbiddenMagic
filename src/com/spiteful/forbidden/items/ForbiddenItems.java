@@ -16,6 +16,7 @@ import thaumcraft.api.ThaumcraftApi;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.wands.WandCap;
 import thaumcraft.api.wands.WandRod;
+import thaumcraft.api.wands.StaffRod;
 
 public class ForbiddenItems
 {
@@ -48,6 +49,7 @@ public class ForbiddenItems
 	public static WandRod WAND_ROD_WITCHWOOD;
 	public static WandRod WAND_ROD_TOTEM;
 	public static WandRod WAND_ROD_LIVINGWOOD;
+	public static StaffRod STAFF_ROD_BLOOD;
 	public static WandCap WAND_CAP_ORICHALCUM;
 	public static WandCap WAND_CAP_ALCHEMICAL;
 	public static WandCap WAND_CAP_VINTEUM;
@@ -124,6 +126,7 @@ public class ForbiddenItems
 		WAND_ROD_WITCHWOOD = new WandRod("witchwood", 100, new ItemStack(wandCore, 1, 4), 12, new ManaWandUpdate(), new ResourceLocation("forbidden", "textures/models/wand_rod_witchwood.png"));
 		WAND_ROD_TOTEM = new WandRod("totem", 50, new ItemStack(wandCore, 1, 5), 4, new TotemWandUpdate(), new ResourceLocation("forbidden", "textures/models/wand_rod_totem.png"));
 		WAND_ROD_LIVINGWOOD = new WandRod("livingwood", 100, new ItemStack(wandCore, 1, 7), 12, new YandereWandUpdate(), new ResourceLocation("forbidden", "textures/models/wand_rod_livingwood.png"));
+		STAFF_ROD_BLOOD = new StaffRod("blood", 50, new ItemStack(wandCore, 1, 9), 24, new BloodStaffUpdate(), new ResourceLocation("forbidden", "textures/models/wand_rod_blood.png"));
 		WAND_CAP_ORICHALCUM = new DarkWandCap("orichalcum", 0.0F, new ItemStack(Block.commandBlock, 1), 1000, new ResourceLocation("forbidden", "textures/models/wand_cap_orichalcum.png"));
 		WAND_CAP_ALCHEMICAL = new DarkWandCap("alchemical", 0.9F, Arrays.asList(new Aspect[]{Aspect.WATER}), 0.8F, new ItemStack(wandCap, 1, 0), 7, new ResourceLocation("forbidden", "textures/models/wand_cap_alchemical.png"));
 		WAND_CAP_VINTEUM = new DarkWandCap("vinteum", 0.9F, new ItemStack(wandCap, 1, 1), 6, new ResourceLocation("forbidden", "textures/models/wand_cap_vinteum.png"));

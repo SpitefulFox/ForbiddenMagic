@@ -62,6 +62,7 @@ item.WandCores.totem.name=Totemic Rod
 item.WandCores.blood_inert.name=Inert Blood Rod
 item.WandCores.livingwood.name=Livingwood Rod
 item.WandCores.livingwood_inert.name=Dormant Livingwood Rod
+item.WandCores.blood_staff.name=Blood Staff Core
 item.WandCaps.alchemical.name=Alchemical Cap
 item.WandCaps.vinteum.name=Vinteum Cap
 item.WandCaps.soul.name=Ender Cap
@@ -72,6 +73,7 @@ item.WandCaps.manasteel_inert.name=Inert Manasteel Cap
 tile.ArcaneCake.name=Thaumic Cake
 tile.InkFlower.name=Umbral Rose
 tile.WrathCage.name=Wrath Cage
+tile.StarBlock.name=Nether Star Block
 #
 # Enchantments
 enchantment.cluster=Fiery Core
@@ -80,6 +82,7 @@ enchantment.greedy=Capitalist
 enchantment.consuming=Consuming
 enchantment.educational=Educational
 enchantment.corrupting=Corrupting
+enchantment.eternal=Eternal
 #
 # Misc
 itemGroup.forbidden=Forbidden Magic
@@ -130,17 +133,21 @@ forbidden.research_text.ROD_blood=Alchemical vis storage
 forbidden.research_page.ROD_blood.1=You've created a bridge between Thaumaturgy and Alchemical Wizardry. The Blood Wand can store up to 100 vis and will gradually fill itself using Life Points.<BR><BR>The wand will bind itself to the first person to pick it up. As long as the rod is empty, it will try to fill itself using LP from its owner's network. If there are not enough Life Points to fuel it, it will resort to drawing health from whoever is carrying it, but this conversion is less efficient. If it has no LP to draw from and its holder falls below three hearts, the wand stops charging itself.
 forbidden.research_page.ROD_blood.2=The infusion process alone isn't enough to complete a Blood Wand. Once the Inert Blood Rod has been infused, it must be imbued with life essence in a Blood Altar to be completed.
 #
+forbidden.research_name.ROD_blood_staff=Blood Staff Core
+forbidden.research_text.ROD_blood_staff=Staff of the Blood Magus
+forbidden.research_page.ROD_blood_staff.1=The Blood Wand is useful, but it just charges so slowly. It's time to create a magical implement that can hold up in sustained combat.<BR><BR>Unlike most staves, the Blood Staff holds only 50 vis instead of the 100 its wand form can. Where it truly shines is its ability to recharge vis at a rapid rate. As long as the Blood Staff is held in your hotbar, it will recharge its vis from its owner's LP network four times as quickly as a normal Blood Wand. This voraciousness comes at a price, however. Unlike the wand, the Blood Staff can and will kill whoever's holding it if it doesn't recieve enough LP.
+#
 forbidden.research_name.ROD_witchwood=Witchwood Wand Core
 forbidden.research_text.ROD_witchwood=Mana converter
 forbidden.research_page.ROD_witchwood.1=By creating a wand core out of Witchwood, you've discovered a way to convert mana into Vis.  The Witchwood Wand Core holds up to 100 vis and will gradually charge itself at the cost of 150 mana per point of vis.<BR><BR>Further research may reveal ways to lower this price.
 #
 forbidden.research_name.ROD_totem=Totemic Wand Core
 forbidden.research_text.ROD_totem=Verdant vis storage
-forbidden.research_page.ROD_totem.1=Hunting down nodes for their power can be quite a pain sometimes. Perhaps there is another discipline you can tap for power...<BR><BR>By carving a wand core from Infused Wood and inlaying it with chlorophyllic metal, you create a wand that can draw power from plant energy. The Totemic Wand Core holds 50 vis and can draw energy from Chlorophyll Crystals in your inventory to recharge its own vis.
+forbidden.research_page.ROD_totem.1=Hunting down nodes for their power can be quite a pain sometimes. Perhaps there is another discipline you can tap for power...<BR><BR>By carving a wand core from Infused Wood, you create a wand that can draw power from plant life. The Totemic Wand Core holds 50 vis and can draw energy from Chlorophyll Crystals in your inventory to recharge its own vis.
 #
 forbidden.research_name.ROD_livingwood=Livingwood Wand Core
 forbidden.research_text.ROD_livingwood=Botanical vis storage
-forbidden.research_page.ROD_livingwood.1=Livingwood has the fantastic ability to manipulate mana. When combined with the right reagents, it can even convert mana into vis.<BR><BR>The Livingwood Wand will quickly draw mana from storage items in your inventory in order to charge itself. Each point of vis costs 800 mana, but further research may ameliorate this.<BR><BR>The infusion process burns out the livingwood, unfortunately. Once infused, the wand rod must be charged in a mana pool in order to be awakened.
+forbidden.research_page.ROD_livingwood.1=Livingwood has the fantastic ability to manipulate mana. When combined with the right reagents, it can even convert mana into vis.<BR><BR>The Livingwood Wand will quickly draw mana from storage items in your inventory in order to charge itself.<BR><BR>The infusion process burns the livingwood out, unfortunately. Once infused, the wand rod must be charged in a mana pool in order to be re-awakened.
 #
 forbidden.research_name.CAP_alchemical=Alchemical Caps
 forbidden.research_text.CAP_alchemical=When Thaumium isn't bloody enough
@@ -156,7 +163,7 @@ forbidden.research_page.CAP_soul.1=You've created a wand cap that can safely cha
 #
 forbidden.research_name.CAP_manasteel=Manasteel Caps
 forbidden.research_text.CAP_manasteel=The secret of mana
-forbidden.research_page.CAP_manasteel.1=Manasteel has very useful properties when it comes to mana manipulation. When crafted into a wand cap, it offers a 90% vis rate. If combined with a Livingwood Wand, it makes the conversion process more efficient, needing only 600 mana per point of vis.<BR><BR>In order to be used in the creation of a wand, the Inert Manasteel Caps must be infused in a Mana Pool.
+forbidden.research_page.CAP_manasteel.1=Manasteel has very useful properties when it comes to mana manipulation. When crafted into a wand cap, it offers a 90% vis rate. If combined with a Livingwood Wand, it also makes the mana conversion process more efficient.<BR><BR>In order to be used in the creation of a wand, the Inert Manasteel Caps must be infused in a Mana Pool.
 #
 forbidden.research_name.TRANSEMERALD=Emerald Transmutation
 forbidden.research_text.TRANSEMERALD=Transformation of valuables into emerald
@@ -204,6 +211,10 @@ forbidden.research_page.EDUCATIONAL.1=You've created an enchantment to infuse a 
 forbidden.research_name.CORRUPTING=Enchantment: Corrupting
 forbidden.research_text.CORRUPTING=A bad influence on shards
 forbidden.research_page.CORRUPTING.1=The Nether is great and all, but it's also kind of a... Hell Hole.<BR><BR>The Corrupting enchant allows you to harvest Nether Shards without having to be in the Nether.  A pickaxe enchanted with Corrupting will randomly corrupt harvested elemental shards, changing them into nether shards. The shards only seem susceptible while they are encased in infused stone, so corrupting a shard cluster will have no effect.
+#
+forbidden.research_name.ETERNAL=Enchantment: Eternal
+forbidden.research_text.ETERNAL=Chameleon Gods
+forbidden.research_page.ETERNAL.1=Ichorium Tools are really great. You sure wish your Chameleon Tools could be more like them. Maybe they can...<BR><BR>The Eternal enchant gives a Chameleon Tool the same unbreakable quality as Ichorium Tools.
 #
 forbidden.research_name.TAINTBASICS=Tainted Lands
 forbidden.research_text.TAINTBASICS=Deep Purple

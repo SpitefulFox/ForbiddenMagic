@@ -18,7 +18,7 @@ import thaumcraft.common.items.wands.ItemWandCasting;
 
 public class ItemWandCores extends Item {
 
-	public final String[] types = {"tainted", "infernal", "soul", "blood", "witchwood", "totem", "blood_inert", "livingwood", "livingwood_inert"};
+	public final String[] types = {"tainted", "infernal", "soul", "blood", "witchwood", "totem", "blood_inert", "livingwood", "livingwood_inert", "blood_staff"};
 	public Icon[] icon;
 
 

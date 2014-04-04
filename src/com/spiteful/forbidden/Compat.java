@@ -195,6 +195,7 @@ public class Compat {
 				Item sanctus = (Item)(bloodItems.getField("sanctus").get(null));
 				Item tennebrae = (Item)(bloodItems.getField("tennebrae").get(null));
 				Item crapOrb = (Item)(bloodItems.getField("weakBloodOrb").get(null));
+				Item demonShard = (Item)(bloodItems.getField("demonBloodShard").get(null));
 				
 				bloodItems = Class.forName("WayofTime.alchemicalWizardry.AlchemicalWizardry");
 				Item bloodBucket = (Item)(bloodItems.getField("bucketLife").get(null));
@@ -211,6 +212,9 @@ public class Compat {
 				
 				IArcaneRecipe bloodwell_recipe = ThaumcraftApi.addShapelessArcaneCraftingRecipe("BLOODWELL", new ItemStack(ForbiddenItems.bloodwell, 1, 0), (new AspectList()).add(Aspect.WATER, 10).add(Aspect.EARTH, 10), new Object[]{new ItemStack(Item.feather, 1, 0), new ItemStack(bloodBucket, 1, 0), new ItemStack(Item.glassBottle, 1, 0), new ItemStack(crapOrb, 1, 0)});
 				(new DarkResearchItem("BLOODWELL", "FORBIDDEN", "[BM]", (new AspectList()).add(Aspect.LIFE, 5).add(Aspect.MIND, 4).add(Aspect.SENSES, 3), -10, 4, 1, new ItemStack(ForbiddenItems.bloodwell, 1, 0))).setPages(new ResearchPage[]{new ResearchPage("forbidden.research_page.BLOODWELL.1"), new ResearchPage(bloodwell_recipe)}).setParents(new String[]{"RESEARCH"}).setAspectTriggers(new Aspect[]{Aspect.LIFE}).setConcealed().registerResearchItem();
+				
+				IArcaneRecipe blood_staff = ThaumcraftApi.addArcaneCraftingRecipe("ROD_blood_staff", new ItemStack(ForbiddenItems.wandCore, 1, 9), (new AspectList()).add(Aspect.ENTROPY, 26).add(Aspect.FIRE, 26).add(Aspect.WATER, 26).add(Aspect.AIR, 26).add(Aspect.EARTH, 26).add(Aspect.ORDER, 26), new Object[]{"__D", "_B_", "B__", Character.valueOf('B'), new ItemStack(ForbiddenItems.wandCore, 1, 3), Character.valueOf('D'), new ItemStack(demonShard)});
+				(new DarkResearchItem("ROD_blood_staff", "FORBIDDEN", "[BM]", (new AspectList()).add(Aspect.LIFE, 8).add(Aspect.WATER, 7).add(Aspect.WEAPON, 6), -6, -5, 5, new ItemStack(ForbiddenItems.wandCore, 1, 9))).setPages(new ResearchPage[]{new ResearchPage("forbidden.research_page.ROD_blood_staff.1"), new ResearchPage(blood_staff)}).setParents(new String[]{"ROD_silverwood_staff", "ROD_blood"}).setSpecial().setConcealed().registerResearchItem();
 				
 				if(kami)
 				{
@@ -241,6 +245,9 @@ public class Compat {
 				
 				list = (new AspectList()).add(Aspect.LIFE, 16).add(Aspect.MAGIC, 8).add(Aspect.CRYSTAL, 4);
 				ThaumcraftApi.registerObjectTag(masterOrb.itemID, -1, list);
+				
+				list = (new AspectList()).add(Aspect.LIFE, 16).add(DarkAspects.NETHER, 8).add(Aspect.CRYSTAL, 4).add(Aspect.FIRE, 1).add(Aspect.WATER, 1).add(Aspect.AIR, 1).add(Aspect.EARTH, 1).add(Aspect.LIGHT, 1).add(Aspect.DARKNESS, 1);
+				ThaumcraftApi.registerObjectTag(demonShard.itemID, -1, list);
 				
 				list = (new AspectList()).add(Aspect.LIFE, 32).add(DarkAspects.NETHER, 4).add(Aspect.MAGIC, 8).add(Aspect.CRYSTAL, 4);
 				aspectBloodItem("archmageBloodOrb", -1, list);

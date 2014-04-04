@@ -23,6 +23,10 @@ public class DarkAspects
 	public static Aspect PRIDE;
 	public static Aspect LUST;
 	public static Aspect SLOTH;
+	
+	public static Aspect DINO;
+	public static Aspect FISH;
+	public static Aspect DERP;
 
 	public static void initAspects()
 	{
@@ -35,6 +39,7 @@ public class DarkAspects
 		ENVY = new Aspect("invidia", 0x00ba00, new Aspect[] {Aspect.SENSES, Aspect.HUNGER}, new ResourceLocation("forbidden", "textures/aspects/invidia.png"), 1);
 		SLOTH = new Aspect("desidia", 0x6e6e6e, new Aspect[] {Aspect.TRAP, Aspect.SOUL}, new ResourceLocation("forbidden", "textures/aspects/desidia.png"), 771);
 		WRATH = new Aspect("ira", 0x870404, new Aspect[] {Aspect.WEAPON, Aspect.FIRE}, new ResourceLocation("forbidden", "textures/aspects/ira.png"), 771);
+		
 	}
 	
 	public static void addAspects()
@@ -49,21 +54,26 @@ public class DarkAspects
 		list.add(NETHER, 4);
 		ThaumcraftApi.registerObjectTag(Block.portal.blockID, -1, list);
 
-		list = ThaumcraftApiHelper.getObjectAspects(new ItemStack(Block.oreNetherQuartz));
-		list.add(NETHER, 2);
-		ThaumcraftApi.registerObjectTag(Block.oreNetherQuartz.blockID, -1, list);
+		//list = ThaumcraftApiHelper.getObjectAspects(new ItemStack(Block.oreNetherQuartz));
+		//list.add(NETHER, 2);
+		//ThaumcraftApi.registerObjectTag(Block.oreNetherQuartz.blockID, -1, list);
+		ThaumcraftApi.registerObjectTag("oreQuartz", (new AspectList()).add(Aspect.STONE, 1).add(Aspect.CRYSTAL, 3).add(NETHER, 2));
 
-		list = ThaumcraftApiHelper.getObjectAspects(new ItemStack(Item.netherStar)).copy();
+		list = ThaumcraftApiHelper.getObjectAspects(new ItemStack(Item.netherStar));
 		list.add(NETHER, 8).add(PRIDE, 8);
-		ThaumcraftApi.registerObjectTag(Item.netherStar.itemID, -1, list);
+		ThaumcraftApi.registerObjectTag(Item.netherStar.itemID, 0, list);
 
 		list = ThaumcraftApiHelper.getObjectAspects(new ItemStack(Item.netherStalkSeeds));
 		list.add(NETHER, 1);
-		ThaumcraftApi.registerObjectTag(Item.netherStalkSeeds.itemID, -1, list);
+		ThaumcraftApi.registerObjectTag(Item.netherStalkSeeds.itemID, 0, list);
 
 		list = ThaumcraftApiHelper.getObjectAspects(new ItemStack(Item.netherrackBrick));
 		list.add(NETHER, 1);
 		ThaumcraftApi.registerObjectTag(Item.netherrackBrick.itemID, -1, list);
+		
+		list = ThaumcraftApiHelper.getObjectAspects(new ItemStack(Block.netherBrick));
+		list.add(NETHER, 2);
+		ThaumcraftApi.registerObjectTag(Block.netherBrick.blockID, 0, list);
 
 		list = ThaumcraftApiHelper.getObjectAspects(new ItemStack(Item.ghastTear));
 		list.add(WRATH, 4);
@@ -77,17 +87,13 @@ public class DarkAspects
 		list.add(WRATH, 2);
 		ThaumcraftApi.registerObjectTag(Item.skull.itemID, 4, list);
 
-		list = ThaumcraftApiHelper.getObjectAspects(new ItemStack(Item.enderPearl));
-		list.add(PRIDE, 1);
-		ThaumcraftApi.registerObjectTag(Item.enderPearl.itemID, -1, list);
-
-		//list = ThaumcraftApiHelper.getObjectAspects(new ItemStack(Block.slowSand));
-		//list.add(NETHER, 1);
-		//ThaumcraftApi.registerObjectTag(Block.slowSand.blockID, -1, list);
+		//list = ThaumcraftApiHelper.getObjectAspects(new ItemStack(Item.enderPearl));
+		//list.add(PRIDE, 1);
+		//ThaumcraftApi.registerObjectTag(Item.enderPearl.itemID, -1, list);
 
 		list = ThaumcraftApiHelper.getObjectAspects(new ItemStack(Block.tnt));
 		list.add(WRATH, 2);
-		ThaumcraftApi.registerObjectTag(Block.tnt.blockID, -1, list);
+		ThaumcraftApi.registerObjectTag(Block.tnt.blockID, 0, list);
 
 		list = ThaumcraftApiHelper.getObjectAspects(new ItemStack(Item.helmetGold));
 		list.add(PRIDE, 2);
@@ -115,13 +121,15 @@ public class DarkAspects
 		list = (new AspectList()).add(Aspect.CRAFT, 3).add(Aspect.CLOTH, 6).add(SLOTH, 4);
 		ThaumcraftApi.registerObjectTag(Item.bed.itemID, -1, list);
 		
-		list = ThaumcraftApiHelper.getObjectAspects(new ItemStack(Item.eyeOfEnder)).copy();
+		//list = ThaumcraftApiHelper.getObjectAspects(new ItemStack(Item.eyeOfEnder)).copy();
+		list = (new AspectList()).add(Aspect.SENSES, 4).add(Aspect.ELDRITCH, 4).add(Aspect.MAGIC, 3);
 		list.add(ENVY, 4);
-		ThaumcraftApi.registerObjectTag(Item.eyeOfEnder.itemID, -1, list);
+		ThaumcraftApi.registerObjectTag(Item.eyeOfEnder.itemID, 0, list);
+		//ThaumcraftApi.registerComplexObjectTag(Item.eyeOfEnder.itemID, 0, (new AspectList()).add(Aspect.SENSES, 4).add(ENVY, 86));
 
 		list = ThaumcraftApiHelper.getObjectAspects(new ItemStack(Item.cake));
 		list.add(GLUTTONY, 7);
-		ThaumcraftApi.registerObjectTag(Item.cake.itemID, -1, list);
+		ThaumcraftApi.registerObjectTag(Item.cake.itemID, 0, list);
 
 		list = ThaumcraftApiHelper.getObjectAspects(new ItemStack(Item.cookie));
 		list.add(GLUTTONY, 1);
@@ -129,11 +137,14 @@ public class DarkAspects
 		
 		list = ThaumcraftApiHelper.getObjectAspects(new ItemStack(Item.fireballCharge));
 		list.add(WRATH, 1);
-		ThaumcraftApi.registerObjectTag(Item.fireballCharge.itemID, -1, list);
+		ThaumcraftApi.registerObjectTag(Item.fireballCharge.itemID, 0, list);
 		
-		list = ThaumcraftApiHelper.getObjectAspects(new ItemStack(Item.comparator)).copy();
-		list.add(ENVY, 1);
+		//list = ThaumcraftApiHelper.getObjectAspects(new ItemStack(Item.comparator)).copy();
+		//list.add(ENVY, 2);
+		list = (new AspectList()).add(Aspect.MECHANISM, 2).add(Aspect.ORDER, 2).add(ENVY, 2);
 		ThaumcraftApi.registerObjectTag(Item.comparator.itemID, -1, list);
+		//ThaumcraftApi.registerComplexObjectTag(Block.redstoneComparatorIdle.blockID, -1, (new AspectList()).merge(Aspect.MECHANISM, 2).merge(Aspect.ORDER, 2).merge(ENVY, 2));
+		//ThaumcraftApi.registerComplexObjectTag(Block.redstoneComparatorActive.blockID, -1, (new AspectList()).merge(Aspect.MECHANISM, 2).merge(Aspect.ORDER, 2).merge(ENVY, 2));
 		
 		list = (new AspectList()).add(Aspect.FLESH, 6).add(Aspect.LIFE, 6).add(Aspect.ENERGY, 6).add(Aspect.BEAST, 4).add(GLUTTONY, 6);
 		ThaumcraftApi.registerObjectTag("itemBacon", list);

@@ -91,15 +91,8 @@ public class ForbiddenResearch
 	
 	public static void addTaint()
 	{
-		if(!ResearchCategories.researchCategories.containsKey("TAINT"))
-		{
-			ResearchCategories.registerCategory("TAINT", new ResourceLocation("forbidden", "textures/misc/henturgy.png"), new ResourceLocation("forbidden", "textures/misc/taintBackground.png"));
-			(new DarkResearchItem("TAINTBASICS", "TAINT", new AspectList(), 0, 0, 0, ItemApi.getItem("itemResource", 12))).setPages(new ResearchPage[] {new ResearchPage("forbidden.research_page.TAINTBASICS.1"), new ResearchPage("forbidden.research_page.TAINTBASICS.2")}).setStub().setRound().setAutoUnlock().registerResearchItem();
-
-		}
-		
-		(new DarkResearchItem("TAINTSHOVEL", "TAINT", (new AspectList()).add(Aspect.CRYSTAL, 3).add(Aspect.TAINT, 2).add(Aspect.TOOL, 1), 0, -3, 3, new ItemStack(ForbiddenItems.taintShovel))).setPages(new ResearchPage[]{new ResearchPage("forbidden.research_page.TAINTSHOVEL.1"), new ResearchPage((InfusionRecipe)recipes.get("TaintShovel")), new ResearchPage("forbidden.research_page.TAINTSHOVEL.2")}).setParentsHidden(new String[]{"THAUMIUM", "INFUSION", "ETHEREALBLOOM"}).setConcealed().registerResearchItem();
-		(new DarkResearchItem("TAINTPICK", "TAINT", (new AspectList()).add(Aspect.TOOL, 2).add(Aspect.TAINT, 4).add(Aspect.ENTROPY, 3), -2, -3, 2, new ItemStack(ForbiddenItems.taintPickaxe))).setPages(new ResearchPage[]{new ResearchPage("forbidden.research_page.TAINTPICK.1"), new ResearchPage((InfusionRecipe)recipes.get("TaintPick"))}).setParentsHidden(new String[]{"THAUMIUM", "INFUSION"}).setConcealed().registerResearchItem();
-		(new DarkResearchItem("ROD_tainted", "TAINT", (new AspectList()).add(Aspect.MAGIC, 4).add(Aspect.TAINT, 5).add(Aspect.TOOL, 2), -4, -5, 4, new ItemStack(ForbiddenItems.wandCore, 1, 0))).setPages(new ResearchPage[]{new ResearchPage("forbidden.research_page.ROD_tainted.1"), new ResearchPage((InfusionRecipe)recipes.get("WandRodTainted"))}).setParents(new String[]{"ROD_silverwood", "TAINTSHOVEL"}).setConcealed().registerResearchItem();
+		(new DarkResearchItem("TAINTSHOVEL", "FORBIDDEN", (new AspectList()).add(Aspect.CRYSTAL, 3).add(Aspect.TAINT, 2).add(Aspect.TOOL, 1), -7, 0, 3, new ItemStack(ForbiddenItems.taintShovel))).setPages(new ResearchPage[]{new ResearchPage("forbidden.research_page.TAINTSHOVEL.1"), new ResearchPage((InfusionRecipe)recipes.get("TaintShovel")), new ResearchPage("forbidden.research_page.TAINTSHOVEL.2")}).setParents(new String[]{"THAUMIUM", "INFAUXSION", "ETHEREALBLOOM"}).setConcealed().registerResearchItem();
+		(new DarkResearchItem("TAINTPICK", "FORBIDDEN", (new AspectList()).add(Aspect.TOOL, 2).add(Aspect.TAINT, 4).add(Aspect.ENTROPY, 3), -8, 0, 2, new ItemStack(ForbiddenItems.taintPickaxe))).setPages(new ResearchPage[]{new ResearchPage("forbidden.research_page.TAINTPICK.1"), new ResearchPage((InfusionRecipe)recipes.get("TaintPick"))}).setParents(new String[]{"THAUMIUM", "INFAUXSION"}).setConcealed().registerResearchItem();
+		(new DarkResearchItem("ROD_tainted", "FORBIDDEN", (new AspectList()).add(Aspect.MAGIC, 4).add(Aspect.TAINT, 5).add(Aspect.TOOL, 2), -7, -3, 4, new ItemStack(ForbiddenItems.wandCore, 1, 0))).setPages(new ResearchPage[]{new ResearchPage("forbidden.research_page.ROD_tainted.1"), new ResearchPage((InfusionRecipe)recipes.get("WandRodTainted"))}).setParents(new String[]{"ROD_silverwood", "TAINTSHOVEL", "INFAUXSION"}).setConcealed().registerResearchItem();
 	}
 }
