@@ -414,7 +414,7 @@ public class FMEventHandler
 			if(equip != null && equip.getItem() instanceof ItemWandCasting)
 			{
 				if(((ItemWandCasting)equip.getItem()).getCap(equip).getTag().equals("alchemical")
-					&& ((ItemWandCasting)equip.getItem()).getRod(equip).getTag().equals("blood"))
+					&& ((ItemWandCasting)equip.getItem()).getRod(equip).getTag().startsWith("blood"))
 				{
 					event.entityLiving.addPotionEffect(new PotionEffect(Potion.weakness.id, 60, 2));
 				}
@@ -427,7 +427,7 @@ public class FMEventHandler
 	{
 		if(!Compat.bm)
 			return;
-		if(event.itemStack.getItem() instanceof ItemWandCasting && ((ItemWandCasting)event.itemStack.getItem()).getRod(event.itemStack).getTag().equals("blood")){
+		if(event.itemStack.getItem() instanceof ItemWandCasting && ((ItemWandCasting)event.itemStack.getItem()).getRod(event.itemStack).getTag().startsWith("blood")){
 			if (!event.itemStack.stackTagCompound.getString("ownerName").equals(""))
 			{
 				event.toolTip.add("Current owner: " + event.itemStack.stackTagCompound.getString("ownerName"));
