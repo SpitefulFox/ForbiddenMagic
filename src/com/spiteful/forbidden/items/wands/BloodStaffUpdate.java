@@ -10,28 +10,12 @@ import thaumcraft.api.wands.IWandRodOnUpdate;
 import thaumcraft.common.items.wands.ItemWandCasting;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
-//import WayofTime.alchemicalWizardry.common.EnergyItems;
+import WayofTime.alchemicalWizardry.api.soulNetwork.SoulNetworkHandler;
 
 public class BloodStaffUpdate implements IWandRodOnUpdate {
 
 	Aspect primals[] = Aspect.getPrimalAspects().toArray(new Aspect[0]);
-	Method checkOwner;
-	Method syphon;
 
-	public BloodStaffUpdate()
-	{
-		try
-		{
-			Class energyItems;
-			energyItems = Class.forName("WayofTime.alchemicalWizardry.common.items.EnergyItems");
-
-			checkOwner = energyItems.getDeclaredMethod("checkAndSetItemOwner", new Class[] {ItemStack.class, EntityPlayer.class});
-			syphon = energyItems.getDeclaredMethod("syphonWhileInContainer", new Class[] {ItemStack.class, Integer.TYPE});
-		}
-		catch(Exception e){
-		e.printStackTrace(); }
-	}
-	
 	public void onUpdate(ItemStack itemstack, EntityPlayer player)
 	{
 		if(Compat.bm && player.ticksExisted % 25 == 0)
@@ -41,7 +25,7 @@ public class BloodStaffUpdate implements IWandRodOnUpdate {
 				if(!checkHotbar(itemstack, player))
 					return;
 				
-				checkOwner.invoke(null, itemstack, player);
+				SoulNetworkHandler.checkAndSetItemOwner(itemstack, player);
 				
 				int cost;
 				if(((ItemWandCasting)itemstack.getItem()).getCap(itemstack).getTag().equals("alchemical"))
@@ -55,7 +39,7 @@ public class BloodStaffUpdate implements IWandRodOnUpdate {
 					{
 						if(player.capabilities.isCreativeMode)
 							((ItemWandCasting)itemstack.getItem()).addVis(itemstack, primals[x], 1, true);
-						else if(((Boolean)(syphon.invoke(null, itemstack, cost))).booleanValue())
+						else if(SoulNetworkHandler.syphonFromNetwork(itemstack, cost) > 0)
 							((ItemWandCasting)itemstack.getItem()).addVis(itemstack, primals[x], 1, true);
 						else if(syphonHealth(player))
 						{
@@ -78,7 +62,7 @@ public class BloodStaffUpdate implements IWandRodOnUpdate {
 	
 	public boolean syphonHealth(EntityPlayer player)
 	{
-		if(player.getHealth() > 1)
+		if(player.getHealth() > 0)
 		{
 			player.setHealth(player.getHealth() - 3);
 			return true;

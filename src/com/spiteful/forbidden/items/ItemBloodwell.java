@@ -17,15 +17,13 @@ import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeDirection;
 import thaumcraft.api.IScribeTools;
+import WayofTime.alchemicalWizardry.api.soulNetwork.SoulNetworkHandler;
 
 public class ItemBloodwell extends Item implements IScribeTools {
 
 	@SideOnly(Side.CLIENT)
 	public Icon icon;
 	
-	Method checkOwner;
-	Method syphon;
-
 	public ItemBloodwell(int id) {
 		super(id);
 		maxStackSize = 1;
@@ -33,17 +31,6 @@ public class ItemBloodwell extends Item implements IScribeTools {
 		setMaxDamage(100);
 		setCreativeTab(Forbidden.tab);
 		setHasSubtypes(false);
-		
-		try
-		{
-			Class energyItems;
-			energyItems = Class.forName("WayofTime.alchemicalWizardry.common.items.EnergyItems");
-
-			checkOwner = energyItems.getDeclaredMethod("checkAndSetItemOwner", new Class[] {ItemStack.class, EntityPlayer.class});
-			syphon = energyItems.getDeclaredMethod("syphonWhileInContainer", new Class[] {ItemStack.class, Integer.TYPE});
-		}
-		catch(Exception e){
-		e.printStackTrace(); }
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -74,7 +61,7 @@ public class ItemBloodwell extends Item implements IScribeTools {
 			{
 				if(player.capabilities.isCreativeMode)
 					stack.setItemDamage(0);
-				else if(((Boolean)(syphon.invoke(null, stack, 25))).booleanValue())
+				else if(SoulNetworkHandler.syphonFromNetwork(stack, 25) > 0)
 					stack.setItemDamage(stack.getItemDamage() - 1);
 				else if(player.getHealth() > 6)
 				{
@@ -82,19 +69,22 @@ public class ItemBloodwell extends Item implements IScribeTools {
 					stack.setItemDamage(stack.getItemDamage() - 1);
 				}
 			}
-			catch(Exception e){}
+			catch(Throwable e){}
 		}
 	}
 	
 	@Override
-	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer)
+	public ItemStack onItemRightClick(ItemStack itemstack, World par2World, EntityPlayer player)
 	{
-		try
+		if(Compat.bm)
 		{
-			checkOwner.invoke(null, par1ItemStack, par3EntityPlayer);
+			try
+			{
+				SoulNetworkHandler.checkAndSetItemOwner(itemstack, player);
+			}
+			catch (Throwable e){}
 		}
-		catch (Exception e){}
-		return par1ItemStack;
+		return itemstack;
 	}
 	
 	@Override
