@@ -13,7 +13,7 @@ public class ItemDivineOrb extends EnergyBattery
 {
 	public ItemDivineOrb(int id)
 	{
-		super(id, 50000000);
+		super(id, 70000000);
 		orbLevel = 5;
 		setCreativeTab(Forbidden.tab);
 		AltarRecipeRegistry.registerAltarOrbRecipe(new ItemStack(this),5,140);

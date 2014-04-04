@@ -78,7 +78,7 @@ public class BloodStaffUpdate implements IWandRodOnUpdate {
 	
 	public boolean syphonHealth(EntityPlayer player)
 	{
-		if(player.getHealth() > 1)
+		if(player.getHealth() > 0)
 		{
 			player.setHealth(player.getHealth() - 3);
 			return true;
