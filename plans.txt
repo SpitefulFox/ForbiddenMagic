@@ -131,7 +131,7 @@ Planned Features for FM
 
 - Other
 	- Enchantment: Arcane - Uses AM2 mana to repair tool instead of vis
-	- Enchatment: Smelting - Autosmelts
+	- Enchantment: Smelting - Autosmelts
 	
 - WTF NO!
 	- Disabled in configs by default
