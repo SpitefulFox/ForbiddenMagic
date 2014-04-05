@@ -1,0 +1,71 @@
+
+
+Planned Features for FM
+
+- Infernalism
+	- Greed
+		- Vault of Avarice - Chest that can hold "uberstacks" of multiple different items similar to an AE system or File Cabinet, except it will only hold items with Lucrum aspect.
+	- Wrath
+		- Katana of Fury - Quick-attack weapon that reduces invulnerability time on targets
+		- Iron Boots of the Tyrant - These boots were made for kicking. ??? Profit!
+	- Lust
+		- Crop of Punishment - Riding Crop infused with two Lust Shards and a few other things.  Applies nasty debuffs to targets on hit.  Hitting your mount with this is a bad idea.
+		- Armor of Pain - Leather armor infused with Lust Shards.  Applies buffs to the wearer on taking damage.
+	- Sloth
+		- Brimstone Gate - Portals that can be tuned to specific destinations using the Diabolist Fork
+		- Wand Focus: Blink - Teleports the bearer to the location you're looking at.  Does not throw a stupid Ender Pearl.
+	- Pride
+		- Cudgel of Authority - Does extra damage to enemies with less health than you, but little to no damage to enemies with higher health
+		- Crown of the Archfiend - ??? Profit!
+	- Envy
+		- Eyes of Envy - Goggles infused with two eyes of ender and some Invidia.  ??? Profit!
+		- Enchantment: Impact - Causes the Chameleon Pickaxe to have a 3x3 AOE mine
+	- Gluttony
+		- Wand Focus: Devour - Causes damage to target and restores a tiny bit of food to user
+	
+	- Demon Binding - Scribe a big magic circle and lure/trap a "demon" inside.  Activate with your wand and keep the demon occupied long enough for the binding to trap them.
+		- Binds the demon inside of an item to give it new abilities.
+		
+		- Infernal Wand - No longer applies fire protection or fire recharge bonus.  Recipe made cheaper and uses paper.  Appearance changed to wand wrapped in paper covered in symbols.
+			- Can have different demons bound to it for different forms and abilities
+			- Not sure if bound demons are permanent or eventually burn out and need a new binding
+			
+			- Pyromechanical Wand - Wand covered in bright orange gears.  Created by binding a Blaze into an Infernal Wand. Recharges Ignis very quickly and protects the wielder from fire.
+			- Ghastly Wand - Wand covered in screaming faces.  Created by binding a Ghast into an Infernal Wand.  Recharges Aer and Ignis and protects the wielder from explosions.
+			- Withering Wand - Pitch black wand.  Created by binding a Wither (?!?!?! o_O) into an Infernal Wand.  All attacks made with the wand apply the Wither debuff and have their damage type changed to magical.
+			- Vibrating Wand - Bright pink plastic wand.  Created by binding a Succubus into an Infernal Wand.  Alternatively, by trapping Succubism in the binding circle. Attacks from wand apply a slowness debuff on enemies.
+				- Recharges from batteries in inventory? >_>
+			- Demonblood Wand - Sinister version of the Blood Wand.  Created by binding a Blood Magic elemental into an Infernal Wand. Charges using LP, but charges faster and for less LP while in the Nether.
+				- Or while the demon binding lasts?
+			- Fury Wand - Raaawrrrrrr!  Created by binding a Wrath Demon into an Infernal Wand?  All attacks made with the wand do significantly more damage than normal.
+			- Lazy Wand - Dull grey wand.  Created by binding a Sloth Demon into an Infernal Wand?  Sloooooooooooooooooowly recharges vis for free.
+			- Pyroclastic Wand - Wand resembles cracked crust on lava. Created by binding a Magma Cube into an Infernal Wand. How is this different from Pyromechanical Wand? o_O
+		
+		- Skullripper - Fiendish thing covered in spines and with a big angry eye in the middle.  Created by binding a Wrath Demon into an Axe of the Skulltaker.  Has a much higher attack power than the normal axe and a slightly higher head drop rate.
+		- Hellfire Caps - Created by binding a Blaze into an inert Thaumium Cap?  Applies a vis discount when used in demon binding/summoning rituals.
+	
+	- Demon Summoning - Summon different demons that don't normally spawn in the Nether.
+		- Wrath Demon - Big angry red guy.  Rawrrrrr.
+		- Lust Demon - Succubism's skin on a humanoid mob.  Probably with wings.  Stuns you and drains your health on hit.  Chance of dropping Lust shards every time it hits you.
+		- Envy Demon - Mob that mimics the appearance and equipment of whoever it's aggroed to.
+		- Sloth Demon - Big gray slime.  Just sorta sits there and throws slimeballs at anything that comes near.  Can be used as infernal base protection.
+		- Greed Demon - Big fat demon.  Will trade various infernal goods for Greed Shards.
+		- Pride Demon - Big regal looking boss demon.  Raaaawwwwrrrrrrrr.
+		- Gluttony Demon - Biggest, fattest demon.  Probably eats stuff or something? o_O
+		
+- Tainted Magic
+	- Fleshcrafting - Cultivate tainted earth to grow and evolve into certain forms.  Create some sort of spawning pit or womb and throw in a "seed item" to create living items.
+		- Living Tools and Armor - Your tools and armor wuv you. :3
+			- When a living gear runs out of durability, it drops two or more "grubs" which then can be bred to create a new tool/armor. Each tool/armor has various genetic traits and mutations that can be passed on.
+			
+			- Living Pickaxe/Rock Eater - A living pickaxe.  Can be bred to have better stats and different abilities.
+				- Digesting - Ores mined will be turned into 2 piles of pellets per ore.  Basically a macerating tool.
+				- Sinful - Turns infused ores into nether shards, just like the Corrupting enchant
+				- Lucky - Fortune
+				- Devouring - Destroys crap drops like Cobblestone or Dirt.
+				- Silk Tongue - Silk Touch
+			
+			- World Eater - Mutated living pickaxe.  Can mine in an area instead of just single blocks.
+			
+			- 
+
