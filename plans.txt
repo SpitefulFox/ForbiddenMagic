@@ -52,6 +52,39 @@ Planned Features for FM
 		- Greed Demon - Big fat demon.  Will trade various infernal goods for Greed Shards.
 		- Pride Demon - Big regal looking boss demon.  Raaaawwwwrrrrrrrr.
 		- Gluttony Demon - Biggest, fattest demon.  Probably eats stuff or something? o_O
+		- Ghast - Because they only spawn when you don't want them around.
+		
+	- Bees
+		- Sinful Bee - Starting point for the branch.  Noble + Sinister?
+		- Lazy Bee
+			- Specialty: Sloth Shard
+			- Speed: Slowest
+			- Flowers: Bed
+		- Angry Bee
+			- Specialty: Wrath Shard
+			- Effect: Flammable
+			- Flowers: Cacti
+		- Sexy Bee
+			- Specialty: Lust Shard
+			- Flowers: Bed
+			- Fertility: 4 Drone
+		- Jealous Bee
+			- Specialty: Envy Shard
+			- Flowers: Neighbors - Bee House, Apiary, or Alveary blocks
+			- Effect: Copycat - Randomly mimics products from nearby bees
+		- Hungry Bee
+			- Specialty: Gluttony Shard
+			- Speed: Slower
+			- Flowers: Cake
+		- Stuckup Bee
+			- Specialty: Pride Shard
+			- Flowers: Lucre - Gold, Diamond, and Emerald blocks
+		- Greedy Bee
+			- Specialty: Greed Shard
+			- Flowers: Lucre - Gold, Diamond, and Emerald blocks
+		
+		- Sinful Comb - Product from FM bees, centrifuge for wax (or magic wax?) and sinful drops
+		- Sinful Drop - Squeeze for honey, or used in food recipes
 		
 - Tainted Magic
 	- Fleshcrafting - Cultivate tainted earth to grow and evolve into certain forms.  Create some sort of spawning pit or womb and throw in a "seed item" to create living items.
@@ -64,8 +97,39 @@ Planned Features for FM
 				- Lucky - Fortune
 				- Devouring - Destroys crap drops like Cobblestone or Dirt.
 				- Silk Tongue - Silk Touch
+				- Fiery Belly - Autosmelts
+				
+				- Immortal - Unbreakable?  Requires Kami infusion.
 			
 			- World Eater - Mutated living pickaxe.  Can mine in an area instead of just single blocks.
 			
-			- 
+			- Living Shovel/Sandworm - A living shovel.
+			- Greatworm - Mutated living shovel.  Digs in an area.
+			
+			- Living Bow/Tendon Bow - Living bow.
+			- Spinethrower - Mutated living bow.  Shoots out razor sharp spikes instead of using arrows.
+			- Sporelauncher - Mutated living bow.  Shoots out poisonous spores instead of using arrows.
+			- Taintwyrm - Mutated living bow.  KAMEHAMEHAAAAAAAAAAAAAAAAAAA!
+			
+			- Living Sword/Toothblade - Living sword.
+				- Shredding - Armor piercing
+				- Bioelectric - Shocks targets for extra damage
+				- Parasitic - Drains health from target to wielder
+				- Greedy - Looting
+				- Anesthetic - Reduces invuln time of hits
+				- Venomous - Infects target with Flux Taint/Poison
+				- Coiled - Knockback
+			
+		- Tainted Wand - Created by using a Silverwood Wand in the Spawning Pit/Tainted Womb instead of by Infusion.
+		
+	- Tainted Stone - Eight stone around a Taint Shard/Tainted Good.  Purple icky stone that's immune to fibrous taint and won't afflict you with Flux Taint.  For building houses in Tainted Lands.
+	- Tainted Tree/Logs/Planks - Sapling in a crucible with Vitium.  Wood is immune to fibrous taint and won't turn into Crusted Taint.  For building houses in Tainted Lands.
 
+- Blood Magic
+	- Enchantment: Bloodbound - Uses LP to repair tool instead of vis
+	- Ritual of False Life - Drains vis from a node to supply LE to a nearby altar
+
+- Other
+	- Enchantment: Arcane - Uses AM2 mana to repair tool instead of vis
+	- Enchatment: Smelting - Autosmelts
+	
