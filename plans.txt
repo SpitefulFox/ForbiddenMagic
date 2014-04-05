@@ -133,3 +133,10 @@ Planned Features for FM
 	- Enchantment: Arcane - Uses AM2 mana to repair tool instead of vis
 	- Enchatment: Smelting - Autosmelts
 	
+- WTF NO!
+	- Disabled in configs by default
+	- Nine Ichorcloth Strapped Silverwood Rods infused into a Mercurial Crystal Wand Core creates a Neutronium Egg
+		- Hatch the egg on a stormy night and it summons the Ichorium Wither
+	
+	- Ichorium Wither - Shoots Hungry Nodes at you.  Summons Thaumium Wither Skeletons wielding wands with the Shadowbeam Focus.
+		- Drops the Orichalcum Studded Cosmic Neutronium Wand on defeat
