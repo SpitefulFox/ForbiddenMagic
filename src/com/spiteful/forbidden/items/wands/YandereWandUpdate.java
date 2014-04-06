@@ -17,7 +17,7 @@ public class YandereWandUpdate implements IWandRodOnUpdate {
 	
 	public void onUpdate(ItemStack itemstack, EntityPlayer player)
 	{
-		if(Compat.botan && player.ticksExisted % 30 == 0)
+		if(Compat.botan && player.ticksExisted % 40 == 0)
 		{
 			try
 			{
@@ -27,16 +27,14 @@ public class YandereWandUpdate implements IWandRodOnUpdate {
 				else
 					cost = 800;
 				
-				ArrayList unfilled = new ArrayList();
 				for(int x = 0;x < primals.length;x++)
 				{
 					if(((ItemWandCasting)itemstack.getItem()).getVis(itemstack, primals[x]) < ((ItemWandCasting)itemstack.getItem()).getMaxVis(itemstack))
 					{
-						unfilled.add(primals[x]);
+						if(ManaItemHandler.requestManaExact(itemstack, player, cost, true))
+							((ItemWandCasting)itemstack.getItem()).addVis(itemstack, primals[x], 1, true);
 					}
 				}
-				if(unfilled.size() > 0 && ManaItemHandler.requestManaExact(itemstack, player, cost, true))
-						((ItemWandCasting)itemstack.getItem()).addVis(itemstack, (Aspect)(unfilled.get(player.worldObj.rand.nextInt(unfilled.size()))), 1, true);
 			
 			}
 			catch(Throwable e)
