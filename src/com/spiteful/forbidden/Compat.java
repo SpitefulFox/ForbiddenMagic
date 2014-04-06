@@ -163,11 +163,16 @@ public class Compat {
 		{
 			try
 			{
-				InfusionRecipe soul_recipe = ThaumcraftApi.addInfusionCraftingRecipe("ROD_soul", new ItemStack(ForbiddenItems.wandCore, 1, 2), 5, (new AspectList()).add(Aspect.ELDRITCH, 32).add(Aspect.MAGIC, 12).add(Aspect.SOUL, 16), new ItemStack(PlayerBeacons.defiledSoulPylonBlock), new ItemStack[]{ItemApi.getItem("itemResource", 14), new ItemStack(PlayerBeacons.defiledSoulConductorBlock), new ItemStack(PlayerBeacons.defiledSoulConductorBlock), new ItemStack(PlayerBeacons.defiledSoulConductorBlock), new ItemStack(PlayerBeacons.defiledSoulConductorBlock), new ItemStack(Item.eyeOfEnder), new ItemStack(Item.eyeOfEnder)});
-				(new DarkResearchItem("ROD_soul", "FORBIDDEN", "[PB]", (new AspectList()).add(Aspect.ELDRITCH, 4).add(Aspect.SOUL, 3).add(Aspect.TOOL, 2), -3, -3, 5, new ItemStack(ForbiddenItems.wandCore, 1, 2))).setPages(new ResearchPage[]{new ResearchPage("forbidden.research_page.ROD_soul.1"), new ResearchPage(soul_recipe)}).setParents(new String[]{"ROD_silverwood", "PB_CRYSTAL", "INFAUXSION"}).setConcealed().registerResearchItem();
+				if(PlayerBeacons.config.enableThaumcraft)
+				{
 				
-				IArcaneRecipe soul_cap = ThaumcraftApi.addArcaneCraftingRecipe("CAP_soul", new ItemStack(ForbiddenItems.wandCap, 1, 2), (new AspectList()).add(Aspect.ENTROPY, 20).add(Aspect.FIRE, 5).add(Aspect.WATER, 5).add(Aspect.AIR, 5).add(Aspect.EARTH, 5), new Object[]{"NXN", "N N", Character.valueOf('N'), Item.enderPearl, Character.valueOf('X'), PlayerBeacons.crystalItem});
-				(new DarkResearchItem("CAP_soul", "FORBIDDEN", "[PB]", (new AspectList()).add(Aspect.ELDRITCH, 3).add(Aspect.MAGIC, 2).add(Aspect.ENTROPY, 4), -3, -5, 3, new ItemStack(ForbiddenItems.wandCap, 1, 2))).setPages(new ResearchPage[]{new ResearchPage("forbidden.research_page.CAP_soul.1"), new ResearchPage(soul_cap)}).setParents(new String[]{"ROD_soul"}).setSecondary().setConcealed().registerResearchItem();
+					InfusionRecipe soul_recipe = ThaumcraftApi.addInfusionCraftingRecipe("ROD_soul", new ItemStack(ForbiddenItems.wandCore, 1, 2), 5, (new AspectList()).add(Aspect.ELDRITCH, 32).add(Aspect.MAGIC, 12).add(Aspect.SOUL, 16), new ItemStack(PlayerBeacons.defiledSoulPylonBlock), new ItemStack[]{ItemApi.getItem("itemResource", 14), new ItemStack(PlayerBeacons.defiledSoulConductorBlock), new ItemStack(PlayerBeacons.defiledSoulConductorBlock), new ItemStack(PlayerBeacons.defiledSoulConductorBlock), new ItemStack(PlayerBeacons.defiledSoulConductorBlock), new ItemStack(Item.eyeOfEnder), new ItemStack(Item.eyeOfEnder)});
+					(new DarkResearchItem("ROD_soul", "FORBIDDEN", "[PB]", (new AspectList()).add(Aspect.ELDRITCH, 4).add(Aspect.SOUL, 3).add(Aspect.TOOL, 2), -3, -3, 5, new ItemStack(ForbiddenItems.wandCore, 1, 2))).setPages(new ResearchPage[]{new ResearchPage("forbidden.research_page.ROD_soul.1"), new ResearchPage(soul_recipe)}).setParents(new String[]{"ROD_silverwood", "PB_CRYSTAL", "INFAUXSION"}).setConcealed().registerResearchItem();
+					
+					IArcaneRecipe soul_cap = ThaumcraftApi.addArcaneCraftingRecipe("CAP_soul", new ItemStack(ForbiddenItems.wandCap, 1, 2), (new AspectList()).add(Aspect.ENTROPY, 20).add(Aspect.FIRE, 5).add(Aspect.WATER, 5).add(Aspect.AIR, 5).add(Aspect.EARTH, 5), new Object[]{"NXN", "N N", Character.valueOf('N'), Item.enderPearl, Character.valueOf('X'), PlayerBeacons.crystalItem});
+					(new DarkResearchItem("CAP_soul", "FORBIDDEN", "[PB]", (new AspectList()).add(Aspect.ELDRITCH, 3).add(Aspect.MAGIC, 2).add(Aspect.ENTROPY, 4), -3, -5, 3, new ItemStack(ForbiddenItems.wandCap, 1, 2))).setPages(new ResearchPage[]{new ResearchPage("forbidden.research_page.CAP_soul.1"), new ResearchPage(soul_cap)}).setParents(new String[]{"ROD_soul"}).setSecondary().setConcealed().registerResearchItem();
+				
+				}
 				 
 			}
 			catch(LinkageError e)
