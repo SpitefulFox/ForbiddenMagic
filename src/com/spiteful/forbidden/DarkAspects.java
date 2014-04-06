@@ -24,10 +24,6 @@ public class DarkAspects
 	public static Aspect LUST;
 	public static Aspect SLOTH;
 	
-	public static Aspect DINO;
-	public static Aspect FISH;
-	public static Aspect DERP;
-
 	public static void initAspects()
 	{
 		NETHER = new Aspect("infernus", 0xff0000, new Aspect[] {Aspect.FIRE, Aspect.MAGIC}, new ResourceLocation("forbidden", "textures/aspects/infernus.png"), 771);
