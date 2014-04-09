@@ -34,6 +34,7 @@ import thaumcraft.api.research.ResearchItem;
 import thaumcraft.api.research.ResearchPage;
 import kihira.playerbeacons.common.PlayerBeacons;
 import vazkii.botania.api.BotaniaAPI;
+import WayofTime.alchemicalWizardry.api.altarRecipeRegistry.AltarRecipeRegistry;
 
 public class Compat {
 	
@@ -175,7 +176,7 @@ public class Compat {
 				}
 				 
 			}
-			catch(LinkageError e)
+			catch(Throwable e)
 			{
 				FMLLog.log(Level.INFO, e, "Player Beacons showed Forbidden Magic who the Alpha Fox is.");
 				//e.printStackTrace();
@@ -208,9 +209,7 @@ public class Compat {
 				InfusionRecipe blood_recipe = ThaumcraftApi.addInfusionCraftingRecipe("ROD_blood", new ItemStack(ForbiddenItems.wandCore, 1, 6), 2, (new AspectList()).add(Aspect.LIFE, 32).add(Aspect.MAGIC, 12).add(Aspect.WATER, 16), new ItemStack(masterOrb), new ItemStack[]{new ItemStack(magicales), new ItemStack(imbuedSlate), new ItemStack(imbuedSlate), new ItemStack(tennebrae), new ItemStack(sanctus), new ItemStack(aquasalus), new ItemStack(incendium), new ItemStack(terrae), new ItemStack(aether)});
 				(new DarkResearchItem("ROD_blood", "FORBIDDEN", "[BM]", (new AspectList()).add(Aspect.LIFE, 5).add(Aspect.WATER, 4).add(Aspect.WEAPON, 3), -5, -3, 3, new ItemStack(ForbiddenItems.wandCore, 1, 3))).setPages(new ResearchPage[]{new ResearchPage("forbidden.research_page.ROD_blood.1"), new ResearchPage(blood_recipe), new ResearchPage("forbidden.research_page.ROD_blood.2")}).setParents(new String[]{"ROD_silverwood", "INFAUXSION"}).setAspectTriggers(new Aspect[]{Aspect.LIFE}).setConcealed().registerResearchItem();
 				
-				Class altar = Class.forName("WayofTime.alchemicalWizardry.common.altarRecipeRegistry.AltarRecipeRegistry");
-				Method register = altar.getDeclaredMethod("registerAltarRecipe", new Class[] {ItemStack.class, ItemStack.class, Integer.TYPE, Integer.TYPE, Integer.TYPE, Integer.TYPE, Boolean.TYPE});
-				register.invoke(null, new ItemStack(ForbiddenItems.wandCore, 1, 3), new ItemStack(ForbiddenItems.wandCore, 1, 6), 4, 20000, 15, 20, false);
+				AltarRecipeRegistry.registerAltarRecipe(new ItemStack(ForbiddenItems.wandCore, 1, 3), new ItemStack(ForbiddenItems.wandCore, 1, 6), 4, 20000, 15, 20, false);
 				
 				InfusionRecipe alchemical_recipe = ThaumcraftApi.addInfusionCraftingRecipe("CAP_alchemical", new ItemStack(ForbiddenItems.wandCap, 1, 0), 3, (new AspectList()).add(Aspect.LIFE, 12).add(Aspect.WATER, 6), ItemApi.getItem("itemWandCap", 1), new ItemStack[]{new ItemStack(magicales), new ItemStack(magicales), new ItemStack(magicales)});
 				(new DarkResearchItem("CAP_alchemical", "FORBIDDEN", "[BM]", (new AspectList()).add(Aspect.LIFE, 4).add(Aspect.TOOL, 1).add(Aspect.WATER, 3), -5, -5, 2, new ItemStack(ForbiddenItems.wandCap, 1, 0))).setPages(new ResearchPage[]{new ResearchPage("forbidden.research_page.CAP_alchemical.1"), new ResearchPage(alchemical_recipe)}).setParents(new String[]{"ROD_blood", "CAP_gold"}).setSecondary().setConcealed().registerResearchItem();
@@ -302,7 +301,7 @@ public class Compat {
 				list = (new AspectList()).add(Aspect.ENTROPY, 6).add(Aspect.ENERGY, 3);
 				aspectBloodItem("crepitous", -1, list);
 			}
-			catch(Exception e)
+			catch(Throwable e)
 			{
 				FMLLog.log(Level.INFO, e, "Forbidden Magic tried to do some Blood Magic, but bled out.");
 				e.printStackTrace();
