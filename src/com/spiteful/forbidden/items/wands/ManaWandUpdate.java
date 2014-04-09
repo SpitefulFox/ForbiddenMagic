@@ -20,27 +20,31 @@ public class ManaWandUpdate implements IWandRodOnUpdate {
 		{
 			if(player.ticksExisted % 100 == 0){
 			
-				IExtendedProperties prop = ArsMagicaApi.instance.getExtendedProperties(player);
-			
-				float cost;
-				if(((ItemWandCasting)itemstack.getItem()).getCap(itemstack).getTag().equals("vinteum"))
-					cost = 90.0F;
-				else
-					cost = 150.0F;
+				try
+				{
+					IExtendedProperties prop = ArsMagicaApi.instance.getExtendedProperties(player);
 				
-				if(prop == null || prop.getCurrentMana() <= 0)
-					return;
-			
-			
-				for(int x = 0;x < primals.length;x++){
-					if(((ItemWandCasting)itemstack.getItem()).getVis(itemstack, primals[x]) < ((ItemWandCasting)itemstack.getItem()).getMaxVis(itemstack)) {
-						if(prop.getCurrentMana() > cost)
-						{						
-							prop.setCurrentMana(prop.getCurrentMana() - cost);
-							((ItemWandCasting)itemstack.getItem()).addVis(itemstack, primals[x], 1, true);
+					float cost;
+					if(((ItemWandCasting)itemstack.getItem()).getCap(itemstack).getTag().equals("vinteum"))
+						cost = 90.0F;
+					else
+						cost = 150.0F;
+					
+					if(prop == null || prop.getCurrentMana() <= 0)
+						return;
+				
+				
+					for(int x = 0;x < primals.length;x++){
+						if(((ItemWandCasting)itemstack.getItem()).getVis(itemstack, primals[x]) < ((ItemWandCasting)itemstack.getItem()).getMaxVis(itemstack)) {
+							if(prop.getCurrentMana() > cost)
+							{						
+								prop.setCurrentMana(prop.getCurrentMana() - cost);
+								((ItemWandCasting)itemstack.getItem()).addVis(itemstack, primals[x], 1, true);
+							}
 						}
 					}
 				}
+				catch(Throwable e){}
 			}
 		
 		}
