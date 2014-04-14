@@ -425,12 +425,14 @@ public class FMEventHandler
 	@ForgeSubscribe
 	public void onTooltip(ItemTooltipEvent event)
 	{
-		if(!Compat.bm)
-			return;
-		if(event.itemStack.getItem() instanceof ItemWandCasting && ((ItemWandCasting)event.itemStack.getItem()).getRod(event.itemStack).getTag().startsWith("blood")){
-			if (!event.itemStack.stackTagCompound.getString("ownerName").equals(""))
+		if(event.itemStack.getItem() instanceof ItemWandCasting){
+			if (((ItemWandCasting)event.itemStack.getItem()).getRod(event.itemStack).getTag().startsWith("blood") && !event.itemStack.stackTagCompound.getString("ownerName").equals(""))
 			{
 				event.toolTip.add("Current owner: " + event.itemStack.stackTagCompound.getString("ownerName"));
+			}
+			else if(((ItemWandCasting)event.itemStack.getItem()).getRod(event.itemStack).getTag().startsWith("neutronium"))
+			{
+				event.toolTip.add("Creative Only");
 			}
 		}
 	}
