@@ -18,7 +18,8 @@ import thaumcraft.common.items.wands.ItemWandCasting;
 
 public class ItemWandCores extends Item {
 
-	public final String[] types = {"tainted", "infernal", "soul", "blood", "witchwood", "totem", "blood_inert", "livingwood", "livingwood_inert", "blood_staff"};
+	public final String[] types = {"tainted", "infernal", "soul", "blood", "witchwood", "totem", "blood_inert", "livingwood", "livingwood_inert", "blood_staff",
+		"witchwood_staff"};
 	public Icon[] icon;
 
 
@@ -60,6 +61,10 @@ public class ItemWandCores extends Item {
 		((ItemWandCasting)wand.getItem()).setCap(wand, (WandCap)WandCap.caps.get("orichalcum"));
 		((ItemWandCasting)wand.getItem()).setRod(wand, (WandRod)WandRod.rods.get("neutronium"));
 		par3List.add(wand);
+		wand = ItemApi.getItem("itemWandCasting", 2000);
+		((ItemWandCasting)wand.getItem()).setCap(wand, (WandCap)WandCap.caps.get("orichalcum"));
+		((ItemWandCasting)wand.getItem()).setRod(wand, (WandRod)WandRod.rods.get("neutronium_staff"));
+		par3List.add(wand);
 		if(Compat.pb)
 		{
 			wand = ItemApi.getItem("itemWandCasting", 84);
@@ -73,12 +78,20 @@ public class ItemWandCores extends Item {
 			((ItemWandCasting)wand.getItem()).setCap(wand, (WandCap)WandCap.caps.get("alchemical"));
 			((ItemWandCasting)wand.getItem()).setRod(wand, (WandRod)WandRod.rods.get("blood"));
 			par3List.add(wand);
+			wand = ItemApi.getItem("itemWandCasting", 168);
+			((ItemWandCasting)wand.getItem()).setCap(wand, (WandCap)WandCap.caps.get("alchemical"));
+			((ItemWandCasting)wand.getItem()).setRod(wand, (WandRod)WandRod.rods.get("blood_staff"));
+			par3List.add(wand);
 		}
 		if(Compat.am2)
 		{
 			wand = ItemApi.getItem("itemWandCasting", 72);
 			((ItemWandCasting)wand.getItem()).setCap(wand, (WandCap)WandCap.caps.get("vinteum"));
 			((ItemWandCasting)wand.getItem()).setRod(wand, (WandRod)WandRod.rods.get("witchwood"));
+			par3List.add(wand);
+			wand = ItemApi.getItem("itemWandCasting", 144);
+			((ItemWandCasting)wand.getItem()).setCap(wand, (WandCap)WandCap.caps.get("vinteum"));
+			((ItemWandCasting)wand.getItem()).setRod(wand, (WandRod)WandRod.rods.get("witchwood_staff"));
 			par3List.add(wand);
 		}
 		if(Compat.totes)

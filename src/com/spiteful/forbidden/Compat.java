@@ -206,10 +206,10 @@ public class Compat {
 				bloodItems = Class.forName("WayofTime.alchemicalWizardry.AlchemicalWizardry");
 				Item bloodBucket = (Item)(bloodItems.getField("bucketLife").get(null));
 				
+				AltarRecipeRegistry.registerAltarRecipe(new ItemStack(ForbiddenItems.wandCore, 1, 3), new ItemStack(ForbiddenItems.wandCore, 1, 6), 4, 20000, 15, 20, false);
+				
 				InfusionRecipe blood_recipe = ThaumcraftApi.addInfusionCraftingRecipe("ROD_blood", new ItemStack(ForbiddenItems.wandCore, 1, 6), 2, (new AspectList()).add(Aspect.LIFE, 32).add(Aspect.MAGIC, 12).add(Aspect.WATER, 16), new ItemStack(masterOrb), new ItemStack[]{new ItemStack(magicales), new ItemStack(imbuedSlate), new ItemStack(imbuedSlate), new ItemStack(tennebrae), new ItemStack(sanctus), new ItemStack(aquasalus), new ItemStack(incendium), new ItemStack(terrae), new ItemStack(aether)});
 				(new DarkResearchItem("ROD_blood", "FORBIDDEN", "[BM]", (new AspectList()).add(Aspect.LIFE, 5).add(Aspect.WATER, 4).add(Aspect.WEAPON, 3), -5, -3, 3, new ItemStack(ForbiddenItems.wandCore, 1, 3))).setPages(new ResearchPage[]{new ResearchPage("forbidden.research_page.ROD_blood.1"), new ResearchPage(blood_recipe), new ResearchPage("forbidden.research_page.ROD_blood.2")}).setParents(new String[]{"ROD_silverwood", "INFAUXSION"}).setAspectTriggers(new Aspect[]{Aspect.LIFE}).setConcealed().registerResearchItem();
-				
-				AltarRecipeRegistry.registerAltarRecipe(new ItemStack(ForbiddenItems.wandCore, 1, 3), new ItemStack(ForbiddenItems.wandCore, 1, 6), 4, 20000, 15, 20, false);
 				
 				InfusionRecipe alchemical_recipe = ThaumcraftApi.addInfusionCraftingRecipe("CAP_alchemical", new ItemStack(ForbiddenItems.wandCap, 1, 0), 3, (new AspectList()).add(Aspect.LIFE, 12).add(Aspect.WATER, 6), ItemApi.getItem("itemWandCap", 1), new ItemStack[]{new ItemStack(magicales), new ItemStack(magicales), new ItemStack(magicales)});
 				(new DarkResearchItem("CAP_alchemical", "FORBIDDEN", "[BM]", (new AspectList()).add(Aspect.LIFE, 4).add(Aspect.TOOL, 1).add(Aspect.WATER, 3), -5, -5, 2, new ItemStack(ForbiddenItems.wandCap, 1, 0))).setPages(new ResearchPage[]{new ResearchPage("forbidden.research_page.CAP_alchemical.1"), new ResearchPage(alchemical_recipe)}).setParents(new String[]{"ROD_blood", "CAP_gold"}).setSecondary().setConcealed().registerResearchItem();
@@ -218,7 +218,7 @@ public class Compat {
 				(new DarkResearchItem("BLOODWELL", "FORBIDDEN", "[BM]", (new AspectList()).add(Aspect.LIFE, 5).add(Aspect.MIND, 4).add(Aspect.SENSES, 3), -10, 4, 1, new ItemStack(ForbiddenItems.bloodwell, 1, 0))).setPages(new ResearchPage[]{new ResearchPage("forbidden.research_page.BLOODWELL.1"), new ResearchPage(bloodwell_recipe)}).setParents(new String[]{"RESEARCH"}).setAspectTriggers(new Aspect[]{Aspect.LIFE}).setConcealed().registerResearchItem();
 				
 				IArcaneRecipe blood_staff = ThaumcraftApi.addArcaneCraftingRecipe("ROD_blood_staff", new ItemStack(ForbiddenItems.wandCore, 1, 9), (new AspectList()).add(Aspect.ENTROPY, 26).add(Aspect.FIRE, 26).add(Aspect.WATER, 26).add(Aspect.AIR, 26).add(Aspect.EARTH, 26).add(Aspect.ORDER, 26), new Object[]{"__D", "_B_", "B__", Character.valueOf('B'), new ItemStack(ForbiddenItems.wandCore, 1, 3), Character.valueOf('D'), new ItemStack(demonShard)});
-				(new DarkResearchItem("ROD_blood_staff", "FORBIDDEN", "[BM]", (new AspectList()).add(Aspect.LIFE, 8).add(Aspect.WATER, 7).add(Aspect.WEAPON, 6), -6, -5, 5, new ItemStack(ForbiddenItems.wandCore, 1, 9))).setPages(new ResearchPage[]{new ResearchPage("forbidden.research_page.ROD_blood_staff.1"), new ResearchPage(blood_staff)}).setParents(new String[]{"ROD_silverwood_staff", "ROD_blood"}).setSpecial().setConcealed().registerResearchItem();
+				(new DarkResearchItem("ROD_blood_staff", "FORBIDDEN", "[BM]", (new AspectList()).add(Aspect.LIFE, 8).add(Aspect.WATER, 7).add(Aspect.WEAPON, 6), -5, -7, 5, new ItemStack(ForbiddenItems.wandCore, 1, 9))).setPages(new ResearchPage[]{new ResearchPage("forbidden.research_page.ROD_blood_staff.1"), new ResearchPage(blood_staff)}).setParents(new String[]{"ROD_silverwood_staff", "ROD_blood"}).setSpecial().setConcealed().registerResearchItem();
 				
 				if(kami)
 				{
@@ -316,14 +316,16 @@ public class Compat {
 				Class amBlocks = Class.forName("am2.blocks.BlocksCommonProxy");
 				Item essence = (Item)(amItems.getField("essence").get(null));
 				Item amOre = (Item)(amItems.getField("itemOre").get(null));
-				Item rune = (Item)(amItems.getField("rune").get(null));
 				Block witchwood = (Block)(amBlocks.getField("witchwoodLog").get(null));
 				
-				InfusionRecipe witchwood_recipe = ThaumcraftApi.addInfusionCraftingRecipe("ROD_witchwood", new ItemStack(ForbiddenItems.wandCore, 1, 4), 5, (new AspectList()).add(Aspect.MAGIC, 16).add(Aspect.EARTH, 9).add(Aspect.WATER, 9).add(Aspect.FIRE, 9).add(Aspect.AIR, 9), new ItemStack(witchwood), new ItemStack[]{new ItemStack(amOre.itemID, 1, 3), new ItemStack(essence.itemID, 1, 1), new ItemStack(essence.itemID, 1, 2), new ItemStack(essence.itemID, 1, 3), new ItemStack(essence.itemID, 1, 4), new ItemStack(rune.itemID, 1, 7), new ItemStack(rune.itemID, 1, 8), new ItemStack(amOre.itemID, 1, 2)});
+				InfusionRecipe witchwood_recipe = ThaumcraftApi.addInfusionCraftingRecipe("ROD_witchwood", new ItemStack(ForbiddenItems.wandCore, 1, 4), 5, (new AspectList()).add(Aspect.MAGIC, 16).add(Aspect.EARTH, 9).add(Aspect.WATER, 9).add(Aspect.FIRE, 9).add(Aspect.AIR, 9), new ItemStack(witchwood), new ItemStack[]{new ItemStack(essence.itemID, 1, 0), new ItemStack(amOre.itemID, 1, 3), new ItemStack(essence.itemID, 1, 1), new ItemStack(essence.itemID, 1, 2), new ItemStack(essence.itemID, 1, 3), new ItemStack(essence.itemID, 1, 4), new ItemStack(amOre.itemID, 1, 6), new ItemStack(amOre.itemID, 1, 7), new ItemStack(amOre.itemID, 1, 2)});
 				(new DarkResearchItem("ROD_witchwood", "FORBIDDEN", "[AM2]", (new AspectList()).add(Aspect.MAGIC, 6).add(Aspect.TREE, 5).add(Aspect.MIND, 4), -4, -3, 3, new ItemStack(ForbiddenItems.wandCore, 1, 4))).setPages(new ResearchPage[]{new ResearchPage("forbidden.research_page.ROD_witchwood.1"), new ResearchPage(witchwood_recipe)}).setParents(new String[]{"ROD_silverwood", "INFAUXSION"}).setConcealed().registerResearchItem();
 				
 				InfusionRecipe vinteum_recipe = ThaumcraftApi.addInfusionCraftingRecipe("CAP_vinteum", new ItemStack(ForbiddenItems.wandCap, 1, 1), 5, (new AspectList()).add(Aspect.ENERGY, 12).add(Aspect.MAGIC, 6), ItemApi.getItem("itemWandCap", 6), new ItemStack[]{new ItemStack(amOre.itemID, 1, 0), new ItemStack(amOre.itemID, 1, 0), new ItemStack(amOre.itemID, 1, 0)});
 				(new DarkResearchItem("CAP_vinteum", "FORBIDDEN", "[AM2]", (new AspectList()).add(Aspect.MAGIC, 4).add(Aspect.TOOL, 1).add(Aspect.ENERGY, 2), -4, -5, 1, new ItemStack(ForbiddenItems.wandCap, 1, 1))).setPages(new ResearchPage[]{new ResearchPage("forbidden.research_page.CAP_vinteum.1"), new ResearchPage(vinteum_recipe)}).setParents(new String[]{"ROD_witchwood", "CAP_thaumium"}).setSecondary().setConcealed().registerResearchItem();
+				
+				IArcaneRecipe witchwood_staff = ThaumcraftApi.addArcaneCraftingRecipe("ROD_witchwood_staff", new ItemStack(ForbiddenItems.wandCore, 1, 10), (new AspectList()).add(Aspect.ENTROPY, 26).add(Aspect.FIRE, 26).add(Aspect.WATER, 26).add(Aspect.AIR, 26).add(Aspect.EARTH, 26).add(Aspect.ORDER, 26), new Object[]{"__D", "_B_", "B__", Character.valueOf('B'), new ItemStack(ForbiddenItems.wandCore, 1, 4), Character.valueOf('D'), new ItemStack(essence.itemID, 1, 10)});
+				(new DarkResearchItem("ROD_witchwood_staff", "FORBIDDEN", "[AM2]", (new AspectList()).add(Aspect.MAGIC, 8).add(Aspect.MIND, 7).add(Aspect.TOOL, 6), -4, -7, 5, new ItemStack(ForbiddenItems.wandCore, 1, 10))).setPages(new ResearchPage[]{new ResearchPage("forbidden.research_page.ROD_witchwood_staff.1"), new ResearchPage(witchwood_staff)}).setParents(new String[]{"ROD_silverwood_staff", "ROD_witchwood"}).setSpecial().setConcealed().registerResearchItem();
 			}
 			catch(Exception e)
 			{

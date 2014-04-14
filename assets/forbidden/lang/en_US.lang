@@ -63,6 +63,7 @@ item.WandCores.blood_inert.name=Inert Blood Rod
 item.WandCores.livingwood.name=Livingwood Rod
 item.WandCores.livingwood_inert.name=Dormant Livingwood Rod
 item.WandCores.blood_staff.name=Blood Staff Core
+item.WandCores.witchwood_staff.name=Witchwood Staff Core
 item.WandCaps.alchemical.name=Alchemical Cap
 item.WandCaps.vinteum.name=Vinteum Cap
 item.WandCaps.soul.name=Ender Cap
@@ -139,7 +140,11 @@ forbidden.research_page.ROD_blood_staff.1=The Blood Wand is useful, but it just 
 #
 forbidden.research_name.ROD_witchwood=Witchwood Wand Core
 forbidden.research_text.ROD_witchwood=Mana converter
-forbidden.research_page.ROD_witchwood.1=By creating a wand core out of Witchwood, you've discovered a way to convert mana into Vis.  The Witchwood Wand Core holds up to 100 vis and will gradually charge itself at the cost of 150 mana per point of vis.<BR><BR>Further research may reveal ways to lower this price.
+forbidden.research_page.ROD_witchwood.1=By creating a wand core out of Witchwood, you've discovered a way to convert mana into Vis.  The Witchwood Wand Core holds up to 100 vis and will gradually charge itself at the cost of 140 mana per point of vis.<BR><BR>Further research may reveal ways to lower this price.
+#
+forbidden.research_name.ROD_witchwood_staff=Witchwood Staff Core
+forbidden.research_text.ROD_witchwood_staff=Staff of the Arcanist
+forbidden.research_page.ROD_witchwood_staff.1=The Witchwood Wand eats far too much magical power and charges far too slowly to stand up in sustained combat. It's time for something a little more efficient at channeling arcane power.<BR><BR>Unlike most staves, the Witchwood Staff can only hold 50 vis. Its true strength lies in how quickly it recharges itself.  The staff regains vis at over twice the rate of the Witchwood Wand. Furthermore, the staff uses considerably less magical power than the Witchwood Wand, only needing 100 mana per point of vis, if used without the appropriate cap.
 #
 forbidden.research_name.ROD_totem=Totemic Wand Core
 forbidden.research_text.ROD_totem=Verdant vis storage
@@ -151,15 +156,15 @@ forbidden.research_page.ROD_livingwood.1=Livingwood has the fantastic ability to
 #
 forbidden.research_name.CAP_alchemical=Alchemical Caps
 forbidden.research_text.CAP_alchemical=When Thaumium isn't bloody enough
-forbidden.research_page.CAP_alchemical.1=You've developed a wand cap that merges Thaumaturgy and Alchemical Wizardry.  Alchemical Caps are very effective at channeling Aqua, only using 80% of the normal vis cost.  Unfortunately, they're less effective than Thaumium at channeling other aspects, offering only a 95% rate on everything else.<BR><BR>If combined with a Bloody Wand Core, Alchemical Caps discount the amount of LP consumed by the wand, costing only 900 LP per vis.  The caps also cause all attacks from a blood wand to inflict Weakness.
+forbidden.research_page.CAP_alchemical.1=You've developed a wand cap that merges Thaumaturgy and Alchemical Wizardry.  Alchemical Caps are very effective at channeling Aqua, only using 80% of the normal vis cost.  For everything else, they offer only a 90% rate.<BR><BR>If combined with a Bloody Wand Core, Alchemical Caps discount the amount of LP consumed by the wand, costing only 900 LP per vis.  The caps also cause all attacks from a blood wand to inflict Weakness.
 #
 forbidden.research_name.CAP_vinteum=Vinteum Caps
 forbidden.research_text.CAP_vinteum=Magical wand caps
-forbidden.research_page.CAP_vinteum.1=By infusing a Thaumium cap with Vinteum, you create a cap that, when combined with a Witchwood Wand Core, lowers its mana cost to only 90 per point of vis.<BR><BR>The Thaumium cap seems to meld well with Vinteum, offering the same 90% vis rate.
+forbidden.research_page.CAP_vinteum.1=By infusing a Thaumium cap with Vinteum, you create a cap that, when combined with a Witchwood Wand Core, lowers its mana cost to only 80 per point of vis.<BR><BR>The Thaumium cap seems to meld well with Vinteum, offering the same 90% vis rate.
 #
 forbidden.research_name.CAP_soul=Ender Caps
 forbidden.research_text.CAP_soul=Protection for your soul
-forbidden.research_page.CAP_soul.1=You've created a wand cap that can safely channel the destructive energy of The End.  Ender Caps have an 80% vis rate on Perditio, but only 95% for other aspects.<BR><BR>When combined with an Eldritch Wand Core, Ender Caps also reduce the amount of corruption your soul suffers from channeling vis out of the End.
+forbidden.research_page.CAP_soul.1=You've created a wand cap that can safely channel the destructive energy of The End.  Ender Caps have an 80% vis rate on Perditio, but only 90% for other aspects.<BR><BR>When combined with an Eldritch Wand Core, Ender Caps also reduce the amount of corruption your soul suffers from channeling vis out of the End.
 #
 forbidden.research_name.CAP_manasteel=Manasteel Caps
 forbidden.research_text.CAP_manasteel=The secret of mana
