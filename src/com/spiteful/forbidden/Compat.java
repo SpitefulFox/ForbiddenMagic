@@ -340,10 +340,9 @@ public class Compat {
 			{
 				Class totems = Class.forName("totemic_commons.pokefenn.ModItems");
 				fennCrystal = (Item)(totems.getField("chlorophyllCrystal").get(null));
-				Class pokeblocks = Class.forName("totemic_commons.pokefenn.ModBlocks");
-				Block infusedLog = (Block)(pokeblocks.getField("totemWoods").get(null));
+				Item subItems = (Item)(totems.getField("subItems").get(null));
 				
-				IArcaneRecipe totem_rod = ThaumcraftApi.addArcaneCraftingRecipe("ROD_totem", new ItemStack(ForbiddenItems.wandCore, 1, 5), (new AspectList()).add(Aspect.ENTROPY, 12).add(Aspect.FIRE, 12).add(Aspect.WATER, 12).add(Aspect.AIR, 12).add(Aspect.EARTH, 12).add(Aspect.ORDER, 12), new Object[]{"PF", "FP", Character.valueOf('F'), new ItemStack(infusedLog.blockID, 1, 0)});
+				IArcaneRecipe totem_rod = ThaumcraftApi.addArcaneCraftingRecipe("ROD_totem", new ItemStack(ForbiddenItems.wandCore, 1, 5), (new AspectList()).add(Aspect.ENTROPY, 12).add(Aspect.FIRE, 12).add(Aspect.WATER, 12).add(Aspect.AIR, 12).add(Aspect.EARTH, 12).add(Aspect.ORDER, 12), new Object[]{"PF", "FP", Character.valueOf('F'), new ItemStack(subItems.itemID, 1, 2)});
 				(new DarkResearchItem("ROD_totem", "FORBIDDEN", "[T]", (new AspectList()).add(Aspect.TREE, 8).add(Aspect.MAGIC, 3).add(Aspect.PLANT, 6), -2, -3, 1, new ItemStack(ForbiddenItems.wandCore, 1, 5))).setPages(new ResearchPage[]{new ResearchPage("forbidden.research_page.ROD_totem.1"), new ResearchPage(totem_rod)}).setParents(new String[]{"ROD_greatwood"}).setConcealed().registerResearchItem();
 				
 				
