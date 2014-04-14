@@ -26,9 +26,9 @@ public class ManaWandUpdate implements IWandRodOnUpdate {
 				
 					float cost;
 					if(((ItemWandCasting)itemstack.getItem()).getCap(itemstack).getTag().equals("vinteum"))
-						cost = 90.0F;
+						cost = 80.0F;
 					else
-						cost = 150.0F;
+						cost = 140.0F;
 					
 					if(prop == null || prop.getCurrentMana() <= 0)
 						return;
