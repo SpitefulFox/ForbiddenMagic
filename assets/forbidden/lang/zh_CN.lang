@@ -1,243 +1,248 @@
-﻿#
+#
 # Aspects
-tc.aspect.infernus=下界,恶魔,狱火
-tc.aspect.ira=愤怒,暴怒,恼怒
-tc.aspect.gula=暴食,消耗,放纵
-tc.aspect.invidia=羡慕,嫉妒,不安
-tc.aspect.superbia=骄傲,傲慢,不屑
-tc.aspect.desidia=怠慢,懒惰,拖沓
-tc.aspect.luxuria=欲望,渴求,过剩
+tc.aspect.infernus=下界,恶魔,地狱火
+tc.aspect.ira=暴怒,恼怒,怒火
+tc.aspect.gula=饕餮,挥霍,放纵
+tc.aspect.invidia=妒忌,嫉妒,不安
+tc.aspect.superbia=傲慢,自大,轻蔑
+tc.aspect.desidia=怠惰,懒散,拖延
+tc.aspect.luxuria=欲望,欲念,无度
 #
 # Items
-item.NetherShard.wrath.name=愤怒碎片
-item.NetherShard.envy.name=嫉妒碎片
-item.NetherShard.gluttony.name=暴食碎片
+item.NetherShard.wrath.name=暴怒碎片
+item.NetherShard.envy.name=妒忌碎片
+item.NetherShard.gluttony.name=饕餮碎片
 item.NetherShard.pride.name=傲慢碎片
 item.NetherShard.lust.name=欲望碎片
-item.NetherShard.sloth.name=懒惰碎片
+item.NetherShard.sloth.name=怠惰碎片
 item.NetherShard.greed.name=贪婪碎片
 item.NetherShard.taint.name=腐化碎片
 item.NetherShard.despair.name=绝望碎片
-item.SkullAxe.name=砍头者之斧
-item.ArcaneCake.name=神秘蛋糕
+item.SkullAxe.name=啄颅斧
+item.ArcaneCake.name=奥法蛋糕
 item.TaintShovel.name=净化铲
-item.TaintPickaxe.name=扭曲镐
-item.MorphPickaxe.name=变色龙镐
-item.MorphSword.name=变色龙剑
-item.MorphShovel.name=变色龙铲
-item.MorphAxe.name=变色龙斧
+item.TaintPickaxe.name=畸变镐
+item.MorphPickaxe.name=避役镐
+item.MorphSword.name=避役剑
+item.MorphShovel.name=避役铲
+item.MorphAxe.name=避役斧
 item.FMResource.0.name=绿宝石碎片
 item.FMResource.1.name=暗影墨水
-item.FMResource.2.name=魔力钢粒
-item.MobCrystalEmpty.name=空白水晶模板
-item.MobCrystal.name=水晶模板
-item.DiabolistFork.name=信魔者之叉
-item.DiabolistSpork.name=厄运叉勺
-item.GluttonyShard.name=暴食碎片
-item.Bloodwell.name=血之笔与墨
-item.DivineOrb.name=卓越血之宝珠
+item.FMResource.2.name=魔钢粒
+item.MobCrystalEmpty.name=空白留影水晶
+item.MobCrystal.name=留影水晶
+item.DiabolistFork.name=妖魔之叉
+item.DiabolistSpork.name=劫难叉勺
+item.GluttonyShard.name=饕餮碎片
+item.Bloodwell.name=血腥之笔与墨
+item.DivineOrb.name=超凡血珠
 item.Crystalwell.name=水晶笔与墨
 item.RidingCrop.name=马鞭
 #
 # Wand components
 item.Wand.tainted.rod=腐化
 item.Wand.infernal.rod=炼狱
-item.Wand.neutronium.rod=量子
-item.Wand.soul.rod=怪异
-item.Wand.blood.rod=血
+item.Wand.neutronium.rod=宇宙中子
+item.Wand.soul.rod=恐怖
+item.Wand.blood.rod=血腥
 item.Wand.witchwood.rod=巫魂木
 item.Wand.totem.rod=图腾
 item.Wand.livingwood.rod=活木
-item.Wand.orichalcum.cap=黄铜
-item.Wand.alchemical.cap=炼金
-item.Wand.vinteum.cap=Vinteum Bossed
-item.Wand.soul.cap=Ender Shielded
-item.Wand.manasteel.cap=魔力钢缠绕
+item.Wand.orichalcum.cap=镶嵌奥利哈康杖端
+item.Wand.alchemical.cap=炼金纹饰杖端
+item.Wand.vinteum.cap=温特姆杖端
+item.Wand.soul.cap=末影覆层杖端
+item.Wand.manasteel.cap=魔钢缠绕杖端
 item.WandCores.tainted.name=腐化杖柄
 item.WandCores.infernal.name=炼狱杖柄
-item.WandCores.soul.name=怪异杖柄
-item.WandCores.blood.name=血杖柄
+item.WandCores.soul.name=异域杖柄
+item.WandCores.blood.name=血腥杖柄
 item.WandCores.witchwood.name=巫魂木杖柄
 item.WandCores.totem.name=图腾杖柄
-item.WandCores.blood_inert.name=惰性血杖柄
+item.WandCores.blood_inert.name=惰性之血杖柄
 item.WandCores.livingwood.name=活木杖柄
 item.WandCores.livingwood_inert.name=休眠活木杖柄
-item.WandCores.blood_staff.name=血核心杖柄
+item.WandCores.blood_staff.name=血腥杖芯
+item.WandCores.witchwood_staff.name=巫魂木杖芯
 item.WandCaps.alchemical.name=炼金杖端
-item.WandCaps.vinteum.name=Vinteum Cap
-item.WandCaps.soul.name=终界杖端
-item.WandCaps.manasteel.name=魔力钢杖端
-item.WandCaps.manasteel_inert.name=惰性魔力钢杖端
+item.WandCaps.vinteum.name=温特姆杖端
+item.WandCaps.soul.name=末影杖端
+item.WandCaps.manasteel.name=魔钢杖端
+item.WandCaps.manasteel_inert.name=惰性温特姆杖端
 #
 # Blocks
-tile.ArcaneCake.name=神秘蛋糕
+tile.ArcaneCake.name=奥法蛋糕
 tile.InkFlower.name=暗影玫瑰
-tile.WrathCage.name=愤怒之笼
+tile.WrathCage.name=暴怒之笼
 tile.StarBlock.name=下界之星方块
 #
 # Enchantments
 enchantment.cluster=炽心
-enchantment.pigbane=屠宰
+enchantment.pigbane=猪猡克星
 enchantment.greedy=剥削
-enchantment.consuming=消耗
+enchantment.consuming=挥霍
 enchantment.educational=教育
-enchantment.corrupting=腐化
+enchantment.corrupting=堕落
 enchantment.eternal=不朽
 #
 # Misc
 itemGroup.forbidden=禁忌魔法
-itemGroup.mobcrystal=水晶模板
+itemGroup.mobcrystal=留影水晶
 tc.research_category.FORBIDDEN=伪经
-tc.research_category.TAINT=腐化学
+tc.research_category.TAINT=咒波学
 #
 # Research
-forbidden.research_name.NETHERSHARDS=下界碎片
-forbidden.research_text.NETHERSHARDS=为了混乱.
-forbidden.research_page.NETHERSHARDS.1=奇怪的能量涡流存在于下界.有时,它们会在合适的条件下具现为晶体碎片.
-forbidden.research_page.NETHERSHARDS.2=这些晶体碎片被注入了不同种罪行并且对于不择手段的神秘使来说有很多用途.<BR>下界碎片有七种已记载的种类,每一种代表不同的"死罪."<BR><BR><IMG>forbidden:textures/misc/research.png:0:0:111:16:1</IMG><BR>
-forbidden.research_page.NETHERSHARDS.2b=这些晶体碎片被注入了不同种罪行并且对于不择手段的神秘使来说有很多用途.<BR>下界碎片有六种已记载的种类,每一种代表不同的"死罪."<BR><BR><IMG>forbidden:textures/misc/research.png:0:16:95:16:1</IMG><BR>
-forbidden.research_page.NETHERSHARDS.3=愤怒碎片是暴力的具现.使用的物理力量越多,愤怒碎片越有可能出现.<BR><BR>懒惰碎片会在活动和事件用于不劳而获时出现.<BR><BR>嫉妒碎片从这些觊觎他们的家伙那里获得.<BR><BR>傲慢碎片会在一个拥有强大力量的生物被击倒时出现.<BR><BR>随着时间推进他们会在更多的情况下出现.
+forbidden.research_name.NETHERSHARDS=下界之星
+forbidden.research_text.NETHERSHARDS=为了为所欲为.
+forbidden.research_page.NETHERSHARDS.1=诡异的能量流打着漩儿贯穿着下界.有时候,正如我们所知,当某些共鸣事件发生之际,这些能量流会凝结成一些水晶碎片.
+forbidden.research_page.NETHERSHARDS.2=这些水晶内充斥着世间诸罪,对那些更肆无忌惮的神秘使来说用途广泛.<BR>目前有7种记录在案的下界碎片,分别与不同的"死罪"相谐。<BR><BR><IMG>forbidden:textures/misc/research.png:0:0:111:16:1</IMG><BR>
+forbidden.research_page.NETHERSHARDS.2b=这些水晶内充斥着世间诸罪,对那些更加百无禁忌的神秘使来说用途广泛.<BR>目前有6种记录在案的下界碎片,分别与不同的"死罪"相谐。<BR><BR><IMG>forbidden:textures/misc/research.png:0:16:95:16:1</IMG><BR>
+forbidden.research_page.NETHERSHARDS.3=暴怒碎片凝结了各种暴力行径.逞凶滥武越肆无忌惮之地越可能出现暴怒碎片.<BR><BR>怠倦碎片会在人们妄想毫不付出,仅仅靠假手他人或投机倒把就能收集到资源的时候凝固成形.<BR><BR>妒忌碎片会被那些觊觎者从拥有它们的人手里夺走.<BR><BR>傲慢碎片会在那些真正强大的生物颜面扫地时具现.<BR><BR>随着时间的推移还将会冒出更多的共鸣事件!
 #
-forbidden.research_name.SKULLAXE=砍头者之斧
-forbidden.research_text.SKULLAXE=砍下他们的头!
-forbidden.research_page.SKULLAXE.1=有些怪物着实让你恼怒,骷髅射手!总是在附近游荡并拿你当箭靶子.还有这些苦力怕!它们总是把东西炸翻天就好像这是它们家似的!你希望你能砍下它们那自鸣得意的头然后穿在长矛上.<BR><BR>幸运的是,你已经发现了一个能让你那么做的物品.砍头者之斧在杀死怪物时有几率砍下他们的头.它甚至对其他人有效!不幸的是, 注魔让这把斧子为了能像割除杂草那样有效而太过于渴望鲜血.
+forbidden.research_name.SKULLAXE=啄颅斧
+forbidden.research_text.SKULLAXE=砍掉他们的脑袋!
+forbidden.research_page.SKULLAXE.1=某些怪物就是那么能让你热血沸腾.骷髅!老是咔咔作响,拿你当练箭的靶子.他们就那样来回转悠,扫荡一切彷佛主宰着这片土地.你真希望你可以一股劲儿剁掉他们自鸣得意的脑袋,将它们插在矛尖上.<BR><BR>幸运的是,你真发现一个能让你实现设想的好东西.啄颅斧有一定几率会砍掉用它杀死的怪物的头颅.在杀人的时候甚至也能发挥这效果！不幸的是,注入的魔力为了使得这柄斧头足以能割草无双,让它过于嗜血了.
 #
-forbidden.research_name.ARCANECAKE=神秘蛋糕
-forbidden.research_text.ARCANECAKE=让他们吃蛋糕.
-forbidden.research_page.ARCANECAKE.1=如果那有你喜欢的东西,一定是蛋糕. 如果可以你想整天品尝它的美味,但最后总是会吃光.<BR><BR>为了实现它,你一发明了一种方法来给蛋糕注入延长期限的魔法.神秘蛋糕显然比普通蛋糕能持续更久并且只要留有一部分在它就会缓慢修复自身.魔力不太稳定,并且,一旦被放置它不能被再次移动.
+forbidden.research_name.ARCANECAKE=奥法蛋糕
+forbidden.research_text.ARCANECAKE=让他们吃掉蛋糕.
+forbidden.research_page.ARCANECAKE.1=若问有哪样事物为你所钟爱,那必定是指蛋糕了.愿意的话你可以一整天品尝它的美味,但也总有吃光的时候.<BR><BR>为了补救这种遗憾,你开发出一种新的配方,将长寿魔法注入到蛋糕之中.奥法蛋糕明显比普通蛋糕耐吃,且只要剩下一点点,就能随着时间推移自己复原.然而这种附魔并不稳定,放下后的蛋糕将无法用寻常手段移除.
 #
 forbidden.research_name.TAINTSHOVEL=净化铲
-forbidden.research_text.TAINTSHOVEL=就像一把热刀穿过黄油
-forbidden.research_page.TAINTSHOVEL.1=有时,移除腐化块最简单的方法就是物理上移除它们.<BR><BR>通过用银树原木和秩序碎片来强化一把神秘铲,你已创造了一个能处理腐化的工具.净化铲能像挖掘普通泥土那样挖掘腐化土. 如果手持它右击,铲子会消耗耐久来净化污染.
-forbidden.research_page.TAINTSHOVEL.2=当用这把铲子挖掘腐化时, 释放出的扭曲能量有一定几率变为腐化碎片. 不像其他腐化材料, 晶体形态使得这些碎片足够稳定来携带.
+forbidden.research_text.TAINTSHOVEL=犹如火热的刀子划过真正的黄油
+forbidden.research_page.TAINTSHOVEL.1=有时,清楚腐化区域的最简单途径无非直接挖走它们.<BR><BR>使用银树和秩序碎片强化神秘铲,你制造出这柄能够对抗腐化的工具.净化铲能够像挖开普通泥土那样捣稀泥一般地挖开腐化后的大地.拿在手里按下右键,这柄铲子能消耗耐久为你治疗咒波污染.
+forbidden.research_page.TAINTSHOVEL.2=用这柄铲子挖开腐化的大地有几率释放出的扭曲能量,会结晶成腐化碎片.不像其余的腐化材料,水晶的形态让这种碎片稳定到能够随身携带.
 #
-forbidden.research_name.TAINTPICK=扭曲镐
-forbidden.research_text.TAINTPICK=黑曜石破坏者
-forbidden.research_page.TAINTPICK.1=通过给一把神秘镐注入腐化,你做出了一个能采集各种材料的工具.<BR><BR>扭曲镐用腐化的力量感染材料,削弱它们.材料越坚硬,镐采集的速度就越快.不幸的是,腐化的影响在采集柔软材料时有反作用,使得采集起来比你用空手还慢.
+forbidden.research_name.TAINTPICK=畸变镐
+forbidden.research_text.TAINTPICK=黑曜石粉碎机
+forbidden.research_page.TAINTPICK.1=向神秘镐中注入腐化的力量,你制造出一柄能凿开坚固材料的工具.<BR><BR>畸变镐能用腐化的力量侵染材料以削弱它们.材料越坚固,镐子挖走它们的效率最高.不幸的是,腐化的力量对那些较为柔软的材料影响微乎其微,换言之用它来挖软和的东西还不如徒手快.
 #
 forbidden.research_name.ROD_tainted=腐化杖柄
-forbidden.research_text.ROD_tainted=弯曲的魔力储存
-forbidden.research_page.ROD_tainted.1=对于这些知道如何利用的神秘使来说腐化之地是个有着既好又坏的能量的地方.<BR><BR>腐化杖柄能储存各种要素150vis并能在它被带入腐化之地时回复每种要素至10%.当你手持法杖时,它也能啃食你所受的诅咒,通过你受到咒波污染的伤害来随机回复要素.
+forbidden.research_text.ROD_tainted=扭曲地存储魔力
+forbidden.research_page.ROD_tainted.1=腐化的大地对那些知道如何开发它们的神秘使来说是既了不起又糟透了的地方.<BR><BR>腐化法杖核心能够存储每种魔力50 vis,且身处腐化区域时还能自动将每种要素回复到10%的水平.这种法杖被攥在手里时,还能从穿透静脉的咒波污染中汲取能量,在每次承受咒波污染伤害时随机回复魔力.
 #
 forbidden.research_name.ROD_infernal=炼狱杖柄
-forbidden.research_text.ROD_infernal=魔鬼的魔力储存
-forbidden.research_page.ROD_infernal.1=像你这样出色的神秘使应当有一个高大上的法杖.那些嬉皮的银树杖不怎么样.你需要一把像权杖那样的法杖.<BR><BR>你已发现了一种方法注入下界的力量来制作法杖.炼狱杖柄能储存150vis并会缓慢回复它火要素到20%.在下界时,法杖也会回复其他要素至10%.
-forbidden.research_page.ROD_infernal.2=法杖也提供保护使你免于下界的危险,放在物品栏时可以熄灭你身上的火或者保护你不受凋零效果的伤害.当你手持法杖时,它会免去你受到的所有火焰伤害.
+forbidden.research_text.ROD_infernal=恶魔式存储魔力
+forbidden.research_page.ROD_infernal.1=像您这般伟大而强力的神秘使,值得拥有一柄与身份相衬且炫酷强力的法杖.那些嬉皮的银树法杖根本无法胜任.您需要的法杖,必须要能够作为彰显权威的节杖.<BR><BR>你研究出一种注入下界之力制造法杖的方法.炼狱法杖核心能够容纳150 vis的魔力,并且能够自动回复Ignis要素到20%的水平.当身处下界,其他要素魔力也能自动回复到10%的水平.
+forbidden.research_page.ROD_infernal.2=这柄法杖还附加一些针对下界危险的防护法术.只要它留在物品栏内,就不仅能自动帮你扑灭身上的火焰,还能帮助你豁免凋灵效果.手持这柄法杖时,能够完全免疫所有灼烧伤害.
 #
-forbidden.research_name.ROD_soul=怪异杖柄
-forbidden.research_text.ROD_soul=C腐化的魔力储存
-forbidden.research_page.ROD_soul.1=你已经发现了一种方法开发玩家释放的能量并转为魔力.当你在有玩家活动的地方时,怪异杖柄会缓慢回复它所有的内部储存100vis.<BR><BR>从你的灵魂汲取这些量的能量有一个代价.每回复一点魔力都将对你的灵魂产生大量的腐化作用.最好不要太依赖它的回复能力...
+forbidden.research_name.ROD_soul=异域杖柄
+forbidden.research_text.ROD_soul=堕落式存储魔力
+forbidden.research_page.ROD_soul.1=你研究出一种从玩家信标中抽取能量转换为魔力的技术.只要相绑定的玩家信标同你处于同一位面,那么异域法杖核心就能缓慢能恢复所有的魔力,她最大能容纳每种要素魔力100 vis.<BR><BR>然而,引导如此巨大的能量流贯穿灵魂会付出一些代价.每一点的魔力都深深腐蚀了你的灵魂.因此最好不要过分依赖它的自动充能效果了……
 #
-forbidden.research_name.ROD_blood=血杖柄
-forbidden.research_text.ROD_blood=炼金的魔力储存
-forbidden.research_page.ROD_blood.1=你已在神秘学和炼金巫术间搭起了一座桥梁.血杖柄能储存100vis并使用生命点数一点点回复它.<BR><BR>这个法杖会将自己与第一个捡起它的人绑定. 当要素空缺时,它会试着通过拥有者的网络使用生命点数回复自己.如果那里没有足够的生命点数来补充它,它会试着从拿着它的人的生命中汲取能量,但这种转换不太有效.如果没有能使用的生命点数并且所持者的生命低于3颗心,法杖会停止自我回复.
-forbidden.research_page.ROD_blood.2=单独的注魔过程并不够完成一个血魔杖.惰性血杖柄注魔好后,它还需要在血祭坛注入生命精华来完成.
+forbidden.research_name.ROD_blood=血腥杖柄
+forbidden.research_text.ROD_blood=炼金学储存魔力
+forbidden.research_page.ROD_blood.1=在神秘学和炼金术之间你构筑出一座桥梁.血腥法杖能够容纳100 vis的魔力,并且可以消耗生命点来补充自己.<BR><BR>这柄法杖会和第一个拿起它来的人绑定.如果没有足够的生命点作为燃料,这柄法杖还会试图抽取拿着它的人的生命力,但这种转换的效率并不高.若手持法杖的人血量下降到三颗心一下,并非多余生命可供抽取,法杖将会停止为自己充能.
+forbidden.research_page.ROD_blood.2=单独的注魔过程不足以完成一柄血腥法杖.注魔制作的惰性血腥法杖需要在血腥祭坛内注入生命精华才能激活.
 #
-forbidden.research_name.ROD_blood_staff=血核心杖柄
-forbidden.research_text.ROD_blood_staff=血法师的核心
-forbidden.research_page.ROD_blood_staff.1=血杖柄很有用,但它回复的太慢.是时候制作一个能持续工作的魔法工具了.<BR><BR>不像大多数法杖,血核心杖柄只储存50vis而不是100vis.它显示出极高的回复能力.当血核心杖在你的快捷栏内,它会从拥有者的生命点数网络以血杖柄4倍速度回复要素.这种暴食有一个代价,那就是.与血杖柄不同,如果没有得到足够的生命点数它会杀死拿着的任何人.
+forbidden.research_name.ROD_blood_staff=血腥杖芯
+forbidden.research_text.ROD_blood_staff=血法师之杖
+forbidden.research_page.ROD_blood_staff.1=血腥法杖有用,但充能太慢了.是时候做一柄适合用于持久战斗的魔法工具了.<BR><BR>不像多数手杖,血腥手杖只能容纳50 vis的魔力,而非其法杖形式的100 vis容量.它真正的亮点在于能够快速回复魔力.只要将血腥手杖放置在快捷栏内，它就能以4倍于血腥法杖的速度从其主人的生命点系统中抽取能量充能.不像法杖,如若没有足够的生命点它将会而且也愿意杀死持有它的家伙.
 #
 forbidden.research_name.ROD_witchwood=巫魂木杖柄
-forbidden.research_text.ROD_witchwood=魔力转换器
-forbidden.research_page.ROD_witchwood.1=通过用巫魂木制作一个杖柄,你发现了一种将mana魔力转为要素魔力的方法.巫魂木杖柄能储存100vis并会以每点要素魔力消耗150mana魔力的比率一点点回复.<BR><BR>进一步的研究或许能降低这个成本.
+forbidden.research_text.ROD_witchwood=魔力转换
+forbidden.research_page.ROD_witchwood.1=使用巫魂木制作出这柄法杖后,你研究出一种能够将AM魔力转换成TC魔力的方法.巫魂木杖柄能容纳100 vis魔力且能以140 mana换取1 vis的效率回复魔力.<BR><BR>进一步的研究会帮助你找到降低转换损耗之策.
 #
-forbidden.research_name.ROD_totem=Totemic Wand Core
-forbidden.research_text.ROD_totem=Verdant vis storage
-forbidden.research_page.ROD_totem.1=Hunting down nodes for their power can be quite a pain sometimes. Perhaps there is another discipline you can tap for power...<BR><BR>By carving a wand core from Infused Wood, you create a wand that can draw power from plant life. The Totemic Wand Core holds 50 vis and can draw energy from Chlorophyll Crystals in your inventory to recharge its own vis.
+forbidden.research_name.ROD_witchwood_staff=巫魂木杖芯
+forbidden.research_text.ROD_witchwood_staff=巫师之杖
+forbidden.research_page.ROD_witchwood_staff.1=巫魂木法杖要吞噬掉太多的AM魔力,充能又慢得远远不适合用于持久战斗.是时候做点能稍微高效点儿地引导奥术能量的玩意儿了.不像多数手杖,巫魂木手杖只能容纳50 vis的魔力.它真正的优势在于快速的充能效率—达到巫魂木法杖的2倍.不仅如此,相比巫魂木法杖,若没有合适的杖端,巫魂木手杖还能节约可观的AM魔力,只需要100点就能换取1 vis的TC魔力.
 #
-forbidden.research_name.ROD_livingwood=Livingwood Wand Core
-forbidden.research_text.ROD_livingwood=Botanical vis storage
-forbidden.research_page.ROD_livingwood.1=Livingwood has the fantastic ability to manipulate mana. When combined with the right reagents, it can even convert mana into vis.<BR><BR>The Livingwood Wand will quickly draw mana from storage items in your inventory in order to charge itself.<BR><BR>The infusion process burns the livingwood out, unfortunately. Once infused, the wand rod must be charged in a mana pool in order to be re-awakened.
+forbidden.research_name.ROD_totem=图腾杖柄
+forbidden.research_text.ROD_totem=叶绿存储魔力
+forbidden.research_page.ROD_totem.1=为了魔力而狩猎节点有时候相当令人痛苦.也许还存在其他能让你获得魔力的规则……<BR><BR>向一段注魔的枝干中嵌入一枚法杖核心,你制作出一柄能够从植物中抽取魔力的法杖.图腾法杖核心能够容纳50 vis的魔力,并能够从物品栏中的叶绿水晶中抽取魔力为自己充能.
 #
-forbidden.research_name.CAP_alchemical=Alchemical Caps
-forbidden.research_text.CAP_alchemical=When Thaumium isn't bloody enough
-forbidden.research_page.CAP_alchemical.1=You've developed a wand cap that merges Thaumaturgy and Alchemical Wizardry.  Alchemical Caps are very effective at channeling Aqua, only using 80% of the normal vis cost.  Unfortunately, they're less effective than Thaumium at channeling other aspects, offering only a 95% rate on everything else.<BR><BR>If combined with a Bloody Wand Core, Alchemical Caps discount the amount of LP consumed by the wand, costing only 900 LP per vis.  The caps also cause all attacks from a blood wand to inflict Weakness.
+forbidden.research_name.ROD_livingwood=活木杖柄
+forbidden.research_text.ROD_livingwood=植物存储魔力
+forbidden.research_page.ROD_livingwood.1=活木在操纵AM魔力的性能上得天独厚.当其与合适的药剂相融合,甚至可以将AM魔力转换为TC魔力.<BR><BR>活木法杖能从物品栏存储的物品中抽取AM魔力为自己充能.<BR><BR>不幸的是,注魔的过程会烧掉活木,注魔后杖端需要在血池中进行充能才能重新激活.
 #
-forbidden.research_name.CAP_vinteum=Vinteum Caps
-forbidden.research_text.CAP_vinteum=Magical wand caps
-forbidden.research_page.CAP_vinteum.1=By infusing a Thaumium cap with Vinteum, you create a cap that, when combined with a Witchwood Wand Core, lowers its mana cost to only 90 per point of vis.<BR><BR>The Thaumium cap seems to meld well with Vinteum, offering the same 90% vis rate.
+forbidden.research_name.CAP_alchemical=炼金纹饰杖端
+forbidden.research_text.CAP_alchemical=当神秘学不够血腥时
+forbidden.research_page.CAP_alchemical.1=将神秘学与炼金巫术相结合,你开发出一种新型杖端.炼金纹饰杖端在引导Aqua要素时非常高效,与平常相比仅仅需要80%的魔力消耗量.但对其余类型的要素,效率只有90%.<BR><BR>若安装在血腥杖柄上,炼金纹饰杖端将提高生命点转换成魔力的效率,每vis只需900生命点.这种杖端还能让所有的血腥法杖发出的攻击附带虚弱效果.
 #
-forbidden.research_name.CAP_soul=Ender Caps
-forbidden.research_text.CAP_soul=Protection for your soul
-forbidden.research_page.CAP_soul.1=You've created a wand cap that can safely channel the destructive energy of The End.  Ender Caps have an 80% vis rate on Perditio, but only 95% for other aspects.<BR><BR>When combined with an Eldritch Wand Core, Ender Caps also reduce the amount of corruption your soul suffers from channeling vis out of the End.
+forbidden.research_name.CAP_vinteum=温特姆杖端
+forbidden.research_text.CAP_vinteum=魔法杖端
+forbidden.research_page.CAP_vinteum.1=将神秘杖端与温特姆相融,你制作出一种杖端,能够安装在巫魂木杖柄上,使得其只需要消耗80点AM魔力就能转换一点TC魔力.<BR><BR>看起来神秘杖端和温特姆相得益彰,还保留着90%的魔力使用效率.
 #
-forbidden.research_name.CAP_manasteel=Manasteel Caps
-forbidden.research_text.CAP_manasteel=The secret of mana
-forbidden.research_page.CAP_manasteel.1=Manasteel has very useful properties when it comes to mana manipulation. When crafted into a wand cap, it offers a 90% vis rate. If combined with a Livingwood Wand, it also makes the mana conversion process more efficient.<BR><BR>In order to be used in the creation of a wand, the Inert Manasteel Caps must be infused in a Mana Pool.
+forbidden.research_name.CAP_soul=末影杖端
+forbidden.research_text.CAP_soul=灵魂防护
+forbidden.research_page.CAP_soul.1=你已经制造出一种杖端,能够安全引导末地毁灭性的能量.末影杖端引导Perditio要素时只有80%的效率,但对其他要素有90%的效率.<BR><BR>安装在异域杖柄上的话,末影杖端能够削减引导从末地引导来的能量对灵魂的腐蚀.
 #
-forbidden.research_name.TRANSEMERALD=翡翠炼金
-forbidden.research_text.TRANSEMERALD=将贵重品变为绿宝石
-forbidden.research_page.TRANSEMERALD.1=你已发现了一种方法将绿宝石碎片浸泡于其它物质中获得的贪婪而合成绿宝石.
+forbidden.research_name.CAP_manasteel=魔钢杖端
+forbidden.research_text.CAP_manasteel=魔力之秘
+forbidden.research_page.CAP_manasteel.1=魔钢在操纵AM魔力的特性方面得天独厚.用它来制作的杖端只有90%的魔力效率.安装在活木杖柄上后,它能够让AM魔力转换成vis的效率更高.<BR><BR>为了用于制作法杖,惰性魔钢杖端需要在血池中激活.
+#
+forbidden.research_name.TRANSEMERALD=嬗变术:绿宝石
+forbidden.research_text.TRANSEMERALD=将贵重物品转换为绿宝石
+forbidden.research_page.TRANSEMERALD.1=你研究出一种将绿宝石碎片浸泡在从其他物质中提取出的lucrum源质中,以增殖绿宝石的方法.
 #
 forbidden.research_name.BLACKFLOWER=暗影玫瑰
-forbidden.research_text.BLACKFLOWER=拯救墨鱼!
-forbidden.research_page.BLACKFLOWER.1=没什么比一个湿漉漉的神秘使更可怜的了.尽管你有各式强大的力量,你仍要为了每次补充墨水而跳入附近的湖里捕杀墨鱼.<BR><BR>你完成了墨鱼的捕杀.通过给一株玫瑰注入黑暗和生命,你做出了一朵能像杂草般生长且花瓣能磨成墨水的花.
+forbidden.research_text.BLACKFLOWER=救救乌贼!
+forbidden.research_page.BLACKFLOWER.1=没有比一个湿漉漉的神秘使还要更令人悲戚的画面了.尽管你掌控着伟大而神奇的魔力,但每次需要补充墨水的时候,你仍然不得不跳进最近的湖里去猎杀乌贼.<BR><BR>你杀乌贼真的杀得腻歪透了.向玫瑰注入tenebrae和victus要素,你创造出一种茎叶如杂草，花瓣可以磨浆成墨汁的花.
 #
-forbidden.research_name.WRATHCAGE=愤怒之笼
-forbidden.research_text.WRATHCAGE=永不休止的战斗
-forbidden.research_page.WRATHCAGE.1=有时,仅仅解决了什么还不够.当然,解决一只怪物或许能舒服些, 但你还想要更多.<BR><BR>最终,你已发现了重造古迹中发现的刷怪笼的方法.与那些刷怪笼不同,愤怒之笼对红石信号响应而不是对人响应而且它的运行速度快过古老的设备.
-forbidden.research_page.WRATHCAGE.2=然而,你还不能复制出达到无限创造的原始方法.每当有生物刷出,愤怒之笼就需要通入一点源质进入内部储存.这个设备会根据所设定的生物的不同而接受不同种源质.可选的,通入愤怒源质能作为燃料.因为某些原因懒惰源质也是支持的.<BR><BR>用信魔者之叉右击笼子可以在不同种源质间切换,改变以吸取不同的要素源质.
-forbidden.research_page.WRATHCAGE.3=若想让笼子刷出指定的生物,只需用水晶模板右击它.带着空白水晶模板使用信魔者之叉击杀生物后会将模板调整为那种怪物.
+forbidden.research_name.WRATHCAGE=暴怒之笼
+forbidden.research_text.WRATHCAGE=战无止境
+forbidden.research_page.WRATHCAGE.1=有时候,小打小杀就是不够.诚然,杀掉一只孤零零的怪物相当令人身通体便,但想象一下屠戮掉一大波可憎小蠢蛋的画面吧.<BR><BR>为了实现这一目标,你研究出一种方法,能够重新制造出古代废墟中的怪物.不像天然的刷怪笼,暴怒之笼由红石信号控制,因而无需感应是否有人类出现,而且这种笼子可以比刷怪笼这种古代设备运行得更快速.
+forbidden.research_page.WRATHCAGE.2=然而,你无法复制天然刷怪笼无限刷怪的特性.每诞下一只生物都会让暴怒笼子消耗一点点用管道导入其内的源质.依据对应生物的不同,暴怒之笼需要不同类型的源质.抑或你可以导入Ira源质来作为燃料.也可以使用Desidia来实现另外一些功能.<BR><BR>拿着妖魔之叉右键暴怒之笼,能够循环切换其使用的燃料类型,切换它抽取哪一种要素源质.
+forbidden.research_page.WRATHCAGE.3=要使暴怒之笼与某种指定生物绑定,可以使用留影水晶右击笼子.携带空白留影水晶用妖魔之叉杀死生物能够将生物的信息烙印到水晶之中.
 #
-forbidden.research_name.FORK=信魔者之叉
-forbidden.research_text.FORK=Arcane tinkering tool
-forbidden.research_page.FORK.1=你做出了一个助于你调整各种炼狱设备的工具.石英制的叉端使它能连通神秘的能量.<BR><BR>除了调整设备,这把叉子还是一个功能性武器.<BR><BR>随着完成更多研究你会在后续页面了解到更多信息.
-forbidden.research_page.FORK.wc=当你物品栏中有一个空白水晶模板使用信魔者之叉击杀生物后,它会将生物写入模板.水晶模板能让愤怒之笼刷出指定怪物.<BR><BR>这把叉子还能选择用来驱动愤怒之笼运行的源质类型.用信魔者之叉右击笼子来在三种不同的源质间选择.
+forbidden.research_name.FORK=妖魔之叉
+forbidden.research_text.FORK=神秘匠人之工具
+forbidden.research_page.FORK.1=你制造出一柄工具用以捣鼓数种炼狱装置.石英支撑的叉尖让妖魔之叉能够同奥术能量相谐振.<BR><BR>除了能用以调整设备,妖魔之叉用来做实用武器亦不错.<BR><BR>当你解锁了更多研究后下面几页会出现更重要的信息.
+forbidden.research_page.FORK.wc=如果用妖魔之叉杀死支持的生物类型时物品栏内有空白留影水晶,那么这种生物就会被烙印到水晶中.留影水晶可以用于暴怒之笼,以绑定某种怪物.<BR><BR>这柄叉子还能用来设置暴怒之笼使用哪种源质作为燃料.只需拿着妖魔之叉右键暴怒之笼,就能在三种不同的燃料类型中切换.
 #
-forbidden.research_name.MORPHTOOLS=变色龙工具
-forbidden.research_text.MORPHTOOLS=有那样一个附魔...
-forbidden.research_page.MORPHTOOLS.1=变色龙工具就像一个三合一的工具.在被附魔一次后, 潜行时手持它右击会让它切换到一个新的版面,让你能给它完全不同的附魔.每个工具支持最多三种不同的附魔设定,潜行右击时来切换.<BR><BR>一旦附魔满了这些工具无法移除附魔,所以请让每次附魔都有所值!
+forbidden.research_name.MORPHTOOLS=避役工具
+forbidden.research_text.MORPHTOOLS=这里有一项能用上的附魔…
+forbidden.research_page.MORPHTOOLS.1=避役工具是种三合一的工具.当第一次附魔后,手持这柄工具潜行状态下按下右键能够将其切换成没有经过附魔的状态,这使得它可以再次进行完全不同的附魔.没一柄工具有三种可以独立附魔的状态,都能使用潜行下按住右键来切换.<BR><BR>但这种工具一经附魔便无法抹去效果,因此应利用好每一次附魔机会!
 #
 forbidden.research_name.CLUSTER=附魔:炽心
-forbidden.research_text.CLUSTER=核心的变色龙
-forbidden.research_page.CLUSTER.1=你已发现了一个附魔让变色龙镐能模拟炽心镐的能力.附有炽心附魔的变色龙镐在挖掘特定矿物时有几率掉落矿簇.矿簇比原矿纯净并能冶炼为双份产物.高等级的炽心附魔增加了矿簇掉落率.
+forbidden.research_text.CLUSTER=核心之避役
+forbidden.research_page.CLUSTER.1=你研究出一种能让避役镐模仿炽心镐效果的附魔.进行炽心附魔后的避役镐在采掘某种矿石时有几率掉落原矿簇.原矿簇是一种比天然矿石纯度更高的矿藏,冶炼时相比普通矿石能够翻倍得到产物.炽心附魔等级越高掉落原矿簇几率越大.
 #
 forbidden.research_name.GREEDY=附魔:剥削
-forbidden.research_text.GREEDY=无节制的附魔
-forbidden.research_page.GREEDY.1=你发现了一个能让你从杀害生命中获利的武器附魔.每当剥削附魔武器击杀一个敌对生物,都有几率掉落一个绿宝石碎片.如果一把剥削武器被用于杀害村民,则会直接掉落绿宝石.
+forbidden.research_text.GREEDY=无控的附魔
+forbidden.research_page.GREEDY.1=你已经研究出一种武器附魔,能让你从生物那里榨取好处.每次使用附魔了剥削的武器杀死一只敌对生物,就有几率掉落出一枚绿宝石碎片.若用它杀死村民,可能的掉落物则代之以村民的绿宝石.
 #
-forbidden.research_name.CONSUMING=附魔:消耗
-forbidden.research_text.CONSUMING=垃圾处理器
-forbidden.research_page.CONSUMING.1=受够了总要清除背包里那些无用的垃圾,你做出了一个能自动清理那些垃圾的附魔,不需要的材料.消耗附魔工具开采的那些圆石,泥土,以及地狱岩将会被直接破坏而不是掉落.
+forbidden.research_name.CONSUMING=附魔:挥霍
+forbidden.research_text.CONSUMING=垃圾处理
+forbidden.research_page.CONSUMING.1=烦透了要手动清空口袋里无用的垃圾,你设计出一种附魔,能够让工具自动毁掉那些寻常的不需要的材料.被挥霍工具挖掉的所有圆石,泥土或下界岩都会被销毁,而非掉落到地上.
 #
-forbidden.research_name.PIGBANE=附魔:屠宰
-forbidden.research_text.PIGBANE=让那些猪人知道谁才是食物链顶端的人!
-forbidden.research_page.PIGBANE.1=猪人觉得他们如此碉堡.它们总会在下界成群游荡并揉拧那些无辜的旅行者.是时候有人出来阻止它们了.<BR><BR>屠宰附魔的武器将会对猪和猪人造成额外的伤害.
+forbidden.research_name.PIGBANE=附魔:猪猡克星
+forbidden.research_text.PIGBANE=告诉这些僵尸猪人谁才占据食物链的顶端!
+forbidden.research_page.PIGBANE.1=僵尸主人自鸣得意.他们老是成群结队在无辜的旅者面前踏步巡行.是时候让他们停下来了.<BR><BR>附魔了猪猡克星的武器对猪或者僵尸猪人效果拔群.
 #
 forbidden.research_name.EDUCATIONAL=附魔:教育
-forbidden.research_text.EDUCATIONAL=你将会学到!
-forbidden.research_page.EDUCATIONAL.1=你已做出了一种将知识与学习的精华注入武器的附魔.将这些敲入怪物的脑袋里会让它们掉落比平常更多的经验,效果由附魔等级增强.
+forbidden.research_text.EDUCATIONAL=你会学到的!
+forbidden.research_page.EDUCATIONAL.1=你创造出一种附魔,能将知识和学习的精髓注入武器.依这项附魔的等级不同,教育武器能够将好学精神捶入怪物的脑门,让它们死后比平常掉落出更多经验.
 #
-forbidden.research_name.CORRUPTING=附魔:腐化
-forbidden.research_text.CORRUPTING=对碎片有副作用
-forbidden.research_page.CORRUPTING.1=下界还不错,但它也是一个... 地狱之洞.<BR><BR>腐化附魔让你不去下界也能获得下界碎片.一把腐化附魔的镐会随机腐化采集的元素碎片,将它们变为下界碎片.碎片只会在采集有魔力的石头时出现,所以腐化一个晶簇是无效的.
+forbidden.research_name.CORRUPTING=附魔:堕落
+forbidden.research_text.CORRUPTING=对碎片的坏影响
+forbidden.research_page.CORRUPTING.1=下界无与伦比,但它毕竟是一个地狱之坑.<BR><BR>堕落附魔让你无须前往下界就能收获到下界碎片.堕落附魔的镐能随机腐化挖出的元素碎片,将其转换为下界碎片.晶化的碎片只是看起来容易感染,因此腐化晶簇不会有效果.
 #
 forbidden.research_name.ETERNAL=附魔:不朽
-forbidden.research_text.ETERNAL=变色龙之神
-forbidden.research_page.ETERNAL.1=Ichor工具真的很好.你真心希望你的变色龙工具也能像那样.或许它们可以...<BR><BR>不朽附魔给予变色龙工具Ichor工具的耐久性.
+forbidden.research_text.ETERNAL=避役之神
+forbidden.research_page.ETERNAL.1=灵宝工具相当了不起.你确定避役工具可以与它们更加相似.也许它们可以吧……<BR><BR>天域附魔让避役工具如同灵宝工具那样永不磨损.
 #
-forbidden.research_name.TAINTBASICS=Tainted Lands
-forbidden.research_text.TAINTBASICS=Deep Purple
-forbidden.research_page.TAINTBASICS.1=Sometimes, Thaumaturgy goes horribly wrong. Miracles become twisted calamities and the very landscape twists into hideous forms. Tainted Lands are places infected by the sick runoff of magical workings, flux. Local flora and fauna become warped and mutated into forms hostile to normal life and the very ground of a tainted land infects those who tread upon its pulsing fibres.
-forbidden.research_page.TAINTBASICS.2=Tainted Lands can be found naturally in the world, but can also form when a careless Thaumaturge allows flux goo to stagnate for too long. They are recognizable by their telltale purple fibres and bright violet stalks. Left alone, the tainted land will gradually extend its tendrils outwards, infecting more and more of the surrounding land. Dirt becomes thick, pulpy Tainted Soil while trees and other natural materials are slowly covered in fibres and converted into structurally unsound crust which can collapse or melt into flux goo at any moment.
+forbidden.research_name.TAINTBASICS=腐化的大地
+forbidden.research_text.TAINTBASICS=深紫色
+forbidden.research_page.TAINTBASICS.1=有时候,神秘学会变得糟糕可怖.奇迹变成了扭曲的灾难以及大片丑陋的景观.腐化的大地是被魔法设备排出的扭曲魔力咒波污染了的地方.当地的花花草草会发生扭曲的变异,动物也会从普通的野兽转变成敌对的怪物.污染极端严重的腐化区域还会感染那些践踏它脉动的须根的家伙.
+forbidden.research_page.TAINTBASICS.2=腐化大地天然分布于世界的某些角落.但有时也会因为粗枝大叶的神秘使让咒波粘浆淤塞了过长时间而人为形成.它们很容易通过那些深紫色的须根和亮紫色的藤梗辨识.如若放置不管,腐化大地一般会将它的触手向外蔓延,感染周围越来越多的土地.树木或其他天然植渐渐会被覆盖上一层纤维状的物质,而泥土会变成稠密发紫的腐化泥土,变得结构松垮,随时可能坍塌或融化成咒波粘浆.
 #
-forbidden.research_name.BLOODWELL=Bloody Scrivener's Tools
-forbidden.research_text.BLOODWELL="I'll complete this research if it kills me!"
-forbidden.research_page.BLOODWELL.1=There's nothing more frustrating than having to pause your research to refill your inkwell. Sometimes, you're just so desperate to complete a research you'd rather use your own blood as ink than stop to go find a refill.<BR><BR>The Bloody Scrivener's Tools will refill using Life Points from their owner's network, at a rate of 25 LP per point. This ability requires human warmth to activate, requiring you to remove the tools from the research table, but without having to actually leave the research area.
+forbidden.research_name.BLOODWELL=血腥之笔与墨
+forbidden.research_text.BLOODWELL="如若它杀了我,我便能完成这项研究!"
+forbidden.research_page.BLOODWELL.1=没有比研究到一半却需要补充墨水更令人沮丧的事情了.有时候,你宁可使用自己的血来代替墨水也不愿意中断研究去找墨水.<BR><BR>血腥之笔与墨将能够使用生命点来补充墨水，每25个生命点补充一点墨水.但这项能力需要用体温激活,因此填充墨水时需要你从研究台中取出这个工具,但却实际上不会因此中断研究.
 #
-forbidden.research_name.DIVINEORB=Transcendent Blood Orb
-forbidden.research_text.DIVINEORB=Orb of Armok
-forbidden.research_page.DIVINEORB.1=It is whispered among some Thaumaturgic circles that Ichor is actually the blood of the divine. You don't know whether this is true or not, but Ichor does seem to have an affinity with more advanced alchemical devices.<BR><BR>The Transcendent Blood Orb is what happens when you combine the most advanced Thaumaturgy and Alchemical Wizardry available. The infusion vastly increases the orb's carrying capacity, allowing it to hold a whopping 70,000,000 LP. What would you ever need that much LP for?
+forbidden.research_name.DIVINEORB=超凡血珠
+forbidden.research_text.DIVINEORB=血神阿莫科的宝珠
+forbidden.research_page.DIVINEORB.1=在一些神秘使圈子里灵液确实就是神灵之血的流言甚嚣尘上.你难以辨别其真假,但灵液确乎对更加高级的炼金材料具有亲和力.<BR><BR>超凡血珠是你将最高深的神秘学与可用的炼金巫术相结合研究出的东西.这种融合极大增强了血珠的容纳能力,能够让它容纳高达70,000,000生命点.难道你还会需要更多的生命点吗？
 #
 forbidden.research_name.CRYSTALWELL=水晶笔与墨
-forbidden.research_text.CRYSTALWELL=神秘学研究的补给
-forbidden.research_page.CRYSTALWELL.1=将元素碎片与你的墨水相结合产生了一些有趣的效果.水晶笔与墨似乎能在你使用它时吸收知识.当墨水池空缺时,你可以手持它右击来吸收这些知识以获得一些研究点数.不幸的是,这会让它再次变为普通的笔与墨.
+forbidden.research_text.CRYSTALWELL=奥术研究授权
+forbidden.research_page.CRYSTALWELL.1=将元素碎片与你的魔瓶融合会出现有趣的效果.看起来,用水晶笔与墨书写的时候会吸收到知识.当墨水耗尽时,你可以拿起水晶笔与墨右键,吸收到的这些知识就会转变成一些研究点供你使用.遗憾的是,这会耗尽这个小玩意儿上附带的魔力,使得它又变回普通的笔与墨.
 #
 forbidden.research_name.RIDINGCROP=马鞭
-forbidden.research_text.RIDINGCROP=激励的痛感
-forbidden.research_page.RIDINGCROP.1=马鞭就是,就如它的名字, 一个让骑乘移动更快的工具.当骑马或是其他坐骑时用马鞭右击会给坐骑一阵迅速的痛感并让他短时间内快速移动.<BR><BR>你不能对其他生物使用这个鞭子,但如果那么做会发生什么?
+forbidden.research_text.RIDINGCROP=鞭策之痛
+forbidden.research_page.RIDINGCROP.1=马鞭,顾名思义,是一种让坐骑跑得更快的工具.手持马鞭骑着马匹或其他坐骑时右击,会让坐骑感到一阵疼痛,鞭策它加速奔跑一阵儿.<BR><BR>当然你也可以用这个鞭子抽打其他生物,但到底你被什么念头占据了身体才会那样子啊?
 #
-forbidden.research_name.HELLFIRE=地狱火之主
-forbidden.research_text.HELLFIRE=再也不会迷路了
-forbidden.research_page.HELLFIRE.1=在下界迷路是最糟糕的.为了你所需之物你越过重重险阻,但在你回家前, 那些愚蠢的恶魂决心轰击传送门来打击你的信心.当然,如果随身带着打火石就能解决,但谁会带着这些东西?<BR><BR>你已发现一种方法使用法杖里的魔力在特定材料上点火.用一支舞和新的法杖右击地狱炎或者黑曜石的顶部会消耗一点火要素来点火.
+forbidden.research_name.HELLFIRE=地狱火领主
+forbidden.research_text.HELLFIRE=从此势不可挡
+forbidden.research_page.HELLFIRE.1=身陷下界是最糟糕的体验.当你克服到你需要克服的重重困难,终于就要能回到家园的时候,一些愚蠢的幽魂却打算耀武扬威地对你轰炸一通，以至于传送门都被关掉了.当然,若随身携带着打火石再重新修好也并不费事,但谁会一直随身带这些玩意儿?<BR><BR>你研究出一种利用法杖魔力点燃某些材料的方法.手持卸掉核心的法杖右击地狱岩或者黑曜石的上方,会从法杖中消耗掉一些Ignis要素并点燃一团火焰.
 #
