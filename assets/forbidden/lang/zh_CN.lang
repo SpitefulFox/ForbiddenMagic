@@ -59,7 +59,7 @@ item.WandCores.soul.name=异域杖柄
 item.WandCores.blood.name=血腥杖柄
 item.WandCores.witchwood.name=巫魂木杖柄
 item.WandCores.totem.name=图腾杖柄
-item.WandCores.blood_inert.name=惰性之血杖柄
+item.WandCores.blood_inert.name=惰性血腥杖柄
 item.WandCores.livingwood.name=活木杖柄
 item.WandCores.livingwood_inert.name=休眠活木杖柄
 item.WandCores.blood_staff.name=血腥杖芯
@@ -152,7 +152,7 @@ forbidden.research_page.ROD_totem.1=为了魔力而狩猎节点有时候相当�
 #
 forbidden.research_name.ROD_livingwood=活木杖柄
 forbidden.research_text.ROD_livingwood=植物存储魔力
-forbidden.research_page.ROD_livingwood.1=活木在操纵AM魔力的性能上得天独厚.当其与合适的药剂相融合,甚至可以将AM魔力转换为TC魔力.<BR><BR>活木法杖能从物品栏存储的物品中抽取AM魔力为自己充能.<BR><BR>不幸的是,注魔的过程会烧掉活木,注魔后杖端需要在血池中进行充能才能重新激活.
+forbidden.research_page.ROD_livingwood.1=活木在操纵AM魔力的性能上得天独厚.当其与合适的药剂相融合,甚至可以将AM魔力转换为TC魔力.<BR><BR>活木法杖能从物品栏存储的物品中抽取AM魔力为自己充能.<BR><BR>不幸的是,注魔的过程会使活木陷入休眠,注魔后杖端需要在血池中进行充能才能重新激活.
 #
 forbidden.research_name.CAP_alchemical=炼金纹饰杖端
 forbidden.research_text.CAP_alchemical=当神秘学不够血腥时
