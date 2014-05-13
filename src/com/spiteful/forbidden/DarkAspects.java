@@ -92,25 +92,34 @@ public class DarkAspects
 		ThaumcraftApi.registerObjectTag(Block.tnt.blockID, 0, list);
 
 		list = ThaumcraftApiHelper.getObjectAspects(new ItemStack(Item.helmetGold));
-		list.add(PRIDE, 2);
-		ThaumcraftApi.registerObjectTag(Item.helmetGold.itemID, -1, list);
+		if(list != null){
+			list.add(PRIDE, 2);
+			ThaumcraftApi.registerObjectTag(Item.helmetGold.itemID, -1, list);
+		}
 
 		list = ThaumcraftApiHelper.getObjectAspects(new ItemStack(Item.plateGold));
-		list.add(PRIDE, 1);
-		ThaumcraftApi.registerObjectTag(Item.plateGold.itemID, -1, list);
+		if(list != null){
+			list.add(PRIDE, 1);
+			ThaumcraftApi.registerObjectTag(Item.plateGold.itemID, -1, list);
+		}
 
 		list = ThaumcraftApiHelper.getObjectAspects(new ItemStack(Item.legsGold));
-		list.add(PRIDE, 1);
-		ThaumcraftApi.registerObjectTag(Item.legsGold.itemID, -1, list);
+		if(list != null){
+			list.add(PRIDE, 1);
+			ThaumcraftApi.registerObjectTag(Item.legsGold.itemID, -1, list);
+		}
 
 		list = ThaumcraftApiHelper.getObjectAspects(new ItemStack(Item.bootsGold));
-		list.add(PRIDE, 1);
-		ThaumcraftApi.registerObjectTag(Item.bootsGold.itemID, -1, list);
+		if(list != null){
+			list.add(PRIDE, 1);
+			ThaumcraftApi.registerObjectTag(Item.bootsGold.itemID, -1, list);
+		}
 
 		list = ThaumcraftApiHelper.getObjectAspects(new ItemStack(Item.swordGold));
-		if(list != null)
+		if(list != null){
 			list.add(PRIDE, 2);
-		ThaumcraftApi.registerObjectTag(Item.swordGold.itemID, -1, list);
+			ThaumcraftApi.registerObjectTag(Item.swordGold.itemID, -1, list);
+		}
 
 		//list = ThaumcraftApiHelper.getObjectAspects(new ItemStack(Item.bed));
 		//list.add(SLOTH, 4);
