@@ -9,7 +9,6 @@ import java.lang.reflect.Method;
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.common.event.FMLInterModComms;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -387,14 +386,6 @@ public class Compat {
 			}
 		}
 		
-		//DEPARTMENT OF REDUNDANCY DEPARTMENT!
-		if(kami)
-		{
-			for(String res : ((ResearchCategoryList)ResearchCategories.researchCategories.get("FORBIDDEN")).research.keySet())
-			{
-				FMLInterModComms.sendMessage("ThaumicTinkerer", "AddResearchBlacklist", res);
-			}
-		}
 	}
 	
 	private static void aspectBloodItem(String target, int damage, AspectList list)
