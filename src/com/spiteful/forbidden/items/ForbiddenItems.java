@@ -9,6 +9,7 @@ import net.minecraft.block.Block;
 import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.EnumHelper;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.oredict.OreDictionary;
 import net.minecraft.util.ResourceLocation;
@@ -37,6 +38,8 @@ public class ForbiddenItems
 	public static Item morphAxe;
 	public static Item crystalwell;
 	public static Item ridingCrop;
+	public static Item divinewell;
+	public static Item boundShears;
 	
 	public static Item bloodwell;
 	public static Item bloodOrb;
@@ -164,6 +167,12 @@ public class ForbiddenItems
 		
 		ridingCrop = new ItemRidingCrop(Config.ridingCropID, EnumToolMaterial.WOOD).setUnlocalizedName("RidingCrop");
 		GameRegistry.registerItem(ridingCrop, "RidingCrop");
+		
+		divinewell = new ItemDivinewell(Config.divinewellID).setUnlocalizedName("Divinewell");
+		GameRegistry.registerItem(divinewell, "Divinewell");
+		
+		boundShears = new ItemBoundShears(Config.boundShearsID, ThaumcraftApi.toolMatThaumium).setUnlocalizedName("BoundShears");
+		GameRegistry.registerItem(boundShears, "BoundSHears");
 		
 	}
 }
