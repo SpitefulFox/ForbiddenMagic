@@ -9,6 +9,7 @@ import java.lang.reflect.Method;
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.common.event.FMLInterModComms;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -101,6 +102,9 @@ public class Compat {
 					
 					InfusionEnchantmentRecipe eternal = ThaumcraftApi.addInfusionEnchantmentRecipe("ETERNAL", DarkEnchantments.eternal, 12, (new AspectList()).add(Aspect.CRAFT, 32).add(Aspect.TOOL, 64).add(DarkAspects.ENVY, 76).add(Aspect.MAGIC, 64), new ItemStack[]{new ItemStack(kamiResource.itemID, 1, 0), new ItemStack(kamiResource.itemID, 1, 2), new ItemStack(kamiResource.itemID, 1, 2), new ItemStack(kamiResource.itemID, 1, 2), new ItemStack(kamiResource.itemID, 1, 6), new ItemStack(ForbiddenItems.deadlyShards.itemID, 1, 1), new ItemStack(ForbiddenItems.deadlyShards.itemID, 1, 1), new ItemStack(ForbiddenItems.deadlyShards.itemID, 1, 1)});
 					(new DarkResearchItem("ETERNAL", "FORBIDDEN", "[TTKami]", (new AspectList()).add(Aspect.MAGIC, 16).add(Aspect.TOOL, 10).add(Aspect.CRAFT, 8).add(DarkAspects.ENVY, 32), -5, 7, 6, new ResourceLocation("forbidden", "textures/misc/eternal.png"))).setPages(new ResearchPage[]{new ResearchPage("forbidden.research_page.ETERNAL.1"), new ResearchPage(eternal)}).setParents(new String[]{"MORPHTOOLS", "ICHOR_TOOLS"}).setConcealed().registerResearchItem();
+					
+					InfusionRecipe thoth = ThaumcraftApi.addInfusionCraftingRecipe("DIVINEWELL", new ItemStack(ForbiddenItems.divinewell, 1, 0), 5, (new AspectList()).add(Aspect.MIND, 32).add(Aspect.BEAST, 12).add(Aspect.EARTH, 16), ItemApi.getItem("itemInkwell", 0), new ItemStack[]{new ItemStack(kamiResource.itemID, 1, 2), new ItemStack(kamiResource.itemID, 1, 0), new ItemStack(kamiResource.itemID, 1, 0), new ItemStack(Block.bookShelf), new ItemStack(Block.bookShelf), new ItemStack(Block.bookShelf), ItemApi.getItem("itemResource", 5), ItemApi.getItem("itemResource", 5), ItemApi.getItem("itemResource", 5)});
+					(new DarkResearchItem("DIVINEWELL", "FORBIDDEN", "[TTKami]", (new AspectList()).add(Aspect.MIND, 6).add(Aspect.EARTH, 3).add(Aspect.MAGIC, 5), -11, 4, 3, new ItemStack(ForbiddenItems.divinewell, 1, 0))).setPages(new ResearchPage[]{new ResearchPage("forbidden.research_page.DIVINEWELL.1"), new ResearchPage(thoth)}).setParents(new String[]{"ICHORIUM"}).setConcealed().registerResearchItem();
 					
 				}
 				catch(Exception e)
@@ -380,6 +384,15 @@ public class Compat {
 				FMLLog.log(Level.INFO, e, "Forbidden Magic: Botania? Do you wanna build a snowman?");
 				e.printStackTrace();
 				botan = false;
+			}
+		}
+		
+		//DEPARTMENT OF REDUNDANCY DEPARTMENT!
+		if(kami)
+		{
+			for(String res : ((ResearchCategoryList)ResearchCategories.researchCategories.get("FORBIDDEN")).research.keySet())
+			{
+				FMLInterModComms.sendMessage("ThaumicTinkerer", "AddResearchBlacklist", res);
 			}
 		}
 	}
