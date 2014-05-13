@@ -28,7 +28,7 @@ public class BlockBlackFlower extends BlockFlower
 	 */
 	public void updateTick(World par1World, int par2, int par3, int par4, Random par5Random)
 	{
-		if (!par1World.isRemote && par5Random.nextInt(50) == 1)
+		if (!par1World.isRemote && par5Random.nextInt(30) == 1)
 			spreadFlowers(par1World, par2, par3, par4, par5Random);
 	}
 	
