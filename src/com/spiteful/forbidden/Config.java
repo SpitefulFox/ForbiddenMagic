@@ -45,6 +45,8 @@ public class Config
 	public static int crystalwellID;
 	public static int ridingCropID;
 	public static int bloodOrbID;
+	public static int divinewellID;
+	public static int boundShearsID;
 
 	public static int arcaneCakeBlockID;
 	public static int blackFlowerBlockID;
@@ -107,6 +109,8 @@ public class Config
 			crystalwellID = conf.getItem("Crystal Scribing Tools", idCount++).getInt();
 			ridingCropID = conf.getItem("Riding Crop", idCount++).getInt();
 			bloodOrbID = conf.getItem("Thaumic Blood Orbs", idCount++).getInt();
+			divinewellID = conf.getItem("Scribing Tool of Thoth", idCount++).getInt();
+			boundShearsID = conf.getItem("Bound Shears", idCount++).getInt();
 			
 			int blockCount = 3000;
 			arcaneCakeBlockID = conf.getBlock("Thaumic Cake", blockCount++).getInt();
