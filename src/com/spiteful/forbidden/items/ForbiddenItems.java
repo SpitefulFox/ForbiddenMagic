@@ -171,8 +171,8 @@ public class ForbiddenItems
 		divinewell = new ItemDivinewell(Config.divinewellID).setUnlocalizedName("Divinewell");
 		GameRegistry.registerItem(divinewell, "Divinewell");
 		
-		boundShears = new ItemBoundShears(Config.boundShearsID, ThaumcraftApi.toolMatThaumium).setUnlocalizedName("BoundShears");
-		GameRegistry.registerItem(boundShears, "BoundSHears");
+		//boundShears = new ItemBoundShears(Config.boundShearsID, ThaumcraftApi.toolMatThaumium).setUnlocalizedName("BoundShears");
+		//GameRegistry.registerItem(boundShears, "BoundSHears");
 		
 	}
 }

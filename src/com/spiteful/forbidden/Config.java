@@ -110,7 +110,7 @@ public class Config
 			ridingCropID = conf.getItem("Riding Crop", idCount++).getInt();
 			bloodOrbID = conf.getItem("Thaumic Blood Orbs", idCount++).getInt();
 			divinewellID = conf.getItem("Scribing Tool of Thoth", idCount++).getInt();
-			boundShearsID = conf.getItem("Bound Shears", idCount++).getInt();
+			//boundShearsID = conf.getItem("Bound Shears", idCount++).getInt();
 			
 			int blockCount = 3000;
 			arcaneCakeBlockID = conf.getBlock("Thaumic Cake", blockCount++).getInt();
