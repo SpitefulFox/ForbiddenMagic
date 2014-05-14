@@ -63,7 +63,7 @@ public class ItemDivinewell extends Item implements IScribeTools {
      */
     public void setDamage(ItemStack stack, int damage)
     {
-
+		super.setDamage(stack, 0);
     }
 	
 }

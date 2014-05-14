@@ -62,8 +62,6 @@ public class ItemMorphSword extends ItemSword implements IRepairable
 	 */
 	public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer player)
 	{
-		//player.setItemInUse(itemstack, getMaxItemUseDuration(itemstack));
-		
 		if(player.isSneaking() && itemstack.hasTagCompound() && getMaxDamage() - itemstack.getItemDamage() > 5){
 			NBTTagCompound tags = itemstack.getTagCompound();
 			byte phase = tags.getByte("phase");
@@ -72,6 +70,14 @@ public class ItemMorphSword extends ItemSword implements IRepairable
 				tags.setTag("enchants" + phase, enchants);
 			else
 				tags.removeTag("enchants" + phase);
+			if(tags.hasKey("display"))
+			{
+				String name = tags.getCompoundTag("display").getString("Name");
+				if(name != null && !name.equals(""))
+					tags.getCompoundTag("display").setString("Name" + phase, name);
+				else
+					tags.getCompoundTag("display").removeTag("Name" + phase);
+			}
 			if(++phase > 2)
 				phase = 0;
 			tags.setByte("phase", phase);
@@ -80,12 +86,21 @@ public class ItemMorphSword extends ItemSword implements IRepairable
 				tags.removeTag("ench");
 			else
 				tags.setTag("ench", enchants);
+				
+			if(tags.hasKey("display"))
+			{
+				String name = tags.getCompoundTag("display").getString("Name" + phase);
+				if(name != null && !name.equals(""))
+					tags.getCompoundTag("display").setString("Name", name);
+				else
+					tags.getCompoundTag("display").removeTag("Name");
+			}
 			
 			itemstack.setTagCompound(tags);
 			itemstack.damageItem(5, player);
 			player.swingItem();
 			world.playSoundEffect(player.posX, player.posY, player.posZ, "thaumcraft:wandfail", 0.2F, 0.2F + world.rand.nextFloat() * 0.2F);
-		}
+		}		
 		return itemstack;
 	}
 	
@@ -115,13 +130,16 @@ public class ItemMorphSword extends ItemSword implements IRepairable
 	}
 	
 	/**
-     * Called each tick as long the item is on a player inventory. Uses by maps to check if is on a player hand and
-     * update it's contents.
+     * Set the damage for this itemstack. Note, this method is responsible for zero checking.
+     * @param stack the stack
+     * @param damage the new damage value
      */
-    public void onUpdate(ItemStack stack, World world, Entity player, int wat, boolean waat)
-	{
-		if(stack.getItemDamage() > 0 && EnchantmentHelper.getEnchantmentLevel(DarkEnchantments.eternal.effectId, stack) > 0)
-			stack.setItemDamage(0);
-	}
+    public void setDamage(ItemStack stack, int damage)
+    {
+		if(EnchantmentHelper.getEnchantmentLevel(DarkEnchantments.eternal.effectId, stack) > 0)
+			super.setDamage(stack, 0);
+		else
+			super.setDamage(stack, damage);
+    }
 	
 }
