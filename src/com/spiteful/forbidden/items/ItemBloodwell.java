@@ -29,7 +29,7 @@ public class ItemBloodwell extends Item implements IScribeTools, IBindable {
 		super(id);
 		maxStackSize = 1;
 		canRepair = false;
-		setMaxDamage(100);
+		setMaxDamage(5);
 		setCreativeTab(Forbidden.tab);
 		setHasSubtypes(false);
 	}
@@ -97,5 +97,30 @@ public class ItemBloodwell extends Item implements IScribeTools, IBindable {
 			par3List.add("Current owner: " + par1ItemStack.stackTagCompound.getString("ownerName"));
 		}
 	}
+	
+	/**
+     * Set the damage for this itemstack. Note, this method is responsible for zero checking.
+     * @param stack the stack
+     * @param damage the new damage value
+     */
+    public void setDamage(ItemStack stack, int damage)
+    {
+		if(damage > 0){
+			
+			try
+			{
+				if(SoulNetworkHandler.syphonFromNetwork(stack, 25 * damage) > 0)
+					super.setDamage(stack, 0);
+				else
+					super.setDamage(stack, damage);
+			}
+			catch(Throwable e)
+			{
+				super.setDamage(stack, damage);
+			}
+		}
+		else
+			super.setDamage(stack, damage);
+    }
 
 }
