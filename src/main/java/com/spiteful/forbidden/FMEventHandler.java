@@ -262,10 +262,9 @@ public class FMEventHandler
 				String name = null;
 				try {
 					name = EntityList.getEntityString(event.entityLiving);
-				}
-				catch(Exception e){
+				} catch(Exception e){
 					try {
-						name = event.entityLiving.getClass().toString().replace("Entity", "");
+						name = event.entityLiving.getCommandSenderName();
 					}
 					catch(Exception ee){
 						return;
