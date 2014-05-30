@@ -91,9 +91,9 @@ public class Compat {
 			
 					Item kamiResource = (Item)(Class.forName("vazkii.tinkerer.common.item.ModItems").getField("kamiResource").get(null));
 					list = new AspectList().add(DarkAspects.NETHER, 2).add(Aspect.MAGIC, 1).add(Aspect.CRYSTAL, 1);
-					ThaumcraftApi.registerObjectTag(new ItemStack(kamiResource, 6), list);
+					ThaumcraftApi.registerObjectTag(new ItemStack(kamiResource, 1, 6), list);
 					list = new AspectList().add(Aspect.ELDRITCH, 2).add(Aspect.MAGIC, 1).add(Aspect.CRYSTAL, 1);
-					ThaumcraftApi.registerObjectTag(new ItemStack(kamiResource, 7), list);
+					ThaumcraftApi.registerObjectTag(new ItemStack(kamiResource, 1, 7), list);
 					
 					InfusionEnchantmentRecipe eternal = ThaumcraftApi.addInfusionEnchantmentRecipe("ETERNAL", DarkEnchantments.eternal, 12, (new AspectList()).add(Aspect.CRAFT, 32).add(Aspect.TOOL, 64).add(DarkAspects.ENVY, 76).add(Aspect.MAGIC, 64), new ItemStack[]{new ItemStack(kamiResource, 1, 0), new ItemStack(kamiResource, 1, 2), new ItemStack(kamiResource, 1, 2), new ItemStack(kamiResource, 1, 2), new ItemStack(kamiResource, 1, 6), new ItemStack(ForbiddenItems.deadlyShards, 1, 1), new ItemStack(ForbiddenItems.deadlyShards, 1, 1), new ItemStack(ForbiddenItems.deadlyShards, 1, 1)});
 					(new DarkResearchItem("ETERNAL", "FORBIDDEN", "[TTKami]", (new AspectList()).add(Aspect.MAGIC, 16).add(Aspect.TOOL, 10).add(Aspect.CRAFT, 8).add(DarkAspects.ENVY, 32), -5, 7, 6, new ResourceLocation("forbidden", "textures/misc/eternal.png"))).setPages(new ResearchPage[]{new ResearchPage("forbidden.research_page.ETERNAL.1"), new ResearchPage(eternal)}).setParents(new String[]{"MORPHTOOLS", "ICHOR_TOOLS"}).setConcealed().registerResearchItem();
@@ -104,8 +104,7 @@ public class Compat {
 				}
 				catch(Exception e)
 				{
-					LogHandler.log(Level.INFO, "We don't have Thaumic Tinkerer's nose.");
-					e.printStackTrace();
+					LogHandler.log(Level.INFO, e, "We don't have Thaumic Tinkerer's nose.");
 				}
 			
 			}
@@ -155,8 +154,7 @@ public class Compat {
 			}
 			catch(Exception e)
 			{
-				FMLLog.log(Level.INFO, e, "Forbidden Magic had an allergic reaction to Natura.");
-				e.printStackTrace();
+				LogHandler.log(Level.INFO, e, "Forbidden Magic had an allergic reaction to Natura.");
 			}
 		}
 		if(pb)
@@ -302,8 +300,7 @@ public class Compat {
 			}
 			catch(Throwable e)
 			{
-				FMLLog.log(Level.INFO, e, "Forbidden Magic tried to do some Blood Magic, but bled out.");
-				e.printStackTrace();
+				LogHandler.log(Level.INFO, e, "Forbidden Magic tried to do some Blood Magic, but bled out.");
 				bm = false;
 			}
 		}
@@ -328,8 +325,7 @@ public class Compat {
 			}
 			catch(Exception e)
 			{
-				FMLLog.log(Level.INFO, e, "Forbidden Magic was slain by a Hecate.");
-				e.printStackTrace();
+				LogHandler.log(Level.INFO, e, "Forbidden Magic was slain by a Hecate.");
 				am2 = false;
 			}
 		}
@@ -348,8 +344,7 @@ public class Compat {
 			}
 			catch(Exception e)
 			{
-				FMLLog.log(Level.INFO, e, "Forbidden Magic tried to catch Totemic with a pokeball, but didn't weaken it enough.");
-				e.printStackTrace();
+				LogHandler.log(Level.INFO, e, "Forbidden Magic tried to catch Totemic with a pokeball, but didn't weaken it enough.");
 				totes = false;
 			}
 		}
@@ -376,8 +371,7 @@ public class Compat {
 			}
 			catch(Throwable e)
 			{
-				FMLLog.log(Level.INFO, e, "Forbidden Magic: Botania? Do you wanna build a snowman?");
-				e.printStackTrace();
+				LogHandler.log(Level.INFO, e, "Forbidden Magic: Botania? Do you wanna build a snowman?");
 				botan = false;
 			}
 		}

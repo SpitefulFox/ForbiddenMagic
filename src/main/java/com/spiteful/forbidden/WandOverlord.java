@@ -23,8 +23,7 @@ public class WandOverlord implements IWandTriggerManager
 	
 	public boolean hellfire(World world, ItemStack wand, EntityPlayer player, int x, int y, int z, int side)
 	{
-		if(world.isRemote || wand == null || !(wand.getItem() instanceof ItemWandCasting) || ((ItemWandCasting)wand.getItem()).getFocus(wand) != null
-			|| !ResearchManager.isResearchComplete(player.getDisplayName(), "HELLFIRE") || !player.canPlayerEdit(x, y, z, side, new ItemStack(Items.fire_charge)))
+		if(world.isRemote || wand == null || !(wand.getItem() instanceof ItemWandCasting) || ((ItemWandCasting)wand.getItem()).getFocus(wand) != null || !ResearchManager.isResearchComplete(player.getCommandSenderName(), "HELLFIRE") || !player.canPlayerEdit(x, y, z, side, new ItemStack(Items.fire_charge)))
 			return false;
 		
 		if(world.isAirBlock(x, y + 1, z) && ((ItemWandCasting)wand.getItem()).consumeVis(wand, player, Aspect.FIRE, 2, false))

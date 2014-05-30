@@ -21,7 +21,7 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 @Mod(
 	modid = "ForbiddenMagic",
 	name = "Forbidden Magic",
-	dependencies = "required-after:Thaumcraft;after:ThaumicTinkerer"
+	dependencies = "required-after:Thaumcraft;after:ThaumicTinkerer;after:AWWayofTime@[v1.0.1d,)"
 )
 public class Forbidden
 {

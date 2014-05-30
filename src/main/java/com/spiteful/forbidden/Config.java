@@ -101,7 +101,7 @@ public class Config
 		}
 		catch (Exception e)
 		{
-			LogHandler.log(Level.ERROR, "Had a problem loading its configuration.");
+			LogHandler.log(Level.ERROR, e, "Had a problem loading its configuration.");
 		}
 		finally
 		{
@@ -121,7 +121,7 @@ public class Config
 		}
 		catch(Exception e)
 		{
-			LogHandler.log(Level.ERROR, "There was problem when retrieving information from Thaumcraft.");
+			LogHandler.log(Level.ERROR, e, "There was problem when retrieving information from Thaumcraft.");
 			e.printStackTrace();
 		}
 		

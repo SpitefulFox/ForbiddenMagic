@@ -116,7 +116,7 @@ public class BlockWrathCage extends BlockContainer
 			float f1 = par1World.rand.nextFloat() * 0.8F + 0.1F;
 			float f2 = par1World.rand.nextFloat() * 0.8F + 0.1F;
 
-			ItemStack crystal = new ItemStack(ForbiddenItems.mobCrystal, 1);
+			ItemStack crystal = new ItemStack(ForbiddenItems.mobCrystal);
 			crystal.setTagCompound(new NBTTagCompound());
 			String mob = spawner.getSpawnerLogic().getEntityNameToSpawn();
 			crystal.stackTagCompound.setString("mob", mob);
