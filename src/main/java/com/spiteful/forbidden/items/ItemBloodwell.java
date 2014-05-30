@@ -90,12 +90,12 @@ public class ItemBloodwell extends Item implements IScribeTools, IBindable {
 	}
 	
 	@Override
-	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4)
+	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean par4)
 	{
-		if (par1ItemStack.hasTagCompound())
+		if (stack.hasTagCompound())
 		{
-			par3List.add("");
-			par3List.add("Current owner: " + par1ItemStack.stackTagCompound.getString("ownerName"));
+			list.add("");
+			list.add("Current owner: " + stack.stackTagCompound.getString("ownerName"));
 		}
 	}
 	

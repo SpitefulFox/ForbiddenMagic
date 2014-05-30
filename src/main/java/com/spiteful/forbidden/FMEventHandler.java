@@ -5,6 +5,8 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.Random;
 
+import org.apache.logging.log4j.Level;
+
 import net.minecraft.block.Block;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -281,15 +283,17 @@ public class FMEventHandler
 			if(EnchantmentHelper.getEnchantmentLevel(DarkEnchantments.educational.effectId, equip) > 0 && event.entityLiving instanceof EntityLiving
 				&& EnchantmentHelper.getEnchantmentLevel(Enchantment.looting.effectId, equip) == 0)
 			{
-				//int learning = 3 * ((EntityLiving)event.entityLiving).experienceValue * EnchantmentHelper.getEnchantmentLevel(DarkEnchantments.educational.effectId, equip);
-				int learning = 3;
-				while(learning > 0)
-				{
-					int xp = EntityXPOrb.getXPSplit(learning);
-					learning -= xp;
-					event.entityLiving.worldObj.spawnEntityInWorld(new EntityXPOrb(event.entityLiving.worldObj, event.entityLiving.posX, event.entityLiving.posY, event.entityLiving.posZ, xp));
+				try {
+					int learning = 3 * ExperienceFixer.getXP(((EntityLiving)event.entityLiving)) * EnchantmentHelper.getEnchantmentLevel(DarkEnchantments.educational.effectId, equip);
+					while(learning > 0)
+					{
+						int xp = EntityXPOrb.getXPSplit(learning);
+						learning -= xp;
+						event.entityLiving.worldObj.spawnEntityInWorld(new EntityXPOrb(event.entityLiving.worldObj, event.entityLiving.posX, event.entityLiving.posY, event.entityLiving.posZ, xp));
+					}
+				} catch (Exception e) {
+					LogHandler.log(Level.ERROR, "Failed to educate!");
 				}
-				
 			}
 		}
 	}
