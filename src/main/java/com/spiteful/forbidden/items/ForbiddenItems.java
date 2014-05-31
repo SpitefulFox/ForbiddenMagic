@@ -14,8 +14,8 @@ import thaumcraft.api.wands.StaffRod;
 import thaumcraft.api.wands.WandCap;
 import thaumcraft.api.wands.WandRod;
 
-import com.spiteful.forbidden.Compat;
 import com.spiteful.forbidden.Config;
+import com.spiteful.forbidden.compat.Compat;
 import com.spiteful.forbidden.items.wands.BloodStaffUpdate;
 import com.spiteful.forbidden.items.wands.BloodWandUpdate;
 import com.spiteful.forbidden.items.wands.CreativeWandUpdate;
@@ -32,8 +32,7 @@ import com.spiteful.forbidden.items.wands.YandereWandUpdate;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 
-public class ForbiddenItems
-{
+public class ForbiddenItems {
 	public static Item deadlyShards;
 	public static Item gluttonyShard;
 	public static Item skullAxe;
@@ -53,10 +52,10 @@ public class ForbiddenItems
 	public static Item ridingCrop;
 	public static Item divinewell;
 	public static Item boundShears;
-	
+
 	public static Item bloodwell;
 	public static Item bloodOrb;
-	
+
 	public static WandRod WAND_ROD_TAINTED;
 	public static WandRod WAND_ROD_INFERNAL;
 	public static WandRod WAND_ROD_NEUTRONIUM;
@@ -74,57 +73,55 @@ public class ForbiddenItems
 	public static WandCap WAND_CAP_SOUL;
 	public static WandCap WAND_CAP_MANASTEEL;
 
-	public static void addItems()
-	{
+	public static void addItems() {
 		deadlyShards = new ItemDeadlyShard().setUnlocalizedName("NetherShard");
 		GameRegistry.registerItem(deadlyShards, "NetherShard");
 		OreDictionary.registerOre("shardNether", new ItemStack(deadlyShards, 1, 0));
 		OreDictionary.registerOre("shardNether", new ItemStack(deadlyShards, 1, 1));
 		OreDictionary.registerOre("shardNether", new ItemStack(deadlyShards, 1, 3));
-		if(!Config.noLust)
+		if (!Config.noLust)
 			OreDictionary.registerOre("shardNether", new ItemStack(deadlyShards, 1, 4));
 		OreDictionary.registerOre("shardNether", new ItemStack(deadlyShards, 1, 5));
 		OreDictionary.registerOre("shardNether", new ItemStack(deadlyShards, 1, 6));
-		
+
 		gluttonyShard = new ItemGluttonyShard().setUnlocalizedName("GluttonyShard");
 		GameRegistry.registerItem(gluttonyShard, "GluttonyShard");
 		OreDictionary.registerOre("shardNether", new ItemStack(gluttonyShard, 1, 0));
-		
+
 		taintShovel = new ItemTaintShovel(ThaumcraftApi.toolMatElemental).setUnlocalizedName("TaintShovel");
 		GameRegistry.registerItem(taintShovel, "TaintShovel");
-		
+
 		taintPickaxe = new ItemTaintPickaxe(ThaumcraftApi.toolMatElemental).setUnlocalizedName("TaintPickaxe");
 		GameRegistry.registerItem(taintPickaxe, "TaintPickaxe");
-		
+
 		arcaneCakeItem = new ItemArcaneCake().setUnlocalizedName("ArcaneCake");
 		GameRegistry.registerItem(arcaneCakeItem, "ArcaneCakeItem");
-		
+
 		skullAxe = new ItemSkullAxe(ThaumcraftApi.toolMatElemental).setUnlocalizedName("SkullAxe");
 		GameRegistry.registerItem(skullAxe, "SkullAxe");
-		
+
 		morphPickaxe = new ItemMorphPickaxe(ThaumcraftApi.toolMatElemental).setUnlocalizedName("MorphPickaxe");
 		GameRegistry.registerItem(morphPickaxe, "MorphPickaxe");
-		
+
 		morphSword = new ItemMorphSword(ThaumcraftApi.toolMatElemental).setUnlocalizedName("MorphSword");
 		GameRegistry.registerItem(morphSword, "MorphSword");
-		
+
 		morphShovel = new ItemMorphShovel(ThaumcraftApi.toolMatElemental).setUnlocalizedName("MorphShovel");
 		GameRegistry.registerItem(morphShovel, "MorphShovel");
-		
+
 		morphAxe = new ItemMorphAxe(ThaumcraftApi.toolMatElemental).setUnlocalizedName("MorphAxe");
 		GameRegistry.registerItem(morphAxe, "MorphAxe");
-		
-		if(Config.wrathCage)
-		{
+
+		if (Config.wrathCage) {
 			mobCrystal = new ItemMobCrystal().setUnlocalizedName("MobCrystal");
 			GameRegistry.registerItem(mobCrystal, "MobCrystal");
 		}
-		
+
 		fork = new ItemDiabolistFork(ThaumcraftApi.toolMatThaumium).setUnlocalizedName("DiabolistFork");
-		if(Config.spork)
+		if (Config.spork)
 			fork.setUnlocalizedName("DiabolistSpork");
 		GameRegistry.registerItem(fork, "DiabolistFork");
-		
+
 		wandCore = new ItemWandCores().setUnlocalizedName("WandCores");
 		GameRegistry.registerItem(wandCore, "WandCores");
 		wandCap = new ItemWandCaps().setUnlocalizedName("WandCaps");
@@ -144,43 +141,39 @@ public class ForbiddenItems
 		STAFF_ROD_NEUTRONIUM.setGlowing(true);
 		STAFF_ROD_WITCHWOOD = new StaffRod("witchwood", 50, new ItemStack(wandCore, 1, 10), 24, new ManaStaffUpdate(), new ResourceLocation("forbidden", "textures/models/wand_rod_witchwood.png"));
 		WAND_CAP_ORICHALCUM = new DarkWandCap("orichalcum", 0.0F, new ItemStack(Blocks.command_block, 1), 1000, new ResourceLocation("forbidden", "textures/models/wand_cap_orichalcum.png"));
-		WAND_CAP_ALCHEMICAL = new DarkWandCap("alchemical", 0.9F, Arrays.asList(new Aspect[]{Aspect.WATER}), 0.8F, new ItemStack(wandCap, 1, 0), 7, new ResourceLocation("forbidden", "textures/models/wand_cap_alchemical.png"));
+		WAND_CAP_ALCHEMICAL = new DarkWandCap("alchemical", 0.9F, Arrays.asList(new Aspect[] { Aspect.WATER }), 0.8F, new ItemStack(wandCap, 1, 0), 7, new ResourceLocation("forbidden", "textures/models/wand_cap_alchemical.png"));
 		WAND_CAP_VINTEUM = new DarkWandCap("vinteum", 0.9F, new ItemStack(wandCap, 1, 1), 6, new ResourceLocation("forbidden", "textures/models/wand_cap_vinteum.png"));
-		WAND_CAP_SOUL = new DarkWandCap("soul", 0.9F, Arrays.asList(new Aspect[]{Aspect.ENTROPY}), 0.8F, new ItemStack(wandCap, 1, 2), 7, new ResourceLocation("forbidden", "textures/models/wand_cap_soul.png"));
+		WAND_CAP_SOUL = new DarkWandCap("soul", 0.9F, Arrays.asList(new Aspect[] { Aspect.ENTROPY }), 0.8F, new ItemStack(wandCap, 1, 2), 7, new ResourceLocation("forbidden", "textures/models/wand_cap_soul.png"));
 		WAND_CAP_MANASTEEL = new DarkWandCap("manasteel", 0.9F, new ItemStack(wandCap, 1, 3), 6, new ResourceLocation("forbidden", "textures/models/wand_cap_manasteel.png"));
-		
+
 		resource = new ItemResource().setUnlocalizedName("FMResource");
 		GameRegistry.registerItem(resource, "FMResource");
 		OreDictionary.registerOre("nuggetEmerald", new ItemStack(resource, 1, 0));
 		OreDictionary.registerOre("dyeBlack", new ItemStack(resource, 1, 1));
-		
-		if(Compat.bm)
-		{
-			try
-			{
+
+		if (Compat.bm) {
+			try {
 				bloodwell = new ItemBloodwell().setUnlocalizedName("Bloodwell");
 				GameRegistry.registerItem(bloodwell, "Bloodwell");
-				
+
 				bloodOrb = new ItemDivineOrb().setUnlocalizedName("DivineOrb");
 				GameRegistry.registerItem(bloodOrb, "DivineOrb");
-			}
-			catch(Throwable e)
-			{
+			} catch (Throwable e) {
 				e.printStackTrace();
 			}
 		}
-		
+
 		crystalwell = new ItemCrystalwell().setUnlocalizedName("Crystalwell");
 		GameRegistry.registerItem(crystalwell, "Crystalwell");
-		
+
 		ridingCrop = new ItemRidingCrop(ToolMaterial.WOOD).setUnlocalizedName("RidingCrop");
 		GameRegistry.registerItem(ridingCrop, "RidingCrop");
-		
+
 		divinewell = new ItemDivinewell().setUnlocalizedName("Divinewell");
 		GameRegistry.registerItem(divinewell, "Divinewell");
-		
-		//boundShears = new ItemBoundShears(Config.boundShearsID, ThaumcraftApi.toolMatThaumium).setUnlocalizedName("BoundShears");
-		//GameRegistry.registerItem(boundShears, "BoundSHears");
-		
+
+		// boundShears = new ItemBoundShears(Config.boundShearsID,
+		// ThaumcraftApi.toolMatThaumium).setUnlocalizedName("BoundShears");
+		// GameRegistry.registerItem(boundShears, "BoundSHears");
 	}
 }

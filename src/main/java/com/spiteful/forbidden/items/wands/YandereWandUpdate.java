@@ -7,7 +7,7 @@ import thaumcraft.api.wands.IWandRodOnUpdate;
 import thaumcraft.common.items.wands.ItemWandCasting;
 import vazkii.botania.api.mana.ManaItemHandler;
 
-import com.spiteful.forbidden.Compat;
+import com.spiteful.forbidden.compat.Compat;
 
 public class YandereWandUpdate implements IWandRodOnUpdate {
 

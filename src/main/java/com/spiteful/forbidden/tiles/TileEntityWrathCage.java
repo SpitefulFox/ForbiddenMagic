@@ -122,9 +122,9 @@ public class TileEntityWrathCage extends TileEntity implements IAspectContainer,
 	/**
 	 * Called when a client event is received with the event number and argument, see World.sendClientEvent
 	 */
-	public boolean receiveClientEvent(int par1, int par2)
+	public boolean receiveClientEvent(int par1, int x)
 	{
-		return this.spawnLogic.setDelayToMin(par1) ? true : super.receiveClientEvent(par1, par2);
+		return this.spawnLogic.setDelayToMin(par1) ? true : super.receiveClientEvent(par1, x);
 	}
 
 	/**

@@ -1,17 +1,11 @@
 package com.spiteful.forbidden.items.wands;
 
-import kihira.playerbeacons.common.PlayerBeacons;
-import kihira.playerbeacons.common.tileentity.TileEntityPlayerBeacon;
-import kihira.playerbeacons.common.util.BeaconDataHelper;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.tileentity.TileEntitySkull;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.wands.IWandRodOnUpdate;
-import thaumcraft.common.items.wands.ItemWandCasting;
 
-import com.spiteful.forbidden.Compat;
+import com.spiteful.forbidden.compat.Compat;
 
 public class SoulWandUpdate implements IWandRodOnUpdate {
 

@@ -35,7 +35,7 @@ public class ItemDivinewell extends Item implements IScribeTools {
 	}
 	
 /*	@Override
-	public ItemStack onItemRightClick(ItemStack itemstack, World par2World, EntityPlayer player)
+	public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer player)
 	{
 		if(Compat.bm)
 		{
@@ -48,14 +48,8 @@ public class ItemDivinewell extends Item implements IScribeTools {
 		return itemstack;
 	} */
 	
-	/**
-     * Set the damage for this itemstack. Note, this method is responsible for zero checking.
-     * @param stack the stack
-     * @param damage the new damage value
-     */
-    public void setDamage(ItemStack stack, int damage)
-    {
+	@Override
+    public void setDamage(ItemStack stack, int damage) {
 		super.setDamage(stack, 0);
     }
-	
 }

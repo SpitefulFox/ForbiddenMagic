@@ -2,24 +2,22 @@ package com.spiteful.forbidden;
 
 import java.lang.reflect.Field;
 
-import org.apache.logging.log4j.Level;
-
 import net.minecraft.entity.EntityLiving;
 
-public class ExperienceFixer {	
+public class XPReflectionHelper {
 	private static Field getField(Class clazz, String field) throws NoSuchFieldException {
-	    try {
-	      return clazz.getDeclaredField(field);
-	    } catch (NoSuchFieldException e) {
-	      Class superClass = clazz.getSuperclass();
-	      if (superClass == null) {
-	        throw e;
-	      } else {
-	        return getField(superClass, field);
-	      }
-	    }
-	  }
-	
+		try {
+			return clazz.getDeclaredField(field);
+		} catch (NoSuchFieldException e) {
+			Class superClass = clazz.getSuperclass();
+			if (superClass == null) {
+				throw e;
+			} else {
+				return getField(superClass, field);
+			}
+		}
+	}
+
 	public static int getXP(EntityLiving entityLiving) {
 		try {
 			Field f = getField(entityLiving.getClass(), "experienceValue");
@@ -36,7 +34,7 @@ public class ExperienceFixer {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		return 0;
 	}
 }

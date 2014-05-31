@@ -7,18 +7,15 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.config.Configuration;
-import net.minecraftforge.common.config.Property;
 
 import org.apache.logging.log4j.Level;
 
 import thaumcraft.api.ItemApi;
 import thaumcraft.api.aspects.Aspect;
-import cpw.mods.fml.common.FMLLog;
 
-public class Config
-{
+public class Config {
 	public static HashMap<String, Aspect> spawnerMobs = new HashMap<String, Aspect>();
-	
+
 	public static int clusterEnchID;
 	public static int pigBaneEnchID;
 	public static int greedyEnchID;
@@ -29,11 +26,11 @@ public class Config
 
 	public static int thaumcraftTaintBiomeID;
 	public static int thaumcraftTaintPotionID;
-	public static ItemStack thaumcraftResourceID;
-	public static ItemStack thaumcraftTaintBlockID;
-	public static ItemStack thaumcraftOreID;
-	public static ItemStack thaumcraftShardID;
-	
+	public static ItemStack thaumcraftResource;
+	public static ItemStack thaumcraftTaintBlock;
+	public static ItemStack thaumcraftOre;
+	public static ItemStack thaumcraftShard;
+
 	public static boolean noLust = false;
 	public static boolean silverfishEmeralds = true;
 	public static boolean tagResearch = true;
@@ -42,20 +39,18 @@ public class Config
 	public static boolean greedyEnch = true;
 	public static boolean emeraldTrans = true;
 	public static boolean wrathCrazy = false;
-	
+
 	public static int wrathCost = 5;
 	public static int wrathEff = 4;
-	
+
 	public static Material taintMaterial;
 
-	public static void configurate(File targ)
-	{
+	public static void configurate(File targ) {
 		Configuration conf = new Configuration(targ);
 
-		try
-		{
+		try {
 			conf.load();
-			
+
 			int enchCount = 66;
 			clusterEnchID = conf.get("enchantments", "Fiery Core", enchCount++).getInt();
 			pigBaneEnchID = conf.get("enchantments", "Porcivore", enchCount++).getInt();
@@ -64,72 +59,42 @@ public class Config
 			educationalEnchID = conf.get("enchantments", "Educational", enchCount++).getInt();
 			corruptingEnchID = conf.get("enchantments", "Corrupting", enchCount++).getInt();
 			eternalEnchID = conf.get("enchantments", "Eternal", enchCount++).getInt();
-			
-			Property nl = conf.get("general", "No Lust", noLust);
-			nl.comment = "Enable to remove Luxuria aspect and related items.";
-			noLust = nl.getBoolean(false);
-			Property sf = conf.get("general", "Silverfish Drop Emerald Nuggets", silverfishEmeralds);
-			sf.comment = "Disable to prevent Silverfish from dropping emerald nuggets.";
-			silverfishEmeralds = sf.getBoolean(true);
-			Property ge = conf.get("general", "Capitalist Enchantment", greedyEnch);
-			ge.comment = "Disable to remove the recipe and effects of the Capitalist enchantment.";
-			greedyEnch = ge.getBoolean(true);
-			Property et = conf.get("general", "Emerald Transmutation", emeraldTrans);
-			et.comment = "Disable to remove the Emerald Transmutation research and recipe.";
-			emeraldTrans = et.getBoolean(true);
-			Property tr = conf.get("general", "Tag Research Items", tagResearch);
-			tr.comment = "Disable to get rid of the [FM] tags in the Thaumonomicon.";
-			tagResearch = tr.getBoolean(true);
-			Property wc = conf.get("general", "Wrath Cage Enabled", wrathCage);
-			wc.comment = "Disable if you don't want players using the Wrath Cage.";
-			wrathCage = wc.getBoolean(true);
-			Property wf = conf.get("general", "Wrath Cage Fuel Cost", wrathCost);
-			wf.comment = "Cost of essentia per round of spawns in the Wrath Cage.  Raise to increase essentia costs.  Defaults to 5.  Set to 0 to remove the need to fuel the Wrath Cage.  Setting the cost above 64 is not recommended.";
-			wrathCost = wf.getInt(5);
-			Property we = conf.get("general", "Wrath Cage Fuel Efficiency", wrathEff);
-			we.comment = "Number of spawns a Wrath Cage can get per fuel cost.  Defaults to 4.  Lower to make the cage less efficient and raise to make it more efficient.";
-			wrathEff = we.getInt(4);
-			if(wrathEff < 0)
+
+			noLust = conf.get("general", "No Lust", noLust, "Enable to remove Luxuria aspect and related items.").getBoolean(false);
+			silverfishEmeralds = conf.get("general", "Silverfish Drop Emerald Nuggets", silverfishEmeralds, "Disable to prevent Silverfish from dropping emerald nuggets.").getBoolean(true);
+			greedyEnch = conf.get("general", "Capitalist Enchantment", greedyEnch, "Disable to remove the recipe and effects of the Capitalist enchantment.").getBoolean(true);
+			emeraldTrans = conf.get("general", "Emerald Transmutation", emeraldTrans, "Disable to remove the Emerald Transmutation research and recipe.").getBoolean(true);
+			tagResearch = conf.get("general", "Tag Research Items", tagResearch, "Disable to get rid of the [FM] tags in the Thaumonomicon.").getBoolean(true);
+			wrathCage = conf.get("general", "Wrath Cage Enabled", wrathCage, "Disable if you don't want players using the Wrath Cage.").getBoolean(true);
+			wrathCost = conf.get("general", "Wrath Cage Fuel Cost", wrathCost, "Cost of essentia per round of spawns in the Wrath Cage.  Raise to increase essentia costs.  Defaults to 5.  Set to 0 to remove the need to fuel the Wrath Cage.  Setting the cost above 64 is not recommended.").getInt(5);
+			wrathEff = conf.get("general", "Wrath Cage Fuel Efficiency", wrathEff, "Number of spawns a Wrath Cage can get per fuel cost.  Defaults to 4.  Lower to make the cage less efficient and raise to make it more efficient.").getInt(4);
+			if (wrathEff < 0)
 				wrathEff = 4;
-			Property cw = conf.get("general", "Wrath Cage Cries Havoc", wrathCrazy);
-			cw.comment = "Enable to let the Wrath Cage imprint on ANY non-boss mob.  May break your game or make your game Awesome.";
-			wrathCrazy = cw.getBoolean(false);
-			
-			Property sd = conf.get("silly", "Spork of Doom", spork);
-			sd.comment = "What is this?  I don't even...";
-			spork = sd.getBoolean(false);
-		}
-		catch (Exception e)
-		{
+			wrathCrazy = conf.get("general", "Wrath Cage Cries Havoc", wrathCrazy, "Enable to let the Wrath Cage imprint on ANY non-boss mob.  May break your game or make your game Awesome.").getBoolean(false);
+			spork = conf.get("silly", "Spork of Doom", spork, "What is this?  I don't even...").getBoolean(false);
+		} catch (Exception e) {
 			LogHandler.log(Level.ERROR, e, "Had a problem loading its configuration.");
-		}
-		finally
-		{
+		} finally {
 			conf.save();
 		}
-		
+
 		try {
-		
-			thaumcraftResourceID = ItemApi.getItem("itemResource", 0);
-			thaumcraftShardID = ItemApi.getItem("itemShard", 0);
-			thaumcraftTaintBlockID = ItemApi.getBlock("blockTaint", 0);
-			thaumcraftOreID = ItemApi.getBlock("blockCustomOre", 0);
-			taintMaterial = Block.getBlockFromItem(thaumcraftTaintBlockID.getItem()).getMaterial();
-			
+			thaumcraftResource = ItemApi.getItem("itemResource", 0);
+			thaumcraftShard = ItemApi.getItem("itemShard", 0);
+			thaumcraftTaintBlock = ItemApi.getBlock("blockTaint", 0);
+			thaumcraftOre = ItemApi.getBlock("blockCustomOre", 0);
+			taintMaterial = Block.getBlockFromItem(thaumcraftTaintBlock.getItem()).getMaterial();
+
 			thaumcraftTaintPotionID = Class.forName("thaumcraft.common.config.Config").getField("potionFluxTaintID").getInt(null);
 			thaumcraftTaintBiomeID = Class.forName("thaumcraft.common.config.Config").getField("biomeTaintID").getInt(null);
-		}
-		catch(Exception e)
-		{
+		} catch (Exception e) {
 			LogHandler.log(Level.ERROR, e, "There was problem when retrieving information from Thaumcraft.");
 			e.printStackTrace();
 		}
-		
 	}
-	
-	public static void spawnilify()
-	{
-		if(wrathCage){
+
+	public static void spawnilify() {
+		if (wrathCage) {
 			spawnerMobs.put("Zombie", Aspect.FLESH);
 			spawnerMobs.put("Skeleton", Aspect.DEATH);
 			spawnerMobs.put("Creeper", Aspect.FIRE);
@@ -149,7 +114,7 @@ public class Config
 			spawnerMobs.put("PigZombie", Aspect.GREED);
 			spawnerMobs.put("Enderman", Aspect.ELDRITCH);
 			spawnerMobs.put("CaveSpider", Aspect.POISON);
-			if(silverfishEmeralds)
+			if (silverfishEmeralds)
 				spawnerMobs.put("Silverfish", Aspect.GREED);
 			else
 				spawnerMobs.put("Silverfish", Aspect.BEAST);
@@ -167,8 +132,7 @@ public class Config
 			spawnerMobs.put("Thaumcraft.TaintedCow", Aspect.TAINT);
 			spawnerMobs.put("Thaumcraft.TaintedChicken", Aspect.TAINT);
 			spawnerMobs.put("Thaumcraft.TaintedVillager", Aspect.TAINT);
-			//spawnerMobs.put("Taintacle", DarkAspects.LUST);
-			
+			// spawnerMobs.put("Taintacle", DarkAspects.LUST);
 		}
 	}
 }

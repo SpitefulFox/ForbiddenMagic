@@ -14,49 +14,38 @@ import com.spiteful.forbidden.Forbidden;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class ItemSkullAxe extends ItemSword implements IRepairable
-{
+public class ItemSkullAxe extends ItemSword implements IRepairable {
 	public IIcon icon;
 
-	public ItemSkullAxe(ToolMaterial enumtoolmaterial)
-	{
+	public ItemSkullAxe(ToolMaterial enumtoolmaterial) {
 		super(enumtoolmaterial);
 		this.setCreativeTab(Forbidden.tab);
 	}
 
 	@SideOnly(Side.CLIENT)
-	public void registerIcons(IIconRegister ir)
-	{
+	@Override
+	public void registerIcons(IIconRegister ir) {
 		this.icon = ir.registerIcon("forbidden:skullaxe");
 	}
 
 	@SideOnly(Side.CLIENT)
-	public IIcon getIconFromDamage(int par1)
-	{
+	@Override
+	public IIcon getIconFromDamage(int par1) {
 		return this.icon;
 	}
 
-	public EnumRarity getRarity(ItemStack itemstack)
-	{
+	@Override
+	public EnumRarity getRarity(ItemStack itemstack) {
 		return EnumRarity.uncommon;
 	}
 
 	@Override
-	/**
-	 * Return whether this item is repairable in an anvil.
-	 */
-	public boolean getIsRepairable(ItemStack par1ItemStack, ItemStack par2ItemStack)
-	{
-		return par2ItemStack.isItemEqual(new ItemStack(Config.thaumcraftResourceID.getItem(), 1, 2)) ? true : super.getIsRepairable(par1ItemStack, par2ItemStack);
+	public boolean getIsRepairable(ItemStack stack, ItemStack stack2) {
+		return stack2.isItemEqual(new ItemStack(Config.thaumcraftResource.getItem(), 1, 2)) ? true : super.getIsRepairable(stack, stack2);
 	}
 
 	@Override
-	/**
-	 * Returns the strength of the stack against a given block. 1.0F base, (Quality+1)*2 if correct blocktype, 1.5F if
-	 * sword
-	 */
-	public float getDigSpeed(ItemStack stack, Block block, int meta)
-	{
+	public float getDigSpeed(ItemStack stack, Block block, int meta) {
 		return 1.0F;
 	}
 }

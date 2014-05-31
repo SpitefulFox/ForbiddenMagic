@@ -7,7 +7,7 @@ import thaumcraft.api.wands.IWandRodOnUpdate;
 import thaumcraft.common.items.wands.ItemWandCasting;
 import WayofTime.alchemicalWizardry.api.soulNetwork.SoulNetworkHandler;
 
-import com.spiteful.forbidden.Compat;
+import com.spiteful.forbidden.compat.Compat;
 
 public class BloodWandUpdate implements IWandRodOnUpdate {
 

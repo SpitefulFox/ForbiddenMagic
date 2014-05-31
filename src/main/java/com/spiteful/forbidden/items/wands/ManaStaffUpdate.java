@@ -4,9 +4,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.wands.IWandRodOnUpdate;
-import thaumcraft.common.items.wands.ItemWandCasting;
 
-import com.spiteful.forbidden.Compat;
+import com.spiteful.forbidden.compat.Compat;
 
 public class ManaStaffUpdate implements IWandRodOnUpdate {
 

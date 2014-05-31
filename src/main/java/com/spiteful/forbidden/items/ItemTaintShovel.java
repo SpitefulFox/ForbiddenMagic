@@ -45,9 +45,9 @@ public class ItemTaintShovel extends ItemSpade implements IRepairable
 		return EnumRarity.rare;
 	}
 
-	public boolean getIsRepairable(ItemStack par1ItemStack, ItemStack par2ItemStack)
+	public boolean getIsRepairable(ItemStack stack, ItemStack stack2)
 	{
-		return par2ItemStack.isItemEqual(new ItemStack(Config.thaumcraftResourceID.getItem(), 1, 2)) ? true : super.getIsRepairable(par1ItemStack, par2ItemStack);
+		return stack2.isItemEqual(new ItemStack(Config.thaumcraftResource.getItem(), 1, 2)) ? true : super.getIsRepairable(stack, stack2);
 	}
 
 	@Override
