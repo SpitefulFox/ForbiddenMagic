@@ -38,6 +38,8 @@ item.Bloodwell.name=Bloody Scrivener's Tools
 item.DivineOrb.name=Transcendent Blood Orb
 item.Crystalwell.name=Crystal Scribing Tools
 item.RidingCrop.name=Riding Crop
+item.Divinewell.name=Scribing Tools of Thoth
+item.BoundShears.name=Bound Shears
 #
 # Wand components
 item.Wand.tainted.rod=Tainted
@@ -89,7 +91,6 @@ enchantment.eternal=Eternal
 itemGroup.forbidden=Forbidden Magic
 itemGroup.mobcrystal=Imprinting Crystals
 tc.research_category.FORBIDDEN=Apocrypha
-tc.research_category.TAINT=Tainted Arts
 #
 # Research
 forbidden.research_name.NETHERSHARDS=Nether Shards
@@ -203,7 +204,7 @@ forbidden.research_page.GREEDY.1=You've discovered a weapon enchantment that all
 #
 forbidden.research_name.CONSUMING=Enchantment: Consuming
 forbidden.research_text.CONSUMING=Garbage Disposal
-forbidden.research_page.CONSUMING.1=Sick of having to empty your pack of worthless junk, you've devised an enchantment that will automatically destroy common, unwanted materials.  Any Cobblestone, Dirt, or Netherrack mined by a Consuming tool will be destroyed instead of falling to the ground.
+forbidden.research_page.CONSUMING.1=Sick of having to empty your pack of worthless junk, you've devised an enchantment that will automatically destroy common, unwanted materials.  Any Cobblestone, Dirt, Gravel, or Netherrack mined by a Consuming tool will be destroyed instead of falling to the ground.
 #
 forbidden.research_name.PIGBANE=Enchantment: Porcivore
 forbidden.research_text.PIGBANE=Show those Zombie Pigmen who's at the top of the food chain!
@@ -245,4 +246,8 @@ forbidden.research_page.RIDINGCROP.1=A riding crop is, as its name suggests, a t
 forbidden.research_name.HELLFIRE=Lord of Hellfire
 forbidden.research_text.HELLFIRE=Never get stranded again
 forbidden.research_page.HELLFIRE.1=Getting stranded in the Nether is the worst. You go through all the trouble of grabbing what you need, but before you can go home, some stupid ghast decides to rain on your parade by blasting the portal shut. Sure, this can be amended by carrying a flint and steel around, but who actually walks around with those things?<BR><BR>You've discovered a way to use vis in your wand to light fires on certain materials.  Right click with a focus-less wand in your hand on the top of netherrack or obsidian to light a flame using some Ignis from your wand.
+#
+forbidden.research_name.DIVINEWELL=Scribing Tools of Thoth
+forbidden.research_text.DIVINEWELL=Mightier Than The Sword
+forbidden.research_page.DIVINEWELL.1=After researching every last shred of knowledge in the entire cosmos, you've finally uncovered the secret to never refilling your inkwell.<BR><BR>The Scribing Tools of Thoth will never run out of ink.<BR><BR>You sure wish you could've discovered this earlier...
 #
