@@ -1,4 +1,4 @@
-#
+﻿#
 # Aspects
 tc.aspect.infernus=下界,恶魔,地狱火
 tc.aspect.ira=暴怒,恼怒,怒火
@@ -38,6 +38,8 @@ item.Bloodwell.name=血腥之笔与墨
 item.DivineOrb.name=超凡血珠
 item.Crystalwell.name=水晶笔与墨
 item.RidingCrop.name=马鞭
+item.Divinewell.name=托特的划线工具
+item.BoundShears.name=绑定剪
 #
 # Wand components
 item.Wand.tainted.rod=腐化
@@ -245,4 +247,8 @@ forbidden.research_page.RIDINGCROP.1=马鞭,顾名思义,是一种让坐骑跑�
 forbidden.research_name.HELLFIRE=地狱火领主
 forbidden.research_text.HELLFIRE=从此势不可挡
 forbidden.research_page.HELLFIRE.1=身陷下界是最糟糕的体验.当你克服到你需要克服的重重困难,终于就要能回到家园的时候,一些愚蠢的幽魂却打算耀武扬威地对你轰炸一通，以至于传送门都被关掉了.当然,若随身携带着打火石再重新修好也并不费事,但谁会一直随身带这些玩意儿?<BR><BR>你研究出一种利用法杖魔力点燃某些材料的方法.手持卸掉核心的法杖右击地狱岩或者黑曜石的上方,会从法杖中消耗掉一些Ignis要素并点燃一团火焰.
+#
+forbidden.research_name.DIVINEWELL=托特的划线工具
+forbidden.research_text.DIVINEWELL=比剑更锋利
+forbidden.research_page.DIVINEWELL.1=在研究宇宙中的每一点知识, 你终于发现你从未填充墨水瓶的秘密.<BR><BR>托特的划线工具将永远不会用完的墨水.<BR><BR>你肯定希望你能早期就已经发现这个...
 #
