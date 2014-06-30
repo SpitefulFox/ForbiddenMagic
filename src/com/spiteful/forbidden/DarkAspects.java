@@ -140,8 +140,9 @@ public class DarkAspects
 		list.add(GLUTTONY, 1);
 		ThaumcraftApi.registerObjectTag(Item.cookie.itemID, -1, list);
 		
-		list = ThaumcraftApiHelper.getObjectAspects(new ItemStack(Item.fireballCharge));
-		list.add(WRATH, 1);
+		//list = ThaumcraftApiHelper.getObjectAspects(new ItemStack(Item.fireballCharge));
+		list = new AspectList();
+		list.add(Aspect.FIRE, 3).add(Aspect.ENTROPY, 1).add(Aspect.ENERGY, 1).add(WRATH, 1);
 		ThaumcraftApi.registerObjectTag(Item.fireballCharge.itemID, 0, list);
 		
 		//list = ThaumcraftApiHelper.getObjectAspects(new ItemStack(Item.comparator)).copy();

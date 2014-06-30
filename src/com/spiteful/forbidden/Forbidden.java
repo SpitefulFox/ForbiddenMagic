@@ -31,7 +31,7 @@ import java.util.logging.Level;
 @Mod(
 	modid = "ForbiddenMagic",
 	name = "Forbidden Magic",
-	version = "0.34",
+	version = "0.35a",
 	dependencies = "required-after:Thaumcraft;after:ThaumicTinkerer"
 )
 @NetworkMod(

@@ -101,7 +101,10 @@ public class BlockWrathCage extends BlockContainer
 	 */
 	public void breakBlock(World par1World, int x, int y, int z, int par5, int par6)
 	{
-		TileEntityWrathCage spawner = (TileEntityWrathCage)par1World.getBlockTileEntity(x, y, z);
+		TileEntityWrathCage spawner = null;
+		
+		if(par1World.getBlockTileEntity(x, y, z) instanceof TileEntityWrathCage)
+			spawner = (TileEntityWrathCage)par1World.getBlockTileEntity(x, y, z);
 
 		if (spawner != null && spawner.getSpawnerLogic().isMobSet())
 		{
