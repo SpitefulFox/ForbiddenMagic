@@ -5,3 +5,22 @@
 *.jar
 *.war
 *.ear
+
+#Forge Stuffs
+/LICENSE-fml.txt
+/MinecraftForge-Credits.txt
+/MinecraftForge-License.txt
+/README.txt
+/CREDITS-fml.txt
+/forge-1.7.2*
+/.gradle
+/build
+/common
+/eclipse/*
+/lib/
+/src/api/*
+/bin/*
+
+.classpath
+.project
+.settings/*
