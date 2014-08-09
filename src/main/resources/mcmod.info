@@ -2,10 +2,10 @@
 {
   "modid" : "ForbiddenMagic",
   "name" : "Forbidden Magic",
-  "version" : "${mod_version}",
-  "mcversion": "${minecraft_version}",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
   "url" : "http://www.minecraftforum.net/topic/2305054-/",
-  "credits" : "Azanor, Flaxbeard, Killajoke, LycaonX, Nieue, Succubism, Vazkii, Dylan4ever, Nekosune, Kihira",
+  "credits" : "Azanor, joshiejack, Killajoke, LycaonX, Nieue, Succubism, Vazkii, Dylan4ever, Nekosune, Kihira",
   "authors": [
     "SpitefulFox"
   ],
