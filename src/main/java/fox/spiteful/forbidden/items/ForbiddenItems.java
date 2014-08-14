@@ -51,6 +51,7 @@ public class ForbiddenItems {
 	public static Item ridingCrop;
 	public static Item divinewell;
 	public static Item boundShears;
+    public static Item bloodRapier;
 
 	public static Item bloodwell;
 	public static Item bloodOrb;
@@ -170,6 +171,9 @@ public class ForbiddenItems {
 
 		divinewell = new ItemDivinewell().setUnlocalizedName("Divinewell");
 		GameRegistry.registerItem(divinewell, "Divinewell");
+
+        bloodRapier = new ItemBloodRapier().setUnlocalizedName("BloodRapier");
+        GameRegistry.registerItem(bloodRapier, "BloodRapier");
 
 		// boundShears = new ItemBoundShears(Config.boundShearsID,
 		// ThaumcraftApi.toolMatThaumium).setUnlocalizedName("BoundShears");

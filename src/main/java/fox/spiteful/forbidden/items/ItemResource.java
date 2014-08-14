@@ -30,29 +30,31 @@ public class ItemResource extends Item {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerIcons(IIconRegister ir) {
-		icons = new IIcon[3];
+		icons = new IIcon[4];
 
 		icons[0] = ir.registerIcon("forbidden:emerald_nugget");
 		icons[1] = ir.registerIcon("forbidden:dye_powder_black");
 		icons[2] = ir.registerIcon("forbidden:nuggetmanasteel");
+        icons[3] = ir.registerIcon("forbidden:tainted_blood_shard");
 	}
 
 	@SideOnly(Side.CLIENT)
 	@Override
 	public IIcon getIconFromDamage(int dam) {
-		return this.icons[dam];
+		return this.icons[dam % icons.length];
 	}
 
 	@Override
 	public String getUnlocalizedName(ItemStack stack) {
-		int i = MathHelper.clamp_int(stack.getItemDamage(), 0, 2);
+		//int i = MathHelper.clamp_int(stack.getItemDamage(), 0, 3);
+        int i = stack.getItemDamage();
 		return super.getUnlocalizedName() + "." + i;
 	}
 
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void getSubItems(Item par1, CreativeTabs xCreativeTabs, List list) {
-		for (int j = 0; j < 3; ++j) {
+		for (int j = 0; j < 4; ++j) {
 			list.add(new ItemStack(par1, 1, j));
 		}
 	}

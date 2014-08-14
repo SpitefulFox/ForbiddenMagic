@@ -24,6 +24,8 @@ public class Config {
 	public static int corruptingEnchID;
 	public static int eternalEnchID;
 
+    public static int bloodSealPotionID = 70;
+
 	public static int thaumcraftTaintBiomeID;
 	public static int thaumcraftTaintPotionID;
 	public static ItemStack thaumcraftResource;
@@ -72,6 +74,7 @@ public class Config {
 				wrathEff = 4;
 			wrathCrazy = conf.get("general", "Wrath Cage Cries Havoc", wrathCrazy, "Enable to let the Wrath Cage imprint on ANY non-boss mob.  May break your game or make your game Awesome.").getBoolean(false);
 			spork = conf.get("silly", "Spork of Doom", spork, "What is this?  I don't even...").getBoolean(false);
+            bloodSealPotionID = conf.get("potions", "Blood Seal", bloodSealPotionID).getInt(bloodSealPotionID);
 		} catch (Exception e) {
 			LogHandler.log(Level.ERROR, e, "Had a problem loading its configuration.");
 		} finally {

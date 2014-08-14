@@ -1,5 +1,6 @@
 package fox.spiteful.forbidden;
 
+import fox.spiteful.forbidden.potions.DarkPotions;
 import net.minecraft.init.Blocks;
 import net.minecraftforge.common.MinecraftForge;
 import thaumcraft.api.wands.WandTriggerRegistry;
@@ -39,6 +40,8 @@ public class Forbidden {
 		ForbiddenItems.addItems();
 		ForbiddenBlocks.addBlocks();
 		DarkEnchantments.hex();
+        if(Compat.bm)
+            DarkPotions.alchemize();
 		proxy.registerRenderInfo();
 	}
 

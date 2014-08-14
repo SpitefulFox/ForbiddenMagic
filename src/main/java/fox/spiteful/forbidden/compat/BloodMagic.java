@@ -1,7 +1,9 @@
 package fox.spiteful.forbidden.compat;
 
+import WayofTime.alchemicalWizardry.api.alchemy.AlchemicalPotionCreationHandler;
 import fox.spiteful.forbidden.DarkAspects;
 import fox.spiteful.forbidden.LogHandler;
+import fox.spiteful.forbidden.potions.DarkPotions;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -15,6 +17,7 @@ import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
 import thaumcraft.api.crafting.IArcaneRecipe;
 import thaumcraft.api.crafting.InfusionRecipe;
+import thaumcraft.api.potions.PotionFluxTaint;
 import thaumcraft.api.research.ResearchPage;
 import WayofTime.alchemicalWizardry.api.altarRecipeRegistry.AltarRecipeRegistry;
 
@@ -23,11 +26,16 @@ import fox.spiteful.forbidden.items.ForbiddenItems;
 
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.registry.GameRegistry;
+import thaumcraft.common.lib.potions.PotionWarpWard;
 
 public class BloodMagic {
 	public static void stab() {
 		try {
-			AspectList list;
+            AlchemicalPotionCreationHandler.addPotion(ItemApi.getItem("itemResource", 14), PotionWarpWard.instance.getId(), 1800);
+            AlchemicalPotionCreationHandler.addPotion(ItemApi.getItem("itemResource", 11), PotionFluxTaint.instance.getId(), 450);
+            AlchemicalPotionCreationHandler.addPotion(new ItemStack(ForbiddenItems.resource, 1, 3), DarkPotions.bloodSeal.getId(), 1200);
+
+            AspectList list;
 			Item masterOrb = GameRegistry.findItem("AWWayofTime", "masterBloodOrb");
 			Item archmasterOrb = GameRegistry.findItem("AWWayofTime", "archmageBloodOrb");
 			Item imbuedSlate = GameRegistry.findItem("AWWayofTime", "imbuedSlate");
@@ -57,6 +65,10 @@ public class BloodMagic {
 
 			IArcaneRecipe blood_staff = ThaumcraftApi.addArcaneCraftingRecipe("ROD_blood_staff", new ItemStack(ForbiddenItems.wandCore, 1, 9), (new AspectList()).add(Aspect.ENTROPY, 26).add(Aspect.FIRE, 26).add(Aspect.WATER, 26).add(Aspect.AIR, 26).add(Aspect.EARTH, 26).add(Aspect.ORDER, 26), new Object[] { "__D", "_B_", "B__", Character.valueOf('B'), new ItemStack(ForbiddenItems.wandCore, 1, 3), Character.valueOf('D'), new ItemStack(demonShard) });
 			(new DarkResearchItem("ROD_blood_staff", "FORBIDDEN", "[BM]", (new AspectList()).add(Aspect.LIFE, 8).add(Aspect.WATER, 7).add(Aspect.WEAPON, 6), -5, -7, 5, new ItemStack(ForbiddenItems.wandCore, 1, 9))).setPages(new ResearchPage[] { new ResearchPage("forbidden.research_page.ROD_blood_staff.1"), new ResearchPage(blood_staff) }).setParents(new String[] { "ROD_silverwood_staff", "ROD_blood" }).setSpecial().setConcealed().registerResearchItem();
+
+            InfusionRecipe blood_rapier = ThaumcraftApi.addInfusionCraftingRecipe("BLOODRAPIER", new ItemStack(ForbiddenItems.bloodRapier, 1, 0), 8, (new AspectList()).add(Aspect.LIFE, 18).add(Aspect.HUNGER, 32).add(Aspect.WEAPON, 8), ItemApi.getItem("itemSwordThaumium", 0), new ItemStack[] { ItemApi.getItem("itemResource", 12), new ItemStack(ForbiddenItems.deadlyShards, 1, 0), new ItemStack(ForbiddenItems.gluttonyShard, 1, 0), new ItemStack(Items.feather), ItemApi.getItem("itemResource", 6) });
+            (new DarkResearchItem("BLOODRAPIER", "FORBIDDEN", "[BM]", (new AspectList()).add(Aspect.LIFE, 16).add(Aspect.HUNGER, 12).add(Aspect.WEAPON, 12).add(Aspect.MAGIC, 12), -9, 8, 4, new ItemStack(ForbiddenItems.bloodRapier, 1, 0))).setPages(new ResearchPage[] { new ResearchPage("forbidden.research_page.BLOODRAPIER.1"), new ResearchPage(blood_rapier) }).setParents(new String[] { "INFAUXSION" }).setConcealed().registerResearchItem();
+            ThaumcraftApi.addWarpToResearch("BLOODRAPIER", 3);
 
 			if (Compat.kami) {
 				try {

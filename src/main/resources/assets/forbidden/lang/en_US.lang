@@ -29,6 +29,7 @@ item.MorphAxe.name=Chameleon Axe
 item.FMResource.0.name=Emerald Fragment
 item.FMResource.1.name=Shadow Ink
 item.FMResource.2.name=Manasteel Nugget
+item.FMResource.3.name=Tainted Blood Shard
 item.MobCrystalEmpty.name=Blank Imprinting Crystal
 item.MobCrystal.name=Imprinted Crystal
 item.DiabolistFork.name=Diabolist Fork
@@ -40,6 +41,7 @@ item.Crystalwell.name=Crystal Scribing Tools
 item.RidingCrop.name=Riding Crop
 item.Divinewell.name=Scribing Tools of Thoth
 item.BoundShears.name=Bound Shears
+item.BloodRapier.name=Strix Rapier
 #
 # Wand components
 item.Wand.tainted.rod=Tainted
@@ -86,6 +88,9 @@ enchantment.consuming=Consuming
 enchantment.educational=Educational
 enchantment.corrupting=Corrupting
 enchantment.eternal=Eternal
+#
+# Potions
+potion.blood_seal=Blood Seal
 #
 # Misc
 itemGroup.forbidden=Forbidden Magic
@@ -234,6 +239,10 @@ forbidden.research_page.BLOODWELL.1=There's nothing more frustrating than having
 forbidden.research_name.DIVINEORB=Transcendent Blood Orb
 forbidden.research_text.DIVINEORB=Orb of Armok
 forbidden.research_page.DIVINEORB.1=It is whispered among some Thaumaturgic circles that Ichor is actually the blood of the divine. You don't know whether this is true or not, but Ichor does seem to have an affinity with more advanced alchemical devices.<BR><BR>The Transcendent Blood Orb is what happens when you combine the most advanced Thaumaturgy and Alchemical Wizardry available. The infusion vastly increases the orb's carrying capacity, allowing it to hold a whopping 70,000,000 LP. What would you ever need that much LP for?
+#
+forbidden.research_name.BLOODRAPIER=Strix Rapier
+forbidden.research_text.BLOODRAPIER=Destroyer of Blood Magic
+forbidden.research_page.BLOODRAPIER.1=There's nothing more dangerous than a Blood Magus that is gorged on life essence. As long as they have enough life energy, there's very little that can pierce their defenses.<BR><BR>Until now.<BR><BR>The Strix Rapier, upon striking someone, drinks LP directly from their Soul Network and seals it so that they can't regain any more LP for a while. It may not do very much physical damage, but it packs a metaphysical punch against Blood Magi.
 #
 forbidden.research_name.CRYSTALWELL=Crystal Scribing Tools
 forbidden.research_text.CRYSTALWELL=Arcane Research Grant

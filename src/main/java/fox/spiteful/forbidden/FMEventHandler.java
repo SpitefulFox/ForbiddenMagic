@@ -1,12 +1,12 @@
 package fox.spiteful.forbidden;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.Random;
+import java.util.*;
 
+import WayofTime.alchemicalWizardry.api.soulNetwork.SoulNetworkHandler;
 import fox.spiteful.forbidden.blocks.BlockBlackFlower;
+import fox.spiteful.forbidden.compat.Compat;
 import fox.spiteful.forbidden.items.ItemTaintPickaxe;
+import fox.spiteful.forbidden.potions.DarkPotions;
 import net.minecraft.block.Block;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -24,6 +24,7 @@ import net.minecraft.entity.monster.EntitySilverfish;
 import net.minecraft.entity.monster.EntitySkeleton;
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.monster.IMob;
+import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -38,10 +39,8 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.util.FakePlayer;
-import net.minecraftforge.event.entity.living.LivingDeathEvent;
-import net.minecraftforge.event.entity.living.LivingDropsEvent;
-import net.minecraftforge.event.entity.living.LivingHurtEvent;
-import net.minecraftforge.event.entity.living.LivingSpawnEvent;
+import net.minecraftforge.event.entity.living.*;
+import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.event.entity.player.BonemealEvent;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent.BreakSpeed;
@@ -50,6 +49,7 @@ import net.minecraftforge.event.world.BlockEvent.HarvestDropsEvent;
 import org.apache.logging.log4j.Level;
 
 import thaumcraft.api.aspects.Aspect;
+import thaumcraft.api.entities.ITaintedMob;
 import thaumcraft.common.items.wands.ItemWandCasting;
 import thaumcraft.common.lib.Utils;
 
@@ -64,6 +64,7 @@ import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 public class FMEventHandler {
 	Random randy = new Random();
 	final Aspect[] primals = { Aspect.ENTROPY, Aspect.ORDER, Aspect.FIRE, Aspect.WATER, Aspect.EARTH, Aspect.AIR };
+    HashMap<String, Integer> lastLP = new HashMap<String, Integer>();
 
 	@SubscribeEvent
 	public void onPlayerBreaking(BreakSpeed event) {
@@ -89,7 +90,21 @@ public class FMEventHandler {
 
 	@SubscribeEvent
 	public void onLivingDrops(LivingDropsEvent event) {
-		if (Config.silverfishEmeralds && event.entityLiving instanceof EntitySilverfish) {
+        if (event.source.getDamageType().equals("player") && event.entityLiving instanceof ITaintedMob)
+        {
+            PotionEffect effect = event.entityLiving.getActivePotionEffect(Potion.weakness);
+            if (effect != null)
+            {
+                if (effect.getAmplifier() >= 2) {
+                    double rand = Math.random();
+                    if (rand < 0.50d) {
+                        addDrop(event, new ItemStack(ForbiddenItems.resource, 1, 3));
+                    }
+                }
+            }
+        }
+
+        if (Config.silverfishEmeralds && event.entityLiving instanceof EntitySilverfish) {
 			if (event.entityLiving.worldObj.getBiomeGenForCoords((int) event.entityLiving.posX, (int) event.entityLiving.posZ).biomeID == BiomeGenBase.extremeHills.biomeID) {
 				if (event.recentlyHit && event.source.getEntity() != null && event.source.getEntity() instanceof EntityPlayer && randy.nextInt(30) <= (2 + event.lootingLevel * 2))
 					addDrop(event, new ItemStack(ForbiddenItems.resource, 1, 0));
@@ -394,5 +409,28 @@ public class FMEventHandler {
 			}
 		}
 	}
+
+    @SubscribeEvent
+    public void onEntityUpdate(LivingUpdateEvent event){
+        if(Compat.bm && event.entityLiving != null && event.entityLiving instanceof EntityPlayer && !event.entityLiving.worldObj.isRemote){
+            EntityPlayer player = (EntityPlayer)event.entityLiving;
+            String name = player.getDisplayName();
+            if(player.isPotionActive(DarkPotions.bloodSeal)){
+                try {
+                    if (lastLP.containsKey(name)) {
+                        if (SoulNetworkHandler.getCurrentEssence(name) > lastLP.get(name))
+                            SoulNetworkHandler.setCurrentEssence(name, lastLP.get(name));
+                        else
+                            lastLP.put(name, SoulNetworkHandler.getCurrentEssence(name));
+                    }
+                    else
+                        lastLP.put(name, SoulNetworkHandler.getCurrentEssence(name));
+                }
+                catch(Throwable e){}
+            }
+            else if(lastLP.containsKey(name))
+                lastLP.remove(name);
+        }
+    }
 
 }
