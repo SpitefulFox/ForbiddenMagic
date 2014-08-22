@@ -29,6 +29,7 @@ item.MorphAxe.name=避役斧
 item.FMResource.0.name=绿宝石碎片
 item.FMResource.1.name=暗影墨水
 item.FMResource.2.name=魔钢粒
+item.FMResource.3.name=腐血碎片
 item.MobCrystalEmpty.name=空白留影水晶
 item.MobCrystal.name=留影水晶
 item.DiabolistFork.name=妖魔之叉
@@ -40,6 +41,7 @@ item.Crystalwell.name=水晶笔与墨
 item.RidingCrop.name=马鞭
 item.Divinewell.name=图特之笔
 item.BoundShears.name=绑定剪刀
+item.BloodRapier.name=血鸮西洋剑
 #
 # Wand components
 item.Wand.tainted.rod=腐化
@@ -87,11 +89,13 @@ enchantment.educational=教育
 enchantment.corrupting=堕落
 enchantment.eternal=不朽
 #
+# Potions
+potion.blood_seal=血之印记
+#
 # Misc
 itemGroup.forbidden=禁忌魔法
 itemGroup.mobcrystal=留影水晶
 tc.research_category.FORBIDDEN=伪经
-tc.research_category.TAINT=咒波学
 #
 # Research
 forbidden.research_name.NETHERSHARDS=下界之星
@@ -235,6 +239,10 @@ forbidden.research_page.BLOODWELL.1=没有比研究到一半却需要补充墨�
 forbidden.research_name.DIVINEORB=超凡血珠
 forbidden.research_text.DIVINEORB=血神阿莫科的宝珠
 forbidden.research_page.DIVINEORB.1=在一些神秘使圈子里灵液确实就是神灵之血的流言甚嚣尘上.你难以辨别其真假,但灵液确乎对更加高级的炼金材料具有亲和力.<BR><BR>超凡血珠是你将最高深的神秘学与可用的炼金巫术相结合研究出的东西.这种融合极大增强了血珠的容纳能力,能够让它容纳高达70,000,000生命点.难道你还会需要更多的生命点吗？
+#
+forbidden.research_name.BLOODRAPIER=血鸮西洋剑
+forbidden.research_text.BLOODRAPIER=血魔法的克星
+forbidden.research_page.BLOODRAPIER.1=还有何物比嗜血成性的血魔法师更加凶险? 只要对方有着充足的生命能量,就极难穿透他们的防御.<BR><BR>但现在不同了.<BR><BR>有了血鸮西洋剑,只要击打某人,就能从其灵魂网络中直接抽取LP并封存起来,使得他们一时半会儿无法回复LP.或许造成的物理伤害不高,但对血魔法师来说这却是不小的损伤.
 #
 forbidden.research_name.CRYSTALWELL=水晶笔与墨
 forbidden.research_text.CRYSTALWELL=奥术研究授权
