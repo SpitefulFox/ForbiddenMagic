@@ -13,6 +13,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
+import net.minecraftforge.common.util.ForgeDirection;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -87,7 +88,7 @@ public class BlockBlackFlower extends BlockFlower {
 	@Override
 	public boolean canBlockStay(World world, int x, int y, int z) {
 		Block block = world.getBlock(x, y - 1, z);
-		return (block == Blocks.dirt || block == Blocks.grass);
+		return block.canSustainPlant(world, x, y - 1, z, ForgeDirection.UP, this);
 	}
 
 	@SideOnly(Side.CLIENT)
