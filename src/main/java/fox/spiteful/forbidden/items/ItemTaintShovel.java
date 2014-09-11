@@ -16,6 +16,8 @@ import fox.spiteful.forbidden.Config;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import thaumcraft.common.Thaumcraft;
+import thaumcraft.common.config.ConfigBlocks;
 
 public class ItemTaintShovel extends ItemSpade implements IRepairable
 {
@@ -63,17 +65,31 @@ public class ItemTaintShovel extends ItemSpade implements IRepairable
 	
 	@Override
 	public boolean onItemUse(ItemStack itemstack, EntityPlayer player, World world, int x, int y, int z, int side, float par8, float par9, float par10) {
-		if(player != null && player.isPotionActive(Config.thaumcraftTaintPotionID)) {
-			itemstack.damageItem(5, player);
-			player.swingItem();
-			if(player.worldObj.isRemote)
-				player.removePotionEffectClient(Config.thaumcraftTaintPotionID);
-			else {
-				world.playSoundEffect((double)x + 0.5D, (double)y + 0.5D, (double)z + 0.5D, "thaumcraft:wandfail", 0.2F, 0.2F + world.rand.nextFloat() * 0.2F);
-				player.removePotionEffect(Config.thaumcraftTaintPotionID);
-			}
-			return true;
-		}
-		return super.onItemUse(itemstack, player, world, x, y, z, side, par8, par9, par10);
+        int purified = 0;
+        for(int ex = x - 5;ex < x + 6;ex++){
+            for(int wy = y - 4;wy < y + 5;wy++){
+                for(int zee = z - 5;zee < z + 6;zee++){
+                    Block target = world.getBlock(ex, wy, zee);
+                    if(target != null && (target == ConfigBlocks.blockFluxGoo || target == ConfigBlocks.blockFluxGas)){
+                        purified++;
+                        world.setBlockToAir(ex, wy, zee);
+                        for(int sparkle = 0;sparkle < 3;sparkle++) {
+                            double d1 = (double) ((float) ex + world.rand.nextFloat());
+                            double d2 = (double) ((float) wy + world.rand.nextFloat());
+                            double d0 = (double) ((float) zee + world.rand.nextFloat());
+                            Thaumcraft.proxy.sparkle((float) d1, (float) d2, (float) d0, 0x76FFFB);
+                        }
+                    }
+                }
+            }
+        }
+        if(purified > 0){
+            itemstack.damageItem(Math.min(purified, 15), player);
+            player.swingItem();
+            world.playSoundEffect((double)x + 0.5D, (double)y + 0.5D, (double)z + 0.5D, "thaumcraft:wandfail", 0.2F, 0.2F + world.rand.nextFloat() * 0.2F);
+            return true;
+        }
+        else
+		    return super.onItemUse(itemstack, player, world, x, y, z, side, par8, par9, par10);
 	}
 }

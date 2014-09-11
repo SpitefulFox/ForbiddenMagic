@@ -73,7 +73,7 @@ public class Compat {
 
 			if (kami) {
 				try {
-					Item kamiResource = GameRegistry.findItem("ThaumicTinkerer", "ttinkerer:kamiResource");
+					Item kamiResource = GameRegistry.findItem("ThaumicTinkerer", "kamiResource");
 					list = new AspectList().add(DarkAspects.NETHER, 2).add(Aspect.MAGIC, 1).add(Aspect.CRYSTAL, 1);
 					ThaumcraftApi.registerObjectTag(new ItemStack(kamiResource, 1, 6), list);
 					list = new AspectList().add(Aspect.ELDRITCH, 2).add(Aspect.MAGIC, 1).add(Aspect.CRYSTAL, 1);
@@ -115,14 +115,16 @@ public class Compat {
 
 				i = GameRegistry.findItemStack("Natura", "soil.tainted", 1);
 				if (i != null) {
-					list = ThaumcraftApiHelper.getObjectAspects(new ItemStack(i.getItem(), 1, 0));
+					//list = ThaumcraftApiHelper.getObjectAspects(new ItemStack(i.getItem(), 1, 0));
+                    list = new AspectList().add(Aspect.EARTH, 1);
 					list.add(DarkAspects.NETHER, 1);
 					ThaumcraftApi.registerObjectTag(new ItemStack(i.getItem(), 1, OreDictionary.WILDCARD_VALUE), list);
 				}
 
 				i = GameRegistry.findItemStack("Natura", "heatsand", 1);
 				if (i != null) {
-					list = ThaumcraftApiHelper.getObjectAspects(new ItemStack(i.getItem(), 1, 0));
+					//list = ThaumcraftApiHelper.getObjectAspects(new ItemStack(i.getItem(), 1, 0));
+                    list = new AspectList().add(Aspect.FIRE, 1).add(Aspect.EARTH, 1);
 					list.add(DarkAspects.NETHER, 1);
 					ThaumcraftApi.registerObjectTag(new ItemStack(i.getItem(), 1, OreDictionary.WILDCARD_VALUE), list);
 				}

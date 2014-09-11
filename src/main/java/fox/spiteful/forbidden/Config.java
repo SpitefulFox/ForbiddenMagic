@@ -26,8 +26,6 @@ public class Config {
 
     public static int bloodSealPotionID = 70;
 
-	public static int thaumcraftTaintBiomeID;
-	public static int thaumcraftTaintPotionID;
 	public static ItemStack thaumcraftResource;
 	public static ItemStack thaumcraftTaintBlock;
 	public static ItemStack thaumcraftOre;
@@ -87,9 +85,6 @@ public class Config {
 			thaumcraftTaintBlock = ItemApi.getBlock("blockTaint", 0);
 			thaumcraftOre = ItemApi.getBlock("blockCustomOre", 0);
 			taintMaterial = Block.getBlockFromItem(thaumcraftTaintBlock.getItem()).getMaterial();
-
-			thaumcraftTaintPotionID = Class.forName("thaumcraft.common.config.Config").getField("potionFluxTaintID").getInt(null);
-			thaumcraftTaintBiomeID = Class.forName("thaumcraft.common.config.Config").getField("biomeTaintID").getInt(null);
 		} catch (Exception e) {
 			LogHandler.log(Level.ERROR, e, "There was problem when retrieving information from Thaumcraft.");
 			e.printStackTrace();

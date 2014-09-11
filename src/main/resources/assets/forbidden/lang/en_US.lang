@@ -41,7 +41,7 @@ item.Crystalwell.name=Crystal Scribing Tools
 item.RidingCrop.name=Riding Crop
 item.Divinewell.name=Scribing Tools of Thoth
 item.BoundShears.name=Bound Shears
-item.BloodRapier.name=Strix Rapier
+item.BloodRapier.name=Rapier of the Strix
 #
 # Wand components
 item.Wand.tainted.rod=Tainted
@@ -115,7 +115,7 @@ forbidden.research_page.ARCANECAKE.1=If there's one thing you love, it's cake. Y
 #
 forbidden.research_name.TAINTSHOVEL=Shovel of the Purifier
 forbidden.research_text.TAINTSHOVEL=Like a hot knife through really gross butter
-forbidden.research_page.TAINTSHOVEL.1=Sometimes, the easiest way to remove patches of taint is to just physically remove them.<BR><BR>By reinforcing a thaumium shovel with Silverwood and Order Shards, you have created a tool capable of combating Taint.  The Shovel of the Purifier can dig through pulpy tainted lands as effectively as it can through normal earth.  If held in your hand and right-clicked, the shovel cures you of Flux Taint at the cost of durability.
+forbidden.research_page.TAINTSHOVEL.1=Sometimes, the easiest way to remove patches of taint is to just physically remove them.<BR><BR>By reinforcing a thaumium shovel with Silverwood and Order Shards, you have created a tool capable of combating Taint.  The Shovel of the Purifier can dig through pulpy tainted lands as effectively as it can through normal earth.<BR><BR>If held in your hand and right-clicked, the shovel will purify all flux goo and gas from a small radius at the cost of durability. You no longer have to clean up infusion mishaps with a piece of cobblestone!
 forbidden.research_page.TAINTSHOVEL.2=When digging through taint with the shovel, there's a chance that the twisted energies released will crystallize into Taint Shards.  Unlike other tainted materials, the crystalline pattern keeps these shards stable enough to carry around.
 #
 forbidden.research_name.TAINTPICK=Pickaxe of Distortion
@@ -240,9 +240,9 @@ forbidden.research_name.DIVINEORB=Transcendent Blood Orb
 forbidden.research_text.DIVINEORB=Orb of Armok
 forbidden.research_page.DIVINEORB.1=It is whispered among some Thaumaturgic circles that Ichor is actually the blood of the divine. You don't know whether this is true or not, but Ichor does seem to have an affinity with more advanced alchemical devices.<BR><BR>The Transcendent Blood Orb is what happens when you combine the most advanced Thaumaturgy and Alchemical Wizardry available. The infusion vastly increases the orb's carrying capacity, allowing it to hold a whopping 70,000,000 LP. What would you ever need that much LP for?
 #
-forbidden.research_name.BLOODRAPIER=Strix Rapier
+forbidden.research_name.BLOODRAPIER=Rapier of the Strix
 forbidden.research_text.BLOODRAPIER=Destroyer of Blood Magic
-forbidden.research_page.BLOODRAPIER.1=There's nothing more dangerous than a Blood Magus that is gorged on life essence. As long as they have enough life energy, there's very little that can pierce their defenses.<BR><BR>Until now.<BR><BR>The Strix Rapier, upon striking someone, drinks LP directly from their Soul Network and seals it so that they can't regain any more LP for a while. It may not do very much physical damage, but it packs a metaphysical punch against Blood Magi.
+forbidden.research_page.BLOODRAPIER.1=There's nothing more dangerous than a Blood Magus that is gorged on life essence. As long as they have enough life energy, there's very little that can pierce their defenses.<BR><BR>Until now.<BR><BR>The Rapier of the Strix, upon striking someone, drinks LP directly from their Soul Network and seals it so that they can't regain any more LP for a while. It may not do very much physical damage, but it packs a metaphysical punch against Blood Magi.
 #
 forbidden.research_name.CRYSTALWELL=Crystal Scribing Tools
 forbidden.research_text.CRYSTALWELL=Arcane Research Grant
