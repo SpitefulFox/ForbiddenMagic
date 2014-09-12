@@ -38,7 +38,7 @@ public class ForbiddenRecipes {
 
 		if (Config.emeraldTrans)
 			ForbiddenResearch.recipes.put("TransEmerald", ThaumcraftApi.addCrucibleRecipe("TRANSEMERALD", new ItemStack(ForbiddenItems.resource, 4, 0), "nuggetEmerald", (new AspectList()).merge(Aspect.CRYSTAL, 2).merge(Aspect.GREED, 2)));
-		ForbiddenResearch.recipes.put("BlackFlower", ThaumcraftApi.addCrucibleRecipe("BLACKFLOWER", new ItemStack(ForbiddenBlocks.blackFlower, 1, 0), new ItemStack(Blocks.red_flower), (new AspectList()).merge(Aspect.DARKNESS, 5).merge(Aspect.LIFE, 5)));
+		ForbiddenResearch.recipes.put("BlackFlower", ThaumcraftApi.addCrucibleRecipe("BLACKFLOWER", new ItemStack(ForbiddenBlocks.roseBush, 1, 0), new ItemStack(Blocks.double_plant, 1, 4), (new AspectList()).merge(Aspect.DARKNESS, 8).merge(Aspect.LIFE, 5)));
 		ForbiddenResearch.recipes.put("BlackInk", CraftingManager.getInstance().addRecipe(new ItemStack(ForbiddenItems.resource, 2, 1), new Object[] { "#", Character.valueOf('#'), new ItemStack(ForbiddenBlocks.blackFlower, 1, 0) }));
 
 		ForbiddenResearch.recipes.put("Crystalwell", ThaumcraftApi.addShapelessArcaneCraftingRecipe("CRYSTALWELL", new ItemStack(ForbiddenItems.crystalwell, 1, 0), (new AspectList()).add(Aspect.EARTH, 2).add(Aspect.FIRE, 2).add(Aspect.AIR, 2).add(Aspect.WATER, 2).add(Aspect.ORDER, 2).add(Aspect.ENTROPY, 2), new Object[] { ItemApi.getItem("itemInkwell", 32767), "dyeBlack", ItemApi.getItem("itemShard", 32767), ItemApi.getItem("itemShard", 32767) }));

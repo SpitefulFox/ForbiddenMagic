@@ -54,7 +54,7 @@ public class BloodMagic {
 
 			InfusionRecipe blood_recipe = ThaumcraftApi.addInfusionCraftingRecipe("ROD_blood", new ItemStack(ForbiddenItems.wandCore, 1, 6), 2, (new AspectList()).add(Aspect.LIFE, 32).add(Aspect.MAGIC, 12).add(Aspect.WATER, 16), new ItemStack(masterOrb), new ItemStack[] { new ItemStack(magicales), new ItemStack(imbuedSlate), new ItemStack(imbuedSlate), new ItemStack(tennebrae), new ItemStack(sanctus), new ItemStack(aquasalus), new ItemStack(incendium), new ItemStack(terrae), new ItemStack(aether) });
 			(new DarkResearchItem("ROD_blood", "FORBIDDEN", "[BM]", (new AspectList()).add(Aspect.LIFE, 5).add(Aspect.WATER, 4).add(Aspect.WEAPON, 3), -5, -3, 3, new ItemStack(ForbiddenItems.wandCore, 1, 3))).setPages(new ResearchPage[] { new ResearchPage("forbidden.research_page.ROD_blood.1"), new ResearchPage(blood_recipe), new ResearchPage("forbidden.research_page.ROD_blood.2") }).setParents(new String[] { "ROD_silverwood", "INFAUXSION" }).setAspectTriggers(new Aspect[] { Aspect.LIFE }).setConcealed().registerResearchItem();
-            ThaumcraftApi.addWarpToResearch("ROD_blood", 3);
+            ThaumcraftApi.addWarpToResearch("ROD_blood", 2);
 
 			InfusionRecipe alchemical_recipe = ThaumcraftApi.addInfusionCraftingRecipe("CAP_alchemical", new ItemStack(ForbiddenItems.wandCap, 1, 0), 3, (new AspectList()).add(Aspect.LIFE, 12).add(Aspect.WATER, 6), ItemApi.getItem("itemWandCap", 1), new ItemStack[] { new ItemStack(magicales), new ItemStack(magicales), new ItemStack(magicales) });
 			(new DarkResearchItem("CAP_alchemical", "FORBIDDEN", "[BM]", (new AspectList()).add(Aspect.LIFE, 4).add(Aspect.TOOL, 1).add(Aspect.WATER, 3), -5, -5, 2, new ItemStack(ForbiddenItems.wandCap, 1, 0))).setPages(new ResearchPage[] { new ResearchPage("forbidden.research_page.CAP_alchemical.1"), new ResearchPage(alchemical_recipe) }).setParents(new String[] { "ROD_blood", "CAP_gold" }).setSecondary().setConcealed().registerResearchItem();
@@ -68,7 +68,6 @@ public class BloodMagic {
 
             InfusionRecipe blood_rapier = ThaumcraftApi.addInfusionCraftingRecipe("BLOODRAPIER", new ItemStack(ForbiddenItems.bloodRapier, 1, 0), 8, (new AspectList()).add(Aspect.LIFE, 18).add(Aspect.HUNGER, 32).add(Aspect.WEAPON, 8), ItemApi.getItem("itemSwordVoid", 0), new ItemStack[] { ItemApi.getItem("itemResource", 12), new ItemStack(ForbiddenItems.deadlyShards, 1, 0), new ItemStack(ForbiddenItems.gluttonyShard, 1, 0), new ItemStack(Items.feather), ItemApi.getItem("itemResource", 6) });
             (new DarkResearchItem("BLOODRAPIER", "FORBIDDEN", "[BM]", (new AspectList()).add(Aspect.LIFE, 16).add(Aspect.HUNGER, 12).add(Aspect.WEAPON, 12).add(Aspect.MAGIC, 12), -9, 8, 4, new ItemStack(ForbiddenItems.bloodRapier, 1, 0))).setPages(new ResearchPage[] { new ResearchPage("forbidden.research_page.BLOODRAPIER.1"), new ResearchPage(blood_rapier) }).setParents(new String[] { "INFAUXSION", "VOIDMETAL" }).setConcealed().registerResearchItem();
-            ThaumcraftApi.addWarpToResearch("BLOODRAPIER", 3);
 
 			if (Compat.kami) {
 				try {

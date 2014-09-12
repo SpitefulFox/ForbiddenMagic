@@ -12,6 +12,7 @@ public class ForbiddenBlocks {
 	public static Block blackFlower;
 	public static Block wrathCage;
 	public static Block starBlock;
+    public static Block roseBush;
 
 	public static void addBlocks() {
 		arcaneCake = new BlockArcaneCake().setHardness(0.5F).setStepSound(Block.soundTypeCloth).setBlockName("ArcaneCake");
@@ -27,5 +28,8 @@ public class ForbiddenBlocks {
 		starBlock = new BlockResource().setHardness(5.0F).setStepSound(Block.soundTypeMetal).setBlockTextureName("forbidden:starblock").setBlockName("StarBlock");
 		GameRegistry.registerBlock(starBlock, "StarBlock");
 		OreDictionary.registerOre("blockNetherStar", new ItemStack(starBlock, 1, 0));
+
+        roseBush = new BlockRoseBush();
+        GameRegistry.registerBlock(roseBush, "UmbralBush");
 	}
 }

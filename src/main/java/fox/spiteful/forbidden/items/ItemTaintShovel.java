@@ -73,12 +73,10 @@ public class ItemTaintShovel extends ItemSpade implements IRepairable
                     if(target != null && (target == ConfigBlocks.blockFluxGoo || target == ConfigBlocks.blockFluxGas)){
                         purified++;
                         world.setBlockToAir(ex, wy, zee);
-                        for(int sparkle = 0;sparkle < 3;sparkle++) {
-                            double d1 = (double) ((float) ex + world.rand.nextFloat());
-                            double d2 = (double) ((float) wy + world.rand.nextFloat());
-                            double d0 = (double) ((float) zee + world.rand.nextFloat());
-                            Thaumcraft.proxy.sparkle((float) d1, (float) d2, (float) d0, 0x76FFFB);
-                        }
+                        float d1 = ((float) ex + world.rand.nextFloat());
+                        float d2 = ((float) wy + world.rand.nextFloat());
+                        float d0 = ((float) zee + world.rand.nextFloat());
+                        Thaumcraft.proxy.nodeBolt(world, (float)player.posX, (float)player.posY, (float)player.posZ, d1, d2, d0);
                     }
                 }
             }

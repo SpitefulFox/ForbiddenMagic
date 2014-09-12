@@ -357,14 +357,6 @@ public class FMEventHandler {
 	}
 
 	@SubscribeEvent
-	public void onBonemeal(BonemealEvent event) {
-		if (event.block == ForbiddenBlocks.blackFlower) {
-			((BlockBlackFlower) ForbiddenBlocks.blackFlower).spreadFlowers(event.world, event.x, event.y, event.z, randy);
-			event.setResult(Result.ALLOW);
-		}
-	}
-
-	@SubscribeEvent
 	public void onSpawn(LivingSpawnEvent event) {
 		if (event.entityLiving.worldObj.provider.dimensionId == -1 && event.entityLiving instanceof EntityPigZombie && randy.nextInt(175) == 1)
 			event.entityLiving.setCurrentItemOrArmor(0, new ItemStack(ForbiddenItems.deadlyShards, 1, 1));

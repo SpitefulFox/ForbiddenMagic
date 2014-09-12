@@ -79,6 +79,7 @@ tile.ArcaneCake.name=Thaumic Cake
 tile.InkFlower.name=Umbral Rose
 tile.WrathCage.name=Wrath Cage
 tile.StarBlock.name=Nether Star Block
+tile.blackRoseBush.name=Umbral Rose Bush
 #
 # Enchantments
 enchantment.cluster=Fiery Core

@@ -23,14 +23,7 @@ public class BlockBlackFlower extends BlockFlower {
 		super(1);
 		float f = 0.2F;
 		this.setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, f * 2.0F, 0.5F + f);
-		this.setTickRandomly(true);
 		this.setCreativeTab(Forbidden.tab);
-	}
-
-	@Override
-	public void updateTick(World world, int x, int y, int z, Random rand) {
-		if (!world.isRemote && rand.nextInt(25) == 1)
-			spreadFlowers(world, x, y, z, rand);
 	}
 
 	public void spreadFlowers(World world, int x, int y, int z, Random rand) {
