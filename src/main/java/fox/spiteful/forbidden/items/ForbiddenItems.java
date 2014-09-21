@@ -169,9 +169,6 @@ public class ForbiddenItems {
 		ridingCrop = new ItemRidingCrop(ToolMaterial.WOOD).setUnlocalizedName("RidingCrop");
 		GameRegistry.registerItem(ridingCrop, "RidingCrop");
 
-		divinewell = new ItemDivinewell().setUnlocalizedName("Divinewell");
-		GameRegistry.registerItem(divinewell, "Divinewell");
-
         bloodRapier = new ItemBloodRapier().setUnlocalizedName("BloodRapier");
         GameRegistry.registerItem(bloodRapier, "BloodRapier");
 

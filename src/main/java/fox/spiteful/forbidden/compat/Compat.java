@@ -79,12 +79,6 @@ public class Compat {
 					list = new AspectList().add(Aspect.ELDRITCH, 2).add(Aspect.MAGIC, 1).add(Aspect.CRYSTAL, 1);
 					ThaumcraftApi.registerObjectTag(new ItemStack(kamiResource, 1, 7), list);
 
-					InfusionEnchantmentRecipe eternal = ThaumcraftApi.addInfusionEnchantmentRecipe("ETERNAL", DarkEnchantments.eternal, 12, (new AspectList()).add(Aspect.CRAFT, 32).add(Aspect.TOOL, 64).add(DarkAspects.ENVY, 76).add(Aspect.MAGIC, 64), new ItemStack[] { new ItemStack(kamiResource, 1, 0), new ItemStack(kamiResource, 1, 2), new ItemStack(kamiResource, 1, 2), new ItemStack(kamiResource, 1, 2), new ItemStack(kamiResource, 1, 6), new ItemStack(ForbiddenItems.deadlyShards, 1, 1), new ItemStack(ForbiddenItems.deadlyShards, 1, 1), new ItemStack(ForbiddenItems.deadlyShards, 1, 1) });
-					(new DarkResearchItem("ETERNAL", "FORBIDDEN", "[TTKami]", (new AspectList()).add(Aspect.MAGIC, 16).add(Aspect.TOOL, 10).add(Aspect.CRAFT, 8).add(DarkAspects.ENVY, 32), -5, 7, 6, new ResourceLocation("forbidden", "textures/misc/eternal.png"))).setPages(new ResearchPage[] { new ResearchPage("forbidden.research_page.ETERNAL.1"), new ResearchPage(eternal) }).setParents(new String[] { "MORPHTOOLS", "ICHOR_TOOLS" }).setConcealed().registerResearchItem();
-                    ThaumcraftApi.addWarpToResearch("ETERNAL", 5);
-
-					InfusionRecipe thoth = ThaumcraftApi.addInfusionCraftingRecipe("DIVINEWELL", new ItemStack(ForbiddenItems.divinewell, 1, 0), 5, (new AspectList()).add(Aspect.MIND, 32).add(Aspect.BEAST, 12).add(Aspect.EARTH, 16), ItemApi.getItem("itemInkwell", 0), new ItemStack[] { new ItemStack(kamiResource, 1, 2), new ItemStack(kamiResource, 1, 0), new ItemStack(kamiResource, 1, 0), new ItemStack(Blocks.bookshelf), new ItemStack(Blocks.bookshelf), new ItemStack(Blocks.bookshelf), ItemApi.getItem("itemResource", 5), ItemApi.getItem("itemResource", 5), ItemApi.getItem("itemResource", 5) });
-					(new DarkResearchItem("DIVINEWELL", "FORBIDDEN", "[TTKami]", (new AspectList()).add(Aspect.MIND, 6).add(Aspect.EARTH, 3).add(Aspect.MAGIC, 5), -11, 4, 3, new ItemStack(ForbiddenItems.divinewell, 1, 0))).setPages(new ResearchPage[] { new ResearchPage("forbidden.research_page.DIVINEWELL.1"), new ResearchPage(thoth) }).setParents(new String[] { "ICHORIUM" }).setConcealed().registerResearchItem();
 				} catch (Exception e) {
 					LogHandler.log(Level.INFO, e, "We don't have Thaumic Tinkerer's nose.");
 				}

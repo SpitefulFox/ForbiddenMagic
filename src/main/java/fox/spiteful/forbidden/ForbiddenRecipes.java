@@ -10,6 +10,7 @@ import thaumcraft.api.ItemApi;
 import thaumcraft.api.ThaumcraftApi;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
+import thaumcraft.api.crafting.InfusionEnchantmentRecipe;
 import thaumcraft.api.wands.WandCap;
 
 import fox.spiteful.forbidden.blocks.ForbiddenBlocks;
@@ -50,6 +51,7 @@ public class ForbiddenRecipes {
 		ForbiddenResearch.recipes.put("Pigbane", ThaumcraftApi.addInfusionEnchantmentRecipe("PIGBANE", DarkEnchantments.pigBane, 1, (new AspectList()).add(Aspect.HUNGER, 4).add(Aspect.WEAPON, 4).add(Aspect.BEAST, 4), new ItemStack[] { new ItemStack(Items.iron_sword), new ItemStack(Items.porkchop), ItemApi.getItem("itemResource", 14) }));
 		ForbiddenResearch.recipes.put("Educational", ThaumcraftApi.addInfusionEnchantmentRecipe("EDUCATIONAL", DarkEnchantments.educational, 3, (new AspectList()).add(Aspect.MAGIC, 4).add(Aspect.WEAPON, 4).add(Aspect.MIND, 8), new ItemStack[] { ItemApi.getItem("itemResource", 5), new ItemStack(Items.book), ItemApi.getItem("itemResource", 14) }));
 		ForbiddenResearch.recipes.put("Corrupting", ThaumcraftApi.addInfusionEnchantmentRecipe("CORRUPTING", DarkEnchantments.corrupting, 4, (new AspectList()).add(DarkAspects.NETHER, 16).add(Aspect.EXCHANGE, 16).add(Aspect.CRYSTAL, 8), new ItemStack[] { new ItemStack(Items.nether_wart), new ItemStack(Blocks.soul_sand), ItemApi.getItem("itemResource", 14) }));
+        ForbiddenResearch.recipes.put("Eternal", ThaumcraftApi.addInfusionEnchantmentRecipe("ETERNAL", DarkEnchantments.eternal, 12, (new AspectList()).add(Aspect.CRAFT, 32).add(Aspect.TOOL, 64).add(DarkAspects.ENVY, 76).add(Aspect.MAGIC, 64), new ItemStack[] { new ItemStack(Items.nether_star), ItemApi.getItem("itemResource", 16), ItemApi.getItem("itemResource", 16), ItemApi.getItem("itemResource", 16), new ItemStack(ForbiddenItems.deadlyShards, 1, 1), new ItemStack(ForbiddenItems.deadlyShards, 1, 1), new ItemStack(ForbiddenItems.deadlyShards, 1, 1) }));
 
 		CraftingManager.getInstance().addRecipe(new ItemStack(Items.emerald, 1, 0), new Object[] { "###", "###", "###", Character.valueOf('#'), new ItemStack(ForbiddenItems.resource, 1, 0) });
 		CraftingManager.getInstance().addRecipe(new ItemStack(ForbiddenItems.resource, 9, 0), new Object[] { "#", Character.valueOf('#'), new ItemStack(Items.emerald, 1, 0) });
