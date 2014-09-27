@@ -36,7 +36,7 @@ item.DiabolistFork.name=妖魔之叉
 item.DiabolistSpork.name=劫难叉勺
 item.GluttonyShard.name=饕餮碎片
 item.Bloodwell.name=血腥之笔与墨
-item.DivineOrb.name=超凡血珠
+item.DivineOrb.name=邪术气血宝珠
 item.Crystalwell.name=水晶笔与墨
 item.RidingCrop.name=马鞭
 item.Divinewell.name=图特之笔
@@ -79,6 +79,7 @@ tile.ArcaneCake.name=奥法蛋糕
 tile.InkFlower.name=暗影玫瑰
 tile.WrathCage.name=暴怒之笼
 tile.StarBlock.name=下界之星方块
+tile.blackRoseBush.name=暗影玫瑰丛
 #
 # Enchantments
 enchantment.cluster=炽心
@@ -115,7 +116,7 @@ forbidden.research_page.ARCANECAKE.1=若问有哪样事物为你所钟爱,那必
 #
 forbidden.research_name.TAINTSHOVEL=净化铲
 forbidden.research_text.TAINTSHOVEL=犹如火热的刀子划过真正的黄油
-forbidden.research_page.TAINTSHOVEL.1=有时,清楚腐化区域的最简单途径无非直接挖走它们.<BR><BR>使用银树和秩序碎片强化神秘铲,你制造出这柄能够对抗腐化的工具.净化铲能够像挖开普通泥土那样捣稀泥一般地挖开腐化后的大地.拿在手里按下右键,这柄铲子能消耗耐久为你治疗咒波污染.
+forbidden.research_page.TAINTSHOVEL.1=有时,清楚腐化区域的最简单途径无非直接挖走它们.<BR><BR>使用银树和秩序碎片强化神秘铲,你制造出这柄能够对抗腐化的工具.净化铲能够像挖开普通泥土那样捣稀泥一般地挖开腐化后的大地.<BR><BR>手持它右击,铲子就会消耗一些耐久,净化小范围内所有的咒波粘浆和瓦斯.你就不必再用圆石来一点点处理注魔的灾难了!
 forbidden.research_page.TAINTSHOVEL.2=用这柄铲子挖开腐化的大地有几率释放出的扭曲能量,会结晶成腐化碎片.不像其余的腐化材料,水晶的形态让这种碎片稳定到能够随身携带.
 #
 forbidden.research_name.TAINTPICK=畸变镐
@@ -236,9 +237,9 @@ forbidden.research_name.BLOODWELL=血腥之笔与墨
 forbidden.research_text.BLOODWELL="如若它杀了我,我便能完成这项研究!"
 forbidden.research_page.BLOODWELL.1=没有比研究到一半却需要补充墨水更令人沮丧的事情了.有时候,你宁可使用自己的血来代替墨水也不愿意中断研究去找墨水.<BR><BR>血腥之笔与墨将能够使用生命点来补充墨水，每25个生命点补充一点墨水.但这项能力需要用体温激活,因此填充墨水时需要你从研究台中取出这个工具,但却实际上不会因此中断研究.
 #
-forbidden.research_name.DIVINEORB=超凡血珠
-forbidden.research_text.DIVINEORB=血神阿莫科的宝珠
-forbidden.research_page.DIVINEORB.1=在一些神秘使圈子里灵液确实就是神灵之血的流言甚嚣尘上.你难以辨别其真假,但灵液确乎对更加高级的炼金材料具有亲和力.<BR><BR>超凡血珠是你将最高深的神秘学与可用的炼金巫术相结合研究出的东西.这种融合极大增强了血珠的容纳能力,能够让它容纳高达70,000,000生命点.难道你还会需要更多的生命点吗？
+forbidden.research_name.DIVINEORB=邪术气血宝珠
+forbidden.research_text.DIVINEORB=噬灵者的宝珠
+forbidden.research_page.DIVINEORB.1=即便是神也不敢遥望的星隙之间,奇怪的低语吐诉着黑暗之力.不管其所说是否属实,它让你清楚这些空间能被注入许多东西.<BR><BR>通过给一个气血宝珠注入虚空之力,塑以奥术之形,你创造出了一个能储存巨量生命能量的宝珠.足足有80,000,000 LP的储量.将生命能量存于不受欧几里得几何所局限的空间之内是不可能出错的!
 #
 forbidden.research_name.BLOODRAPIER=血鸮西洋剑
 forbidden.research_text.BLOODRAPIER=血魔法的克星
