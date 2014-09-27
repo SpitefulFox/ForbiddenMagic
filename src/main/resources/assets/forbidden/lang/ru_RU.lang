@@ -36,7 +36,7 @@ item.DiabolistFork.name=Адские вилы
 item.DiabolistSpork.name=Ложка-вилка смерти
 item.GluttonyShard.name=Осколок прожорливости
 item.Bloodwell.name=Инструменты кровавого писца
-item.DivineOrb.name=Трансцендентная сфера крови
+item.DivineOrb.name=Жуткий шар крови
 item.Crystalwell.name=Кристальная чернильница с пером
 item.RidingCrop.name=Хлыст
 item.Divinewell.name=Чернильница с пером Тота
@@ -79,6 +79,7 @@ tile.ArcaneCake.name=Таумический торт
 tile.InkFlower.name=Мрачная роза
 tile.WrathCage.name=Клетка гнева
 tile.StarBlock.name=Блок звезды Нижнего мира
+tile.blackRoseBush.name=Мрачный куст роз
 #
 # Enchantments
 enchantment.cluster=Огненное ядро
@@ -115,7 +116,7 @@ forbidden.research_page.ARCANECAKE.1=If there's one thing you love, it's cake. Y
 #
 forbidden.research_name.TAINTSHOVEL=Лопата очистителя
 forbidden.research_text.TAINTSHOVEL=Как горячий нож сквозь плотное масло
-forbidden.research_page.TAINTSHOVEL.1=Sometimes, the easiest way to remove patches of taint is to just physically remove them.<BR><BR>By reinforcing a thaumium shovel with Silverwood and Order Shards, you have created a tool capable of combating Taint.  The Shovel of the Purifier can dig through pulpy tainted lands as effectively as it can through normal earth.  If held in your hand and right-clicked, the shovel cures you of Flux Taint at the cost of durability.
+forbidden.research_page.TAINTSHOVEL.1=Sometimes, the easiest way to remove patches of taint is to just physically remove them.<BR><BR>By reinforcing a thaumium shovel with Silverwood and Order Shards, you have created a tool capable of combating Taint.  The Shovel of the Purifier can dig through pulpy tainted lands as effectively as it can through normal earth.<BR><BR>If held in your hand and right-clicked, the shovel will purify all flux goo and gas from a small radius at the cost of durability. You no longer have to clean up infusion mishaps with a piece of cobblestone!
 forbidden.research_page.TAINTSHOVEL.2=When digging through taint with the shovel, there's a chance that the twisted energies released will crystallize into Taint Shards.  Unlike other tainted materials, the crystalline pattern keeps these shards stable enough to carry around.
 #
 forbidden.research_name.TAINTPICK=Кирка искажения
@@ -236,13 +237,13 @@ forbidden.research_name.BLOODWELL=Кровавые инструменты пис
 forbidden.research_text.BLOODWELL="Я завершу это исследование, если оно убьет меня!"
 forbidden.research_page.BLOODWELL.1=There's nothing more frustrating than having to pause your research to refill your inkwell. Sometimes, you're just so desperate to complete a research you'd rather use your own blood as ink than stop to go find a refill.<BR><BR>The Bloody Scrivener's Tools will refill using Life Points from their owner's network, at a rate of 25 LP per point. This ability requires human warmth to activate, requiring you to remove the tools from the research table, but without having to actually leave the research area.
 #
-forbidden.research_name.DIVINEORB=Трансцендентный кровавый шар
-forbidden.research_text.DIVINEORB=Шар Армока
+forbidden.research_name.DIVINEORB=Жуткий кровавый шар
+forbidden.research_text.DIVINEORB=Шар пожирателя душ
 forbidden.research_page.DIVINEORB.1=It is whispered among some Thaumaturgic circles that Ichor is actually the blood of the divine. You don't know whether this is true or not, but Ichor does seem to have an affinity with more advanced alchemical devices.<BR><BR>The Transcendent Blood Orb is what happens when you combine the most advanced Thaumaturgy and Alchemical Wizardry available. The infusion vastly increases the orb's carrying capacity, allowing it to hold a whopping 70,000,000 LP. What would you ever need that much LP for?
 #
 forbidden.research_name.BLOODRAPIER=Рапира неясыти
 forbidden.research_text.BLOODRAPIER=Уничтожитель Blood Magic
-forbidden.research_page.BLOODRAPIER.1=There's nothing more dangerous than a Blood Magus that is gorged on life essence. As long as they have enough life energy, there's very little that can pierce their defenses.<BR><BR>Until now.<BR><BR>The Strix Rapier, upon striking someone, drinks LP directly from their Soul Network and seals it so that they can't regain any more LP for a while. It may not do very much physical damage, but it packs a metaphysical punch against Blood Magi.
+forbidden.research_page.BLOODRAPIER.1=There's nothing more dangerous than a Blood Magus that is gorged on life essence. As long as they have enough life energy, there's very little that can pierce their defenses.<BR><BR>Until now.<BR><BR>The Rapier of the Strix, upon striking someone, drinks LP directly from their Soul Network and seals it so that they can't regain any more LP for a while. It may not do very much physical damage, but it packs a metaphysical punch against Blood Magi.
 #
 forbidden.research_name.CRYSTALWELL=Кристальная чернильница с пером
 forbidden.research_text.CRYSTALWELL=Тайный исследовательский грант
