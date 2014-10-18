@@ -17,8 +17,9 @@ import WayofTime.alchemicalWizardry.api.soulNetwork.SoulNetworkHandler;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import thaumcraft.api.IWarpingGear;
 
-public class ItemDivineOrb extends Item implements IBloodOrb, IBindable {
+public class ItemDivineOrb extends Item implements IBloodOrb, IBindable, IWarpingGear {
 	public ItemDivineOrb() {
 		setCreativeTab(Forbidden.tab);
 		AltarRecipeRegistry.registerAltarOrbRecipe(new ItemStack(this), 5, 140);
@@ -76,4 +77,8 @@ public class ItemDivineOrb extends Item implements IBloodOrb, IBindable {
 	public int getOrbLevel() {
 		return 5;
 	}
+
+    public int getWarp(ItemStack itemstack, EntityPlayer player) {
+        return 5;
+    }
 }

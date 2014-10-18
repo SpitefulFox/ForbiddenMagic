@@ -3,6 +3,8 @@ package fox.spiteful.forbidden.items;
 import fox.spiteful.forbidden.Forbidden;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.enchantment.EnchantmentHelper;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemAxe;
@@ -17,8 +19,9 @@ import fox.spiteful.forbidden.enchantments.DarkEnchantments;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import thaumcraft.api.IWarpingGear;
 
-public class ItemMorphAxe extends ItemAxe implements IRepairable {
+public class ItemMorphAxe extends ItemAxe implements IRepairable, IWarpingGear {
 	public IIcon[] icon;
 
 	public ItemMorphAxe(ToolMaterial enumtoolmaterial) {
@@ -112,11 +115,19 @@ public class ItemMorphAxe extends ItemAxe implements IRepairable {
 		return true;
 	}
 
-	public void setDamage(ItemStack stack, int damage) {
-		if (EnchantmentHelper.getEnchantmentLevel(DarkEnchantments.eternal.effectId, stack) > 0)
-			super.setDamage(stack, 0);
-		else
-			super.setDamage(stack, damage);
-	}
+    public void onUpdate(ItemStack stack, World world, Entity entity, int fuckObfuscation, boolean fuckObfuscation2) {
+        super.onUpdate(stack, world, entity, fuckObfuscation, fuckObfuscation2);
+        if(EnchantmentHelper.getEnchantmentLevel(DarkEnchantments.voidtouched.effectId, stack) > 0 && stack.isItemDamaged() && entity != null && entity.ticksExisted % 10 == 0 && entity instanceof EntityLivingBase) {
+            stack.damageItem(-1, (EntityLivingBase)entity);
+        }
+
+    }
+
+    public int getWarp(ItemStack itemstack, EntityPlayer player) {
+        if(EnchantmentHelper.getEnchantmentLevel(DarkEnchantments.voidtouched.effectId, itemstack) > 0)
+            return 1;
+        else
+            return 0;
+    }
 
 }

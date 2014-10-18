@@ -2,6 +2,7 @@ package fox.spiteful.forbidden;
 
 import java.util.Iterator;
 
+import fox.spiteful.forbidden.compat.Compat;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -44,14 +45,17 @@ public class ForbiddenRecipes {
 
 		ForbiddenResearch.recipes.put("Crystalwell", ThaumcraftApi.addShapelessArcaneCraftingRecipe("CRYSTALWELL", new ItemStack(ForbiddenItems.crystalwell, 1, 0), (new AspectList()).add(Aspect.EARTH, 2).add(Aspect.FIRE, 2).add(Aspect.AIR, 2).add(Aspect.WATER, 2).add(Aspect.ORDER, 2).add(Aspect.ENTROPY, 2), new Object[] { ItemApi.getItem("itemInkwell", 32767), "dyeBlack", ItemApi.getItem("itemShard", 32767), ItemApi.getItem("itemShard", 32767) }));
 
-		ForbiddenResearch.recipes.put("Cluster", ThaumcraftApi.addInfusionEnchantmentRecipe("CLUSTER", DarkEnchantments.cluster, 3, (new AspectList()).add(Aspect.FIRE, 4).add(Aspect.METAL, 4).add(Aspect.GREED, 4), new ItemStack[] { ItemApi.getItem("itemPickElemental", 0), ItemApi.getItem("itemResource", 14) }));
 		if (Config.greedyEnch)
 			ForbiddenResearch.recipes.put("Greedy", ThaumcraftApi.addInfusionEnchantmentRecipe("GREEDY", DarkEnchantments.greedy, 4, (new AspectList()).add(DarkAspects.NETHER, 16).add(Aspect.WEAPON, 8).add(Aspect.GREED, 16), new ItemStack[] { new ItemStack(Items.golden_sword), new ItemStack(Items.diamond), new ItemStack(Blocks.gold_block), ItemApi.getItem("itemResource", 14) }));
 		ForbiddenResearch.recipes.put("Consuming", ThaumcraftApi.addInfusionEnchantmentRecipe("CONSUMING", DarkEnchantments.consuming, 3, (new AspectList()).add(Aspect.VOID, 8).add(Aspect.TOOL, 8).add(Aspect.HUNGER, 8), new ItemStack[] { new ItemStack(Items.iron_pickaxe), new ItemStack(Items.lava_bucket), ItemApi.getItem("itemResource", 14) }));
-		ForbiddenResearch.recipes.put("Pigbane", ThaumcraftApi.addInfusionEnchantmentRecipe("PIGBANE", DarkEnchantments.pigBane, 1, (new AspectList()).add(Aspect.HUNGER, 4).add(Aspect.WEAPON, 4).add(Aspect.BEAST, 4), new ItemStack[] { new ItemStack(Items.iron_sword), new ItemStack(Items.porkchop), ItemApi.getItem("itemResource", 14) }));
-		ForbiddenResearch.recipes.put("Educational", ThaumcraftApi.addInfusionEnchantmentRecipe("EDUCATIONAL", DarkEnchantments.educational, 3, (new AspectList()).add(Aspect.MAGIC, 4).add(Aspect.WEAPON, 4).add(Aspect.MIND, 8), new ItemStack[] { ItemApi.getItem("itemResource", 5), new ItemStack(Items.book), ItemApi.getItem("itemResource", 14) }));
+		ForbiddenResearch.recipes.put("Wrath", ThaumcraftApi.addInfusionEnchantmentRecipe("WRATH", DarkEnchantments.wrath, 8, (new AspectList()).add(DarkAspects.WRATH, 16).add(Aspect.WEAPON, 16).add(DarkAspects.NETHER, 8), new ItemStack[] { ItemApi.getItem("itemResource", 14), new ItemStack(Items.diamond_sword, 1, 0), new ItemStack(ForbiddenItems.deadlyShards, 1, 0), new ItemStack(ForbiddenItems.deadlyShards, 1, 0), new ItemStack(ForbiddenItems.deadlyShards, 1, 0) }));
+		ForbiddenResearch.recipes.put("Educational", ThaumcraftApi.addInfusionEnchantmentRecipe("EDUCATIONAL", DarkEnchantments.educational, 3, (new AspectList()).add(Aspect.MAGIC, 4).add(Aspect.WEAPON, 4).add(Aspect.MIND, 8), new ItemStack[] { ItemApi.getItem("itemZombieBrain", 0), new ItemStack(Items.book), ItemApi.getItem("itemResource", 14) }));
 		ForbiddenResearch.recipes.put("Corrupting", ThaumcraftApi.addInfusionEnchantmentRecipe("CORRUPTING", DarkEnchantments.corrupting, 4, (new AspectList()).add(DarkAspects.NETHER, 16).add(Aspect.EXCHANGE, 16).add(Aspect.CRYSTAL, 8), new ItemStack[] { new ItemStack(Items.nether_wart), new ItemStack(Blocks.soul_sand), ItemApi.getItem("itemResource", 14) }));
-        ForbiddenResearch.recipes.put("Eternal", ThaumcraftApi.addInfusionEnchantmentRecipe("ETERNAL", DarkEnchantments.eternal, 12, (new AspectList()).add(Aspect.CRAFT, 32).add(Aspect.TOOL, 64).add(DarkAspects.ENVY, 76).add(Aspect.MAGIC, 64), new ItemStack[] { new ItemStack(Items.nether_star), ItemApi.getItem("itemResource", 16), ItemApi.getItem("itemResource", 16), ItemApi.getItem("itemResource", 16), new ItemStack(ForbiddenItems.deadlyShards, 1, 1), new ItemStack(ForbiddenItems.deadlyShards, 1, 1), new ItemStack(ForbiddenItems.deadlyShards, 1, 1) }));
+
+        ForbiddenResearch.recipes.put("Cluster", ThaumcraftApi.addInfusionEnchantmentRecipe("CLUSTER", DarkEnchantments.cluster, 3, (new AspectList()).add(Aspect.FIRE, 4).add(Aspect.METAL, 4).add(Aspect.GREED, 4), new ItemStack[] { ItemApi.getItem("itemPickElemental", 0), ItemApi.getItem("itemResource", 14) }));
+        if(!Compat.tc)
+            ForbiddenResearch.recipes.put("Impact", ThaumcraftApi.addInfusionEnchantmentRecipe("IMPACT", DarkEnchantments.impact, 4, (new AspectList()).add(Aspect.ENTROPY, 16).add(Aspect.MINE, 16), new ItemStack[] { ItemApi.getItem("itemResource", 14), new ItemStack(ForbiddenItems.deadlyShards, 1, 1), new ItemStack(ForbiddenItems.deadlyShards, 1, 1), new ItemStack(Blocks.tnt, 1), new ItemStack(Items.stone_pickaxe, 1, 0), new ItemStack(Items.stone_pickaxe, 1, 0) }));
+        ForbiddenResearch.recipes.put("Voidtouched", ThaumcraftApi.addInfusionEnchantmentRecipe("VOIDTOUCHED", DarkEnchantments.voidtouched, 8, (new AspectList()).add(Aspect.VOID, 16).add(Aspect.DARKNESS, 16).add(DarkAspects.ENVY, 24).add(Aspect.ELDRITCH, 16), new ItemStack[] { ItemApi.getItem("itemResource", 14), ItemApi.getItem("itemResource", 16), ItemApi.getItem("itemResource", 16), ItemApi.getItem("itemResource", 16), new ItemStack(ForbiddenItems.deadlyShards, 1, 1), new ItemStack(ForbiddenItems.deadlyShards, 1, 1), new ItemStack(ForbiddenItems.deadlyShards, 1, 1) }));
 
 		CraftingManager.getInstance().addRecipe(new ItemStack(Items.emerald, 1, 0), new Object[] { "###", "###", "###", Character.valueOf('#'), new ItemStack(ForbiddenItems.resource, 1, 0) });
 		CraftingManager.getInstance().addRecipe(new ItemStack(ForbiddenItems.resource, 9, 0), new Object[] { "#", Character.valueOf('#'), new ItemStack(Items.emerald, 1, 0) });

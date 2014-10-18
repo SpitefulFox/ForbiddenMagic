@@ -18,7 +18,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = "ForbiddenMagic", name = "Forbidden Magic", dependencies = "required-after:Thaumcraft;after:ThaumicTinkerer;after:AWWayofTime")
+@Mod(modid = "ForbiddenMagic", name = "Forbidden Magic", dependencies = "required-after:Thaumcraft;after:ThaumicTinkerer;after:AWWayofTime;after:Botania")
 public class Forbidden {
 	@Instance("ForbiddenMagic")
 	public static Forbidden instance;

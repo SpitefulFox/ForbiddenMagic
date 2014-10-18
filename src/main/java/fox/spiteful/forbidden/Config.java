@@ -17,12 +17,13 @@ public class Config {
 	public static HashMap<String, Aspect> spawnerMobs = new HashMap<String, Aspect>();
 
 	public static int clusterEnchID;
-	public static int pigBaneEnchID;
+	public static int wrathEnchID;
 	public static int greedyEnchID;
 	public static int consumingEnchID;
 	public static int educationalEnchID;
 	public static int corruptingEnchID;
-	public static int eternalEnchID;
+	public static int voidEnchID;
+    public static int impactEnchID;
 
     public static int bloodSealPotionID = 70;
 
@@ -53,12 +54,13 @@ public class Config {
 
 			int enchCount = 66;
 			clusterEnchID = conf.get("enchantments", "Fiery Core", enchCount++).getInt();
-			pigBaneEnchID = conf.get("enchantments", "Porcivore", enchCount++).getInt();
+			wrathEnchID = conf.get("enchantments", "Wrath", enchCount++).getInt();
 			greedyEnchID = conf.get("enchantments", "Capitalist", enchCount++).getInt();
 			consumingEnchID = conf.get("enchantments", "Consuming", enchCount++).getInt();
 			educationalEnchID = conf.get("enchantments", "Educational", enchCount++).getInt();
 			corruptingEnchID = conf.get("enchantments", "Corrupting", enchCount++).getInt();
-			eternalEnchID = conf.get("enchantments", "Eternal", enchCount++).getInt();
+			voidEnchID = conf.get("enchantments", "Voidtouched", enchCount++).getInt();
+            impactEnchID = conf.get("enchantments", "Impact", enchCount++).getInt();
 
 			noLust = conf.get("general", "No Lust", noLust, "Enable to remove Luxuria aspect and related items.").getBoolean(false);
 			silverfishEmeralds = conf.get("general", "Silverfish Drop Emerald Nuggets", silverfishEmeralds, "Disable to prevent Silverfish from dropping emerald nuggets.").getBoolean(true);

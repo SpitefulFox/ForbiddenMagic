@@ -3,6 +3,7 @@ package fox.spiteful.forbidden;
 import java.util.HashMap;
 
 import fox.spiteful.forbidden.blocks.ForbiddenBlocks;
+import fox.spiteful.forbidden.compat.Compat;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
@@ -42,7 +43,6 @@ public class ForbiddenResearch {
 		(new DarkResearchItem("CRYSTALWELL", "FORBIDDEN", (new AspectList()).add(Aspect.MIND, 3).add(Aspect.CRYSTAL, 2).add(Aspect.MAGIC, 1), -9, 4, 1, new ItemStack(ForbiddenItems.crystalwell, 1, 0))).setPages(new ResearchPage[] { new ResearchPage("forbidden.research_page.CRYSTALWELL.1"), new ResearchPage((IArcaneRecipe) recipes.get("Crystalwell")) }).setParents(new String[] { "RESEARCH" }).setAspectTriggers(new Aspect[] { Aspect.MIND }).setConcealed().registerResearchItem();
         ThaumcraftApi.addWarpToResearch("CRYSTALWELL", 1);
 		(new DarkResearchItem("CONSUMING", "FORBIDDEN", (new AspectList()).add(Aspect.VOID, 4).add(Aspect.ENTROPY, 3).add(Aspect.MAGIC, 2), -1, 2, 2, new ResourceLocation("forbidden", "textures/misc/consuming.png"))).setPages(new ResearchPage[] { new ResearchPage("forbidden.research_page.CONSUMING.1"), new ResearchPage((InfusionEnchantmentRecipe) recipes.get("Consuming")) }).setParents(new String[] { "INFAUXSIONENCHANTMENT" }).setSecondary().setConcealed().registerResearchItem();
-		(new DarkResearchItem("PIGBANE", "FORBIDDEN", (new AspectList()).add(Aspect.HUNGER, 3).add(Aspect.WEAPON, 4).add(Aspect.MAGIC, 2), -1, 3, 1, new ResourceLocation("forbidden", "textures/misc/pigbane.png"))).setPages(new ResearchPage[] { new ResearchPage("forbidden.research_page.PIGBANE.1"), new ResearchPage((InfusionEnchantmentRecipe) recipes.get("Pigbane")) }).setParents(new String[] { "INFAUXSIONENCHANTMENT" }).setSecondary().setConcealed().registerResearchItem();
 		(new DarkResearchItem("EDUCATIONAL", "FORBIDDEN", (new AspectList()).add(Aspect.MIND, 5).add(Aspect.WEAPON, 1).add(Aspect.MAGIC, 3), -1, 4, 2, new ResourceLocation("forbidden", "textures/misc/educational.png"))).setPages(new ResearchPage[] { new ResearchPage("forbidden.research_page.EDUCATIONAL.1"), new ResearchPage((InfusionEnchantmentRecipe) recipes.get("Educational")) }).setParents(new String[] { "INFAUXSIONENCHANTMENT" }).setSecondary().setConcealed().registerResearchItem();
 
 	}
@@ -63,13 +63,18 @@ public class ForbiddenResearch {
         ThaumcraftApi.addWarpToResearch("MORPHTOOLS", 4);
 		(new DarkResearchItem("ROD_infernal", "FORBIDDEN", (new AspectList()).add(DarkAspects.NETHER, 4).add(Aspect.FIRE, 3).add(Aspect.TOOL, 1), -6, -3, 4, new ItemStack(ForbiddenItems.wandCore, 1, 1))).setPages(new ResearchPage[] { new ResearchPage("forbidden.research_page.ROD_infernal.1"), new ResearchPage((InfusionRecipe) recipes.get("WandRodInfernal")), new ResearchPage("forbidden.research_page.ROD_infernal.2") }).setParents(new String[] { "ROD_silverwood", "INFAUXSION" }).setConcealed().registerResearchItem();
         ThaumcraftApi.addWarpToResearch("ROD_infernal", 2);
-		(new DarkResearchItem("CLUSTER", "FORBIDDEN", (new AspectList()).add(Aspect.METAL, 1).add(Aspect.FIRE, 4).add(DarkAspects.ENVY, 3), -7, 7, 3, new ResourceLocation("forbidden", "textures/misc/lucrative.png"))).setPages(new ResearchPage[] { new ResearchPage("forbidden.research_page.CLUSTER.1"), new ResearchPage((InfusionEnchantmentRecipe) recipes.get("Cluster")) }).setParents(new String[] { "MORPHTOOLS", "ELEMENTALPICK" }).setSecondary().setConcealed().registerResearchItem();
+
+        (new DarkResearchItem("WRATH", "FORBIDDEN", (new AspectList()).add(DarkAspects.WRATH, 16).add(Aspect.WEAPON, 20).add(Aspect.MAGIC, 10), -1, 3, 5, new ResourceLocation("forbidden", "textures/misc/wrath.png"))).setPages(new ResearchPage[] { new ResearchPage("forbidden.research_page.WRATH.1"), new ResearchPage((InfusionEnchantmentRecipe) recipes.get("Wrath")) }).setParents(new String[] { "INFAUXSIONENCHANTMENT" }).setConcealed().registerResearchItem();
+        ThaumcraftApi.addWarpToResearch("WRATH", 3);
 		if (Config.greedyEnch)
 			(new DarkResearchItem("GREEDY", "FORBIDDEN", (new AspectList()).add(Aspect.MAGIC, 2).add(Aspect.WEAPON, 1).add(Aspect.GREED, 3), -1, 5, 4, new ResourceLocation("forbidden", "textures/misc/greedy.png"))).setPages(new ResearchPage[] { new ResearchPage("forbidden.research_page.GREEDY.1"), new ResearchPage((InfusionEnchantmentRecipe) recipes.get("Greedy")) }).setParents(new String[] { "INFAUXSIONENCHANTMENT" }).setConcealed().registerResearchItem();
 		(new DarkResearchItem("CORRUPTING", "FORBIDDEN", (new AspectList()).add(DarkAspects.NETHER, 5).add(Aspect.CRYSTAL, 2).add(Aspect.EXCHANGE, 1), -1, 6, 3, new ResourceLocation("forbidden", "textures/misc/corrupting.png"))).setPages(new ResearchPage[] { new ResearchPage("forbidden.research_page.CORRUPTING.1"), new ResearchPage((InfusionEnchantmentRecipe) recipes.get("Corrupting")) }).setParents(new String[] { "INFAUXSIONENCHANTMENT" }).setConcealed().registerResearchItem();
 
-        (new DarkResearchItem("ETERNAL", "FORBIDDEN", (new AspectList()).add(Aspect.MAGIC, 16).add(Aspect.TOOL, 10).add(Aspect.CRAFT, 8).add(DarkAspects.ENVY, 32), -5, 7, 6, new ResourceLocation("forbidden", "textures/misc/eternal.png"))).setPages(new ResearchPage[] { new ResearchPage("forbidden.research_page.ETERNAL.1"), new ResearchPage((InfusionEnchantmentRecipe) recipes.get("Eternal")) }).setParents(new String[] { "MORPHTOOLS", "ICHOR_TOOLS" }).setConcealed().registerResearchItem();
-        ThaumcraftApi.addWarpToResearch("ETERNAL", 5);
+        (new DarkResearchItem("CLUSTER", "FORBIDDEN", (new AspectList()).add(Aspect.METAL, 1).add(Aspect.FIRE, 4).add(DarkAspects.ENVY, 3), -7, 7, 3, new ResourceLocation("forbidden", "textures/misc/lucrative.png"))).setPages(new ResearchPage[] { new ResearchPage("forbidden.research_page.CLUSTER.1"), new ResearchPage((InfusionEnchantmentRecipe) recipes.get("Cluster")) }).setParents(new String[] { "MORPHTOOLS", "ELEMENTALPICK" }).setSecondary().setConcealed().registerResearchItem();
+        if(!Compat.tc)
+            (new DarkResearchItem("IMPACT", "FORBIDDEN", (new AspectList()).add(Aspect.ENTROPY, 8).add(Aspect.TOOL, 10).add(Aspect.MINE, 16).add(DarkAspects.ENVY, 10), -6, 7, 4, new ResourceLocation("forbidden", "textures/misc/impact.png"))).setPages(new ResearchPage[] { new ResearchPage("forbidden.research_page.IMPACT.1"), new ResearchPage((InfusionEnchantmentRecipe) recipes.get("Impact")) }).setParents(new String[] { "MORPHTOOLS" }).setConcealed().registerResearchItem();
+        (new DarkResearchItem("VOIDTOUCHED", "FORBIDDEN", (new AspectList()).add(Aspect.ELDRITCH, 16).add(Aspect.TOOL, 10).add(Aspect.CRAFT, 8).add(DarkAspects.ENVY, 32), -5, 7, 4, new ResourceLocation("forbidden", "textures/misc/voidtouched.png"))).setPages(new ResearchPage[] { new ResearchPage("forbidden.research_page.VOIDTOUCHED.1"), new ResearchPage((InfusionEnchantmentRecipe) recipes.get("Voidtouched")) }).setParents(new String[] { "MORPHTOOLS", "VOIDMETAL" }).setConcealed().registerResearchItem();
+        ThaumcraftApi.addWarpToResearch("VOIDTOUCHED", 3);
 
 		if (Config.wrathCage) {
 			if (Config.wrathCost > 0)

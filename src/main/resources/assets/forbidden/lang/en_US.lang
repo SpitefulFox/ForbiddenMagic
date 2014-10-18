@@ -80,15 +80,17 @@ tile.InkFlower.name=Umbral Rose
 tile.WrathCage.name=Wrath Cage
 tile.StarBlock.name=Nether Star Block
 tile.blackRoseBush.name=Umbral Rose Bush
+tile.darkflower.euclidaisy.name=Euclidaisy
 #
 # Enchantments
 enchantment.cluster=Fiery Core
-enchantment.pigbane=Porcivore
+enchantment.wrath=Wrath
 enchantment.greedy=Capitalist
 enchantment.consuming=Consuming
 enchantment.educational=Educational
 enchantment.corrupting=Corrupting
-enchantment.eternal=Eternal
+enchantment.voidtouched=Voidtouched
+enchantment.impact=Impact
 #
 # Potions
 potion.blood_seal=Blood Seal
@@ -97,6 +99,8 @@ potion.blood_seal=Blood Seal
 itemGroup.forbidden=Forbidden Magic
 itemGroup.mobcrystal=Imprinting Crystals
 tc.research_category.FORBIDDEN=Apocrypha
+forbidden.lexicon.euclidaisy=Euclidaisy
+forbidden.lexicon.euclidaisy.0=The eerie, pink &1Euclidaisy&0 is an oddity. It uses large amounts of mana to conjure some sort of ethereal substance that only seems useful to thaumaturges.<br>The method of creating one doesn't appear to be common knowledge. Try consulting a Thaumonomicon?
 #
 # Research
 forbidden.research_name.NETHERSHARDS=Nether Shards
@@ -204,6 +208,10 @@ forbidden.research_name.CLUSTER=Enchantment: Fiery Core
 forbidden.research_text.CLUSTER=Chameleon of the Core
 forbidden.research_page.CLUSTER.1=You've discovered an enchantment to allow the Chameleon Pickaxe to imitate the effects of the Pickaxe of the Core.  A Chameleon Pickaxe with the Fiery Core enchantment has a chance of dropping clusters when mining certain ores.  Clusters are a lot purer than raw ore and can be smelted for two of the ore's normal smelting result.  Higher levels of Fiery Core increase the chance of dropping clusters.
 #
+forbidden.research_name.IMPACT=Enchantment: Impact
+forbidden.research_text.IMPACT=Someday that wall is gonna fall.
+forbidden.research_page.IMPACT.1=Some other tools have a much broader area of effect when mining. With the Impact enchantment, so can your Chameleon Pickaxe and Shovel.<BR><BR>A Chameleon Tool with the Impact enchantment mines a 3 x 3 area of blocks instead of just one, making exploratory mining and flattening areas much easier.
+#
 forbidden.research_name.GREEDY=Enchantment: Capitalist
 forbidden.research_text.GREEDY=Unregulated enchanting
 forbidden.research_page.GREEDY.1=You've discovered a weapon enchantment that allows you to profit from taking lives. Every time a Capitalist weapon slays a hostile creature, there's a chance to drop an Emerald Fragment. If a Capitalist Weapon is used to kill a villager, it will instead drop one of the villager's emeralds.
@@ -212,9 +220,9 @@ forbidden.research_name.CONSUMING=Enchantment: Consuming
 forbidden.research_text.CONSUMING=Garbage Disposal
 forbidden.research_page.CONSUMING.1=Sick of having to empty your pack of worthless junk, you've devised an enchantment that will automatically destroy common, unwanted materials.  Any Cobblestone, Dirt, Gravel, or Netherrack mined by a Consuming tool will be destroyed instead of falling to the ground.
 #
-forbidden.research_name.PIGBANE=Enchantment: Porcivore
-forbidden.research_text.PIGBANE=Show those Zombie Pigmen who's at the top of the food chain!
-forbidden.research_page.PIGBANE.1=Zombie Pigmen think they're so great. They're always stomping around the Nether ganging up on innocent travelers. It's time someone put a stop to them.<BR><BR>Weapons with the Porcivore enchantment will do excessive amounts of damage to Pigs and Zombie Pigmen.
+forbidden.research_name.WRATH=Enchantment: Wrath
+forbidden.research_text.WRATH=When every problem is a nail, all you want is a bigger hammer.
+forbidden.research_page.WRATH.1=Ugh. You need more excessively violent weapons to kill things with. Enchanting is a good start, but there's only so much Sharpness you can squeeze into a typical sword before it starts to liquefy and sprout daisies instead. Your weapons just aren't killing things hard enough.<BR><BR>To amend this, you've created a special enchantment to force even more violence and death into a weapon. The Wrath enchantment increases the offensive power of a weapon, but is still compatible with Sharpness, Bane of Arthropods, and Smite.
 #
 forbidden.research_name.EDUCATIONAL=Enchantment: Educational
 forbidden.research_text.EDUCATIONAL=You will LEARN!
@@ -224,9 +232,9 @@ forbidden.research_name.CORRUPTING=Enchantment: Corrupting
 forbidden.research_text.CORRUPTING=A bad influence on shards
 forbidden.research_page.CORRUPTING.1=The Nether is great and all, but it's also kind of a... Hell Hole.<BR><BR>The Corrupting enchant allows you to harvest Nether Shards without having to be in the Nether.  A pickaxe enchanted with Corrupting will randomly corrupt harvested elemental shards, changing them into nether shards. The shards only seem susceptible while they are encased in infused stone, so corrupting a shard cluster will have no effect.
 #
-forbidden.research_name.ETERNAL=Enchantment: Eternal
-forbidden.research_text.ETERNAL=Chameleon Gods
-forbidden.research_page.ETERNAL.1=Ichorium Tools are really great. You sure wish your Chameleon Tools could be more like them. Maybe they can...<BR><BR>The Eternal enchant gives a Chameleon Tool the same unbreakable quality as Ichorium Tools.
+forbidden.research_name.VOIDTOUCHED=Enchantment: Voidtouched
+forbidden.research_text.VOIDTOUCHED=Colour Out of Space
+forbidden.research_page.VOIDTOUCHED.1=Voidmetal's ability to flow back into place after being damaged is fascinating. You sure wish your Chameleon Tools had the same properties...<BR><BR>The Voidtouched enchant gives a Chameleon Tool the same regenerating quality as Void Tools.<BR><BR>Chameleon Tools affected by the enchantment appear to be made of living scaled flesh which morphs back into shape when hurt. Just looking at it is disturbing for your sanity.
 #
 forbidden.research_name.TAINTBASICS=Tainted Lands
 forbidden.research_text.TAINTBASICS=Deep Purple
@@ -257,7 +265,7 @@ forbidden.research_name.HELLFIRE=Lord of Hellfire
 forbidden.research_text.HELLFIRE=Never get stranded again
 forbidden.research_page.HELLFIRE.1=Getting stranded in the Nether is the worst. You go through all the trouble of grabbing what you need, but before you can go home, some stupid ghast decides to rain on your parade by blasting the portal shut. Sure, this can be amended by carrying a flint and steel around, but who actually walks around with those things?<BR><BR>You've discovered a way to use vis in your wand to light fires on certain materials.  Right click with a focus-less wand in your hand on the top of netherrack or obsidian to light a flame using some Ignis from your wand.
 #
-forbidden.research_name.DIVINEWELL=Scribing Tools of Thoth
-forbidden.research_text.DIVINEWELL=Mightier Than The Sword
-forbidden.research_page.DIVINEWELL.1=After researching every last shred of knowledge in the entire cosmos, you've finally uncovered the secret to never refilling your inkwell.<BR><BR>The Scribing Tools of Thoth will never run out of ink.<BR><BR>You sure wish you could've discovered this earlier...
+forbidden.research_name.EUCLIDAISY=Euclidaisy
+forbidden.research_text.EUCLIDAISY=Mai waifu's power level is over 9000 in the name of the moon! Believe it!
+forbidden.research_page.EUCLIDAISY.1=Ethereal Essences are extremely useful sources of essentia and are a very important ingredient in Thaumaturge's Salt. Unfortunately, it can be very difficult to come by. Wisps aren't exactly common, and no self-respecting thaumaturge wants to stoop to smashing open a node.<BR><BR>By combining thaumaturgy and hedge magic, you've created a flower that can use mana to rip open the fabric of reality. The rip isn't stable enough to form a node, but it does stay open long enough to drop a single wispy strand of essence. Applying a redstone signal to the flower causes it to stop.
 #

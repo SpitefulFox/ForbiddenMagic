@@ -9,10 +9,10 @@ import net.minecraft.item.ItemStack;
 
 import fox.spiteful.forbidden.items.ItemMorphShovel;
 
-public class EnchantmentEternal extends Enchantment {
-	public EnchantmentEternal(int id) {
+public class EnchantmentVoid extends Enchantment {
+	public EnchantmentVoid(int id) {
 		super(id, 0, EnumEnchantmentType.digger);
-		setName("eternal");
+		setName("voidtouched");
 	}
 
 	@Override
@@ -22,17 +22,12 @@ public class EnchantmentEternal extends Enchantment {
 
 	@Override
 	public int getMinEnchantability(int par1) {
-		return 70;
+		return 30;
 	}
 
 	@Override
 	public int getMaxEnchantability(int par1) {
-		return super.getMinEnchantability(par1) + 50;
-	}
-
-	@Override
-	public boolean canApplyTogether(Enchantment ench) {
-		return super.canApplyTogether(ench) && ench.effectId != Enchantment.unbreaking.effectId && ench.effectId != DarkEnchantments.educational.effectId;
+		return super.getMinEnchantability(par1) + 30;
 	}
 
 	@Override

@@ -1,11 +1,14 @@
 package fox.spiteful.forbidden.items.wands;
 
+import am2.api.ArsMagicaApi;
+import am2.api.IExtendedProperties;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.wands.IWandRodOnUpdate;
 
 import fox.spiteful.forbidden.compat.Compat;
+import thaumcraft.common.items.wands.ItemWandCasting;
 
 public class ManaWandUpdate implements IWandRodOnUpdate {
 
@@ -18,8 +21,7 @@ public class ManaWandUpdate implements IWandRodOnUpdate {
 			
 				try
 				{
-					//TODO: Readd Ars Magica
-					/* IExtendedProperties prop = ArsMagicaApi.instance.getExtendedProperties(player);
+					IExtendedProperties prop = ArsMagicaApi.instance.getExtendedProperties(player);
 				
 					float cost;
 					if(((ItemWandCasting)itemstack.getItem()).getCap(itemstack).getTag().equals("vinteum"))
@@ -39,7 +41,7 @@ public class ManaWandUpdate implements IWandRodOnUpdate {
 								((ItemWandCasting)itemstack.getItem()).addVis(itemstack, primals[x], 1, true);
 							}
 						}
-					} */
+					}
 				}
 				catch(Throwable e){}
 			}

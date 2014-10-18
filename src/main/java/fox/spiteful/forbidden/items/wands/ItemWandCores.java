@@ -67,12 +67,12 @@ public class ItemWandCores extends Item {
 		((ItemWandCasting) wand.getItem()).setCap(wand, (WandCap) WandCap.caps.get("orichalcum"));
 		((ItemWandCasting) wand.getItem()).setRod(wand, (WandRod) WandRod.rods.get("neutronium_staff"));
 		list.add(wand);
-		if (Compat.pb) {
+		/*if (Compat.pb) {
 			wand = ItemApi.getItem("itemWandCasting", 84);
 			((ItemWandCasting) wand.getItem()).setCap(wand, (WandCap) WandCap.caps.get("soul"));
 			((ItemWandCasting) wand.getItem()).setRod(wand, (WandRod) WandRod.rods.get("soul"));
 			list.add(wand);
-		}
+		}*/
 		if (Compat.bm) {
 			wand = ItemApi.getItem("itemWandCasting", 84);
 			((ItemWandCasting) wand.getItem()).setCap(wand, (WandCap) WandCap.caps.get("alchemical"));
@@ -91,12 +91,6 @@ public class ItemWandCores extends Item {
 			wand = ItemApi.getItem("itemWandCasting", 144);
 			((ItemWandCasting) wand.getItem()).setCap(wand, (WandCap) WandCap.caps.get("vinteum"));
 			((ItemWandCasting) wand.getItem()).setRod(wand, (WandRod) WandRod.rods.get("witchwood_staff"));
-			list.add(wand);
-		}
-		if (Compat.totes) {
-			wand = ItemApi.getItem("itemWandCasting", 24);
-			((ItemWandCasting) wand.getItem()).setCap(wand, (WandCap) WandCap.caps.get("thaumium"));
-			((ItemWandCasting) wand.getItem()).setRod(wand, (WandRod) WandRod.rods.get("totem"));
 			list.add(wand);
 		}
 		if (Compat.botan) {

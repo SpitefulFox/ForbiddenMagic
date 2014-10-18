@@ -1,11 +1,14 @@
 package fox.spiteful.forbidden.compat;
 
-import fox.spiteful.forbidden.DarkAspects;
-import fox.spiteful.forbidden.LogHandler;
+import fox.spiteful.forbidden.*;
+import fox.spiteful.forbidden.tiles.SubTileEuclidaisy;
+import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.oredict.OreDictionary;
 
@@ -13,21 +16,25 @@ import org.apache.logging.log4j.Level;
 
 import thaumcraft.api.ItemApi;
 import thaumcraft.api.ThaumcraftApi;
-import thaumcraft.api.ThaumcraftApiHelper;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
 import thaumcraft.api.crafting.IArcaneRecipe;
 import thaumcraft.api.crafting.InfusionEnchantmentRecipe;
 import thaumcraft.api.crafting.InfusionRecipe;
 import thaumcraft.api.research.ResearchPage;
+import thaumcraft.common.config.ConfigItems;
 import vazkii.botania.api.BotaniaAPI;
 
-import fox.spiteful.forbidden.DarkResearchItem;
 import fox.spiteful.forbidden.enchantments.DarkEnchantments;
 import fox.spiteful.forbidden.items.ForbiddenItems;
 
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.registry.GameRegistry;
+import vazkii.botania.api.lexicon.LexiconCategory;
+import vazkii.botania.api.lexicon.LexiconPage;
+
+import java.lang.reflect.Constructor;
+import java.util.List;
 
 public class Compat {
 	public static boolean tt = false;
@@ -38,7 +45,7 @@ public class Compat {
 	public static boolean bm = false;
 	public static boolean am2 = false;
 	public static boolean botan = false;
-    public static boolean totes = false;
+    public static boolean tc = false;
 
     public static void initiate() {
 		if (Loader.isModLoaded("ThaumicTinkerer"))
@@ -57,6 +64,8 @@ public class Compat {
 			am2 = true;
 		if (Loader.isModLoaded("Botania"))
 			botan = true;
+        if (Loader.isModLoaded("TConstruct"))
+            tc = true;
 	}
 
 	public static void compatify() {
@@ -80,13 +89,24 @@ public class Compat {
 					ThaumcraftApi.registerObjectTag(new ItemStack(kamiResource, 1, 7), list);
 
 				} catch (Exception e) {
-					LogHandler.log(Level.INFO, e, "We don't have Thaumic Tinkerer's nose.");
+					LogHandler.log(Level.INFO, e, "Forbidden Magic doesn't have Thaumic Tinkerer's nose.");
 				}
 
 			}
 		}
 
-		if (natura) {
+		if(tc){
+            try {
+                Item hammerHead = GameRegistry.findItem("TConstruct", "hammerHead");
+                InfusionEnchantmentRecipe impact = ThaumcraftApi.addInfusionEnchantmentRecipe("IMPACT", DarkEnchantments.impact, 4, (new AspectList()).add(Aspect.ENTROPY, 16).add(Aspect.MINE, 16), new ItemStack[] { ItemApi.getItem("itemResource", 14), new ItemStack(ForbiddenItems.deadlyShards, 1, 1), new ItemStack(ForbiddenItems.deadlyShards, 1, 1), new ItemStack(Blocks.tnt, 1), new ItemStack(hammerHead, 1, 1), new ItemStack(hammerHead, 1, 1) });
+                (new DarkResearchItem("IMPACT", "FORBIDDEN", (new AspectList()).add(Aspect.ENTROPY, 8).add(Aspect.TOOL, 10).add(Aspect.MINE, 16).add(DarkAspects.ENVY, 10), -6, 7, 4, new ResourceLocation("forbidden", "textures/misc/impact.png"))).setPages(new ResearchPage[] { new ResearchPage("forbidden.research_page.IMPACT.1"), new ResearchPage(impact) }).setParents(new String[] { "MORPHTOOLS" }).setConcealed().registerResearchItem();
+            } catch (Exception e) {
+                LogHandler.log(Level.INFO, e, "Forbidden Magic fell into Tinkers Construct's smeltery.");
+                tc = false;
+            }
+        }
+
+        if (natura) {
 			try {
 				list = (new AspectList()).add(Aspect.BEAST, 2).add(DarkAspects.NETHER, 4).add(DarkAspects.SLOTH, 2);
 				ThaumcraftApi.registerEntityTag("Natura.Imp", list);
@@ -184,76 +204,36 @@ public class Compat {
 			BloodMagic.stab();
 		}
 
-		// TODO: Readd ArsMagica2 Support when it's updated
-		/*
-		 * if (am2) { try { Class amItems =
-		 * Class.forName("am2.items.ItemsCommonProxy"); Class amBlocks =
-		 * Class.forName("am2.blocks.BlocksCommonProxy"); Item essence = (Item)
-		 * (amItems.getField("essence").get(null)); Item amOre = (Item)
-		 * (amItems.getField("itemOre").get(null)); Block witchwood = (Block)
-		 * (amBlocks.getField("witchwoodLog").get(null));
-		 * 
-		 * InfusionRecipe witchwood_recipe =
-		 * ThaumcraftApi.addInfusionCraftingRecipe("ROD_witchwood", new
-		 * ItemStack(ForbiddenItems.wandCore, 1, 4), 5, (new
-		 * AspectList()).add(Aspect.MAGIC, 16).add(Aspect.EARTH,
-		 * 9).add(Aspect.WATER, 9).add(Aspect.FIRE, 9).add(Aspect.AIR, 9), new
-		 * ItemStack(witchwood), new ItemStack[] { new ItemStack(essence, 1, 0),
-		 * new ItemStack(amOre, 1, 3), new ItemStack(essence, 1, 1), new
-		 * ItemStack(essence, 1, 2), new ItemStack(essence, 1, 3), new
-		 * ItemStack(essence, 1, 4), new ItemStack(amOre, 1, 6), new
-		 * ItemStack(amOre, 1, 7), new ItemStack(amOre, 1, 2) }); (new
-		 * DarkResearchItem("ROD_witchwood", "FORBIDDEN", "[AM2]", (new
-		 * AspectList()).add(Aspect.MAGIC, 6).add(Aspect.TREE,
-		 * 5).add(Aspect.MIND, 4), -4, -3, 3, new
-		 * ItemStack(ForbiddenItems.wandCore, 1, 4))).setPages(new
-		 * ResearchPage[] { new
-		 * ResearchPage("forbidden.research_page.ROD_witchwood.1"), new
-		 * ResearchPage(witchwood_recipe) }).setParents(new String[] {
-		 * "ROD_silverwood", "INFAUXSION"
-		 * }).setConcealed().registerResearchItem();
-		 * 
-		 * InfusionRecipe vinteum_recipe =
-		 * ThaumcraftApi.addInfusionCraftingRecipe("CAP_vinteum", new
-		 * ItemStack(ForbiddenItems.wandCap, 1, 1), 5, (new
-		 * AspectList()).add(Aspect.ENERGY, 12).add(Aspect.MAGIC, 6),
-		 * ItemApi.getItem("itemWandCap", 6), new ItemStack[] { new
-		 * ItemStack(amOre, 1, 0), new ItemStack(amOre, 1, 0), new
-		 * ItemStack(amOre, 1, 0) }); (new DarkResearchItem("CAP_vinteum",
-		 * "FORBIDDEN", "[AM2]", (new AspectList()).add(Aspect.MAGIC,
-		 * 4).add(Aspect.TOOL, 1).add(Aspect.ENERGY, 2), -4, -5, 1, new
-		 * ItemStack(ForbiddenItems.wandCap, 1, 1))).setPages(new ResearchPage[]
-		 * { new ResearchPage("forbidden.research_page.CAP_vinteum.1"), new
-		 * ResearchPage(vinteum_recipe) }).setParents(new String[] {
-		 * "ROD_witchwood", "CAP_thaumium"
-		 * }).setSecondary().setConcealed().registerResearchItem();
-		 * 
-		 * IArcaneRecipe witchwood_staff =
-		 * ThaumcraftApi.addArcaneCraftingRecipe("ROD_witchwood_staff", new
-		 * ItemStack(ForbiddenItems.wandCore, 1, 10), (new
-		 * AspectList()).add(Aspect.ENTROPY, 26).add(Aspect.FIRE,
-		 * 26).add(Aspect.WATER, 26).add(Aspect.AIR, 26).add(Aspect.EARTH,
-		 * 26).add(Aspect.ORDER, 26), new Object[] { "__D", "_B_", "B__",
-		 * Character.valueOf('B'), new ItemStack(ForbiddenItems.wandCore, 1, 4),
-		 * Character.valueOf('D'), new ItemStack(essence, 1, 10) }); (new
-		 * DarkResearchItem("ROD_witchwood_staff", "FORBIDDEN", "[AM2]", (new
-		 * AspectList()).add(Aspect.MAGIC, 8).add(Aspect.MIND,
-		 * 7).add(Aspect.TOOL, 6), -4, -7, 5, new
-		 * ItemStack(ForbiddenItems.wandCore, 1, 10))).setPages(new
-		 * ResearchPage[] { new
-		 * ResearchPage("forbidden.research_page.ROD_witchwood_staff.1"), new
-		 * ResearchPage(witchwood_staff) }).setParents(new String[] {
-		 * "ROD_silverwood_staff", "ROD_witchwood"
-		 * }).setSpecial().setConcealed().registerResearchItem(); } catch
-		 * (Exception e) { LogHandler.log(Level.INFO, e,
-		 * "Forbidden Magic was slain by a Hecate."); am2 = false; } }
-		 */
+        if (am2) {
+            try {
+                Class amItems = Class.forName("am2.items.ItemsCommonProxy");
+                Class amBlocks = Class.forName("am2.blocks.BlocksCommonProxy");
+                Item essence = (Item)(amItems.getField("essence").get(null));
+                Item amOre = (Item)(amItems.getField("itemOre").get(null));
+                Block witchwood = (Block)(amBlocks.getField("witchwoodLog").get(null));
+
+                InfusionRecipe witchwood_recipe = ThaumcraftApi.addInfusionCraftingRecipe("ROD_witchwood", new ItemStack(ForbiddenItems.wandCore, 1, 4), 5, (new AspectList()).add(Aspect.MAGIC, 16).add(Aspect.EARTH, 9).add(Aspect.WATER, 9).add(Aspect.FIRE, 9).add(Aspect.AIR, 9), new ItemStack(witchwood), new ItemStack[]{new ItemStack(essence, 1, 0), new ItemStack(amOre, 1, 3), new ItemStack(essence, 1, 1), new ItemStack(essence, 1, 2), new ItemStack(essence, 1, 3), new ItemStack(essence, 1, 4), new ItemStack(amOre, 1, 6), new ItemStack(amOre, 1, 7), new ItemStack(amOre, 1, 2)});
+                (new DarkResearchItem("ROD_witchwood", "FORBIDDEN", "[AM2]", (new AspectList()).add(Aspect.MAGIC, 6).add(Aspect.TREE, 5).add(Aspect.MIND, 4), -4, -3, 3, new ItemStack(ForbiddenItems.wandCore, 1, 4))).setPages(new ResearchPage[]{new ResearchPage("forbidden.research_page.ROD_witchwood.1"), new ResearchPage(witchwood_recipe)}).setParents(new String[]{ "ROD_silverwood", "INFAUXSION" }).setConcealed().registerResearchItem();
+
+                InfusionRecipe vinteum_recipe = ThaumcraftApi.addInfusionCraftingRecipe("CAP_vinteum", new ItemStack(ForbiddenItems.wandCap, 1, 1), 5, (new AspectList()).add(Aspect.ENERGY, 12).add(Aspect.MAGIC, 6), ItemApi.getItem("itemWandCap", 6), new ItemStack[]{new ItemStack(amOre, 1, 0), new ItemStack(amOre, 1, 0), new ItemStack(amOre, 1, 0)});
+                (new DarkResearchItem("CAP_vinteum", "FORBIDDEN", "[AM2]", (new AspectList()).add(Aspect.MAGIC, 4).add(Aspect.TOOL, 1).add(Aspect.ENERGY, 2), -4, -5, 1, new ItemStack(ForbiddenItems.wandCap, 1, 1))).setPages(new ResearchPage[]{new ResearchPage("forbidden.research_page.CAP_vinteum.1"), new ResearchPage(vinteum_recipe)}).setParents(new String[]{"ROD_witchwood", "CAP_thaumium"}).setSecondary().setConcealed().registerResearchItem();
+
+                IArcaneRecipe witchwood_staff = ThaumcraftApi.addArcaneCraftingRecipe("ROD_witchwood_staff", new ItemStack(ForbiddenItems.wandCore, 1, 10), (new AspectList()).add(Aspect.ENTROPY, 26).add(Aspect.FIRE, 26).add(Aspect.WATER, 26).add(Aspect.AIR, 26).add(Aspect.EARTH, 26).add(Aspect.ORDER, 26), new Object[]{"__D", "_B_", "B__", Character.valueOf('B'), new ItemStack(ForbiddenItems.wandCore, 1, 4), Character.valueOf('D'), new ItemStack(essence, 1, 10)});
+                (new DarkResearchItem("ROD_witchwood_staff", "FORBIDDEN", "[AM2]", (new AspectList()).add(Aspect.MAGIC, 8).add(Aspect.MIND, 7).add(Aspect.TOOL, 6), -4, -7, 5, new ItemStack(ForbiddenItems.wandCore, 1, 10))).setPages(new ResearchPage[]{new ResearchPage("forbidden.research_page.ROD_witchwood_staff.1"), new ResearchPage(witchwood_staff)}).setParents(new String[]{"ROD_silverwood_staff", "ROD_witchwood"}).setSpecial().setConcealed().registerResearchItem();
+            } catch (Exception e) {
+                LogHandler.log(Level.INFO, e, "Forbidden Magic was slain by a Hecate.");
+                am2 = false;
+            }
+        }
 
 		if (botan) {
 			try {
 				Item rune = GameRegistry.findItem("Botania", "rune");
 				Item resource = GameRegistry.findItem("Botania", "manaResource");
 				Item livingLog = GameRegistry.findItem("Botania", "livingwood");
+                Item flower = GameRegistry.findItem("Botania", "flower");
+                Item specialFlower = GameRegistry.findItem("Botania", "specialFlower");
+                Item manaPetal = GameRegistry.findItem("Botania", "manaPetal");
 
 				CraftingManager.getInstance().addRecipe(new ItemStack(resource, 1, 0), new Object[] { "###", "###", "###", Character.valueOf('#'), new ItemStack(ForbiddenItems.resource, 1, 2) });
 				CraftingManager.getInstance().addRecipe(new ItemStack(ForbiddenItems.resource, 9, 2), new Object[] { "#", Character.valueOf('#'), new ItemStack(resource, 1, 0) });
@@ -266,6 +246,29 @@ public class Compat {
 				IArcaneRecipe manasteel_cap = ThaumcraftApi.addArcaneCraftingRecipe("CAP_manasteel", new ItemStack(ForbiddenItems.wandCap, 1, 4), (new AspectList()).add(Aspect.ENTROPY, 6).add(Aspect.FIRE, 6).add(Aspect.WATER, 6).add(Aspect.AIR, 6).add(Aspect.EARTH, 6).add(Aspect.ORDER, 6), new Object[] { "NNN", "N N", Character.valueOf('N'), new ItemStack(ForbiddenItems.resource, 1, 2) });
 				(new DarkResearchItem("CAP_manasteel", "FORBIDDEN", "[B]", (new AspectList()).add(Aspect.ELDRITCH, 3).add(Aspect.MAGIC, 2).add(Aspect.ENTROPY, 4), -1, -5, 2, new ItemStack(ForbiddenItems.wandCap, 1, 3))).setPages(new ResearchPage[] { new ResearchPage("forbidden.research_page.CAP_manasteel.1"), new ResearchPage(manasteel_cap) }).setParents(new String[] { "ROD_livingwood" }).setSecondary().setConcealed().registerResearchItem();
 				BotaniaAPI.registerManaInfusionRecipe(new ItemStack(ForbiddenItems.wandCap, 1, 3), new ItemStack(ForbiddenItems.wandCap, 1, 4), 1000);
+
+                BotaniaAPI.registerSubTile("euclidaisy", SubTileEuclidaisy.class);
+                BotaniaAPI.registerSubTileSignature(SubTileEuclidaisy.class, new DarkSignature("euclidaisy"));
+                BotaniaAPI.addSubTileToCreativeMenu("euclidaisy");
+
+                List<LexiconCategory> cats = BotaniaAPI.getAllCategories();
+                LexiconCategory functional = null;
+                for(LexiconCategory cat : cats){
+                    if(cat.getUnlocalizedName().equals("botania.category.functionalFlowers"))
+                        functional = cat;
+                }
+                SubTileEuclidaisy.lexicon = new ForbiddenLexicon("euclidaisy", functional);
+
+                SubTileEuclidaisy.lexicon.addPage(BotaniaAPI.internalHandler.textPage("forbidden.lexicon.euclidaisy.0"));
+
+                ItemStack euclidaisy = new ItemStack(specialFlower, 1, 0);
+                NBTTagCompound tag = new NBTTagCompound();
+                tag.setString("type", "euclidaisy");
+                euclidaisy.setTagCompound(tag);
+
+                InfusionRecipe euclid =  ThaumcraftApi.addInfusionCraftingRecipe("EUCLIDAISY", euclidaisy, 8, (new AspectList()).add(Aspect.AURA, 8).add(Aspect.ELDRITCH, 10).add(Aspect.MAGIC, 8), new ItemStack(flower, 1, 6), new ItemStack[] { new ItemStack(ConfigItems.itemResource, 1, 14), new ItemStack(resource, 1, 8), new ItemStack(resource, 1, 6), new ItemStack(manaPetal, 1, 6), new ItemStack(manaPetal, 1, 6), new ItemStack(rune, 1, 12), new ItemStack(rune, 1, 11) });
+                (new DarkResearchItem("EUCLIDAISY", "FORBIDDEN", "[B]", (new AspectList()).add(Aspect.PLANT, 8).add(Aspect.MAGIC, 4).add(Aspect.AURA, 12), -7, 5, 3, euclidaisy)).setPages(new ResearchPage[] { new ResearchPage("forbidden.research_page.EUCLIDAISY.1"), new ResearchPage(euclid) }).setParents(new String[] { "INFAUXSION" }).setConcealed().registerResearchItem();
+
 			} catch (Throwable e) {
 				LogHandler.log(Level.INFO, e, "Forbidden Magic: Botania? Do you wanna build a snowman?");
 				botan = false;
