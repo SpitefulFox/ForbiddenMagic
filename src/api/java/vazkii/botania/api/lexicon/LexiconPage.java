@@ -18,6 +18,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 public abstract class LexiconPage {
 
 	public String unlocalizedName;
+	public boolean skipRegistry;
 
 	public LexiconPage(String unlocalizedName) {
 		this.unlocalizedName = unlocalizedName;
@@ -41,6 +42,14 @@ public abstract class LexiconPage {
 	}
 
 	/**
+	 * Called when a key is pressed.
+	 */
+	@SideOnly(Side.CLIENT)
+	public void onKeyPressed(char c, int key) {
+		// NO-OP
+	}
+
+	/**
 	 * Called when {@link LexiconEntry#setLexiconPages(LexiconPage...)} is called.
 	 */
 	public void onPageAdded(LexiconEntry entry, int index) {
@@ -49,5 +58,10 @@ public abstract class LexiconPage {
 
 	public String getUnlocalizedName() {
 		return unlocalizedName;
+	}
+
+	public LexiconPage setSkipRegistry() {
+		skipRegistry = true;
+		return this;
 	}
 }

@@ -14,6 +14,7 @@ package vazkii.botania.api.internal;
 import java.util.List;
 
 import net.minecraft.client.gui.ScaledResolution;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.inventory.IInventory;
@@ -104,12 +105,22 @@ public class DummyMethodHandler implements IInternalMethodHandler {
 	}
 
 	@Override
+	public void registerBasicSignatureIcons(String name, IIconRegister register) {
+		// NO-OP
+	}
+
+	@Override
 	public IManaNetwork getManaNetworkInstance() {
 		return DummyManaNetwork.instance;
 	}
 
 	@Override
 	public void drawSimpleManaHUD(int color, int mana, int maxMana, String name, ScaledResolution res) {
+		// NO-OP
+	}
+
+	@Override
+	public void renderLexiconText(int x, int y, int width, int height, String unlocalizedText) {
 		// NO-OP
 	}
 
@@ -127,4 +138,10 @@ public class DummyMethodHandler implements IInternalMethodHandler {
 	public boolean shouldForceCheck() {
 		return true;
 	}
+
+	@Override
+	public int getPassiveFlowerDecay() {
+		return 0;
+	}
+
 }

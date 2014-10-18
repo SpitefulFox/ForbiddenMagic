@@ -14,6 +14,7 @@ package vazkii.botania.api.internal;
 import java.util.List;
 
 import net.minecraft.client.gui.ScaledResolution;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
@@ -67,12 +68,19 @@ public interface IInternalMethodHandler {
 
 	public IIcon getSubTileIconForName(String name);
 
+	public void registerBasicSignatureIcons(String name, IIconRegister register);
+
 	public boolean shouldForceCheck();
+
+	public int getPassiveFlowerDecay();
 
 	public IInventory getBaublesInventory(EntityPlayer player);
 
 	@SideOnly(Side.CLIENT)
 	public void drawSimpleManaHUD(int color, int mana, int maxMana, String name, ScaledResolution res);
+
+	@SideOnly(Side.CLIENT)
+	public void renderLexiconText(int x, int y, int width, int height, String unlocalizedText);
 
 	public void sparkleFX(World world, double x, double y, double z, float r, float g, float b, float size, int m);
 

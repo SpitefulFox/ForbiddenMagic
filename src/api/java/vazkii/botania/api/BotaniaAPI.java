@@ -40,6 +40,11 @@ import vazkii.botania.api.recipe.RecipeManaInfusion;
 import vazkii.botania.api.recipe.RecipePetals;
 import vazkii.botania.api.recipe.RecipeRuneAltar;
 import vazkii.botania.api.subtile.SubTileEntity;
+import vazkii.botania.api.subtile.signature.BasicSignature;
+import vazkii.botania.api.subtile.signature.SubTileSignature;
+import vazkii.botania.api.wiki.IWikiProvider;
+import vazkii.botania.api.wiki.SimpleWikiProvider;
+import vazkii.botania.api.wiki.WikiHooks;
 
 import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
@@ -57,6 +62,7 @@ public final class BotaniaAPI {
 	public static List<RecipeElvenTrade> elvenTradeRecipes = new ArrayList<RecipeElvenTrade>();
 
 	private static BiMap<String, Class<? extends SubTileEntity>> subTiles = HashBiMap.<String, Class<? extends SubTileEntity>> create();
+	private static Map<Class<? extends SubTileEntity>, SubTileSignature> subTileSignatures = new HashMap<Class<? extends SubTileEntity>, SubTileSignature>();
 	public static Set<String> subtilesForCreativeMenu = new LinkedHashSet();
 
 	public static Map<String, Integer> oreWeights = new HashMap<String, Integer>();
@@ -130,6 +136,34 @@ public final class BotaniaAPI {
 		addSeed(Items.nether_wart, Blocks.nether_wart);
 		addSeed(Items.pumpkin_seeds, Blocks.pumpkin_stem);
 		addSeed(Items.melon_seeds, Blocks.melon_stem);
+
+		registerModWiki("Minecraft", new SimpleWikiProvider("Minecraft Wiki", "http://minecraft.gamepedia.com/%s"));
+
+		IWikiProvider technicWiki = new SimpleWikiProvider("Technic Wiki", "http://wiki.technicpack.net/%s");
+		IWikiProvider mekanismWiki = new SimpleWikiProvider("Mekanism Wiki", "http://wiki.aidancbrady.com/wiki/%s");
+		IWikiProvider buildcraftWiki = new SimpleWikiProvider("BuildCraft Wiki", "http://www.mod-buildcraft.com/wiki/doku.php?id=%s");
+
+		registerModWiki("Mekanism", mekanismWiki);
+		registerModWiki("MekanismGenerators", mekanismWiki);
+		registerModWiki("MekanismTools", mekanismWiki);
+		registerModWiki("EnderIO", new SimpleWikiProvider("EnderIO Wiki", "http://wiki.enderio.com/%s"));
+		registerModWiki("TropiCraft", new SimpleWikiProvider("Tropicraft Wiki", "http://wiki.tropicraft.net/wiki/%s"));
+		registerModWiki("RandomThings", new SimpleWikiProvider("Random Things Wiki", "http://randomthingsminecraftmod.wikispaces.com/%s"));
+		registerModWiki("Witchery", new SimpleWikiProvider("Witchery Wiki", "https://sites.google.com/site/witcherymod/%s", "-"));
+		registerModWiki("AppliedEnergistics2", new SimpleWikiProvider("AE2 Wiki", "http://ae-mod.info/%s"));
+		registerModWiki("BigReactors", technicWiki);
+		registerModWiki("BuildCraft|Core", buildcraftWiki);
+		registerModWiki("BuildCraft|Builders", buildcraftWiki);
+		registerModWiki("BuildCraft|Energy", buildcraftWiki);
+		registerModWiki("BuildCraft|Factory", buildcraftWiki);
+		registerModWiki("BuildCraft|Silicon", buildcraftWiki);
+		registerModWiki("BuildCraft|Transport", buildcraftWiki);
+		registerModWiki("ArsMagica2", new SimpleWikiProvider("ArsMagica2 Wiki", "http://wiki.arsmagicamod.com/wiki/%s"));
+		registerModWiki("PneumaticCraft", new SimpleWikiProvider("PneumaticCraft Wiki", "http://www.minemaarten.com/wikis/pneumaticcraft-wiki/pneumaticcraft-wiki-%s"));
+		registerModWiki("StevesCarts2", new SimpleWikiProvider("Steve's Carts Wiki", "http://stevescarts2.wikispaces.com/%s"));
+		registerModWiki("GanysSurface", new SimpleWikiProvider("Gany's Surface Wiki", "http://ganys-surface.wikia.com/wiki/%s"));
+		registerModWiki("GanysNether", new SimpleWikiProvider("Gany's Nether Wiki", "http://ganys-nether.wikia.com/wiki/%s"));
+		registerModWiki("GanysEnd", new SimpleWikiProvider("Gany's End Wiki", "http://ganys-end.wikia.com/wiki/%s"));
 	}
 
 	/**
@@ -232,6 +266,34 @@ public final class BotaniaAPI {
 	}
 
 	/**
+	 * Registers a SubTileEntity's signature.
+	 * @see SubTileSignature
+	 */
+	public static void registerSubTileSignature(Class<? extends SubTileEntity> subtileClass, SubTileSignature signature) {
+		subTileSignatures.put(subtileClass, signature);
+	}
+
+	/**
+	 * Gets the singleton signature for a SubTileEntity class. Registers a fallback if one wasn't registered
+	 * before the call.
+	 */
+	public static SubTileSignature getSignatureForClass(Class<? extends SubTileEntity> subtileClass) {
+		if(!subTileSignatures.containsKey(subtileClass))
+			registerSubTileSignature(subtileClass, new BasicSignature(subTiles.inverse().get(subtileClass)));
+
+		return subTileSignatures.get(subtileClass);
+	}
+
+	/**
+	 * Gets the singleton signature for a SubTileEntity's name. Registers a fallback if one wasn't registered
+	 * before the call.
+	 */
+	public static SubTileSignature getSignatureForName(String name) {
+		Class<? extends SubTileEntity> subtileClass = subTiles.get(name);
+		return getSignatureForClass(subtileClass);
+	}
+
+	/**
 	 * Adds the key for a SubTileEntity into the creative menu. This goes into the
 	 * subtilesForCreativeMenu Set.
 	 */
@@ -259,7 +321,7 @@ public final class BotaniaAPI {
 	public static List<LexiconEntry> getAllEntries() {
 		return allEntries;
 	}
-	
+
 	/**
 	 * Registers a Lexicon Entry and adds it to the category passed in.
 	 */
@@ -309,6 +371,14 @@ public final class BotaniaAPI {
 			newList.add(list.get(list.size() - 1 - i));
 
 		return newList;
+	}
+
+	/**
+	 * Registers a Wiki provider for a mod so it uses that instead of the fallback
+	 * FTB wiki. Make sure to call this on PostInit only!
+	 */
+	public static void registerModWiki(String mod, IWikiProvider provider) {
+		WikiHooks.registerModWiki(mod, provider);
 	}
 
 	public static Class<? extends SubTileEntity> getSubTileMapping(String key) {

@@ -13,6 +13,7 @@ package vazkii.botania.api.subtile;
 
 import java.awt.Color;
 
+import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.entity.player.EntityPlayer;
@@ -31,6 +32,7 @@ import vazkii.botania.api.mana.IManaCollector;
 public class SubTileGenerating extends SubTileEntity {
 
 	private static final String TAG_MANA = "mana";
+	private static final String TAG_TICKS_EXISTED = "ticksExisted";
 
 	private static final String TAG_COLLECTOR_X = "collectorX";
 	private static final String TAG_COLLECTOR_Y = "collectorY";
@@ -38,6 +40,7 @@ public class SubTileGenerating extends SubTileEntity {
 
 	protected int mana;
 
+	int ticksExisted = 0;
 	int sizeLastCheck = -1;
 	protected TileEntity linkedCollector = null;
 	public int knownMana = -1;
@@ -70,6 +73,16 @@ public class SubTileGenerating extends SubTileEntity {
 			Color color = new Color(getColor());
 			if(Math.random() > particleChance)
 				BotaniaAPI.internalHandler.sparkleFX(supertile.getWorldObj(), supertile.xCoord + 0.3 + Math.random() * 0.5, supertile.yCoord + 0.5 + Math.random()  * 0.5, supertile.zCoord + 0.3 + Math.random() * 0.5, color.getRed() / 255F, color.getGreen() / 255F, color.getBlue() / 255F, (float) Math.random(), 5);
+		}
+
+		if(!supertile.getWorldObj().isRemote) {
+			++ticksExisted;
+			int muhBalance = BotaniaAPI.internalHandler.getPassiveFlowerDecay();
+
+			if(isPassiveFlower() && muhBalance > 0 && ticksExisted > muhBalance) {
+				supertile.getWorldObj().playAuxSFX(2001, supertile.xCoord, supertile.yCoord, supertile.zCoord, Block.getIdFromBlock(supertile.getBlockType()));
+				supertile.getWorldObj().setBlockToAir(supertile.xCoord, supertile.yCoord, supertile.zCoord);
+			}
 		}
 	}
 
@@ -120,9 +133,12 @@ public class SubTileGenerating extends SubTileEntity {
 				int manaval = Math.min(mana, collector.getMaxMana() - collector.getCurrentMana());
 				mana -= manaval;
 				collector.recieveMana(manaval);
-				sync();
 			}
 		}
+	}
+
+	public boolean isPassiveFlower() {
+		return false;
 	}
 
 	public boolean shouldSyncPassiveGeneration() {
@@ -166,6 +182,8 @@ public class SubTileGenerating extends SubTileEntity {
 	@Override
 	public void readFromPacketNBT(NBTTagCompound cmp) {
 		mana = cmp.getInteger(TAG_MANA);
+		if(!cmp.hasKey(TAG_TICKS_EXISTED))
+			ticksExisted = cmp.getInteger(TAG_TICKS_EXISTED);
 
 		int x = cmp.getInteger(TAG_COLLECTOR_X);
 		int y = cmp.getInteger(TAG_COLLECTOR_Y);
@@ -177,6 +195,7 @@ public class SubTileGenerating extends SubTileEntity {
 	@Override
 	public void writeToPacketNBT(NBTTagCompound cmp) {
 		cmp.setInteger(TAG_MANA, mana);
+		cmp.setInteger(TAG_TICKS_EXISTED, ticksExisted);
 
 		int x = linkedCollector == null ? 0 : linkedCollector.xCoord;
 		int y = linkedCollector == null ? -1 : linkedCollector.yCoord;
@@ -192,6 +211,28 @@ public class SubTileGenerating extends SubTileEntity {
 		if(linkedCollector == null)
 			return null;
 		return new ChunkCoordinates(linkedCollector.xCoord, linkedCollector.yCoord, linkedCollector.zCoord);
+	}
+
+	@Override
+	public boolean canSelect(EntityPlayer player, ItemStack wand, int x, int y, int z, int side) {
+		return true;
+	}
+
+	@Override
+	public boolean bindTo(EntityPlayer player, ItemStack wand, int x, int y, int z, int side) {
+		int range = 6;
+		range *= range;
+
+		double dist = (x - supertile.xCoord) * (x - supertile.xCoord) + (y - supertile.yCoord) * (y - supertile.yCoord) + (z - supertile.zCoord) * (z - supertile.zCoord);
+		if(range >= dist) {
+			TileEntity tile = player.worldObj.getTileEntity(x, y, z);
+			if(tile instanceof IManaCollector) {
+				linkedCollector = tile;
+				return true;
+			}
+		}
+
+		return false;
 	}
 
 	@Override
