@@ -80,15 +80,17 @@ tile.InkFlower.name=暗影玫瑰
 tile.WrathCage.name=暴怒之笼
 tile.StarBlock.name=下界之星方块
 tile.blackRoseBush.name=暗影玫瑰丛
+tile.darkflower.euclidaisy.name=欧氏菊
 #
 # Enchantments
 enchantment.cluster=炽心
-enchantment.pigbane=猪猡克星
+enchantment.wrath=暴怒
 enchantment.greedy=剥削
 enchantment.consuming=挥霍
 enchantment.educational=教育
 enchantment.corrupting=堕落
-enchantment.eternal=不朽
+enchantment.voidtouched=虚空之触
+enchantment.impact=冲击
 #
 # Potions
 potion.blood_seal=血之印记
@@ -97,6 +99,8 @@ potion.blood_seal=血之印记
 itemGroup.forbidden=禁忌魔法
 itemGroup.mobcrystal=留影水晶
 tc.research_category.FORBIDDEN=伪经
+forbidden.lexicon.euclidaisy=欧氏菊
+forbidden.lexicon.euclidaisy.0=那古怪的粉色&1欧氏菊&0十分不可思议.它耗费大量魔力变幻出一些看来只有神秘使用得着的天域精华.<br>这种手法似乎并非寻常的知识.试试查阅魔导手册?
 #
 # Research
 forbidden.research_name.NETHERSHARDS=下界之星
@@ -204,6 +208,10 @@ forbidden.research_name.CLUSTER=附魔:炽心
 forbidden.research_text.CLUSTER=核心之避役
 forbidden.research_page.CLUSTER.1=你研究出一种能让避役镐模仿炽心镐效果的附魔.进行炽心附魔后的避役镐在采掘某种矿石时有几率掉落原矿簇.原矿簇是一种比天然矿石纯度更高的矿藏,冶炼时相比普通矿石能够翻倍得到产物.炽心附魔等级越高掉落原矿簇几率越大.
 #
+forbidden.research_name.IMPACT==附魔:冲击
+forbidden.research_text.IMPACT=有一天墙壁轰然倒塌.
+forbidden.research_page.IMPACT.1=某些工具在用来挖掘时效果范围会更宽广.如果带有冲击附魔,你的避役镐和避役铲就能有这种效果.<BR><BR>带有冲击附魔的避役工具能够一次破坏3X3区域的方块,让开掘矿道,平整土地变得更加轻松.
+#
 forbidden.research_name.GREEDY=附魔:剥削
 forbidden.research_text.GREEDY=无控的附魔
 forbidden.research_page.GREEDY.1=你已经研究出一种武器附魔,能让你从生物那里榨取好处.每次使用附魔了剥削的武器杀死一只敌对生物,就有几率掉落出一枚绿宝石碎片.若用它杀死村民,可能的掉落物则代之以村民的绿宝石.
@@ -212,9 +220,9 @@ forbidden.research_name.CONSUMING=附魔:挥霍
 forbidden.research_text.CONSUMING=垃圾处理
 forbidden.research_page.CONSUMING.1=烦透了要手动清空口袋里无用的垃圾,你设计出一种附魔,能够让工具自动毁掉那些寻常的不需要的材料.被挥霍工具挖掉的所有圆石,泥土或下界岩都会被销毁,而非掉落到地上.
 #
-forbidden.research_name.PIGBANE=附魔:猪猡克星
-forbidden.research_text.PIGBANE=告诉这些僵尸猪人谁才占据食物链的顶端!
-forbidden.research_page.PIGBANE.1=僵尸主人自鸣得意.他们老是成群结队在无辜的旅者面前踏步巡行.是时候让他们停下来了.<BR><BR>附魔了猪猡克星的武器对猪或者僵尸猪人效果拔群.
+forbidden.research_name.WRATH=附魔:暴怒
+forbidden.research_text.WRATH=当一切都变得棘手如钉子,那你只需要一柄更沉的锤子
+forbidden.research_page.WRATH.1=唷.你需要用更加凶暴残忍的武器来进行杀戮.附魔是个好的开始,但一柄普通的剑也不过就只能进行那么多次锋利附魔,否则它就会溶解掉,溅开如同盛放的雏菊.你的拼命家伙就是没法子那么爽快地用来虐杀敌手.<BR><BR>为了弥补这一缺憾,你研究出一种新型的附魔能够让武器更加致命,更加凶残暴力.暴怒附魔能够提高武器伤害并且不与锋利,节肢杀手以及亡灵杀手冲突.
 #
 forbidden.research_name.EDUCATIONAL=附魔:教育
 forbidden.research_text.EDUCATIONAL=你会学到的!
@@ -224,9 +232,9 @@ forbidden.research_name.CORRUPTING=附魔:堕落
 forbidden.research_text.CORRUPTING=对碎片的坏影响
 forbidden.research_page.CORRUPTING.1=下界无与伦比,但它毕竟是一个地狱之坑.<BR><BR>堕落附魔让你无须前往下界就能收获到下界碎片.堕落附魔的镐能随机腐化挖出的元素碎片,将其转换为下界碎片.晶化的碎片只是看起来容易感染,因此腐化晶簇不会有效果.
 #
-forbidden.research_name.ETERNAL=附魔:不朽
-forbidden.research_text.ETERNAL=避役之神
-forbidden.research_page.ETERNAL.1=灵宝工具相当了不起.你确定避役工具可以与它们更加相似.也许它们可以吧……<BR><BR>天域附魔让避役工具如同灵宝工具那样永不磨损.
+forbidden.research_name.VOIDTOUCHED=附魔:虚空之触
+forbidden.research_text.VOIDTOUCHED=外域之色彩
++forbidden.research_page.VOIDTOUCHED.1=虚空锭受损后自动回流的特性令人艳羡.你很希望你的避役工具能够拥有类似特性...<BR><BR>虚空之触附魔能够给予避役工具类似虚空工具那样的自动回复能力.<BR><BR>受此附魔影响的避役工具会变得仿佛用具有生命力的血肉铸成,能够在受损后自动回复原来的形状.不过请小心,它似乎对你的精神状况有负面影响.
 #
 forbidden.research_name.TAINTBASICS=腐化的大地
 forbidden.research_text.TAINTBASICS=深紫色
@@ -255,9 +263,8 @@ forbidden.research_page.RIDINGCROP.1=马鞭,顾名思义,是一种让坐骑跑�
 #
 forbidden.research_name.HELLFIRE=地狱火领主
 forbidden.research_text.HELLFIRE=从此势不可挡
-forbidden.research_page.HELLFIRE.1=身陷下界是最糟糕的体验.当你克服到你需要克服的重重困难,终于就要能回到家园的时候,一些愚蠢的幽魂却打算耀武扬威地对你轰炸一通，以至于传送门都被关掉了.当然,若随身携带着打火石再重新修好也并不费事,但谁会一直随身带这些玩意儿?<BR><BR>你研究出一种利用法杖魔力点燃某些材料的方法.手持卸掉核心的法杖右击地狱岩或者黑曜石的上方,会从法杖中消耗掉一些Ignis要素并点燃一团火焰.
+forbidden.research_page.HELLFIRE.1=身陷下界是最糟糕的体验.当你克服了你所需要克服的重重困难,终于就要能回到家园的时候,一些愚蠢的幽魂却打算耀武扬威地对你轰炸一通，以至于传送门都被关掉了.当然,若随身携带着打火石再重新修好也并不费事,但谁会一直随身带这些玩意儿?<BR><BR>你研究出一种利用法杖魔力点燃某些材料的方法.手持卸掉核心的法杖右击地狱岩或者黑曜石的上方,会从法杖中消耗掉一些Ignis要素并点燃一团火焰.
 #
-forbidden.research_name.DIVINEWELL=图特之笔
-forbidden.research_text.DIVINEWELL=笔诛胜于剑伐
-forbidden.research_page.DIVINEWELL.1=在研究了全宇宙每一点零碎的知识后,你终于揭开了让墨水用之不竭的秘密.<BR><BR>图特之笔从不会耗光墨水.<BR><BR>你真希望能早点研究出来这个...
-#
+forbidden.research_name.EUCLIDAISY=欧氏菊
+forbidden.research_text.EUCLIDAISY=俺の嫁,以月亮的名义,能量超⑨千!我反正信了!
+forbidden.research_page.EUCLIDAISY.1=天域精华是源质的重要来源,也是世界盐配方中非常重要的材料.不幸的是它们很难获得.精灵并不常见,而有自尊心的神秘使很少会想要去敲碎节点.<BR><BR>融汇神秘学与植物魔法的知识你研究出一种花,能够耗费大量法力打破现实世界的藩篱.尽管这道裂隙不足以形成一个节点,但却能够维持一段时间,足以让单个的天域精华漏出.通入红石信号能够让这朵花停止运作.
