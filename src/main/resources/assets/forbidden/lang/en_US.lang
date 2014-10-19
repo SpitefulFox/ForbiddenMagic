@@ -80,7 +80,8 @@ tile.InkFlower.name=Umbral Rose
 tile.WrathCage.name=Wrath Cage
 tile.StarBlock.name=Nether Star Block
 tile.blackRoseBush.name=Umbral Rose Bush
-tile.darkflower.euclidaisy.name=Euclidaisy
+darkflower.euclidaisy.name=Euclidaisy
+darkflower.whisperweed.name=Whisperweed
 #
 # Enchantments
 enchantment.cluster=Fiery Core
@@ -99,8 +100,6 @@ potion.blood_seal=Blood Seal
 itemGroup.forbidden=Forbidden Magic
 itemGroup.mobcrystal=Imprinting Crystals
 tc.research_category.FORBIDDEN=Apocrypha
-forbidden.lexicon.euclidaisy=Euclidaisy
-forbidden.lexicon.euclidaisy.0=The eerie, pink &1Euclidaisy&0 is an oddity. It uses large amounts of mana to conjure some sort of ethereal substance that only seems useful to thaumaturges.<br>The method of creating one doesn't appear to be common knowledge. Try consulting a Thaumonomicon?
 #
 # Research
 forbidden.research_name.NETHERSHARDS=Nether Shards
@@ -269,3 +268,9 @@ forbidden.research_name.EUCLIDAISY=Euclidaisy
 forbidden.research_text.EUCLIDAISY=Mai waifu's power level is over 9000 in the name of the moon! Believe it!
 forbidden.research_page.EUCLIDAISY.1=Ethereal Essences are extremely useful sources of essentia and are a very important ingredient in Thaumaturge's Salt. Unfortunately, it can be very difficult to come by. Wisps aren't exactly common, and no self-respecting thaumaturge wants to stoop to smashing open a node.<BR><BR>By combining thaumaturgy and hedge magic, you've created a flower that can use mana to rip open the fabric of reality. The rip isn't stable enough to form a node, but it does stay open long enough to drop a single wispy strand of essence. Applying a redstone signal to the flower causes it to stop.
 #
+# Lexicon
+forbidden.lexicon.euclidaisy=Euclidaisy
+forbidden.lexicon.euclidaisy.0=The eerie, pink &1Euclidaisy&0 is an oddity. It uses large amounts of mana to conjure some sort of ethereal substance that only seems useful to thaumaturges.<br>The method of creating one doesn't appear to be common knowledge. Try consulting a Thaumonomicon?
+forbidden.lexicon.whisperweed=Whisperweed
+forbidden.lexicon.whisperweed.0=The &1Whisperweed&0 is an unpleasant plant that whispers secrets into the ears of anyone who'll listen. There doesn't seem to be much point to the plant, since the secrets aren't even relevant to botany.<br>Some of the whispers are too disturbing for the mortal mind...
+forbidden.lexicon.whisperweed.1=&oMore secrets than Wan Shi Tong&r.

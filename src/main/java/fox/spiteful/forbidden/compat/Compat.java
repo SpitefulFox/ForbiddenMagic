@@ -2,6 +2,7 @@ package fox.spiteful.forbidden.compat;
 
 import fox.spiteful.forbidden.*;
 import fox.spiteful.forbidden.tiles.SubTileEuclidaisy;
+import fox.spiteful.forbidden.tiles.SubTileWhisperweed;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -32,6 +33,7 @@ import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.registry.GameRegistry;
 import vazkii.botania.api.lexicon.LexiconCategory;
 import vazkii.botania.api.lexicon.LexiconPage;
+import vazkii.botania.api.recipe.RecipePetals;
 
 import java.lang.reflect.Constructor;
 import java.util.List;
@@ -266,8 +268,23 @@ public class Compat {
                 tag.setString("type", "euclidaisy");
                 euclidaisy.setTagCompound(tag);
 
-                InfusionRecipe euclid =  ThaumcraftApi.addInfusionCraftingRecipe("EUCLIDAISY", euclidaisy, 8, (new AspectList()).add(Aspect.AURA, 8).add(Aspect.ELDRITCH, 10).add(Aspect.MAGIC, 8), new ItemStack(flower, 1, 6), new ItemStack[] { new ItemStack(ConfigItems.itemResource, 1, 14), new ItemStack(resource, 1, 8), new ItemStack(resource, 1, 6), new ItemStack(manaPetal, 1, 6), new ItemStack(manaPetal, 1, 6), new ItemStack(rune, 1, 12), new ItemStack(rune, 1, 11) });
+                InfusionRecipe euclid =  ThaumcraftApi.addInfusionCraftingRecipe("EUCLIDAISY", euclidaisy, 8, (new AspectList()).add(Aspect.AURA, 8).add(Aspect.ELDRITCH, 10).add(Aspect.MAGIC, 8), new ItemStack(flower, 1, 6), new ItemStack[] { new ItemStack(ConfigItems.itemResource, 1, 14), new ItemStack(resource, 1, 1), new ItemStack(resource, 1, 6), new ItemStack(manaPetal, 1, 6), new ItemStack(manaPetal, 1, 6), new ItemStack(rune, 1, 12), new ItemStack(rune, 1, 11) });
                 (new DarkResearchItem("EUCLIDAISY", "FORBIDDEN", "[B]", (new AspectList()).add(Aspect.PLANT, 8).add(Aspect.MAGIC, 4).add(Aspect.AURA, 12), -7, 5, 3, euclidaisy)).setPages(new ResearchPage[] { new ResearchPage("forbidden.research_page.EUCLIDAISY.1"), new ResearchPage(euclid) }).setParents(new String[] { "INFAUXSION" }).setConcealed().registerResearchItem();
+
+                BotaniaAPI.registerSubTile("whisperweed", SubTileWhisperweed.class);
+                BotaniaAPI.registerSubTileSignature(SubTileWhisperweed.class, new DarkSignature("whisperweed"));
+                BotaniaAPI.addSubTileToCreativeMenu("whisperweed");
+
+                SubTileWhisperweed.lexicon = new ForbiddenLexicon("whisperweed", functional);
+
+                SubTileWhisperweed.lexicon.addPage(BotaniaAPI.internalHandler.textPage("forbidden.lexicon.whisperweed.0"));
+
+                ItemStack whisperweed = new ItemStack(specialFlower, 1, 0);
+                NBTTagCompound wtag = new NBTTagCompound();
+                wtag.setString("type", "whisperweed");
+                whisperweed.setTagCompound(wtag);
+                RecipePetals whispercraft = BotaniaAPI.registerPetalRecipe(whisperweed, new ItemStack(resource, 1, 2), new ItemStack(resource, 1, 6), new ItemStack(ConfigItems.itemResource, 1, 9), new ItemStack(manaPetal, 1, 7), new ItemStack(manaPetal, 1, 10), new ItemStack(rune, 1, 14), new ItemStack(ConfigItems.itemResource, 1, 6));
+                SubTileWhisperweed.lexicon.addPage(BotaniaAPI.internalHandler.petalRecipePage("forbidden.lexicon.whisperweed.1", whispercraft));
 
 			} catch (Throwable e) {
 				LogHandler.log(Level.INFO, e, "Forbidden Magic: Botania? Do you wanna build a snowman?");

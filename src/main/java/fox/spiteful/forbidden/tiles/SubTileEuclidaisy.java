@@ -1,5 +1,6 @@
 package fox.spiteful.forbidden.tiles;
 
+import fox.spiteful.forbidden.compat.DarkSignature;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
@@ -9,6 +10,7 @@ import thaumcraft.api.aspects.AspectList;
 import thaumcraft.common.Thaumcraft;
 import thaumcraft.common.config.ConfigItems;
 import thaumcraft.common.items.ItemWispEssence;
+import vazkii.botania.api.BotaniaAPI;
 import vazkii.botania.api.lexicon.LexiconEntry;
 import vazkii.botania.api.subtile.SubTileFunctional;
 
@@ -68,5 +70,10 @@ public class SubTileEuclidaisy extends SubTileFunctional {
     @Override
     public LexiconEntry getEntry(){
         return lexicon;
+    }
+
+    @Override
+    public IIcon getIcon(){
+        return ((DarkSignature)(BotaniaAPI.getSignatureForName("euclidaisy"))).getIconForStack(null);
     }
 }

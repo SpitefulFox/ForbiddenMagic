@@ -1,9 +1,9 @@
 package fox.spiteful.forbidden.compat;
 
-import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.IIcon;
-import vazkii.botania.api.subtile.signature.SubTileSignature;
+        import net.minecraft.client.renderer.texture.IIconRegister;
+        import net.minecraft.item.ItemStack;
+        import net.minecraft.util.IIcon;
+        import vazkii.botania.api.subtile.signature.SubTileSignature;
 
 public class DarkSignature extends SubTileSignature {
     String name;
@@ -25,7 +25,7 @@ public class DarkSignature extends SubTileSignature {
 
     @Override
     public String getUnlocalizedNameForStack(ItemStack item){
-        return "tile.darkflower." + name + ".name";
+        return "darkflower." + name;
     }
 
     @Override
