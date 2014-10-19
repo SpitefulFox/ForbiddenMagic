@@ -2,6 +2,7 @@ package fox.spiteful.forbidden.items.wands;
 
 import java.util.List;
 
+import fox.spiteful.forbidden.Config;
 import fox.spiteful.forbidden.Forbidden;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
@@ -73,7 +74,7 @@ public class ItemWandCores extends Item {
 			((ItemWandCasting) wand.getItem()).setRod(wand, (WandRod) WandRod.rods.get("soul"));
 			list.add(wand);
 		}*/
-		if (Compat.bm) {
+		if (Compat.bm && Config.crossWand) {
 			wand = ItemApi.getItem("itemWandCasting", 84);
 			((ItemWandCasting) wand.getItem()).setCap(wand, (WandCap) WandCap.caps.get("alchemical"));
 			((ItemWandCasting) wand.getItem()).setRod(wand, (WandRod) WandRod.rods.get("blood"));
@@ -83,7 +84,7 @@ public class ItemWandCores extends Item {
 			((ItemWandCasting) wand.getItem()).setRod(wand, (WandRod) WandRod.rods.get("blood_staff"));
 			list.add(wand);
 		}
-		if (Compat.am2) {
+		if (Compat.am2 && Config.crossWand) {
 			wand = ItemApi.getItem("itemWandCasting", 72);
 			((ItemWandCasting) wand.getItem()).setCap(wand, (WandCap) WandCap.caps.get("vinteum"));
 			((ItemWandCasting) wand.getItem()).setRod(wand, (WandRod) WandRod.rods.get("witchwood"));
@@ -93,7 +94,7 @@ public class ItemWandCores extends Item {
 			((ItemWandCasting) wand.getItem()).setRod(wand, (WandRod) WandRod.rods.get("witchwood_staff"));
 			list.add(wand);
 		}
-		if (Compat.botan) {
+		if (Compat.botan && Config.crossWand) {
 			wand = ItemApi.getItem("itemWandCasting", 84);
 			((ItemWandCasting) wand.getItem()).setCap(wand, (WandCap) WandCap.caps.get("manasteel"));
 			((ItemWandCasting) wand.getItem()).setRod(wand, (WandRod) WandRod.rods.get("livingwood"));

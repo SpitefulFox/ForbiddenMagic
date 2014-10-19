@@ -1,5 +1,6 @@
 package fox.spiteful.forbidden.items.wands;
 
+import fox.spiteful.forbidden.Config;
 import fox.spiteful.forbidden.compat.Compat;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -11,7 +12,7 @@ public class ManaStaffUpdate implements IWandRodOnUpdate {
 	Aspect primals[] = Aspect.getPrimalAspects().toArray(new Aspect[0]);
 
 	public void onUpdate(ItemStack itemstack, EntityPlayer player) {
-		if(Compat.am2)
+		if(Compat.am2 && Config.crossWand)
 		{
 			if(player.ticksExisted % 40 == 0){
 			

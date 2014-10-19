@@ -41,7 +41,6 @@ import java.util.List;
 public class Compat {
 	public static boolean tt = false;
 	public static boolean kami = false;
-	public static boolean tx = false;
 	public static boolean natura = false;
 	public static boolean pb = false;
 	public static boolean bm = false;
@@ -50,23 +49,23 @@ public class Compat {
     public static boolean tc = false;
 
     public static void initiate() {
-		if (Loader.isModLoaded("ThaumicTinkerer"))
+		if(!Config.crossMod)
+            return;
+        if (Config.tt && Loader.isModLoaded("ThaumicTinkerer"))
 			tt = true;
 		if (tt && Loader.isModLoaded("ThaumicTinkererKami"))
 			kami = true;
-		if (Loader.isModLoaded("ThaumicExploration"))
-			tx = true;
 		if (Loader.isModLoaded("Natura"))
 			natura = true;
 		if (Loader.isModLoaded("PlayerBeacons"))
 			pb = true;
-		if (Loader.isModLoaded("AWWayofTime"))
+		if (Config.bloodMagic && Loader.isModLoaded("AWWayofTime"))
 			bm = true;
-		if (Loader.isModLoaded("arsmagica2"))
+		if (Config.am2 && Loader.isModLoaded("arsmagica2"))
 			am2 = true;
-		if (Loader.isModLoaded("Botania"))
+		if (Config.botan && Loader.isModLoaded("Botania"))
 			botan = true;
-        if (Loader.isModLoaded("TConstruct"))
+        if (Config.tc && Loader.isModLoaded("TConstruct"))
             tc = true;
 	}
 
@@ -206,7 +205,7 @@ public class Compat {
 			BloodMagic.stab();
 		}
 
-        if (am2) {
+        if (Config.crossWand && am2) {
             try {
                 Class amItems = Class.forName("am2.items.ItemsCommonProxy");
                 Class amBlocks = Class.forName("am2.blocks.BlocksCommonProxy");
@@ -229,67 +228,7 @@ public class Compat {
         }
 
 		if (botan) {
-			try {
-				Item rune = GameRegistry.findItem("Botania", "rune");
-				Item resource = GameRegistry.findItem("Botania", "manaResource");
-				Item livingLog = GameRegistry.findItem("Botania", "livingwood");
-                Item flower = GameRegistry.findItem("Botania", "flower");
-                Item specialFlower = GameRegistry.findItem("Botania", "specialFlower");
-                Item manaPetal = GameRegistry.findItem("Botania", "manaPetal");
-
-				CraftingManager.getInstance().addRecipe(new ItemStack(resource, 1, 0), new Object[] { "###", "###", "###", Character.valueOf('#'), new ItemStack(ForbiddenItems.resource, 1, 2) });
-				CraftingManager.getInstance().addRecipe(new ItemStack(ForbiddenItems.resource, 9, 2), new Object[] { "#", Character.valueOf('#'), new ItemStack(resource, 1, 0) });
-
-				InfusionRecipe livingwood_rod = ThaumcraftApi.addInfusionCraftingRecipe("ROD_livingwood", new ItemStack(ForbiddenItems.wandCore, 1, 8), 3, (new AspectList()).add(Aspect.MAGIC, 16).add(Aspect.TREE, 32).add(Aspect.LIFE, 16).add(Aspect.SENSES, 8).add(Aspect.PLANT, 8), new ItemStack(livingLog), new ItemStack[] { new ItemStack(resource, 1, 2), new ItemStack(rune, 1, 8), new ItemStack(rune, 1, 0), new ItemStack(rune, 1, 1), new ItemStack(rune, 1, 2), new ItemStack(rune, 1, 3), new ItemStack(rune, 1, 4), new ItemStack(rune, 1, 5), new ItemStack(rune, 1, 6), new ItemStack(rune, 1, 7) });
-				(new DarkResearchItem("ROD_livingwood", "FORBIDDEN", "[B]", (new AspectList()).add(Aspect.TREE, 8).add(Aspect.MAGIC, 4).add(Aspect.PLANT, 6), -1, -3, 3, new ItemStack(ForbiddenItems.wandCore, 1, 7))).setPages(new ResearchPage[] { new ResearchPage("forbidden.research_page.ROD_livingwood.1"), new ResearchPage(livingwood_rod) }).setParents(new String[] { "ROD_silverwood", "INFAUXSION" }).setConcealed().registerResearchItem();
-                ThaumcraftApi.addWarpToResearch("ROD_livingwood", 2);
-				BotaniaAPI.registerManaInfusionRecipe(new ItemStack(ForbiddenItems.wandCore, 1, 7), new ItemStack(ForbiddenItems.wandCore, 1, 8), 10000);
-
-				IArcaneRecipe manasteel_cap = ThaumcraftApi.addArcaneCraftingRecipe("CAP_manasteel", new ItemStack(ForbiddenItems.wandCap, 1, 4), (new AspectList()).add(Aspect.ENTROPY, 6).add(Aspect.FIRE, 6).add(Aspect.WATER, 6).add(Aspect.AIR, 6).add(Aspect.EARTH, 6).add(Aspect.ORDER, 6), new Object[] { "NNN", "N N", Character.valueOf('N'), new ItemStack(ForbiddenItems.resource, 1, 2) });
-				(new DarkResearchItem("CAP_manasteel", "FORBIDDEN", "[B]", (new AspectList()).add(Aspect.ELDRITCH, 3).add(Aspect.MAGIC, 2).add(Aspect.ENTROPY, 4), -1, -5, 2, new ItemStack(ForbiddenItems.wandCap, 1, 3))).setPages(new ResearchPage[] { new ResearchPage("forbidden.research_page.CAP_manasteel.1"), new ResearchPage(manasteel_cap) }).setParents(new String[] { "ROD_livingwood" }).setSecondary().setConcealed().registerResearchItem();
-				BotaniaAPI.registerManaInfusionRecipe(new ItemStack(ForbiddenItems.wandCap, 1, 3), new ItemStack(ForbiddenItems.wandCap, 1, 4), 1000);
-
-                BotaniaAPI.registerSubTile("euclidaisy", SubTileEuclidaisy.class);
-                BotaniaAPI.registerSubTileSignature(SubTileEuclidaisy.class, new DarkSignature("euclidaisy"));
-                BotaniaAPI.addSubTileToCreativeMenu("euclidaisy");
-
-                List<LexiconCategory> cats = BotaniaAPI.getAllCategories();
-                LexiconCategory functional = null;
-                for(LexiconCategory cat : cats){
-                    if(cat.getUnlocalizedName().equals("botania.category.functionalFlowers"))
-                        functional = cat;
-                }
-                SubTileEuclidaisy.lexicon = new ForbiddenLexicon("euclidaisy", functional);
-
-                SubTileEuclidaisy.lexicon.addPage(BotaniaAPI.internalHandler.textPage("forbidden.lexicon.euclidaisy.0"));
-
-                ItemStack euclidaisy = new ItemStack(specialFlower, 1, 0);
-                NBTTagCompound tag = new NBTTagCompound();
-                tag.setString("type", "euclidaisy");
-                euclidaisy.setTagCompound(tag);
-
-                InfusionRecipe euclid =  ThaumcraftApi.addInfusionCraftingRecipe("EUCLIDAISY", euclidaisy, 8, (new AspectList()).add(Aspect.AURA, 8).add(Aspect.ELDRITCH, 10).add(Aspect.MAGIC, 8), new ItemStack(flower, 1, 6), new ItemStack[] { new ItemStack(ConfigItems.itemResource, 1, 14), new ItemStack(resource, 1, 1), new ItemStack(resource, 1, 6), new ItemStack(manaPetal, 1, 6), new ItemStack(manaPetal, 1, 6), new ItemStack(rune, 1, 12), new ItemStack(rune, 1, 11) });
-                (new DarkResearchItem("EUCLIDAISY", "FORBIDDEN", "[B]", (new AspectList()).add(Aspect.PLANT, 8).add(Aspect.MAGIC, 4).add(Aspect.AURA, 12), -7, 5, 3, euclidaisy)).setPages(new ResearchPage[] { new ResearchPage("forbidden.research_page.EUCLIDAISY.1"), new ResearchPage(euclid) }).setParents(new String[] { "INFAUXSION" }).setConcealed().registerResearchItem();
-
-                BotaniaAPI.registerSubTile("whisperweed", SubTileWhisperweed.class);
-                BotaniaAPI.registerSubTileSignature(SubTileWhisperweed.class, new DarkSignature("whisperweed"));
-                BotaniaAPI.addSubTileToCreativeMenu("whisperweed");
-
-                SubTileWhisperweed.lexicon = new ForbiddenLexicon("whisperweed", functional);
-
-                SubTileWhisperweed.lexicon.addPage(BotaniaAPI.internalHandler.textPage("forbidden.lexicon.whisperweed.0"));
-
-                ItemStack whisperweed = new ItemStack(specialFlower, 1, 0);
-                NBTTagCompound wtag = new NBTTagCompound();
-                wtag.setString("type", "whisperweed");
-                whisperweed.setTagCompound(wtag);
-                RecipePetals whispercraft = BotaniaAPI.registerPetalRecipe(whisperweed, new ItemStack(resource, 1, 2), new ItemStack(resource, 1, 6), new ItemStack(ConfigItems.itemResource, 1, 9), new ItemStack(manaPetal, 1, 7), new ItemStack(manaPetal, 1, 10), new ItemStack(rune, 1, 14), new ItemStack(ConfigItems.itemResource, 1, 6));
-                SubTileWhisperweed.lexicon.addPage(BotaniaAPI.internalHandler.petalRecipePage("forbidden.lexicon.whisperweed.1", whispercraft));
-
-			} catch (Throwable e) {
-				LogHandler.log(Level.INFO, e, "Forbidden Magic: Botania? Do you wanna build a snowman?");
-				botan = false;
-			}
+            ForbiddenBotany.flowerPowerHippymancy();
 		}
 	}
 }

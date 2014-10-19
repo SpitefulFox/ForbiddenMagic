@@ -1,5 +1,6 @@
 package fox.spiteful.forbidden.items.wands;
 
+import fox.spiteful.forbidden.Config;
 import fox.spiteful.forbidden.compat.Compat;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -14,7 +15,7 @@ public class BloodWandUpdate implements IWandRodOnUpdate {
 
 	public void onUpdate(ItemStack itemstack, EntityPlayer player)
 	{
-		if(Compat.bm && player.ticksExisted % 100 == 0)
+		if(Compat.bm && Config.crossWand && player.ticksExisted % 100 == 0)
 		{
 			try
 			{

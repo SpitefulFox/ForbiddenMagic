@@ -41,6 +41,14 @@ public class Config {
 	public static boolean emeraldTrans = true;
 	public static boolean wrathCrazy = false;
 
+    public static boolean crossMod = true;
+    public static boolean crossWand = true;
+    public static boolean botan = true;
+    public static boolean bloodMagic = true;
+    public static boolean am2 = true;
+    public static boolean tt = true;
+    public static boolean tc = true;
+
 	public static int wrathCost = 5;
 	public static int wrathEff = 4;
 
@@ -75,6 +83,14 @@ public class Config {
 			wrathCrazy = conf.get("general", "Wrath Cage Cries Havoc", wrathCrazy, "Enable to let the Wrath Cage imprint on ANY non-boss mob.  May break your game or make your game Awesome.").getBoolean(false);
 			spork = conf.get("silly", "Spork of Doom", spork, "What is this?  I don't even...").getBoolean(false);
             bloodSealPotionID = conf.get("potions", "Blood Seal", bloodSealPotionID).getInt(bloodSealPotionID);
+
+            crossMod = conf.get("compatibility", "Cross-Mod Interaction", crossMod, "Disable to keep mods segregated.").getBoolean(true);
+            crossWand = conf.get("compatibility", "Conversion Wands", crossWand, "Disable to remove all conversion wands.").getBoolean(true);
+            botan = conf.get("compatibility", "Botania Interaction", botan).getBoolean(true);
+            bloodMagic = conf.get("compatibility", "Blood Magic Interaction", bloodMagic).getBoolean(true);
+            am2 = conf.get("compatibility", "Ars Magica 2 Interaction", am2).getBoolean(true);
+            tt = conf.get("compatibility", "Thaumic Tinkerer Interaction", tt).getBoolean(true);
+            tc = conf.get("compatibility", "Tinkers Construct Interaction", tc).getBoolean(true);
 		} catch (Exception e) {
 			LogHandler.log(Level.ERROR, e, "Had a problem loading its configuration.");
 		} finally {
