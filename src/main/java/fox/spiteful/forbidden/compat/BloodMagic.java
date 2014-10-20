@@ -1,6 +1,7 @@
 package fox.spiteful.forbidden.compat;
 
 import WayofTime.alchemicalWizardry.api.alchemy.AlchemicalPotionCreationHandler;
+import WayofTime.alchemicalWizardry.api.bindingRegistry.BindingRegistry;
 import fox.spiteful.forbidden.Config;
 import fox.spiteful.forbidden.DarkAspects;
 import fox.spiteful.forbidden.LogHandler;
@@ -78,6 +79,7 @@ public class BloodMagic {
             (new DarkResearchItem("DIVINEORB", "FORBIDDEN", "[BM]", (new AspectList()).add(Aspect.LIFE, 24).add(Aspect.VOID, 32).add(Aspect.CRYSTAL, 24).add(Aspect.ELDRITCH, 12), -9, 6, 6, new ItemStack(ForbiddenItems.bloodOrb, 1, 0))).setPages(new ResearchPage[] { new ResearchPage("forbidden.research_page.DIVINEORB.1"), new ResearchPage(divine_orb) }).setParents(new String[] { "INFAUXSION", "ELDRITCHMAJOR", "VOIDMETAL" }).setConcealed().setSpecial().registerResearchItem();
             ThaumcraftApi.addWarpToResearch("DIVINEORB", 4);
 
+            BindingRegistry.registerRecipe(new ItemStack(ForbiddenItems.boundwell, 1, 0), new ItemStack(ForbiddenItems.crystalwell, 1, 0));
 
 			list = (new AspectList()).add(Aspect.LIFE, 2).add(Aspect.MAGIC, 2).add(Aspect.CRYSTAL, 4);
 			ThaumcraftApi.registerObjectTag(new ItemStack(crapOrb, 1, OreDictionary.WILDCARD_VALUE), list);

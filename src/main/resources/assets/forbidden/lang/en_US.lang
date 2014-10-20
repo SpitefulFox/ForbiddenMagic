@@ -39,9 +39,9 @@ item.Bloodwell.name=Bloody Scrivener's Tools
 item.DivineOrb.name=Eldritch Blood Orb
 item.Crystalwell.name=Crystal Scribing Tools
 item.RidingCrop.name=Riding Crop
-item.Divinewell.name=Scribing Tools of Thoth
 item.BoundShears.name=Bound Shears
 item.BloodRapier.name=Rapier of the Strix
+item.Boundwell.name=Bound Scribing Tools
 #
 # Wand components
 item.Wand.tainted.rod=Tainted

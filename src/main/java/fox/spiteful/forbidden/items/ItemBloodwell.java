@@ -52,28 +52,20 @@ public class ItemBloodwell extends Item implements IScribeTools, IBindable {
 			else
 				return;
 
-			try {
-				if (player.capabilities.isCreativeMode)
-					stack.setItemDamage(0);
-				else if (SoulNetworkHandler.syphonFromNetwork(stack, 25) > 0)
-					stack.setItemDamage(stack.getItemDamage() - 1);
-				else if (player.getHealth() > 6) {
-					player.setHealth(player.getHealth() - 2);
-					stack.setItemDamage(stack.getItemDamage() - 1);
-				}
-			} catch (Throwable e) {
-			}
+            if (player.capabilities.isCreativeMode)
+                stack.setItemDamage(0);
+            else if (SoulNetworkHandler.syphonFromNetwork(stack, 25) > 0)
+                stack.setItemDamage(stack.getItemDamage() - 1);
+            else if (player.getHealth() > 6) {
+                player.setHealth(player.getHealth() - 2);
+                stack.setItemDamage(stack.getItemDamage() - 1);
+            }
 		}
 	}
 
 	@Override
 	public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer player) {
-		if (Compat.bm) {
-			try {
-				SoulNetworkHandler.checkAndSetItemOwner(itemstack, player);
-			} catch (Throwable e) {
-			}
-		}
+   		SoulNetworkHandler.checkAndSetItemOwner(itemstack, player);
 		return itemstack;
 	}
 
@@ -88,15 +80,10 @@ public class ItemBloodwell extends Item implements IScribeTools, IBindable {
 	@Override
 	public void setDamage(ItemStack stack, int damage) {
 		if (damage > 0) {
-
-			try {
-				if (SoulNetworkHandler.syphonFromNetwork(stack, 25 * damage) > 0)
-					super.setDamage(stack, 0);
-				else
-					super.setDamage(stack, damage);
-			} catch (Throwable e) {
-				super.setDamage(stack, damage);
-			}
+			if (SoulNetworkHandler.syphonFromNetwork(stack, 25 * damage) > 0)
+                super.setDamage(stack, 0);
+            else
+                super.setDamage(stack, damage);
 		} else
 			super.setDamage(stack, damage);
 	}

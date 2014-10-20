@@ -6,6 +6,7 @@ import fox.spiteful.forbidden.Forbidden;
 import fox.spiteful.forbidden.compat.Compat;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -80,5 +81,10 @@ public class ItemDivineOrb extends Item implements IBloodOrb, IBindable, IWarpin
 
     public int getWarp(ItemStack itemstack, EntityPlayer player) {
         return 5;
+    }
+
+    @Override
+    public EnumRarity getRarity(ItemStack itemstack) {
+        return EnumRarity.epic;
     }
 }

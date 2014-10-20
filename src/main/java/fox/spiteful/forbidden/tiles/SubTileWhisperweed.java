@@ -9,8 +9,7 @@ import thaumcraft.api.aspects.Aspect;
 import thaumcraft.common.Thaumcraft;
 import thaumcraft.common.lib.network.PacketHandler;
 import thaumcraft.common.lib.network.playerdata.PacketAspectPool;
-import thaumcraft.common.lib.network.playerdata.PacketSyncWarp;
-import thaumcraft.common.lib.network.playerdata.PacketWarpMessage;
+import thaumcraft.common.lib.research.ResearchManager;
 import vazkii.botania.api.BotaniaAPI;
 import vazkii.botania.api.lexicon.LexiconEntry;
 import vazkii.botania.api.subtile.SubTileFunctional;
@@ -47,6 +46,7 @@ public class SubTileWhisperweed extends SubTileFunctional {
                         aspect = (Aspect)Aspect.getCompoundAspects().get(player.worldObj.rand.nextInt(Aspect.getCompoundAspects().size()));
                     Thaumcraft.proxy.playerKnowledge.addAspectPool(player.getCommandSenderName(), aspect, (short)1);
                     PacketHandler.INSTANCE.sendTo(new PacketAspectPool(aspect.getTag(), (short)1, Short.valueOf(Thaumcraft.proxy.playerKnowledge.getAspectPoolFor(player.getCommandSenderName(), aspect))), (EntityPlayerMP)player);
+                    ResearchManager.scheduleSave(player);
                 }
                 mana -= cost;
             }

@@ -11,9 +11,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import thaumcraft.api.IScribeTools;
-import thaumcraft.api.ItemApi;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.common.Thaumcraft;
+import thaumcraft.common.config.ConfigItems;
 import thaumcraft.common.lib.network.PacketHandler;
 import thaumcraft.common.lib.network.playerdata.PacketAspectPool;
 
@@ -62,7 +62,7 @@ public class ItemCrystalwell extends Item implements IScribeTools {
                 }
 			}
 			player.swingItem();
-			return ItemApi.getItem("itemInkwell", 100);
+			return new ItemStack(ConfigItems.itemInkwell, 1, 100);
 		} else
 			return stack;
 	}

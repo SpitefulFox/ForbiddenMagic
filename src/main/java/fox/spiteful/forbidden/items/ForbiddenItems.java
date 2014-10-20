@@ -54,6 +54,7 @@ public class ForbiddenItems {
 
 	public static Item bloodwell;
 	public static Item bloodOrb;
+    public static Item boundwell;
 
 	public static WandRod WAND_ROD_TAINTED;
 	public static WandRod WAND_ROD_INFERNAL;
@@ -156,6 +157,9 @@ public class ForbiddenItems {
 
 				bloodOrb = new ItemDivineOrb().setUnlocalizedName("DivineOrb");
 				GameRegistry.registerItem(bloodOrb, "DivineOrb");
+
+                boundwell = new ItemBoundwell().setUnlocalizedName("Boundwell");
+                GameRegistry.registerItem(boundwell, "Boundwell");
 			} catch (Throwable e) {
 				e.printStackTrace();
 			}
