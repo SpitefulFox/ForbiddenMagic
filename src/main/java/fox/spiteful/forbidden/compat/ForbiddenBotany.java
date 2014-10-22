@@ -7,6 +7,7 @@ import fox.spiteful.forbidden.LogHandler;
 import fox.spiteful.forbidden.items.ForbiddenItems;
 import fox.spiteful.forbidden.tiles.SubTileEuclidaisy;
 import fox.spiteful.forbidden.tiles.SubTileWhisperweed;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
@@ -77,8 +78,8 @@ public class ForbiddenBotany {
             SubTileWhisperweed.lexicon.addPage(BotaniaAPI.internalHandler.textPage("forbidden.lexicon.whisperweed.0"));
 
             ItemStack whisperweed = getFlower("whisperweed");
-            RecipePetals whispercraft = BotaniaAPI.registerPetalRecipe(whisperweed, new ItemStack(resource, 1, 2), new ItemStack(resource, 1, 6), new ItemStack(ConfigItems.itemResource, 1, 9), new ItemStack(manaPetal, 1, 7), new ItemStack(manaPetal, 1, 10), new ItemStack(rune, 1, 14), new ItemStack(ConfigItems.itemResource, 1, 6));
-            SubTileWhisperweed.lexicon.addPage(BotaniaAPI.internalHandler.petalRecipePage("forbidden.lexicon.whisperweed.1", whispercraft));
+            InfusionRecipe whispercraft =  ThaumcraftApi.addInfusionCraftingRecipe("WHISPERWEED", whisperweed, 4, (new AspectList()).add(Aspect.MIND, 8).add(Aspect.MAGIC, 4).add(Aspect.SENSES, 4), new ItemStack(Blocks.tallgrass, 1, 1), new ItemStack[] { new ItemStack(resource, 1, 2), new ItemStack(resource, 1, 6), new ItemStack(ConfigItems.itemResource, 1, 9), new ItemStack(manaPetal, 1, 7), new ItemStack(manaPetal, 1, 10), new ItemStack(rune, 1, 14), new ItemStack(ConfigItems.itemResource, 1, 6) });
+            (new DarkResearchItem("WHISPERWEED", "FORBIDDEN", "[B]", (new AspectList()).add(Aspect.PLANT, 8).add(Aspect.MIND, 10).add(Aspect.SENSES, 4), -8, 5, 3, whisperweed)).setPages(new ResearchPage[] { new ResearchPage("forbidden.research_page.WHISPERWEED.1"), new ResearchPage(whispercraft) }).setParents(new String[] { "INFAUXSION" }).setConcealed().registerResearchItem();
 
         } catch (Throwable e) {
             LogHandler.log(Level.INFO, e, "Forbidden Magic: Botania? Do you wanna build a snowman?");
