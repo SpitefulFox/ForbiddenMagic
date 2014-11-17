@@ -17,7 +17,7 @@ import vazkii.botania.api.subtile.SubTileFunctional;
 import java.util.List;
 
 public class SubTileWhisperweed extends SubTileFunctional {
-    private static final int cost = 1500;
+    private static final int cost = 6000;
     private final static int range = 3;
     public static LexiconEntry lexicon;
 
