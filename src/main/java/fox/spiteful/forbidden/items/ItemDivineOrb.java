@@ -71,7 +71,7 @@ public class ItemDivineOrb extends Item implements IBloodOrb, IBindable, IWarpin
 
 	@Override
 	public int getMaxEssence() {
-		return 70000000;
+		return 80000000;
 	}
 
 	@Override
@@ -79,6 +79,7 @@ public class ItemDivineOrb extends Item implements IBloodOrb, IBindable, IWarpin
 		return 5;
 	}
 
+    @Override
     public int getWarp(ItemStack itemstack, EntityPlayer player) {
         return 5;
     }
@@ -86,5 +87,17 @@ public class ItemDivineOrb extends Item implements IBloodOrb, IBindable, IWarpin
     @Override
     public EnumRarity getRarity(ItemStack itemstack) {
         return EnumRarity.epic;
+    }
+
+    @Override
+    public boolean doesContainerItemLeaveCraftingGrid(ItemStack itemStack)
+    {
+        return false;
+    }
+
+    @Override
+    public ItemStack getContainerItem(ItemStack itemStack)
+    {
+        return itemStack;
     }
 }
