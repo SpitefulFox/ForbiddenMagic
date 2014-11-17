@@ -3,8 +3,13 @@ package fox.spiteful.forbidden;
 import java.util.*;
 
 import WayofTime.alchemicalWizardry.api.soulNetwork.SoulNetworkHandler;
+import baubles.api.BaublesApi;
+import baubles.common.lib.PlayerHandler;
+import cpw.mods.fml.common.eventhandler.EventPriority;
 import fox.spiteful.forbidden.blocks.BlockBlackFlower;
 import fox.spiteful.forbidden.compat.Compat;
+import fox.spiteful.forbidden.items.ItemRidingCrop;
+import fox.spiteful.forbidden.items.ItemSubCollar;
 import fox.spiteful.forbidden.items.ItemTaintPickaxe;
 import fox.spiteful.forbidden.potions.DarkPotions;
 import fox.spiteful.forbidden.tiles.SubTileEuclidaisy;
@@ -391,6 +396,34 @@ public class FMEventHandler {
 			}
 		}
 	}
+
+    @SubscribeEvent(priority = EventPriority.LOWEST)
+    public void onFeelPain(LivingHurtEvent event){
+        if(!Config.noLust && event.ammount > 0 && event.entityLiving instanceof EntityPlayer){
+            EntityPlayer player = (EntityPlayer)event.entityLiving;
+            ItemStack amulet = PlayerHandler.getPlayerBaubles(player).getStackInSlot(0);
+            if(amulet != null && amulet.getItem() == ForbiddenItems.subCollar){
+                int doses = 3 * (int)event.ammount;
+                if(event.source.getEntity() != null && event.source.getEntity() instanceof EntityPlayer){
+                    EntityPlayer dom = (EntityPlayer)event.source.getEntity();
+                    int chance = 1;
+                    if(dom.getHeldItem() != null && dom.getHeldItem().getItem() instanceof ItemRidingCrop) {
+                        doses += 3;
+                        chance += 3;
+                    }
+                    if(player.worldObj.provider.dimensionId == -1 && randy.nextInt(30) < chance){
+                        EntityItem ent = player.entityDropItem(new ItemStack(ForbiddenItems.deadlyShards, 1, 4), 1.0F);
+                        ent.motionY += player.worldObj.rand.nextFloat() * 0.05F;
+                        ent.motionX += (player.worldObj.rand.nextFloat() - player.worldObj.rand.nextFloat()) * 0.1F;
+                        ent.motionZ += (player.worldObj.rand.nextFloat() - player.worldObj.rand.nextFloat()) * 0.1F;
+                    }
+                }
+                for(int x = 0;x < doses; x++){
+                    ((ItemSubCollar)ForbiddenItems.subCollar).addVis(amulet, primals[randy.nextInt(6)], 1, true);
+                }
+            }
+        }
+    }
 
 	@SubscribeEvent
 	public void onTooltip(ItemTooltipEvent event) {

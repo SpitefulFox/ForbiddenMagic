@@ -42,6 +42,7 @@ item.RidingCrop.name=Riding Crop
 item.BoundShears.name=Bound Shears
 item.BloodRapier.name=Rapier of the Strix
 item.Boundwell.name=Bound Scribing Tools
+item.SubCollar.name=Collar of Pain
 #
 # Wand components
 item.Wand.tainted.rod=Tainted
@@ -271,6 +272,10 @@ forbidden.research_page.EUCLIDAISY.1=Ethereal Essences are extremely useful sour
 forbidden.research_name.WHISPERWEED=Whisperweed
 forbidden.research_text.WHISPERWEED=Dubbed, not Subbed
 forbidden.research_page.WHISPERWEED.1=A busy thaumaturge has better things to do than run around in the field researching things. To save yourself many hours pulling stacks of cobble apart, you've created a flower that's in touch with the supernatural flow of the universe. The Whisperweed is a magical plant which uses mana to whisper scraps of arcane knowledge into the ears of anyone nearby.<BR><BR>Prolonged exposure to its unearthly murmurs may have a negative effect on your psyche, however...
+#
+forbidden.research_name.SUBCOLLAR=Collar of Pain
+forbidden.research_text.SUBCOLLAR=Pain and Magic
+forbidden.research_page.SUBCOLLAR.1=Sometimes, people just want to get hurt. Especially if there's a benefit...<BR><BR>The Collar of Pain has all the capabilities of an Amulet of Vis Storage with the added bonus that it will generate vis whenever you take damage. The more you get hurt, the more vis it generates.
 #
 # Lexicon
 forbidden.lexicon.euclidaisy=Euclidaisy

@@ -49,9 +49,10 @@ public class ForbiddenItems {
 	public static Item morphAxe;
 	public static Item crystalwell;
 	public static Item ridingCrop;
-	public static Item boundShears;
-    public static Item bloodRapier;
+    public static Item subCollar;
 
+    public static Item boundShears;
+    public static Item bloodRapier;
 	public static Item bloodwell;
 	public static Item bloodOrb;
     public static Item boundwell;
@@ -160,6 +161,9 @@ public class ForbiddenItems {
 
                 boundwell = new ItemBoundwell().setUnlocalizedName("Boundwell");
                 GameRegistry.registerItem(boundwell, "Boundwell");
+
+                bloodRapier = new ItemBloodRapier().setUnlocalizedName("BloodRapier");
+                GameRegistry.registerItem(bloodRapier, "BloodRapier");
 			} catch (Throwable e) {
 				e.printStackTrace();
 			}
@@ -171,8 +175,10 @@ public class ForbiddenItems {
 		ridingCrop = new ItemRidingCrop(ToolMaterial.WOOD).setUnlocalizedName("RidingCrop");
 		GameRegistry.registerItem(ridingCrop, "RidingCrop");
 
-        bloodRapier = new ItemBloodRapier().setUnlocalizedName("BloodRapier");
-        GameRegistry.registerItem(bloodRapier, "BloodRapier");
+        if(!Config.noLust) {
+            subCollar = new ItemSubCollar().setUnlocalizedName("SubCollar");
+            GameRegistry.registerItem(subCollar, "SubCollar");
+        }
 
 		// boundShears = new ItemBoundShears(Config.boundShearsID,
 		// ThaumcraftApi.toolMatThaumium).setUnlocalizedName("BoundShears");
