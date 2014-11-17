@@ -5,6 +5,7 @@ import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
+import net.minecraft.entity.monster.EntityGolem;
 import net.minecraft.entity.passive.EntityHorse;
 import net.minecraft.entity.passive.EntityPig;
 import net.minecraft.entity.player.EntityPlayer;
@@ -43,9 +44,10 @@ public class ItemRidingCrop extends ItemSword {
 		stack.damageItem(1, player);
 		if (victim instanceof EntityHorse || victim instanceof EntityPig)
 			victim.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 175, 5));
-		else if (victim instanceof EntityPlayer) {
+		else if (victim instanceof EntityPlayer || victim instanceof EntityGolem) {
 			victim.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 75, 1));
 			victim.addPotionEffect(new PotionEffect(Potion.digSpeed.id, 75, 1));
+            victim.addPotionEffect(new PotionEffect(Potion.damageBoost.id, 75, 1));
 		}
 		if (!player.worldObj.isRemote && !Config.noLust && player.worldObj.provider.dimensionId == -1 && player.worldObj.rand.nextInt(30) == 1) {
 			EntityItem ent = victim.entityDropItem(new ItemStack(ForbiddenItems.deadlyShards, 1, 4), 1.0F);
