@@ -2,6 +2,7 @@ package fox.spiteful.forbidden.compat;
 
 import WayofTime.alchemicalWizardry.api.alchemy.AlchemicalPotionCreationHandler;
 import WayofTime.alchemicalWizardry.api.bindingRegistry.BindingRegistry;
+import WayofTime.alchemicalWizardry.api.rituals.Rituals;
 import fox.spiteful.forbidden.Config;
 import fox.spiteful.forbidden.DarkAspects;
 import fox.spiteful.forbidden.LogHandler;
@@ -80,6 +81,8 @@ public class BloodMagic {
             ThaumcraftApi.addWarpToResearch("DIVINEORB", 4);
 
             BindingRegistry.registerRecipe(new ItemStack(ForbiddenItems.boundwell, 1, 0), new ItemStack(ForbiddenItems.crystalwell, 1, 0));
+
+            Rituals.registerRitual("SpiteSanity", 1, 20000, new RitualSanity(), "Plea of Delayed Insanity");
 
 			list = (new AspectList()).add(Aspect.LIFE, 2).add(Aspect.MAGIC, 2).add(Aspect.CRYSTAL, 4);
 			ThaumcraftApi.registerObjectTag(new ItemStack(crapOrb, 1, OreDictionary.WILDCARD_VALUE), list);
