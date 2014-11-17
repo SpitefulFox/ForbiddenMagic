@@ -69,11 +69,13 @@ public class ItemMorphPickaxe extends ItemPickaxe implements IRepairable, IWarpi
 		if (player.isSneaking() && itemstack.hasTagCompound() && getMaxDamage() - itemstack.getItemDamage() > 5) {
 			NBTTagCompound tags = itemstack.getTagCompound();
 			byte phase = tags.getByte("phase");
-			NBTTagList enchants = itemstack.getEnchantmentTagList();
-			if (enchants != null)
-				tags.setTag("enchants" + phase, enchants);
+            if(tags.hasKey("ench")){
+                NBTTagList enchants = itemstack.getEnchantmentTagList();
+                tags.setTag("enchants" + phase, enchants);
+            }
 			else
-				tags.removeTag("enchants" + phase);
+                tags.removeTag("enchants" + phase);
+
 			if (tags.hasKey("display")) {
 				String name = tags.getCompoundTag("display").getString("Name");
 				if (name != null && !name.equals(""))
@@ -84,11 +86,12 @@ public class ItemMorphPickaxe extends ItemPickaxe implements IRepairable, IWarpi
 			if (++phase > 2)
 				phase = 0;
 			tags.setByte("phase", phase);
-			enchants = (NBTTagList) (tags.getTag("enchants" + phase));
-			if (enchants == null)
-				tags.removeTag("ench");
+            if(tags.hasKey("enchants" + phase)) {
+                NBTTagList enchants = (NBTTagList) (tags.getTag("enchants" + phase));
+                tags.setTag("ench", enchants);
+            }
 			else
-				tags.setTag("ench", enchants);
+                tags.removeTag("ench");
 
 			if (tags.hasKey("display")) {
 				String name = tags.getCompoundTag("display").getString("Name" + phase);

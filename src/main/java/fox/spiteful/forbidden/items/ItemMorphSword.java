@@ -51,47 +51,50 @@ public class ItemMorphSword extends ItemSword implements IRepairable, IWarpingGe
 		return stack2.isItemEqual(new ItemStack(ForbiddenItems.deadlyShards, 1, 1)) ? true : super.getIsRepairable(stack, stack2);
 	}
 
-	@Override
-	public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer player) {
-		if (player.isSneaking() && itemstack.hasTagCompound() && getMaxDamage() - itemstack.getItemDamage() > 5) {
-			NBTTagCompound tags = itemstack.getTagCompound();
-			byte phase = tags.getByte("phase");
-			NBTTagList enchants = itemstack.getEnchantmentTagList();
-			if (enchants != null)
-				tags.setTag("enchants" + phase, enchants);
-			else
-				tags.removeTag("enchants" + phase);
-			if (tags.hasKey("display")) {
-				String name = tags.getCompoundTag("display").getString("Name");
-				if (name != null && !name.equals(""))
-					tags.getCompoundTag("display").setString("Name" + phase, name);
-				else
-					tags.getCompoundTag("display").removeTag("Name" + phase);
-			}
-			if (++phase > 2)
-				phase = 0;
-			tags.setByte("phase", phase);
-			enchants = (NBTTagList) (tags.getTag("enchants" + phase));
-			if (enchants == null)
-				tags.removeTag("ench");
-			else
-				tags.setTag("ench", enchants);
+    @Override
+    public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer player) {
+        if (player.isSneaking() && itemstack.hasTagCompound() && getMaxDamage() - itemstack.getItemDamage() > 5) {
+            NBTTagCompound tags = itemstack.getTagCompound();
+            byte phase = tags.getByte("phase");
+            if(tags.hasKey("ench")){
+                NBTTagList enchants = itemstack.getEnchantmentTagList();
+                tags.setTag("enchants" + phase, enchants);
+            }
+            else
+                tags.removeTag("enchants" + phase);
 
-			if (tags.hasKey("display")) {
-				String name = tags.getCompoundTag("display").getString("Name" + phase);
-				if (name != null && !name.equals(""))
-					tags.getCompoundTag("display").setString("Name", name);
-				else
-					tags.getCompoundTag("display").removeTag("Name");
-			}
+            if (tags.hasKey("display")) {
+                String name = tags.getCompoundTag("display").getString("Name");
+                if (name != null && !name.equals(""))
+                    tags.getCompoundTag("display").setString("Name" + phase, name);
+                else
+                    tags.getCompoundTag("display").removeTag("Name" + phase);
+            }
+            if (++phase > 2)
+                phase = 0;
+            tags.setByte("phase", phase);
+            if(tags.hasKey("enchants" + phase)) {
+                NBTTagList enchants = (NBTTagList) (tags.getTag("enchants" + phase));
+                tags.setTag("ench", enchants);
+            }
+            else
+                tags.removeTag("ench");
 
-			itemstack.setTagCompound(tags);
-			itemstack.damageItem(5, player);
-			player.swingItem();
-			world.playSoundEffect(player.posX, player.posY, player.posZ, "thaumcraft:wandfail", 0.2F, 0.2F + world.rand.nextFloat() * 0.2F);
-		}
-		return itemstack;
-	}
+            if (tags.hasKey("display")) {
+                String name = tags.getCompoundTag("display").getString("Name" + phase);
+                if (name != null && !name.equals(""))
+                    tags.getCompoundTag("display").setString("Name", name);
+                else
+                    tags.getCompoundTag("display").removeTag("Name");
+            }
+
+            itemstack.setTagCompound(tags);
+            itemstack.damageItem(5, player);
+            player.swingItem();
+            world.playSoundEffect(player.posX, player.posY, player.posZ, "thaumcraft:wandfail", 0.2F, 0.2F + world.rand.nextFloat() * 0.2F);
+        }
+        return itemstack;
+    }
 
 	@Override
 	@SideOnly(Side.CLIENT)
