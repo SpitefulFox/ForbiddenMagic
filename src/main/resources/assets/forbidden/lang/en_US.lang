@@ -83,6 +83,7 @@ tile.StarBlock.name=Nether Star Block
 tile.blackRoseBush.name=Umbral Rose Bush
 darkflower.euclidaisy.name=Euclidaisy
 darkflower.whisperweed.name=Whisperweed
+darkflower.tainthistle.name=Tainthistle
 #
 # Enchantments
 enchantment.cluster=Fiery Core
@@ -282,3 +283,5 @@ forbidden.lexicon.euclidaisy=Euclidaisy
 forbidden.lexicon.euclidaisy.0=The eerie, pink &1Euclidaisy&0 is an oddity. It uses large amounts of mana to conjure some sort of ethereal substance that only seems useful to thaumaturges.<br>&oIt doesn't combustion bend.&r
 forbidden.lexicon.whisperweed=Whisperweed
 forbidden.lexicon.whisperweed.0=The &1Whisperweed&0 is an unpleasant plant that whispers secrets into the ears of anyone who'll listen. There doesn't seem to be much point to the plant, since the secrets aren't even relevant to botany.<br>&oMore secrets than Wan Shi Tong&r
+forbidden.lexicon.tainthistle=Tainthistle
+forbidden.lexicon.tainthistle.0=The disgusting &1Tainthistle&0 derives sustenance from the tainted runoff of magical experiments. It'll suck up any such substance it can find and try to turn it into mana. Since Botany is an environmentally friendly practice, there doesn't seem to be much point to it.<br>&oMore intrusive than a Spirit Vine&r

@@ -6,6 +6,7 @@ import fox.spiteful.forbidden.DarkResearchItem;
 import fox.spiteful.forbidden.LogHandler;
 import fox.spiteful.forbidden.items.ForbiddenItems;
 import fox.spiteful.forbidden.tiles.SubTileEuclidaisy;
+import fox.spiteful.forbidden.tiles.SubTileTainthistle;
 import fox.spiteful.forbidden.tiles.SubTileWhisperweed;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
@@ -56,9 +57,12 @@ public class ForbiddenBotany {
 
             List<LexiconCategory> cats = BotaniaAPI.getAllCategories();
             LexiconCategory functional = null;
+            LexiconCategory generating = null;
             for(LexiconCategory cat : cats){
                 if(cat.getUnlocalizedName().equals("botania.category.functionalFlowers"))
                     functional = cat;
+                else if(cat.getUnlocalizedName().equals("botania.category.generationFlowers"))
+                    generating = cat;
             }
             SubTileEuclidaisy.lexicon = new ForbiddenLexicon("euclidaisy", functional);
 
@@ -80,6 +84,16 @@ public class ForbiddenBotany {
             ItemStack whisperweed = getFlower("whisperweed");
             InfusionRecipe whispercraft =  ThaumcraftApi.addInfusionCraftingRecipe("WHISPERWEED", whisperweed, 4, (new AspectList()).add(Aspect.MIND, 8).add(Aspect.MAGIC, 4).add(Aspect.SENSES, 4), new ItemStack(Blocks.tallgrass, 1, 1), new ItemStack[] { new ItemStack(resource, 1, 2), new ItemStack(resource, 1, 6), new ItemStack(ConfigItems.itemResource, 1, 9), new ItemStack(manaPetal, 1, 7), new ItemStack(manaPetal, 1, 10), new ItemStack(rune, 1, 14), new ItemStack(ConfigItems.itemResource, 1, 6) });
             (new DarkResearchItem("WHISPERWEED", "FORBIDDEN", "[B]", (new AspectList()).add(Aspect.PLANT, 8).add(Aspect.MIND, 10).add(Aspect.SENSES, 4), -8, 5, 3, whisperweed)).setPages(new ResearchPage[] { new ResearchPage("forbidden.research_page.WHISPERWEED.1"), new ResearchPage(whispercraft) }).setParents(new String[] { "INFAUXSION" }).setConcealed().registerResearchItem();
+
+            BotaniaAPI.registerSubTile("tainthistle", SubTileTainthistle.class);
+            BotaniaAPI.registerSubTileSignature(SubTileTainthistle.class, new DarkSignature("tainthistle"));
+            BotaniaAPI.addSubTileToCreativeMenu("tainthistle");
+
+            SubTileTainthistle.lexicon = new ForbiddenLexicon("tainthistle", generating);
+
+            SubTileTainthistle.lexicon.addPage(BotaniaAPI.internalHandler.textPage("forbidden.lexicon.tainthistle.0"));
+
+            ThaumcraftApi.registerObjectTag(GameRegistry.findItemStack("Botania", "specialFlower", 1), (new AspectList()).add(Aspect.PLANT, 4).add(Aspect.MAGIC, 1));
 
         } catch (Throwable e) {
             LogHandler.log(Level.INFO, e, "Forbidden Magic: Botania? Do you wanna build a snowman?");
