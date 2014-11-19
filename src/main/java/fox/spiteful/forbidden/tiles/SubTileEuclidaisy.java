@@ -74,6 +74,6 @@ public class SubTileEuclidaisy extends SubTileFunctional {
 
     @Override
     public IIcon getIcon(){
-        return ((DarkSignature)(BotaniaAPI.getSignatureForName("euclidaisy"))).getIconForStack(null);
+        return BotaniaAPI.getSignatureForName("euclidaisy").getIconForStack(null);
     }
 }

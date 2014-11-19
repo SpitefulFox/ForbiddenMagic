@@ -76,6 +76,6 @@ public class SubTileWhisperweed extends SubTileFunctional {
 
     @Override
     public IIcon getIcon(){
-        return ((DarkSignature)(BotaniaAPI.getSignatureForName("whisperweed"))).getIconForStack(null);
+        return BotaniaAPI.getSignatureForName("whisperweed").getIconForStack(null);
     }
 }
