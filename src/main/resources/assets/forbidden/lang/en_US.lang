@@ -30,6 +30,7 @@ item.FMResource.0.name=Emerald Fragment
 item.FMResource.1.name=Shadow Ink
 item.FMResource.2.name=Manasteel Nugget
 item.FMResource.3.name=Tainted Blood Shard
+item.FMResource.4.name=Elementium Nugget
 item.MobCrystalEmpty.name=Blank Imprinting Crystal
 item.MobCrystal.name=Imprinted Crystal
 item.DiabolistFork.name=Diabolist Fork
@@ -48,16 +49,15 @@ item.SubCollar.name=Collar of Pain
 item.Wand.tainted.rod=Tainted
 item.Wand.infernal.rod=Infernal
 item.Wand.neutronium.rod=Cosmic Neutronium
-item.Wand.soul.rod=Eldritch
 item.Wand.blood.rod=Blood
 item.Wand.witchwood.rod=Witchwood
-item.Wand.totem.rod=Totem
 item.Wand.livingwood.rod=Livingwood
+item.Wand.dreamwood.rod=Dreamwood
 item.Wand.orichalcum.cap=Orichalcum Studded
 item.Wand.alchemical.cap=Alchemically Crowned
 item.Wand.vinteum.cap=Vinteum Bossed
-item.Wand.soul.cap=Ender Shielded
 item.Wand.manasteel.cap=Manasteel Entwined
+item.Wand.elementium.cap=Elementium Kissed
 item.WandCores.tainted.name=Tainted Rod
 item.WandCores.infernal.name=Infernal Rod
 item.WandCores.soul.name=Eldritch Rod
@@ -69,11 +69,16 @@ item.WandCores.livingwood.name=Livingwood Rod
 item.WandCores.livingwood_inert.name=Dormant Livingwood Rod
 item.WandCores.blood_staff.name=Blood Staff Core
 item.WandCores.witchwood_staff.name=Witchwood Staff Core
+item.WandCores.dreamwood.name=Dreamwood Rod
+item.WandCores.dreamwood_inert.name=Silent Dreamwood Rod
+item.WandCores.dreamwood_staff.name=Dreamwood Staff Core
 item.WandCaps.alchemical.name=Alchemical Cap
 item.WandCaps.vinteum.name=Vinteum Cap
 item.WandCaps.soul.name=Ender Cap
 item.WandCaps.manasteel.name=Manasteel Cap
 item.WandCaps.manasteel_inert.name=Inert Manasteel Cap
+item.WandCaps.elementium.name=Elementium Cap
+item.WandCaps.elementium_inert.name=Inert Elementium Cap
 #
 # Blocks
 tile.ArcaneCake.name=Thaumic Cake
@@ -166,6 +171,10 @@ forbidden.research_name.ROD_livingwood=Livingwood Wand Core
 forbidden.research_text.ROD_livingwood=Botanical vis storage
 forbidden.research_page.ROD_livingwood.1=Livingwood has the fantastic ability to manipulate mana. When combined with the right reagents, it can even convert mana into vis.<BR><BR>The Livingwood Wand will quickly draw mana from storage items in your inventory in order to charge itself.<BR><BR>The infusion process burns the livingwood out, unfortunately. Once infused, the wand rod must be charged in a mana pool in order to be re-awakened.
 #
+forbidden.research_name.ROD_dreamwood_staff=Dreamwood Staff
+forbidden.research_text.ROD_dreamwood_staff=Sweet dreams are made of these
+forbidden.research_page.ROD_dreamwood_staff.1=Livingwood is a useful material, but it can't seem to withstand the amount of arcane power needed to make a staff. The elves' dreamwood seems to be up to task, however.<BR><BR>Staves made of dreamwood hold significantly more vis than the equivalent wand and are able to apply more potent power when using foci.<BR><BR>As with livingwood, dreamwood rods must be infused in a mana pool to fully awaken.
+#
 forbidden.research_name.CAP_alchemical=Alchemical Caps
 forbidden.research_text.CAP_alchemical=When Thaumium isn't bloody enough
 forbidden.research_page.CAP_alchemical.1=You've developed a wand cap that merges Thaumaturgy and Alchemical Wizardry.  Alchemical Caps are very effective at channeling Aqua, only using 80% of the normal vis cost.  For everything else, they offer only a 90% rate.<BR><BR>If combined with a Bloody Wand Core, Alchemical Caps discount the amount of LP consumed by the wand, costing only 900 LP per vis.  The caps also cause all attacks from a blood wand to inflict Weakness.
@@ -180,7 +189,11 @@ forbidden.research_page.CAP_soul.1=You've created a wand cap that can safely cha
 #
 forbidden.research_name.CAP_manasteel=Manasteel Caps
 forbidden.research_text.CAP_manasteel=The secret of mana
-forbidden.research_page.CAP_manasteel.1=Manasteel has very useful properties when it comes to mana manipulation. When crafted into a wand cap, it offers a 90% vis rate. If combined with a Livingwood Wand, it also makes the mana conversion process more efficient.<BR><BR>In order to be used in the creation of a wand, the Inert Manasteel Caps must be infused in a Mana Pool.
+forbidden.research_page.CAP_manasteel.1=Manasteel has very useful properties when it comes to mana manipulation. When crafted into a wand cap, it offers a 90% vis rate. If combined with a wand that can consume mana, it also makes the mana conversion process more efficient.<BR><BR>In order to be used in the creation of a wand, the Inert Manasteel Caps must be infused in a Mana Pool.
+#
+forbidden.research_name.CAP_elementium=Elementium Caps
+forbidden.research_text.CAP_elementium=Eco Friendly Wand Caps
+forbidden.research_page.CAP_elementium.1=Alfheim seems to be a world steeped in magical power, and Elementium is no exception. When crafted into a wand cap and treated with the right materials, Elementium Caps have an exceptional ability to channel vis. When combined with a wand or staff that uses mana, they'll also reduce the mana conversion rate.<BR><BR>Elementium's pretty pink color is just icing on the cake.
 #
 forbidden.research_name.TRANSEMERALD=Emerald Transmutation
 forbidden.research_text.TRANSEMERALD=Transformation of valuables into emerald
@@ -273,6 +286,10 @@ forbidden.research_page.EUCLIDAISY.1=Ethereal Essences are extremely useful sour
 forbidden.research_name.WHISPERWEED=Whisperweed
 forbidden.research_text.WHISPERWEED=Dubbed, not Subbed
 forbidden.research_page.WHISPERWEED.1=A busy thaumaturge has better things to do than run around in the field researching things. To save yourself many hours pulling stacks of cobble apart, you've created a flower that's in touch with the supernatural flow of the universe. The Whisperweed is a magical plant which uses mana to whisper scraps of arcane knowledge into the ears of anyone nearby.<BR><BR>Prolonged exposure to its unearthly murmurs may have a negative effect on your psyche, however...
+#
+forbidden.research_name.TAINTHISTLE=Tainthistle
+forbidden.research_text.TAINTHISTLE=It won't clean up your empty pocky containers
+forbidden.research_page.TAINTHISTLE.1=When you have unlimited arcane power at your fingertips, small chores like mopping flux goo off your laboratory floor just seem beneath you.<BR><BR>Fortunately, you now have a helper to clean up for you. The Tainthistle will suck up any flux goo or gas nearby and use it to generate mana.
 #
 forbidden.research_name.SUBCOLLAR=Collar of Pain
 forbidden.research_text.SUBCOLLAR=Pain and Magic

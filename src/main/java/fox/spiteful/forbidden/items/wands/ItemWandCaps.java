@@ -14,7 +14,15 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemWandCaps extends Item {
 
-	public final String[] types = {"alchemical", "vinteum", "soul", "manasteel", "manasteel_inert"};
+	public final String[] types = {
+            "alchemical",
+            "vinteum",
+            "soul",
+            "manasteel",
+            "manasteel_inert",
+            "elementium",
+            "elementium_inert"
+    };
 	public IIcon[] icon;
 
 	public ItemWandCaps() {

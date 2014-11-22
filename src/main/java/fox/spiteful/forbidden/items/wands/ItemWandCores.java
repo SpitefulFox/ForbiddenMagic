@@ -21,7 +21,21 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemWandCores extends Item {
 
-	public final String[] types = { "tainted", "infernal", "soul", "blood", "witchwood", "totem", "blood_inert", "livingwood", "livingwood_inert", "blood_staff", "witchwood_staff" };
+	public final String[] types = {
+            "tainted",
+            "infernal",
+            "soul",
+            "blood",
+            "witchwood",
+            "totem",
+            "blood_inert",
+            "livingwood",
+            "livingwood_inert",
+            "blood_staff",
+            "witchwood_staff",
+            "dreamwood",
+            "dreamwood_inert",
+            "dreamwood_staff" };
 	public IIcon[] icon;
 
 	public ItemWandCores() {
@@ -68,12 +82,6 @@ public class ItemWandCores extends Item {
 		((ItemWandCasting) wand.getItem()).setCap(wand, (WandCap) WandCap.caps.get("orichalcum"));
 		((ItemWandCasting) wand.getItem()).setRod(wand, (WandRod) WandRod.rods.get("neutronium_staff"));
 		list.add(wand);
-		/*if (Compat.pb) {
-			wand = ItemApi.getItem("itemWandCasting", 84);
-			((ItemWandCasting) wand.getItem()).setCap(wand, (WandCap) WandCap.caps.get("soul"));
-			((ItemWandCasting) wand.getItem()).setRod(wand, (WandRod) WandRod.rods.get("soul"));
-			list.add(wand);
-		}*/
 		if (Compat.bm && Config.crossWand) {
 			wand = ItemApi.getItem("itemWandCasting", 84);
 			((ItemWandCasting) wand.getItem()).setCap(wand, (WandCap) WandCap.caps.get("alchemical"));
@@ -99,6 +107,14 @@ public class ItemWandCores extends Item {
 			((ItemWandCasting) wand.getItem()).setCap(wand, (WandCap) WandCap.caps.get("manasteel"));
 			((ItemWandCasting) wand.getItem()).setRod(wand, (WandRod) WandRod.rods.get("livingwood"));
 			list.add(wand);
+            wand = ItemApi.getItem("itemWandCasting", 84);
+            ((ItemWandCasting) wand.getItem()).setCap(wand, (WandCap) WandCap.caps.get("elementium"));
+            ((ItemWandCasting) wand.getItem()).setRod(wand, (WandRod) WandRod.rods.get("dreamwood"));
+            list.add(wand);
+            wand = ItemApi.getItem("itemWandCasting", 84);
+            ((ItemWandCasting) wand.getItem()).setCap(wand, (WandCap) WandCap.caps.get("elementium"));
+            ((ItemWandCasting) wand.getItem()).setRod(wand, (WandRod) WandRod.rods.get("dreamwood_staff"));
+            list.add(wand);
 		}
 	}
 

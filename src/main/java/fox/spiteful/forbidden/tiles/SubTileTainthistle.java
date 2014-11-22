@@ -32,28 +32,28 @@ public class SubTileTainthistle extends SubTileGenerating {
     public void onUpdate() {
         super.onUpdate();
         boolean didSomething = false;
-        if(burnTime == 0) {
-            if(supertile.getWorldObj().getWorldTime() % 80L == 0)
-                if(mana < getMaxMana() && !supertile.getWorldObj().isRemote) {
-                    for(int ex = supertile.xCoord - range;ex <= supertile.xCoord + range;ex++){
-                        for(int wy = supertile.yCoord - range;wy <= supertile.yCoord + range;wy++){
-                            for(int zee = supertile.zCoord - range;zee <= supertile.zCoord + range;zee++){
-                                if(isFlux(ex, wy, zee)) {
-                                    int depth = supertile.getWorldObj().getBlockMetadata(ex, wy, zee);
-                                    supertile.getWorldObj().setBlockToAir(ex, wy, zee);
-                                    didSomething = true;
-                                    burnTime += depth * (1 +supertile.getWorldObj().rand.nextInt(4));
-                                }
+        if(supertile.getWorldObj().getWorldTime() % 80L == 0) {
+            if (mana < getMaxMana() && !supertile.getWorldObj().isRemote) {
+                for (int ex = supertile.xCoord - range; ex <= supertile.xCoord + range; ex++) {
+                    for (int wy = supertile.yCoord - range; wy <= supertile.yCoord + range; wy++) {
+                        for (int zee = supertile.zCoord - range; zee <= supertile.zCoord + range; zee++) {
+                            if (isFlux(ex, wy, zee)) {
+                                int depth = supertile.getWorldObj().getBlockMetadata(ex, wy, zee);
+                                supertile.getWorldObj().setBlockToAir(ex, wy, zee);
+                                didSomething = true;
+                                burnTime += depth * (4 + supertile.getWorldObj().rand.nextInt(4));
                             }
                         }
                     }
-
-                    if(didSomething){
-                        playSound();
-                        sync();
-                    }
                 }
-        } else {
+
+                if (didSomething) {
+                    playSound();
+                    sync();
+                }
+            }
+        }
+        if(burnTime > 0){
             if(supertile.getWorldObj().rand.nextInt(8) == 0)
                 doBurnParticles();
             burnTime--;
@@ -112,12 +112,12 @@ public class SubTileTainthistle extends SubTileGenerating {
 
     @Override
     public int getDelayBetweenPassiveGeneration() {
-        return 3;
+        return 2;
     }
 
     @Override
     public int getValueForPassiveGeneration() {
-        return 1 + supertile.getWorldObj().rand.nextInt(4);
+        return 2;
     }
 
     @Override

@@ -30,12 +30,13 @@ public class ItemResource extends Item {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void registerIcons(IIconRegister ir) {
-		icons = new IIcon[4];
+		icons = new IIcon[5];
 
 		icons[0] = ir.registerIcon("forbidden:emerald_nugget");
 		icons[1] = ir.registerIcon("forbidden:dye_powder_black");
 		icons[2] = ir.registerIcon("forbidden:nuggetmanasteel");
         icons[3] = ir.registerIcon("forbidden:tainted_blood_shard");
+        icons[4] = ir.registerIcon("forbidden:nuggetelementium");
 	}
 
 	@SideOnly(Side.CLIENT)
@@ -54,7 +55,7 @@ public class ItemResource extends Item {
 	@SideOnly(Side.CLIENT)
 	@Override
 	public void getSubItems(Item par1, CreativeTabs xCreativeTabs, List list) {
-		for (int j = 0; j < 4; ++j) {
+		for (int j = 0; j < 5; ++j) {
 			list.add(new ItemStack(par1, 1, j));
 		}
 	}

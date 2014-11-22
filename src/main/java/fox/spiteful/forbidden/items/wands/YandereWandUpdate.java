@@ -21,7 +21,8 @@ public class YandereWandUpdate implements IWandRodOnUpdate {
 			try
 			{
 				int cost;
-				if(((ItemWandCasting)itemstack.getItem()).getCap(itemstack).getTag().equals("manasteel"))
+				if(((ItemWandCasting)itemstack.getItem()).getCap(itemstack).getTag().equals("manasteel")
+                        ||((ItemWandCasting)itemstack.getItem()).getCap(itemstack).getTag().equals("elementium"))
 					cost = 900;
 				else
 					cost = 1100;

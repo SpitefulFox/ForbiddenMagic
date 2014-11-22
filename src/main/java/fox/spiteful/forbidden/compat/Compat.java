@@ -42,7 +42,6 @@ public class Compat {
 	public static boolean tt = false;
 	public static boolean kami = false;
 	public static boolean natura = false;
-	public static boolean pb = false;
 	public static boolean bm = false;
 	public static boolean am2 = false;
 	public static boolean botan = false;
@@ -51,22 +50,13 @@ public class Compat {
     public static void initiate() {
 		if(!Config.crossMod)
             return;
-        if (Config.tt && Loader.isModLoaded("ThaumicTinkerer"))
-			tt = true;
-		if (tt && Loader.isModLoaded("ThaumicTinkererKami"))
-			kami = true;
-		if (Loader.isModLoaded("Natura"))
-			natura = true;
-		if (Loader.isModLoaded("PlayerBeacons"))
-			pb = true;
-		if (Config.bloodMagic && Loader.isModLoaded("AWWayofTime"))
-			bm = true;
-		if (Config.am2 && Loader.isModLoaded("arsmagica2"))
-			am2 = true;
-		if (Config.botan && Loader.isModLoaded("Botania"))
-			botan = true;
-        if (Config.tc && Loader.isModLoaded("TConstruct"))
-            tc = true;
+		tt = Config.tt && Loader.isModLoaded("ThaumicTinkerer");
+        kami = tt && Loader.isModLoaded("ThaumicTinkererKami");
+		natura = Loader.isModLoaded("Natura");
+		bm = Config.bloodMagic && Loader.isModLoaded("AWWayofTime");
+		am2 = Config.am2 && Loader.isModLoaded("arsmagica2");
+		botan = Config.botan && Loader.isModLoaded("Botania");
+        tc = Config.tc && Loader.isModLoaded("TConstruct");
 	}
 
 	public static void compatify() {

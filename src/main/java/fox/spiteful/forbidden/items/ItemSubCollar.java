@@ -12,6 +12,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumChatFormatting;
@@ -81,6 +82,8 @@ public class ItemSubCollar extends ItemAmuletVis {
                     list.add("\u00a7" + aspect.getChatcolor() + aspect.getName() + EnumChatFormatting.RESET + " x " + amount);
                 }
             }
+            if(stack.stackTagCompound.hasKey("owner"))
+                list.add("Owner: " + stack.stackTagCompound.getString("owner"));
         }
 
     }
@@ -100,6 +103,11 @@ public class ItemSubCollar extends ItemAmuletVis {
             EntityPlayer sub = (EntityPlayer)entity;
             IInventory baubles = PlayerHandler.getPlayerBaubles(sub);
             if(baubles.getStackInSlot(0) == null) {
+                if(!itemstack.hasTagCompound()){
+                    NBTTagCompound tag = new NBTTagCompound();
+                    itemstack.setTagCompound(tag);
+                }
+                itemstack.stackTagCompound.setString("owner", player.getDisplayName());
                 baubles.setInventorySlotContents(0, itemstack.copy());
                 itemstack.stackSize = 0;
                 sub.addChatMessage(new ChatComponentText(player.getDisplayName() + " places a collar around your neck."));
