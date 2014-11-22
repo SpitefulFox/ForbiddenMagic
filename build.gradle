@@ -32,7 +32,7 @@ group= "com.github.spitefulfox.forbiddenmagic" // http://maven.apache.org/guides
 archivesBaseName = "Forbidden Magic"
 
 minecraft {
-    version = "1.7.10-10.13.0.1180"
+    version = "1.7.10-10.13.1.1225"
     assetDir = "eclipse/assets"
 }
 
