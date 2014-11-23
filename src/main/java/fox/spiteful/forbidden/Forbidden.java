@@ -1,7 +1,9 @@
 package fox.spiteful.forbidden;
 
 import fox.spiteful.forbidden.potions.DarkPotions;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
 import net.minecraftforge.common.MinecraftForge;
 import thaumcraft.api.wands.WandTriggerRegistry;
 
@@ -22,8 +24,13 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 public class Forbidden {
 	@Instance("ForbiddenMagic")
 	public static Forbidden instance;
-	public static ForbiddenTab tab = new ForbiddenTab("forbidden");
-	public static ForbiddenTab crysTab;
+	public static CreativeTabs tab = new CreativeTabs("forbidden"){
+        @Override
+        public Item getTabIconItem() {
+            return ForbiddenItems.fork;
+        }
+    };
+	public static CreativeTabs crysTab;
 	@SidedProxy(clientSide = "fox.spiteful.forbidden.client.ClientProxy", serverSide = "fox.spiteful.forbidden.CommonProxy")
 	public static CommonProxy proxy;
 	public static WandOverlord wandLord;
@@ -33,7 +40,12 @@ public class Forbidden {
 		instance = this;
 		Config.configurate(event.getSuggestedConfigurationFile());
 		if (Config.wrathCage)
-			crysTab = new ForbiddenTab("mobcrystal", true);
+			crysTab = new CreativeTabs("mobcrystal"){
+                @Override
+                public Item getTabIconItem() {
+                    return ForbiddenItems.mobCrystal;
+                }
+            };
 		Compat.initiate();
 		DarkAspects.initAspects();
 		Config.spawnilify();
