@@ -31,7 +31,7 @@ public class DarkAspects {
 
 		NETHER = new Aspect("infernus", 0xff0000, new Aspect[] { Aspect.FIRE, Aspect.MAGIC }, new ResourceLocation("forbidden", "textures/aspects/infernus.png"), 771);
 		PRIDE = new Aspect("superbia", 0x9639ff, new Aspect[] { Aspect.FLIGHT, Aspect.VOID }, new ResourceLocation("forbidden", "textures/aspects/superbia.png"), 1);
-		GLUTTONY = new Aspect("gula", 0xd59c46, new Aspect[] { Aspect.HUNGER, Aspect.HUNGER }, new ResourceLocation("forbidden", "textures/aspects/gula.png"), 1);
+		GLUTTONY = new Aspect("gula", 0xd59c46, new Aspect[] { Aspect.HUNGER, Aspect.VOID }, new ResourceLocation("forbidden", "textures/aspects/gula.png"), 1);
 		ENVY = new Aspect("invidia", 0x00ba00, new Aspect[] { Aspect.SENSES, Aspect.HUNGER }, new ResourceLocation("forbidden", "textures/aspects/invidia.png"), 1);
 		SLOTH = new Aspect("desidia", 0x6e6e6e, new Aspect[] { Aspect.TRAP, Aspect.SOUL }, new ResourceLocation("forbidden", "textures/aspects/desidia.png"), 771);
 		WRATH = new Aspect("ira", 0x870404, new Aspect[] { Aspect.WEAPON, Aspect.FIRE }, new ResourceLocation("forbidden", "textures/aspects/ira.png"), 771);
