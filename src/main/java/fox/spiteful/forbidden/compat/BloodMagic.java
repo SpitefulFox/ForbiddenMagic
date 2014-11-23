@@ -34,7 +34,6 @@ import thaumcraft.common.lib.potions.PotionWarpWard;
 public class BloodMagic {
 	public static void stab() {
 		try {
-            AlchemicalPotionCreationHandler.addPotion(ItemApi.getItem("itemResource", 14), PotionWarpWard.instance.getId(), 1800);
             AlchemicalPotionCreationHandler.addPotion(ItemApi.getItem("itemResource", 11), PotionFluxTaint.instance.getId(), 450);
             AlchemicalPotionCreationHandler.addPotion(new ItemStack(ForbiddenItems.resource, 1, 3), DarkPotions.bloodSeal.getId(), 1200);
 
