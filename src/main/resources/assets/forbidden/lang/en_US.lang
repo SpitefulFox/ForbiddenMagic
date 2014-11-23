@@ -89,6 +89,7 @@ tile.blackRoseBush.name=Umbral Rose Bush
 darkflower.euclidaisy.name=Euclidaisy
 darkflower.whisperweed.name=Whisperweed
 darkflower.tainthistle.name=Tainthistle
+darkflower.bloodthorn.name=Bloodthorn
 #
 # Enchantments
 enchantment.cluster=Fiery Core
@@ -302,3 +303,5 @@ forbidden.lexicon.whisperweed=Whisperweed
 forbidden.lexicon.whisperweed.0=The &1Whisperweed&0 is an unpleasant plant that whispers secrets into the ears of anyone who'll listen. There doesn't seem to be much point to the plant, since the secrets aren't even relevant to botany.<br>&oMore secrets than Wan Shi Tong&r
 forbidden.lexicon.tainthistle=Tainthistle
 forbidden.lexicon.tainthistle.0=The disgusting &1Tainthistle&0 derives sustenance from the tainted runoff of magical experiments. It'll suck up any such substance it can find and try to turn it into mana. Since Botany is an environmentally friendly practice, there doesn't seem to be much point to it.<br>&oMore intrusive than a Spirit Vine&r
+forbidden.lexicon.bloodthorn=Bloodthorn
+forbidden.lexicon.bloodthorn.0=The results of some sick, twisted Blood Mage's experiments, the &1Bloodthorn&0 is a red mystical flower that has been steeped in blood until it developed a taste for the life force of all things. It uses mana to inflict an extreme level of Weakness on surrounding creatures that is unmatched by any conventional alchemy.<br>&oYakone's legacy&r
