@@ -34,13 +34,15 @@ public class ItemMobCrystal extends Item {
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean z) {
 		if (stack.hasTagCompound()) {
 			NBTTagCompound nbttagcompound = stack.getTagCompound();
-			String string = nbttagcompound.getString("mob");
+			if(nbttagcompound.hasKey("mob")) {
+                String string = nbttagcompound.getString("mob");
 
-			if (string != null) {
-				Aspect mobAspect = Config.spawnerMobs.get(string);
-				if (mobAspect != null)
-					list.add(mobAspect.getName());
-			}
+                if (string != null) {
+                    Aspect mobAspect = Config.spawnerMobs.get(string);
+                    if (mobAspect != null)
+                        list.add(mobAspect.getName());
+                }
+            }
 		}
 	}
 
@@ -72,9 +74,7 @@ public class ItemMobCrystal extends Item {
 	public IIcon getIconIndex(ItemStack stack) {
 		if (stack.hasTagCompound()) {
 			NBTTagCompound nbttagcompound = stack.getTagCompound();
-			String string = nbttagcompound.getString("mob");
-
-			if (string != null)
+			if (nbttagcompound.hasKey("mob"))
 				return icons[1];
 		}
 
@@ -98,10 +98,12 @@ public class ItemMobCrystal extends Item {
 	public String getItemStackDisplayName(ItemStack stack) {
 		if (stack.hasTagCompound()) {
 			NBTTagCompound nbttagcompound = stack.getTagCompound();
-			String string = nbttagcompound.getString("mob");
+			if(nbttagcompound.hasKey("mob")) {
+                String string = nbttagcompound.getString("mob");
 
-			if (string != null)
-				return ("" + StatCollector.translateToLocal("entity." + string + ".name") + " " + StatCollector.translateToLocal("item.MobCrystal.name")).trim();
+                if (string != null)
+                    return ("" + StatCollector.translateToLocal("entity." + string + ".name") + " " + StatCollector.translateToLocal("item.MobCrystal.name")).trim();
+            }
 		}
 
 		return ("" + StatCollector.translateToLocal("item.MobCrystalEmpty.name")).trim();

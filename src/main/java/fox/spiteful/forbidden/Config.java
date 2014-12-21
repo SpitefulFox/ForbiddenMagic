@@ -48,6 +48,7 @@ public class Config {
     public static boolean am2 = false;
     public static boolean tt = true;
     public static boolean tc = true;
+    public static boolean special = true;
 
 	public static int wrathCost = 5;
 	public static int wrathEff = 4;
@@ -91,6 +92,7 @@ public class Config {
             am2 = conf.get("compatibility", "Ars Magica 2 Interaction", am2, "AM2 interaction is unsupported. Enable at your own risk.").getBoolean(false);
             tt = conf.get("compatibility", "Thaumic Tinkerer Interaction", tt).getBoolean(true);
             tc = conf.get("compatibility", "Tinkers Construct Interaction", tc).getBoolean(true);
+            special = conf.get("compatibility", "Special Mobs Interaction", special).getBoolean(true);
 		} catch (Exception e) {
 			LogHandler.log(Level.ERROR, e, "Had a problem loading its configuration.");
 		} finally {

@@ -46,6 +46,7 @@ public class Compat {
 	public static boolean am2 = false;
 	public static boolean botan = false;
     public static boolean tc = false;
+    public static boolean special = false;
 
     public static void initiate() {
 		if(!Config.crossMod)
@@ -57,6 +58,7 @@ public class Compat {
 		am2 = Config.am2 && Loader.isModLoaded("arsmagica2");
 		botan = Config.botan && Loader.isModLoaded("Botania");
         tc = Config.tc && Loader.isModLoaded("TConstruct");
+        special = Config.wrathCage && Config.special && Loader.isModLoaded("SpecialMobs");
 	}
 
 	public static void compatify() {
@@ -220,5 +222,102 @@ public class Compat {
 		if (botan) {
             ForbiddenBotany.flowerPowerHippymancy();
 		}
+
+        if(special){
+            Config.spawnerMobs.put("SpecialMobs.SpecialCaveSpider", Aspect.POISON);
+            Config.spawnerMobs.put("SpecialMobs.BabyCaveSpider", Aspect.POISON);
+            Config.spawnerMobs.put("SpecialMobs.FlyingCaveSpider", Aspect.POISON);
+            Config.spawnerMobs.put("SpecialMobs.MotherCaveSpider", Aspect.POISON);
+            Config.spawnerMobs.put("SpecialMobs.ToughCaveSpider", Aspect.POISON);
+            Config.spawnerMobs.put("SpecialMobs.WebCaveSpider", Aspect.POISON);
+            Config.spawnerMobs.put("SpecialMobs.WitchCaveSpider", Aspect.POISON);
+
+            Config.spawnerMobs.put("SpecialMobs.SpecialCreeper", Aspect.FIRE);
+            Config.spawnerMobs.put("SpecialMobs.ArmorCreeper", Aspect.FIRE);
+            Config.spawnerMobs.put("SpecialMobs.DarkCreeper", Aspect.FIRE);
+            Config.spawnerMobs.put("SpecialMobs.DeathCreeper", Aspect.FIRE);
+            Config.spawnerMobs.put("SpecialMobs.DirtCreeper", Aspect.FIRE);
+            Config.spawnerMobs.put("SpecialMobs.DoomCreeper", Aspect.FIRE);
+            Config.spawnerMobs.put("SpecialMobs.DrowningCreeper", Aspect.FIRE);
+            Config.spawnerMobs.put("SpecialMobs.EnderCreeper", Aspect.FIRE);
+            Config.spawnerMobs.put("SpecialMobs.FireCreeper", Aspect.FIRE);
+            Config.spawnerMobs.put("SpecialMobs.JumpingCreeper", Aspect.FIRE);
+            Config.spawnerMobs.put("SpecialMobs.LightningCreeper", Aspect.FIRE);
+            Config.spawnerMobs.put("SpecialMobs.MiniCreeper", Aspect.FIRE);
+            Config.spawnerMobs.put("SpecialMobs.SplittingCreeper", Aspect.FIRE);
+
+            Config.spawnerMobs.put("SpecialMobs.SpecialEnderman", Aspect.ELDRITCH);
+            Config.spawnerMobs.put("SpecialMobs.BlindingEnderman", Aspect.ELDRITCH);
+            Config.spawnerMobs.put("SpecialMobs.CursedEnderman", Aspect.ELDRITCH);
+            Config.spawnerMobs.put("SpecialMobs.IcyEnderman", Aspect.ELDRITCH);
+            Config.spawnerMobs.put("SpecialMobs.LightningEnderman", Aspect.ELDRITCH);
+            Config.spawnerMobs.put("SpecialMobs.MiniEnderman", Aspect.ELDRITCH);
+            Config.spawnerMobs.put("SpecialMobs.MirageEnderman", Aspect.ELDRITCH);
+            Config.spawnerMobs.put("SpecialMobs.ThiefEnderman", Aspect.ELDRITCH);
+
+            Config.spawnerMobs.put("SpecialMobs.SpecialGhast", DarkAspects.NETHER);
+            Config.spawnerMobs.put("SpecialMobs.BabyGhast", DarkAspects.NETHER);
+            Config.spawnerMobs.put("SpecialMobs.FaintGhast", DarkAspects.NETHER);
+            Config.spawnerMobs.put("SpecialMobs.FighterGhast", DarkAspects.NETHER);
+            Config.spawnerMobs.put("SpecialMobs.KingGhast", DarkAspects.NETHER);
+            Config.spawnerMobs.put("SpecialMobs.MiniGhast", DarkAspects.NETHER);
+            Config.spawnerMobs.put("SpecialMobs.QueenGhast", DarkAspects.NETHER);
+            Config.spawnerMobs.put("SpecialMobs.UnholyGhast", DarkAspects.NETHER);
+
+            Config.spawnerMobs.put("SpecialMobs.SpecialPigZombie", Aspect.GREED);
+            Config.spawnerMobs.put("SpecialMobs.BrutishPigZombie", Aspect.GREED);
+            Config.spawnerMobs.put("SpecialMobs.FishingPigZombie", Aspect.GREED);
+            Config.spawnerMobs.put("SpecialMobs.GiantPigZombie", Aspect.GREED);
+            Config.spawnerMobs.put("SpecialMobs.HungryPigZombie", Aspect.GREED);
+            Config.spawnerMobs.put("SpecialMobs.PlaguePigZombie", Aspect.GREED);
+            Config.spawnerMobs.put("SpecialMobs.VampirePigZombie", Aspect.GREED);
+
+            Aspect silver;
+            if(Config.silverfishEmeralds)
+                silver = Aspect.GREED;
+            else
+                silver = Aspect.BEAST;
+
+            Config.spawnerMobs.put("SpecialMobs.SpecialSilverfish", silver);
+            Config.spawnerMobs.put("SpecialMobs.BlindingSilverfish", silver);
+            Config.spawnerMobs.put("SpecialMobs.FishingSilverfish", silver);
+            Config.spawnerMobs.put("SpecialMobs.FlyingSilverfish", silver);
+            Config.spawnerMobs.put("SpecialMobs.PoisonSilverfish", silver);
+            Config.spawnerMobs.put("SpecialMobs.ToughSilverfish", silver);
+
+            Config.spawnerMobs.put("SpecialMobs.SpecialSkeleton", Aspect.DEATH);
+            Config.spawnerMobs.put("SpecialMobs.BrutishSkeleton", Aspect.DEATH);
+            Config.spawnerMobs.put("SpecialMobs.FireSkeleton", Aspect.DEATH);
+            Config.spawnerMobs.put("SpecialMobs.GatlingSkeleton", Aspect.DEATH);
+            Config.spawnerMobs.put("SpecialMobs.GiantSkeleton", Aspect.DEATH);
+            Config.spawnerMobs.put("SpecialMobs.PoisonSkeleton", Aspect.DEATH);
+            Config.spawnerMobs.put("SpecialMobs.SniperSkeleton", Aspect.DEATH);
+            Config.spawnerMobs.put("SpecialMobs.SpitfireSkeleton", Aspect.DEATH);
+            Config.spawnerMobs.put("SpecialMobs.ThiefSkeleton", Aspect.DEATH);
+
+            Config.spawnerMobs.put("SpecialMobs.SpecialSpider", Aspect.CLOTH);
+            Config.spawnerMobs.put("SpecialMobs.BabySpider", Aspect.CLOTH);
+            Config.spawnerMobs.put("SpecialMobs.DesertSpider", Aspect.CLOTH);
+            Config.spawnerMobs.put("SpecialMobs.FlyingSpider", Aspect.CLOTH);
+            Config.spawnerMobs.put("SpecialMobs.GhostSpider", Aspect.CLOTH);
+            Config.spawnerMobs.put("SpecialMobs.GiantSpider", Aspect.CLOTH);
+            Config.spawnerMobs.put("SpecialMobs.HungrySpider", Aspect.CLOTH);
+            Config.spawnerMobs.put("SpecialMobs.MotherSpider", Aspect.CLOTH);
+            Config.spawnerMobs.put("SpecialMobs.PaleSpider", Aspect.CLOTH);
+            Config.spawnerMobs.put("SpecialMobs.PoisonSpider", Aspect.CLOTH);
+            Config.spawnerMobs.put("SpecialMobs.SmallSpider", Aspect.CLOTH);
+            Config.spawnerMobs.put("SpecialMobs.ToughSpider", Aspect.CLOTH);
+            Config.spawnerMobs.put("SpecialMobs.WebSpider", Aspect.CLOTH);
+            Config.spawnerMobs.put("SpecialMobs.WitchSpider", Aspect.CLOTH);
+
+            Config.spawnerMobs.put("SpecialMobs.SpecialZombie", Aspect.FLESH);
+            Config.spawnerMobs.put("SpecialMobs.BrutishZombie", Aspect.FLESH);
+            Config.spawnerMobs.put("SpecialMobs.FireZombie", Aspect.FLESH);
+            Config.spawnerMobs.put("SpecialMobs.FishingZombie", Aspect.FLESH);
+            Config.spawnerMobs.put("SpecialMobs.GiantZombie", Aspect.FLESH);
+            Config.spawnerMobs.put("SpecialMobs.HungryZombie", Aspect.FLESH);
+            Config.spawnerMobs.put("SpecialMobs.PlagueZombie", Aspect.FLESH);
+
+        }
 	}
 }

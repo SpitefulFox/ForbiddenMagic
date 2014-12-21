@@ -63,7 +63,8 @@ public class ItemDivineOrb extends Item implements IBloodOrb, IBindable, IWarpin
 			return itemstack;
 		}
 
-		player.setHealth(player.getHealth() - 1);
+		if(!player.capabilities.isCreativeMode)
+            player.setHealth(player.getHealth() - 1);
 		SoulNetworkHandler.addCurrentEssenceToMaximum(itemTag.getString("ownerName"), 200, 700000000);
 
 		return itemstack;

@@ -7,10 +7,12 @@ import fox.spiteful.forbidden.Forbidden;
 import fox.spiteful.forbidden.compat.Compat;
 import fox.spiteful.forbidden.potions.DarkPotions;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.EnumRarity;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.PotionEffect;
@@ -111,10 +113,19 @@ public class ItemSubCollar extends ItemAmuletVis {
                 baubles.setInventorySlotContents(0, itemstack.copy());
                 itemstack.stackSize = 0;
                 sub.addChatMessage(new ChatComponentText(player.getDisplayName() + " places a collar around your neck."));
+                player.addChatMessage(new ChatComponentText("You place the collar around " + sub.getDisplayName() + "'s neck."));
                 return true;
             }
+            else
+                player.addChatMessage(new ChatComponentText(sub.getDisplayName() + " is already wearing something around their neck!"));
         }
         return false;
+    }
+
+    @SideOnly(Side.CLIENT)
+    @Override
+    public void getSubItems(Item item, CreativeTabs xCreativeTabs, List list) {
+        list.add(new ItemStack(item, 1, 0));
     }
 
 }

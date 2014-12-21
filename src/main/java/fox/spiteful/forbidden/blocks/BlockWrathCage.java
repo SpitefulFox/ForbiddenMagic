@@ -50,6 +50,8 @@ public class BlockWrathCage extends BlockContainer {
 			NBTTagCompound nbttagcompound = held.getTagCompound();
 			if (nbttagcompound == null)
 				return false;
+            if(!nbttagcompound.hasKey("mob"))
+                return false;
 			String string = nbttagcompound.getString("mob");
 			if (string != null) {
 				if (!world.isRemote) {
