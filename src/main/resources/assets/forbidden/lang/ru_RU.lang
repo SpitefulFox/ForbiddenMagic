@@ -30,49 +30,55 @@ item.FMResource.0.name=Изумрудный фрагмент
 item.FMResource.1.name=Теневые чернила
 item.FMResource.2.name=Самородок манастали
 item.FMResource.3.name=Осколок заражённой крови
+item.FMResource.4.name=Элементиевый самородок
 item.MobCrystalEmpty.name=Пустой кристалл импринтинга
 item.MobCrystal.name=Отпечатанный кристалл
 item.DiabolistFork.name=Адские вилы
 item.DiabolistSpork.name=Ложка-вилка смерти
 item.GluttonyShard.name=Осколок прожорливости
 item.Bloodwell.name=Инструменты кровавого писца
-item.DivineOrb.name=Жуткий шар крови
+item.DivineOrb.name=Древний шар крови
 item.Crystalwell.name=Кристальная чернильница с пером
 item.RidingCrop.name=Хлыст
-item.Divinewell.name=Чернильница с пером Тота
 item.BoundShears.name=Связанные ножницы
 item.BloodRapier.name=Рапира неясыти
+item.Boundwell.name=Связанная чернильница с пером
+item.SubCollar.name=Амулет боли
 #
 # Wand components
-item.Wand.tainted.rod=испорченный
+item.Wand.tainted.rod=заражённый
 item.Wand.infernal.rod=адский
 item.Wand.neutronium.rod=космически нейтронный
-item.Wand.soul.rod=жуткий
 item.Wand.blood.rod=кровавый
 item.Wand.witchwood.rod=ведьмодревесный
-item.Wand.totem.rod=тотемный
 item.Wand.livingwood.rod=живодревесный
+item.Wand.dreamwood.rod=из древесины мечтаний
 item.Wand.orichalcum.cap=обитый орихалком
 item.Wand.alchemical.cap=алхимически коронованный
 item.Wand.vinteum.cap=утолщённой винтеумом
-item.Wand.soul.cap=экранированный Краем
 item.Wand.manasteel.cap=обвитый манасталью
+item.Wand.elementium.cap=поцелованный элементием
 item.WandCores.tainted.name=Заражённый стержень
 item.WandCores.infernal.name=Адский стержень
-item.WandCores.soul.name=Жуткий стержень
+item.WandCores.soul.name=Древний стержень
 item.WandCores.blood.name=Кровавый стержень
-item.WandCores.witchwood.name=Ведьмин стержень
+item.WandCores.witchwood.name=Стержень из ведьминой древесины
 item.WandCores.totem.name=Тотемный стержень
 item.WandCores.blood_inert.name=Инертный кровавый стержень
-item.WandCores.livingwood.name=Живодревесный стержень
-item.WandCores.livingwood_inert.name=Бездействующий живодревесный стержень
+item.WandCores.livingwood.name=Стержень из живой древесины
+item.WandCores.livingwood_inert.name=Бездействующий стержень из живой древесины
 item.WandCores.blood_staff.name=Кровавое ядро посоха
-item.WandCores.witchwood_staff.name=Ведьминодревесное ядро посоха
+item.WandCores.witchwood_staff.name=Ядро посоха из ведьминой древесины
+item.WandCores.dreamwood.name=Стержень из древесины мечтаний
+item.WandCores.dreamwood_inert.name=Бездействующий стержень из древесины мечтаний
+item.WandCores.dreamwood_staff.name=Ядро посоха из древесины мечтаний
 item.WandCaps.alchemical.name=Алхимический наконечник
 item.WandCaps.vinteum.name=Винтеумный наконечник
 item.WandCaps.soul.name=Наконечник Края
 item.WandCaps.manasteel.name=Манастальной наконечник
 item.WandCaps.manasteel_inert.name=Инертный манастальной наконечник
+item.WandCaps.elementium.name=Элементиевый наконечник
+item.WandCaps.elementium_inert.name=Инертный элементиевый наконечник
 #
 # Blocks
 tile.ArcaneCake.name=Таумический торт
@@ -80,15 +86,20 @@ tile.InkFlower.name=Мрачная роза
 tile.WrathCage.name=Клетка гнева
 tile.StarBlock.name=Блок звезды Нижнего мира
 tile.blackRoseBush.name=Мрачный куст роз
+darkflower.euclidaisy.name=Евклидова маргаритка
+darkflower.whisperweed.name=Шепчущий сорняк
+darkflower.tainthistle.name=Чертополох
+darkflower.bloodthorn.name=Кровавый шип
 #
 # Enchantments
 enchantment.cluster=Огненное ядро
-enchantment.pigbane=Porcivore
+enchantment.wrath=Гнев
 enchantment.greedy=Капиталист
 enchantment.consuming=Потребление
 enchantment.educational=Образование
 enchantment.corrupting=Искажение
-enchantment.eternal=Вечность
+enchantment.voidtouched=Касание пустоты
+enchantment.impact=Влияние
 #
 # Potions
 potion.blood_seal=Отпечаток крови
@@ -101,163 +112,196 @@ tc.research_category.FORBIDDEN=Апокрифы
 # Research
 forbidden.research_name.NETHERSHARDS=Осколки Нижнего мира
 forbidden.research_text.NETHERSHARDS=Цель: плохо себя вести.
-forbidden.research_page.NETHERSHARDS.1=Strange energies swirl through the Nether. On occasion, they have been known to solidify into crystal shards when certain sympathetic events occur.
-forbidden.research_page.NETHERSHARDS.2=These crystals are imbued with different vices and have many uses for more unscrupulous Thaumaturges.<BR>There are seven documented types of nether shard, each attuned to a different "deadly sin."<BR><BR><IMG>forbidden:textures/misc/research.png:0:0:111:16:1</IMG><BR>
-forbidden.research_page.NETHERSHARDS.2b=These crystals are imbued with different vices and have many uses for more unscrupulous Thaumaturges.<BR>There are six documented types of nether shard, each attuned to a different "deadly sin."<BR><BR><IMG>forbidden:textures/misc/research.png:0:16:95:16:1</IMG><BR>
-forbidden.research_page.NETHERSHARDS.3=Wrath Shards crystallize around acts of violence. The more excessive the physical force used, the more likely it is for a Wrath Shard to appear.<BR><BR>Sloth Shards congeal when proxies and accidents are used to collect resources without effort.<BR><BR>Envy Shards are taken from those who have them by those that covet them.<BR><BR>Pride Shards materialize when a creature of truly great power is cut down to size.<BR><BR>More sympathetic events may reveal themselves as time goes on.
+forbidden.research_page.NETHERSHARDS.1=Странная энергия циркулирует по Нижнему миру. Как известно, иногда они затвердевают в хрустальные осколки во время наступления определённых симпатических событий.
+forbidden.research_page.NETHERSHARDS.2=Эти кристаллы пронизаны различными пороками и имеют множество применений для бессовестных тауматургов.<BR>Есть семь типов осколков Нижнего мира и каждый настроен на "Смертный грех".<BR><BR><IMG>forbidden:textures/misc/research.png:0:0:111:16:1</IMG><BR>
+forbidden.research_page.NETHERSHARDS.2b=Эти кристаллы пронизаны различными пороками и имеют множество применений для бессовестных тауматургов.<BR>Есть шесть типов осколков Нижнего мира и каждый настроен на "Смертный грех."<BR><BR><IMG>forbidden:textures/misc/research.png:0:16:95:16:1</IMG><BR>
+forbidden.research_page.NETHERSHARDS.3=Осколки гнева кристаллизуются во время актов насилия. Чем больше используется физической силы, тем больше вероятности появления осколка гнева.<BR><BR>Осколки лени кристаллизируются, когда случайности используются для получения ресурсов.<BR><BR>Осколки жадности берутся у тех, у кого они есть и передаются тем, кто жаждет их.<BR><BR>Осколок гордости появится, когда существо с поистине великой силой будет поставлено на место.<BR><BR>Более симпатические события могут проявиться только с течением времени.
 #
 forbidden.research_name.SKULLAXE=Топор собирателя черепов
 forbidden.research_text.SKULLAXE=Отрубить им головы!
-forbidden.research_page.SKULLAXE.1=Some monsters just really boil your blood. Skeletons! Always clacking around and using you for target practice. Or those Creepers! They just creep around blowing things up like they own the place! You wish you could just chop all their smug heads off and place them on pikes.<BR><BR>Fortunately, you've discovered an item that will let you do just that.  The Axe of the Skulltaker has a chance to remove the heads of monsters it slays. It might even work on other humans! Unfortunately, the infusion leaves the axe far too bloodthirsty to effectively cleave through boring plant matter.
+forbidden.research_page.SKULLAXE.1=Некоторые монстры, ну просто выводят Вас из себя! Например, скелеты! Они всегда используют Вас в качестве мишени. Или криперы! Они всегда ходят рядом и взрывают всё вокруг! Вы хотите отрубить им их самодовольные головы и воткнуть их на копья.<BR><BR>К счастью, Вы обнаружили предмет, который позволит Вам сделать это.  При убийстве монстра топором собирателя черепов, есть шанс, что Вы отрубите ему голову. Можно также отрубить головы игрокам! К сожалению, наполнение делает топор слишком кровожадным, что не позволяет эффективно рубить деревья.
 #
 forbidden.research_name.ARCANECAKE=Таумический торт
 forbidden.research_text.ARCANECAKE=Пусть едят торт.
-forbidden.research_page.ARCANECAKE.1=If there's one thing you love, it's cake. You would eat its delicious goodness all day if you could, but it always runs out in the end.<BR><BR>To remedy this, you have devised a recipe to infuse a cake with longevity-enhancing magic.  The Thaumic Cake lasts significantly longer than a mundane one and will slowly repair itself as long as there's at least a sliver left.  The enchantments are unstable, however, and the cake cannot be moved again through conventional means once placed down.
+forbidden.research_page.ARCANECAKE.1=Если существует вещь, которую Вы любите, то это - торт. Вы бы ели его вкусную доброту весь день, если бы Вы могли, но она всегда заканчивается.<BR><BR>Чтобы исправить это, Вы написали рецепт, который наполняет торт магией долголетия.  Таумический торт заканчивается намного медленнее, чем земной, и он будет медленно себя восстанавливать, пока есть хотя бы кусочек.  Однако его чары нестабильны, как только Вы его поставили, торт нельзя будет перемещать обычными способами.
 #
 forbidden.research_name.TAINTSHOVEL=Лопата очистителя
 forbidden.research_text.TAINTSHOVEL=Как горячий нож сквозь плотное масло
-forbidden.research_page.TAINTSHOVEL.1=Sometimes, the easiest way to remove patches of taint is to just physically remove them.<BR><BR>By reinforcing a thaumium shovel with Silverwood and Order Shards, you have created a tool capable of combating Taint.  The Shovel of the Purifier can dig through pulpy tainted lands as effectively as it can through normal earth.<BR><BR>If held in your hand and right-clicked, the shovel will purify all flux goo and gas from a small radius at the cost of durability. You no longer have to clean up infusion mishaps with a piece of cobblestone!
-forbidden.research_page.TAINTSHOVEL.2=When digging through taint with the shovel, there's a chance that the twisted energies released will crystallize into Taint Shards.  Unlike other tainted materials, the crystalline pattern keeps these shards stable enough to carry around.
+forbidden.research_page.TAINTSHOVEL.1=Иногда, самый простой способ убрать пятна заражения - просто физически убрать их.<BR><BR>Укрепляя таум-лопату серебряной древесиной и осколками порядка, Вы создали инструмент, который способен бороться с заражением.  Лопата очистителя может копать через вязкую заражённую почву так же эффективно, как через обычную землю.<BR><BR>Если Вы возьмёте её в руки и нажмёте ПКМ, лопата очистит всю заражённую слизь и газ в небольшом радиусе, за счёт прочности. Вам больше не придётся убирать неудачи наполнения куском булыжника!
+forbidden.research_page.TAINTSHOVEL.2=Когда Вы копаете заражение лопатой, есть шанс, что выпущенная энергия кристаллизуется в осколки заразы.  В отличие от других заражённых материалов, кристаллическая структура держит эти осколки в стабильности, что позволяет носить их с собой.
 #
 forbidden.research_name.TAINTPICK=Кирка искажения
 forbidden.research_text.TAINTPICK=Обсидиановый уничтожитель
-forbidden.research_page.TAINTPICK.1=By infusing a thaumium pickaxe with taint, you create a tool capable of cutting through difficult materials.<BR><BR>The Pickaxe of Distortion infects hard materials with taint, weakening them. The harder the material, the more effective the pickaxe is at removing it. Unfortunately, the effects of the taint have an inverse effect when mining softer materials, rendering the pickaxe less effective than just pawing at the block with your bare hands.
+forbidden.research_page.TAINTPICK.1=Наполняя таум-кирку заражением, Вы создали инструмент, который способен добывать твёрдые материалы.<BR><BR>Кирка искажения заражает твёрдые материалы, ослабляя их. Чем твёрже материал, тем эффективнее кирка добывает его. К сожалению, последствия заражения имеют обратный эффект, и при добыче более мягких материалов кирка добывает их медленней, даже медленнее руки.
 #
 forbidden.research_name.ROD_tainted=Заражённый стержень
 forbidden.research_text.ROD_tainted=Изогнутое хранилище Вис
-forbidden.research_page.ROD_tainted.1=Tainted Lands are places of great and terrible power for those Thaumaturges who know how to tap into them.<BR><BR>The Tainted Wand Core can store up to 150 vis of each type and slowly replenishes itself up to 10% in every aspect as long as it is being held inside of a Tainted Land.  While the wand is held in your hand, it can also feed off of taint coursing through your veins, randomly restoring vis every time you take damage from flux taint.
+forbidden.research_page.ROD_tainted.1=Заражённые земли - это место великой и ужасной энергии для тех тауматургов, которые знают как её использовать.<BR><BR>Заражённый стержень может хранить до 150 Вис каждого типа и медленно пополнять каждый аспект до 10%, пока жезл находятся на заражённой земле.  Когда Вы держите жезл в руке, он также может питаться от заражения, бегущего по Вашим венам, случайно восстанавливая Вис, во время получении урона от порчи.
 #
 forbidden.research_name.ROD_infernal=Адский стержень
 forbidden.research_text.ROD_infernal=Дьявольское хранилище Вис
-forbidden.research_page.ROD_infernal.1=A great and powerful thaumaturge like you deserves a powerful and imposing wand befitting your station. Some hippy silverwood wand just won't cut it. You need a wand that will serve as your scepter of authority.<BR><BR>You've discovered a way to create a wand infused with the power of the Nether.  The Infernal Wand Core can hold up to 150 vis and will slowly replenish its supply of Ignis up to 20%.  While within the Nether, the wand will also replenish its other aspects to 10%.
-forbidden.research_page.ROD_infernal.2=The wand also imbues you with some protection from the Nether's hazards, extinguishing you if you are on fire or protecting you from the effects of Withering as long as it is in your inventory.  While the wand is held in your hand, it will completely protect you from all fire damage.
+forbidden.research_page.ROD_infernal.1=Такой великий и могучий тауматург как Вы, заслуживает мощный и внушительный жезл, достойный Вашей станции. Серебродревесный жезл кажется Вам не таким уж и внушительным. Вам нужен жезл, который будет служить в качестве скипетра власти.<BR><BR> Вы обнаружили способ создания жезла, который наполнен силой Нижнего мира. Адский стержень может содержать до 150 Вис и он будет медленно пополнять запас Ignis до 20%. Если Вы будете находиться в Нижнем мире, жезл также будет пополнять другие аспекты до 10%.
+forbidden.research_page.ROD_infernal.2=Жезл также наделяет Вас какой-то защитой от опасностей Нижнего мира, он не даст Вам сгореть, если Вы стоите в огне, также он будет защищать Вас от иссушения, пока жезл находится в Вашем инвентаре. Когда жезл находится в руке, он будет полностью защищать Вас от всех повреждений огнём.
 #
-forbidden.research_name.ROD_soul=Жуткий стержень
+forbidden.research_name.ROD_soul=Древний стержень
 forbidden.research_text.ROD_soul=Оскверняющее хранилище Вис
-forbidden.research_page.ROD_soul.1=You've discovered a way to tap the energy flowing through a Player Beacon and turn it into vis. As long as you're in a dimension with an active Player Beacon attuned to yourself, the Eldritch Wand Core will slowly charge all its internal reserves, which can hold up to 100 vis.<BR><BR>Channeling such great amounts of energy through your soul comes at a price, however. Each point of vis creates large amounts of corruption in your soul. It's best not to rely on its recharge abilities too greatly...
+forbidden.research_page.ROD_soul.1=Вы обнаружили способ использования энергии, поступающей через мак и превращения её в Вис. Пока Вы находитесь в измерении с активным маяком, который привязан к Вам, древний стержень будет медленно заряжать все свои внутренние резервы, которые могут вместить до 100 Вис.<BR><BR>Однако, перемещение такого большого количества энергии через Вашу душу имеет свою цену. Каждая единица Вис создаёт большие объёмы порчи в Вашей душе. Старайтесь слишком сильно не полагаться эти особенности пополнения...
 #
 forbidden.research_name.ROD_blood=Кровавый стержень
 forbidden.research_text.ROD_blood=Алхимическое хранилище Вис
-forbidden.research_page.ROD_blood.1=You've created a bridge between Thaumaturgy and Alchemical Wizardry. The Blood Wand can store up to 100 vis and will gradually fill itself using Life Points.<BR><BR>The wand will bind itself to the first person to pick it up. As long as the rod is empty, it will try to fill itself using LP from its owner's network. If there are not enough Life Points to fuel it, it will resort to drawing health from whoever is carrying it, but this conversion is less efficient. If it has no LP to draw from and its holder falls below three hearts, the wand stops charging itself.
-forbidden.research_page.ROD_blood.2=The infusion process alone isn't enough to complete a Blood Wand. Once the Inert Blood Rod has been infused, it must be imbued with life essence in a Blood Altar to be completed.
+forbidden.research_page.ROD_blood.1=Вы создали мост между Тауматургией и Алхимической магией. Кровавый жезл может хранить до 100 Вис и постепенно пополнять себя с помощью LP.<BR><BR>Жезл будет связывать себя с тем, кто впервые подобрал его. Пока жезл пуст, он будет пытаться заполнить себя с помощью LP своего владельца. Если нет достаточного количества LP, чтобы питать его, он будет прибегать к изъятию здоровья того, кто владеет им, но это преобразование менее эффективно. Если у владельца нет достаточного количества LP, и если у него меньше трёх сердец жизни, жезл перестанет заряжать себя.
+forbidden.research_page.ROD_blood.2=Процесса наполнения не достаточно для завершения кровавого жезла. После наполнения кровавого стержня, он должен быть проникнут жизненной эссенцией в кровавом алтаре.
 #
 forbidden.research_name.ROD_blood_staff=Кровавое ядро посоха
 forbidden.research_text.ROD_blood_staff=Посох кровавого мага
-forbidden.research_page.ROD_blood_staff.1=The Blood Wand is useful, but it just charges so slowly. It's time to create a magical implement that can hold up in sustained combat.<BR><BR>Unlike most staves, the Blood Staff holds only 50 vis instead of the 100 its wand form can. Where it truly shines is its ability to recharge vis at a rapid rate. As long as the Blood Staff is held in your hotbar, it will recharge its vis from its owner's LP network four times as quickly as a normal Blood Wand. This voraciousness comes at a price, however. Unlike the wand, the Blood Staff can and will kill whoever's holding it if it doesn't recieve enough LP.
+forbidden.research_page.ROD_blood_staff.1=Кровавый жезл полезен, но медленно заряжается. Пора осуществить волшебную реализацию, которая сможет быть устойчивой в бою.<BR><BR>В отличие от большинства жезлов, кровавый посох вмещает только 50 Вис вместо 100 Вис, как у всех жезлов. Его особенность - это способность заряжаться более быстрыми темпами. Пока кровавый посох находится в панели быстрого доступа, он будет заряжаться LP владельца в четыре раза быстрее, чем обычный кровавый жезл. Однако, эта жадность имеет свою цену. В отличие от жезла, кровавый посох может убить того кто держит его, если он не получает достаточного количества LP.
 #
 forbidden.research_name.ROD_witchwood=Стержень из ведьминой древесины
 forbidden.research_text.ROD_witchwood=Преобразователь маны
-forbidden.research_page.ROD_witchwood.1=By creating a wand core out of Witchwood, you've discovered a way to convert mana into Vis.  The Witchwood Wand Core holds up to 100 vis and will gradually charge itself at the cost of 140 mana per point of vis.<BR><BR>Further research may reveal ways to lower this price.
+forbidden.research_page.ROD_witchwood.1=Создавая стержень из ведьминой древесины, Вы обнаружили способ преобразования маны в Вис.  Стержень из ведьминой древесины содержит до 100 Вис и постепенно заряжает себя ценой в 140 маны - одно очко Вис.<BR><BR>Дальнейшие исследования могут открыть способы понижения этой цены.
 #
 forbidden.research_name.ROD_witchwood_staff=Ядро посоха из ведьминой древесины
 forbidden.research_text.ROD_witchwood_staff=Посох чародея
-forbidden.research_page.ROD_witchwood_staff.1=The Witchwood Wand eats far too much magical power and charges far too slowly to stand up in sustained combat. It's time for something a little more efficient at channeling arcane power.<BR><BR>Unlike most staves, the Witchwood Staff can only hold 50 vis. Its true strength lies in how quickly it recharges itself.  The staff regains vis at over twice the rate of the Witchwood Wand. Furthermore, the staff uses considerably less magical power than the Witchwood Wand, only needing 100 mana per point of vis, if used without the appropriate cap.
+forbidden.research_page.ROD_witchwood_staff.1=Жезл из ведьминой древесины "пожирает" слишком много магической силы и заряжается слишком медленно, чтобы быть устойчивым в бою. Вам кажется, что пора сделать что-то немного более эффективное, в направлении мистической силы.<BR><BR>В отличии от большинства жезлов, посох из ведьминой древесины может содержать только 50 Вис. Его истинная сила заключается в том, что он быстро заряжается. Посох восстанавливает Вис в два раза быстрее, чем жезл из ведьминой древесины. Кроме того, посох использует значительно меньшую магическую силу, чем жезл из ведьминой древесины и ему нужно только 100 маны за Вис, если он используется без соответствующего наконечника.
 #
 forbidden.research_name.ROD_totem=Тотемный стержень
 forbidden.research_text.ROD_totem=Зелёное хранилище Вис
-forbidden.research_page.ROD_totem.1=Hunting down nodes for their power can be quite a pain sometimes. Perhaps there is another discipline you can tap for power...<BR><BR>By carving a wand core from Infused Wood, you create a wand that can draw power from plant life. The Totemic Wand Core holds 50 vis and can draw energy from Chlorophyll Crystals in your inventory to recharge its own vis.
+forbidden.research_page.ROD_totem.1=Охота на узлы за их энергией иногда может быть утомительной. Возможно, есть другой способ получения энергии...<BR><BR>Высекая стержень из наполненной древесины, Вы создаёте жезл, который может забирать энергию из растений. Тотемный стержень содержит 50 Вис и может забирать энергию из кристаллов хлорофилла в Вашем инвентаре, чтобы получать Вис.
 #
 forbidden.research_name.ROD_livingwood=Стержень из живой древесины
 forbidden.research_text.ROD_livingwood=Ботаническое хранилище Вис
-forbidden.research_page.ROD_livingwood.1=Livingwood has the fantastic ability to manipulate mana. When combined with the right reagents, it can even convert mana into vis.<BR><BR>The Livingwood Wand will quickly draw mana from storage items in your inventory in order to charge itself.<BR><BR>The infusion process burns the livingwood out, unfortunately. Once infused, the wand rod must be charged in a mana pool in order to be re-awakened.
+forbidden.research_page.ROD_livingwood.1=У живой древесины есть удивительная способность к манипуляции маной. В сочетании с правильными реагентами, она может преобразовывать ману в Вис.<BR><BR>Жезл из живой древесины будет быстро забирать ману из предметов в Вашем инвентаре для того, чтобы зарядить себя.<BR><BR>К сожалению, процесс наполнения сжигает живую древесину. После наполнения, стержень должен быть перезаряжен в бассейне маны для пробуждения.
+#
+forbidden.research_name.ROD_dreamwood_staff=Посох из древесины мечтаний
+forbidden.research_text.ROD_dreamwood_staff=Сладкие мечты сделаны из них
+forbidden.research_page.ROD_dreamwood_staff.1=Живая древесина - полезный материал, но она не может выдержать большое количество тайной энергии, которая необходима для создания посоха. Однако, древесина мечтаний эльфов может выполнить эту задачу.<BR><BR>Посохи, сделанные из древесины мечтаний содержат значительно больше Вис, чем эквивалентный жезл, а также они могут принять больше энергии, при использовании набалдашника.<BR><BR>Как и с живой древесиной, стержни из древесины мечтаний должны быть наполнены в бассейне с маной для полного пробуждения.
 #
 forbidden.research_name.CAP_alchemical=Алхимические наконечники
 forbidden.research_text.CAP_alchemical=Когда таумиум недостаточно кровавый
-forbidden.research_page.CAP_alchemical.1=You've developed a wand cap that merges Thaumaturgy and Alchemical Wizardry.  Alchemical Caps are very effective at channeling Aqua, only using 80% of the normal vis cost.  For everything else, they offer only a 90% rate.<BR><BR>If combined with a Bloody Wand Core, Alchemical Caps discount the amount of LP consumed by the wand, costing only 900 LP per vis.  The caps also cause all attacks from a blood wand to inflict Weakness.
+forbidden.research_page.CAP_alchemical.1=Вы разработали наконечник, который объединяет тауматургию и алхимическую магию.  Алхимические наконечники очень эффективны в выкачивании Aqua, использую только 80% обычной цены Вис.  Для остального, они предлагают только 90% траты Вис.<BR><BR>В сочетании с кровавым стержнем, алхимические наконечники снижают потребление LP жезлом, стоимость составит всего 900 LP за Вис.  Атаки наконечниками на кровавом жезле также вызывают слабость.
 #
 forbidden.research_name.CAP_vinteum=Винтеумные наконечники
 forbidden.research_text.CAP_vinteum=Магические наконечники
-forbidden.research_page.CAP_vinteum.1=By infusing a Thaumium cap with Vinteum, you create a cap that, when combined with a Witchwood Wand Core, lowers its mana cost to only 80 per point of vis.<BR><BR>The Thaumium cap seems to meld well with Vinteum, offering the same 90% vis rate.
+forbidden.research_page.CAP_vinteum.1=Наполняя таум-наконечник винтеумом, Вы создали наконечник, который в сочетании со стержнем из ведьминой древесины, понижает стоимость маны до 80 очков за Вис.<BR><BR>Таум-наконечник похоже хорошо сливается с винтеумом, предлагая те же 90% траты Вис.
 #
 forbidden.research_name.CAP_soul=Наконечники Края
 forbidden.research_text.CAP_soul=Защита для Вашей души
-forbidden.research_page.CAP_soul.1=You've created a wand cap that can safely channel the destructive energy of The End.  Ender Caps have an 80% vis rate on Perditio, but only 90% for other aspects.<BR><BR>When combined with an Eldritch Wand Core, Ender Caps also reduce the amount of corruption your soul suffers from channeling vis out of the End.
+forbidden.research_page.CAP_soul.1=Вы создали наконечник, который может безопасно выкачивать разрушительную энергию Края.  Наконечники Края тратят 80% Вис Perditio и 90% других аспектов.<BR><BR>В сочетании с древним стержнем, наконечники Края также уменьшают силу повреждения Вашей души, получаемую от выкачивания Вис из Края.
 #
 forbidden.research_name.CAP_manasteel=Наконечники из манастали
 forbidden.research_text.CAP_manasteel=Секрет маны
-forbidden.research_page.CAP_manasteel.1=Manasteel has very useful properties when it comes to mana manipulation. When crafted into a wand cap, it offers a 90% vis rate. If combined with a Livingwood Wand, it also makes the mana conversion process more efficient.<BR><BR>In order to be used in the creation of a wand, the Inert Manasteel Caps must be infused in a Mana Pool.
+forbidden.research_page.CAP_manasteel.1=Манасталь имеет очень полезные свойства, когда дело доходит до манипуляции маной. Вы сделали наконечник для жезла, который тратит в среднем 90% Вис. В сочетании со стержнем, который может потреблять ману, процесс преобразования маны становится более эффективным.<BR><BR>При создании жезла, инертный манастальной наконечник должен быть заряжен маной.
+#
+forbidden.research_name.CAP_elementium=Элементиевые наконечники
+forbidden.research_text.CAP_elementium=Экологичные наконечники
+forbidden.research_page.CAP_elementium.1=Эльфхейм похож на погруженный в магическую силу мир и элементий тоже. При слиянии в наконечник и после обработки нужными материалами, элементиевые наконечники имеют исключительную способность к выкачиванию Вис. В сочетании с жезлом или посохом, которые используют ману, они также уменьшают курс обмена маны.<BR><BR>Симпатичный розовый цвет элементия просто глазурь на торте.
 #
 forbidden.research_name.TRANSEMERALD=Трансмутация изумруда
 forbidden.research_text.TRANSEMERALD=Трансформация ценностей в изумруд
-forbidden.research_page.TRANSEMERALD.1=You have discovered a way to multiply emeralds by steeping emerald fragments in lucrum harvested from other substances.
+forbidden.research_page.TRANSEMERALD.1=Вы обнаружили способ удвоения изумрудов, погружая изумрудные осколки в Lucrum, добытых из других материалов.
 #
 forbidden.research_name.BLACKFLOWER=Мрачная роза
 forbidden.research_text.BLACKFLOWER=Спасите спрута!
-forbidden.research_page.BLACKFLOWER.1=There's no sight more pathetic than a soggy Thaumaturge.  For all your great and miraculous powers, you still have to go jump in the nearest lake and hunt for squids every time you want to refill your inkwell.<BR><BR>You're done squid hunting.  By infusing a rose with tenebrae and victus, you create a flower that spreads like a weed and whose petals can be crushed for ink.
+forbidden.research_page.BLACKFLOWER.1=Нет более жалкого зрелища, чем видеть мокрого тауматурга.  Несмотря на Ваши великие и магические силы, Вам все равно придётся идти прыгать в ближайшее озеро и устраивать охоту за спрутами каждый раз, когда Вы захотите пополнить Вашу чернильницу.<BR><BR>Прекращайте охотиться за спрутами! Соединяя розу с Tenebrae и Victus, Вы создаёте цветок, который распространяется как сорняк, и чьи лепестки могут быть раздавлены для создания чернил.
 #
 forbidden.research_name.WRATHCAGE=Клетка гнева
 forbidden.research_text.WRATHCAGE=Бесконечная битва
-forbidden.research_page.WRATHCAGE.1=Sometimes, it's not enough to just kill something. Sure, slaying a single monster may be rather cathartic, but imagine just mowing down a crowd of the obnoxious little jerks.<BR><BR>To that end, you've discovered a way to recreate the monster spawners found in the ancient ruins. Unlike the original monster spawners, the Wrath Cage responds to redstone controls instead of the presence of human beings and can run much faster than the ancient devices.
-forbidden.research_page.WRATHCAGE.2=However, you haven't been able to duplicate the original method of infinite creation. For every creature spawned, the Wrath Cage requires a bit of essentia piped into its internal reserves. The device will accept different types of essentia depending on the creature it is attuned to. Alternatively, piping Ira into the cage can serve as a fuel. The cage can also accept Desidia for some reason.<BR><BR>Right-clicking the Wrath Cage with a Diabolist Fork will cycle the cage between the different fuel types, changing which essentia it applies suction to.
-forbidden.research_page.WRATHCAGE.3=To attune a wrath cage to a specific creature, right click on it with an imprinted crystal.  Slaying a compatible creature with a Diabolist Fork while carrying a blank imprinting crystal will attune the crystal to that monster.
+forbidden.research_page.WRATHCAGE.1=Иногда, недостаточно просто убить что-то или кого-то. Конечно, убийство одного монстра может быть хорошим очищением мира, но представьте как Вы просто выкашиваете толпы неприятных страшил.<BR><BR>С этой целью, Вы обнаружили способ воссоздать спаунеры монстров, которые Вы нашли в древних руинах. В отличие от обычных спаунеров монстров, клетка гнева реагирует на сигналы красного камня, а не на наличие человека и она работает намного быстрее древних аналогов.
+forbidden.research_page.WRATHCAGE.2=Тем не менее, Вы не смогли воссоздать оригинальный метод бесконечного появления существ. За каждое существо клетка гнева требует немного эссенции, которую нужно передать по трубам. Устройство будет принимать разные типы эссенции в зависимости от привязанного существа. Также, Ira может служить, как топливо. Клетка также принимает Desidia.<BR><BR>Нажатие ПКМ по клетке гнева адскими вилами будет менять цикл клетки между разными видами топлива, меняя потребляемую эссенцию клеткой.
+forbidden.research_page.WRATHCAGE.3=Чтобы привязать клетку гнева к определённому существу, нажмите ПКМ по ней с отпечатанным кристаллом в руке.  Убийство совместимого существа адскими вилами, имея при этом чистый отпечатанный кристалл, привяжет кристалл к этому монстру.
 #
 forbidden.research_name.FORK=Адские вилы
 forbidden.research_text.FORK=Тайный инструмент инженера
-forbidden.research_page.FORK.1=You've created a tool to help you tinker with various infernal contraptions. The quartz prongs on the Diabolist Fork allow it to attune itself to arcane energies.<BR><BR>Along with being used to tune devices, the fork also makes for a functional weapon.<BR><BR>More information should appear in the following pages as you uncover more research.
-forbidden.research_page.FORK.wc=If the Diabolist Fork is used to slay a compatible creature with a Blank Imprinting Crystal in your inventory, it will imprint on the crystal.  The Imprinted Crystal can then be used to attune a Wrath Cage to that monster.<BR><BR>The fork can also be used to adjust which essentia type a Wrath Cage is using for fuel. Simply right click on the Wrath Cage with the Diabolist Fork to cycle between the three different fuel types.
+forbidden.research_page.FORK.1=Вы создали инструмент, который поможет Вашему инженерному началу с разными адскими штуковинами. Кварцевые зубцы на адских вилах позволят им привязать себя к тайной энергии.<BR><BR>Вместе с тем что вилы используются для настройки устройств, вилы также работают как оружие.<BR><BR>Больше информации должно появиться на следующих страницах, после того как Вы проведёте больше исследований.
+forbidden.research_page.FORK.wc=Если адские вилы используются для убийства совместимого существа вместе с чистым отпечатанным кристаллом в Вашем инвентаре, то это отпечает существо на кристалле.  Отпечатанный кристалл потом может быть использован, чтобы привязать клетку гнева к этому монстру.<BR><BR>Вилы также можно использовать для настройки того, какой тип эссенции клетка гнева использует в качестве топлива. Просто нажмите ПКМ по клетке гнева адскими вилами, чтобы изменить тип топлива.
 #
 forbidden.research_name.MORPHTOOLS=Хамелеоновые инструменты
-forbidden.research_text.MORPHTOOLS=Существует зачарование для этого...
-forbidden.research_page.MORPHTOOLS.1=Chameleon Tools are like three tools in one. When first enchanted, right-clicking while sneaking with the tool in your hand changes it to a blank new enchanting slate, allowing you to enchant it with a completely different set of enchantments. Each tool can hold up to three separate enchantment sets which can be alternated between by right-clicking while sneaking.<BR><BR>The tools have no innate way to remove enchantments once fully enchanted, so make each enchantment count!
+forbidden.research_text.MORPHTOOLS=Для них есть зачарования...
+forbidden.research_page.MORPHTOOLS.1=Хамелеоновые инструменты - это как три инструмента в одном. При первом зачаровании, нажатие ПКМ, сидя с инструментом в руке, изменяет его на чистое покрытие для зачарования, позволяя Вам зачаровать его с совершенно другим набором зачарований. Каждый инструмент может содержать три отдельных набора зачарований, которые можно чередовать между собой, нажимая ПКМ, сидя.<BR><BR>Инструменты не имеют природного способа удаления наборов зачарований после полного зачарования, так что считайте каждое зачарование!
 #
 forbidden.research_name.CLUSTER=Зачарование: Огненное ядро
 forbidden.research_text.CLUSTER=Хамелеон ядра
-forbidden.research_page.CLUSTER.1=You've discovered an enchantment to allow the Chameleon Pickaxe to imitate the effects of the Pickaxe of the Core.  A Chameleon Pickaxe with the Fiery Core enchantment has a chance of dropping clusters when mining certain ores.  Clusters are a lot purer than raw ore and can be smelted for two of the ore's normal smelting result.  Higher levels of Fiery Core increase the chance of dropping clusters.
+forbidden.research_page.CLUSTER.1=Вы обнаружили зачарование, которое позволит хамелеоновой кирке имитировать эффекты кирки Огня.  Хамелеоновая кирка с зачарованием: Огненное ядро имеет шанс получения кластеров определённых руд.  Кластеры намного чище, чем сырая руда, а также они могут быть переплавлены в два слитка руды.  Чем выше уровень зачарования, тем выше шанс получения кластеров.
+#
+forbidden.research_name.IMPACT=Зачарование: Влияние
+forbidden.research_text.IMPACT=Когда-нибудь эта стена упадёт.
+forbidden.research_page.IMPACT.1=Некоторые инструменты имеют гораздо большую область добычи. Зачарование: Влияние применяется на хамелеоновую кирку и лопату.<BR><BR>Хамелеоновый инструмент с зачарованием: Влияние добывает территорию блоков 3 x 3 вместо одного, делая разведочную добычу и уплощение территории гораздо проще.
 #
 forbidden.research_name.GREEDY=Зачарование: Капиталист
 forbidden.research_text.GREEDY=Нерегулируемое зачарование
-forbidden.research_page.GREEDY.1=You've discovered a weapon enchantment that allows you to profit from taking lives. Every time a Capitalist weapon slays a hostile creature, there's a chance to drop an Emerald Fragment. If a Capitalist Weapon is used to kill a villager, it will instead drop one of the villager's emeralds.
+forbidden.research_page.GREEDY.1=Вы обнаружили зачарование для оружия, которое позволяет получать выгоду, забирая жизни. При убийстве оружием капиталиста враждебных существ, существует шанс получения изумрудного осколка. Если оружие капиталиста используется для убийства жителя деревни, то существует шанс получения его изумруда.
 #
 forbidden.research_name.CONSUMING=Зачарование: Потребление
 forbidden.research_text.CONSUMING=Мусороудаление
-forbidden.research_page.CONSUMING.1=Sick of having to empty your pack of worthless junk, you've devised an enchantment that will automatically destroy common, unwanted materials.  Any Cobblestone, Dirt, Gravel, or Netherrack mined by a Consuming tool will be destroyed instead of falling to the ground.
+forbidden.research_page.CONSUMING.1=Из-за боли от опустошения Вашего инвентаря от ненужного мусора, Вы разработали зачарование, которое будет автоматически уничтожать распространённые, ненужные материалы.  Любой булыжник, земля, гравий или камень Нижнего мира, добытый инструментом потребления, будет уничтожен.
 #
-forbidden.research_name.PIGBANE=Зачарование: Porcivore
-forbidden.research_text.PIGBANE=Показывает тех зомби-свиночеловеков, которые наверху пищевой цепи!
-forbidden.research_page.PIGBANE.1=Zombie Pigmen think they're so great. They're always stomping around the Nether ganging up on innocent travelers. It's time someone put a stop to them.<BR><BR>Weapons with the Porcivore enchantment will do excessive amounts of damage to Pigs and Zombie Pigmen.
+forbidden.research_name.WRATH=Зачарование: Гнев
+forbidden.research_text.WRATH=Когда каждая проблема - гвоздь, всё, что Вам нужно - это большой молот.
+forbidden.research_page.WRATH.1=Ах! Вам нужно больше чрезмерно жестокого оружия для убийства существ. Зачарование - хорошее начало, только так можно заточить меч прежде чем он начнёт превращаться в жидкость. Ваш меч просто убивает недостаточно эффективно.<BR><BR>Чтобы исправить это, Вы создали специальное зачарование, которое внедряет ещё больше силы и смерти в Ваш меч. Зачарование: Гнев увеличивает наступательную силу меча, оно также совместимо с зачарованиями острота, бич членистоногих и небесная кара.
 #
 forbidden.research_name.EDUCATIONAL=Зачарование: Образование
 forbidden.research_text.EDUCATIONAL=Вы будете УЧИТЬ!
-forbidden.research_page.EDUCATIONAL.1=You've created an enchantment to infuse a weapon with the very essence of knowledge and learning. Hammering such learning into monsters' heads will result in them dropping more experience than normal, depending on the level of enchantment.
+forbidden.research_page.EDUCATIONAL.1=Вы создали зачарование для наполнения оружия эссенцией знаний и изучения. Уничтожение голов монстров учёбой даст больше опыта чем обычно, в зависимости от уровня зачарования.
 #
 forbidden.research_name.CORRUPTING=Зачарование: Искажение
 forbidden.research_text.CORRUPTING=Плохое влияние на осколки
-forbidden.research_page.CORRUPTING.1=The Nether is great and all, but it's also kind of a... Hell Hole.<BR><BR>The Corrupting enchant allows you to harvest Nether Shards without having to be in the Nether.  A pickaxe enchanted with Corrupting will randomly corrupt harvested elemental shards, changing them into nether shards. The shards only seem susceptible while they are encased in infused stone, so corrupting a shard cluster will have no effect.
+forbidden.research_page.CORRUPTING.1=Нижний мир великолепен, но он также что-то вроде.. адской дыры.<BR><BR>Зачарование: Искажение позволит Вам собирать осколки Нижнего мира, при этом не находясь в Нижнем мире.  Кирка зачарованная искажением будет случайно искажать собранные осколки стихий, превращая их в осколки Нижнего мира. Осколки кажутся восприимчивыми только тогда, когда они помещены в наполненный камень, это значит что искажение кластера не будет иметь никого эффекта.
 #
-forbidden.research_name.ETERNAL=Зачарование: Вечность
-forbidden.research_text.ETERNAL=Хамелеоновые боги
-forbidden.research_page.ETERNAL.1=Ichorium Tools are really great. You sure wish your Chameleon Tools could be more like them. Maybe they can...<BR><BR>The Eternal enchant gives a Chameleon Tool the same unbreakable quality as Ichorium Tools.
+forbidden.research_name.VOIDTOUCHED=Зачарование: Прикосновение пустоты
+forbidden.research_text.VOIDTOUCHED=Цвет из Космоса
+forbidden.research_page.VOIDTOUCHED.1=Способность пустотного металла регенерировать повреждения завораживает. Вы хотите, чтобы Ваши хамелеоновые инструменты имели теже свойства...<BR><BR>Зачарование: Прикосновение пустоты даёт хамелеоновому инструменту тоже качество регенерации, что и у пустотных инструментов.<BR><BR>Хамелеоновые инструменты после зачарования похожи на живую плоть, которая превращается обратно в нужную форму при нанесении урона. Даже когда Вы просто смотрите на них Ваш рассудок начинает пошатываться.
 #
 forbidden.research_name.TAINTBASICS=Заражённые земли
 forbidden.research_text.TAINTBASICS=Глубокий пурпур
-forbidden.research_page.TAINTBASICS.1=Sometimes, Thaumaturgy goes horribly wrong. Miracles become twisted calamities and the very landscape twists into hideous forms. Tainted Lands are places infected by the sick runoff of magical workings, flux. Local flora and fauna become warped and mutated into forms hostile to normal life and the very ground of a tainted land infects those who tread upon its pulsing fibres.
-forbidden.research_page.TAINTBASICS.2=Tainted Lands can be found naturally in the world, but can also form when a careless Thaumaturge allows flux goo to stagnate for too long. They are recognizable by their telltale purple fibres and bright violet stalks. Left alone, the tainted land will gradually extend its tendrils outwards, infecting more and more of the surrounding land. Dirt becomes thick, pulpy Tainted Soil while trees and other natural materials are slowly covered in fibres and converted into structurally unsound crust which can collapse or melt into flux goo at any moment.
+forbidden.research_page.TAINTBASICS.1=Иногда, тауматургия проходит ужасно неправильно. Чудеса превращаются в бедствия, а ландшафт становится отвратительной формы. Заражённые земли - это такие места, которые заражены болезненными отходами магов - порчей. Местные флора и фауна деформируются и мутируют во враждебные для нормальной жизни формы, и само основание заражённых земель заражает тех, кто наступает на заражённые волокна.
+forbidden.research_page.TAINTBASICS.2=Заражённые земли можно найти в природе, но также, они могут образовываться при неосторожности тауматурга, если заражённая слизь простоит слишком долго без внимания. Заражённые земли узнаваемы из-за их выдающихся фиолетовых волокон и ярких фиолетовых растений. Оставшись без внимания, заражённая земля будет постепенно расширять свои владения, заражая всё больше и больше окрестных земель. Земля становится густой, а заражённая почва, деревья и другие природные материалы медленно покрываются волокнами и преобразуются в структурно нездоровую кору, которая может рухнуть или раствориться в заражённую слизь в любой момент.
 #
 forbidden.research_name.BLOODWELL=Кровавые инструменты писаря
-forbidden.research_text.BLOODWELL="Я завершу это исследование, если оно убьет меня!"
-forbidden.research_page.BLOODWELL.1=There's nothing more frustrating than having to pause your research to refill your inkwell. Sometimes, you're just so desperate to complete a research you'd rather use your own blood as ink than stop to go find a refill.<BR><BR>The Bloody Scrivener's Tools will refill using Life Points from their owner's network, at a rate of 25 LP per point. This ability requires human warmth to activate, requiring you to remove the tools from the research table, but without having to actually leave the research area.
+forbidden.research_text.BLOODWELL="Я завершу это исследование, если оно убьёт меня!"
+forbidden.research_page.BLOODWELL.1=Нет ничего более ужасного, чем приостановка исследования для пополнения своей чернильницы. Иногда, Вы так отчаянно хотите завершить своё исследование, что Вы предпочли бы использовать свою кровь вместо чернил, а не идти перезаправлять чернильницу.<BR><BR>Кровавые инструменты писаря будут заправляться, используя LP их владельца, со скоростью 25 LP за очко. Эта способность требует человеческого тепла, для этого Вам нужно убрать инструменты из стола исследований, но Вам не нужно покидать зону исследования.
 #
-forbidden.research_name.DIVINEORB=Жуткий кровавый шар
+forbidden.research_name.DIVINEORB=Древний кровавый шар
 forbidden.research_text.DIVINEORB=Шар пожирателя душ
-forbidden.research_page.DIVINEORB.1=It is whispered among some Thaumaturgic circles that Ichor is actually the blood of the divine. You don't know whether this is true or not, but Ichor does seem to have an affinity with more advanced alchemical devices.<BR><BR>The Transcendent Blood Orb is what happens when you combine the most advanced Thaumaturgy and Alchemical Wizardry available. The infusion vastly increases the orb's carrying capacity, allowing it to hold a whopping 70,000,000 LP. What would you ever need that much LP for?
+forbidden.research_page.DIVINEORB.1=Прошёл шёпот в ряду кругов тауматургов, что Ихор на самом деле кровь Бога. Вы не знаете правда это или нет, но Ихор, кажется, имеет родство с более продвинутыми алхимическими устройствами.<BR><BR>Древний кровавый шар - вот что получается, когда Вы соединяете продвинутую тауматургию и алхимическое колдовство. Наполнение значительно увеличивает ёмкость шара, позволяя ему хранить колоссальные 70,000,000 LP. Для чего Вам нужно столько LP?
 #
 forbidden.research_name.BLOODRAPIER=Рапира неясыти
 forbidden.research_text.BLOODRAPIER=Уничтожитель Blood Magic
-forbidden.research_page.BLOODRAPIER.1=There's nothing more dangerous than a Blood Magus that is gorged on life essence. As long as they have enough life energy, there's very little that can pierce their defenses.<BR><BR>Until now.<BR><BR>The Rapier of the Strix, upon striking someone, drinks LP directly from their Soul Network and seals it so that they can't regain any more LP for a while. It may not do very much physical damage, but it packs a metaphysical punch against Blood Magi.
+forbidden.research_page.BLOODRAPIER.1=Нет ничего опаснее мага крови, который напился жизненной эссенции. Пока у него достаточно жизненной силы, шанс пробить его защиту очень мал.<BR><BR>Но теперь...<BR><BR>Рапира неясыти, попадая по кому-то, забирает LP напрямую из его жизненной сети и на время блокирует её таким образом, что маг больше не может получить LP. Она не наносит большого физического урона, но она содержит в себе метафизический урон против магов крови.
 #
 forbidden.research_name.CRYSTALWELL=Кристальная чернильница с пером
 forbidden.research_text.CRYSTALWELL=Тайный исследовательский грант
-forbidden.research_page.CRYSTALWELL.1=Combining elemental shards with your inkwell results in some interesting effects. The Crystal Scribing Tools seem to absorb knowledge as you use them to write. Once the well is empty of ink, you can absorb this knowledge for a small burst of research points by holding the tools in your hand and right clicking. Unfortunately, this burns the tool out and turns it back into a mundane Scribing Tool again.
+forbidden.research_page.CRYSTALWELL.1=Соединение осколков стихий с Вашей чернильницей даёт Вам достаточно интересные эффекты. Кристальная чернильница с пером, кажется, поглощает знания, которые Вы ей записываете. После того как в чернильнице закончатся чернила, Вы можете поглотить это знание за небольшое количество очков исследования, держа чернильницу в руках и нажав ПКМ. К сожалению, это сжигает чернильницу и превращает её в земную чернильницу с пером.
 #
 forbidden.research_name.RIDINGCROP=Хлыст
 forbidden.research_text.RIDINGCROP=Мотивированная боль
-forbidden.research_page.RIDINGCROP.1=A riding crop is, as its name suggests, a tool used to motivate mounts to move faster.  Right clicking with it in your hand while riding a horse or other mount will give the mount a quick lash of pain and cause it to move faster for a little while.<BR><BR>You could hit other creatures with the crop too, but what would possess you to do something like that?
+forbidden.research_page.RIDINGCROP.1=Хлыст, как подсказывает его название, это инструмент, используемый для побуждения животных, которых можно оседлать, двигаться быстрее.  Нажмите ПКМ с хлыстом в руке, когда Вы на лошади или на другом животном, и после удара животное будет двигаться быстрее в течение некоторого времени.<BR><BR>Вы можете ударить хлыстом и других животных, но что заставляет Вас делать это?
 #
 forbidden.research_name.HELLFIRE=Властелин адского огня
 forbidden.research_text.HELLFIRE=Никогда не попадай в затруднительное положение
-forbidden.research_page.HELLFIRE.1=Getting stranded in the Nether is the worst. You go through all the trouble of grabbing what you need, but before you can go home, some stupid ghast decides to rain on your parade by blasting the portal shut. Sure, this can be amended by carrying a flint and steel around, but who actually walks around with those things?<BR><BR>You've discovered a way to use vis in your wand to light fires on certain materials.  Right click with a focus-less wand in your hand on the top of netherrack or obsidian to light a flame using some Ignis from your wand.
+forbidden.research_page.HELLFIRE.1=Остаться пустым в Нижнем мире - худшее, что может произойти. Вы преодолеваете все трудности в поисках чего-то, что Вам нужно, но прежде чем Вы вернётесь домой, какой-нибудь глупый гаст решает поплакать, разрушив при этом Ваш портал. Конечно, эта проблема может быть решена, если у Вас есть огниво, но кто носит с собой огниво?<BR><BR>Вы обнаружили способ использования Вис в Вашем жезле для зажигания огня на некоторых материалах.  Нажмите ПКМ жезлом без набалдашника по камню Нижнего мира или обсидиану, чтобы зажечь огонь, используя Ignis из жезла.
 #
-forbidden.research_name.DIVINEWELL=Чернильница с пером Тота
-forbidden.research_text.DIVINEWELL=Сильнее меча
-forbidden.research_page.DIVINEWELL.1=After researching every last shred of knowledge in the entire cosmos, you've finally uncovered the secret to never refilling your inkwell.<BR><BR>The Scribing Tools of Thoth will never run out of ink.<BR><BR>You sure wish you could've discovered this earlier...
+forbidden.research_name.EUCLIDAISY=Евклидова маргаритка
+forbidden.research_text.EUCLIDAISY=Уровень энергии Mai waifu, больше чем 9000 в названии Луны! Верьте!
+forbidden.research_page.EUCLIDAISY.1=Эфирная эссенция, является чрезвычайно полезным источником эссенции и очень важным ингредиентом для соли тауматурга. К сожалению, её очень трудно найти. Но даже не самый уважающий себя тауматург, не будет опускаться до разгрома открытых узлов ауры.<BR><BR>Объединив Тауматургию и хедж-магию, Вы создали цветок, который использует ману для разрыва тонкой грани реальности. Разрыв не достаточно стабилен, чтобы сформировать узел, но он останется открытым до того, пока из него не выйдет хотябы склянка эссенции. Активный сигнал красного камня, заставит этот цветок остановиться.
 #
+forbidden.research_name.WHISPERWEED=Шепчущий сорняк
+forbidden.research_text.WHISPERWEED=Dubbed, not Subbed
+forbidden.research_page.WHISPERWEED.1=У занятого тауматурга есть более важные дела, чем бегать повсюду и всё исследовать. Чтобы сэкономить время, Вы создали цветок, который всё время находится в контакте со сверхъестественными потоками вселенной. Шепчущий сорняк - это волшебное растение, которое использует ману для того, чтобы шептать обрывки тайных знаний тем, кто стоит рядом. Длительное воздействие её неземных шумов, может негативно влиять на Вашу психику, однако...
+#
+forbidden.research_name.TAINTHISTLE=Чертополох
+forbidden.research_text.TAINTHISTLE=Он не опустошит Ваши пустые карманные контейнеры
+forbidden.research_page.TAINTHISTLE.1=Когда неограниченная тайная энергия сосредоточена на кончиках Ваших пальцев, небольшие хлопоты, вроде уборки заражённой слизи в Вашей лаборатории, кажутся Вам ниже Вашего достоинства.<BR><BR>К счастью, теперь у Вас есть помощник, который поможет Вам прибраться. Чертополох будет засасывать заражённую слизь, заражённый газ и будет использовать их для генерации маны.
+#
+forbidden.research_name.SUBCOLLAR=Амулет боли
+forbidden.research_text.SUBCOLLAR=Боль и Магия
+forbidden.research_page.SUBCOLLAR.1=Иногда люди просто хотят почувствовать боль. Особенно, если в этом есть выгода...<BR><BR>Амулет боли имеет все возможности амулета хранения Вис, а также небольшой бонус в виде накопления Вис при получении урона. Чем больше Ваша боль, тем больше Вис сгенерируется.
+#
+# Lexicon
+forbidden.lexicon.euclidaisy=Евклидова маргаритка
+forbidden.lexicon.euclidaisy.0=Жуткая, розовая &1Евклидова маргаритка&0 - очень необычна. Она использует большие объёмы маны, чтобы заклинать что-то наподобие эфирной субстанции, и тауматургам это кажется очень полезным свойством.<br>&oОн несгораем.&r
+forbidden.lexicon.whisperweed=Шепчущий сорняк
+forbidden.lexicon.whisperweed.0=&1Шепчущий сорняк&0 - это неприятное растение, которое шепчет секреты в уши тем, кто может слышать. Это растение не совсем уж полезное, поскольку секреты не относятся к ботанике.<br>&oБольше секретов, чем у Ван Ши Тонга&r.
+forbidden.lexicon.tainthistle=Чертополох
+forbidden.lexicon.tainthistle.0=Отвратительный &1Чертополох&0 питается заражёнными отходами магических экспериментов. Он будет засасывать подобные субстанции, а затем будет пытаться превратить их в ману. Поскольку практика в ботанике экологически чистая, о ней можно особо не говорить.<br>&oБолее навязчив, чем призрачная лоза&r
+forbidden.lexicon.bloodthorn=Кровавый шип
+forbidden.lexicon.bloodthorn.0=Результатом экспериментов некоторых больных, повёрнутых магов крови стал &1Кровавый шип&0 - это красный мистический цветок, который был погружен в кровь, приобретя при этом вкус жизненной силы. Он использует ману для развития максимального уровня слабости у ближайших существ, у которых нет аналогов в традиционной алхимии.<br>&oНаследие Якона&r
