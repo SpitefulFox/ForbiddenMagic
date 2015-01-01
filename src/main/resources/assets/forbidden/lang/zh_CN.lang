@@ -36,7 +36,7 @@ item.DiabolistFork.name=妖魔之叉
 item.DiabolistSpork.name=劫难叉勺
 item.GluttonyShard.name=饕餮碎片
 item.Bloodwell.name=血腥之笔与墨
-item.DivineOrb.name=邪术气血宝珠
+item.EldritchOrb.name=邪术气血宝珠
 item.Crystalwell.name=水晶笔与墨
 item.RidingCrop.name=马鞭
 item.Divinewell.name=图特之笔
@@ -245,9 +245,9 @@ forbidden.research_name.BLOODWELL=血腥之笔与墨
 forbidden.research_text.BLOODWELL="如若它杀了我,我便能完成这项研究!"
 forbidden.research_page.BLOODWELL.1=没有比研究到一半却需要补充墨水更令人沮丧的事情了.有时候,你宁可使用自己的血来代替墨水也不愿意中断研究去找墨水.<BR><BR>血腥之笔与墨将能够使用生命点来补充墨水，每25个生命点补充一点墨水.但这项能力需要用体温激活,因此填充墨水时需要你从研究台中取出这个工具,但却实际上不会因此中断研究.
 #
-forbidden.research_name.DIVINEORB=邪术气血宝珠
-forbidden.research_text.DIVINEORB=噬灵者的宝珠
-forbidden.research_page.DIVINEORB.1=即便是神也不敢遥望的星隙之间,奇怪的低语吐诉着黑暗之力.不管其所说是否属实,它让你清楚这些空间能被注入许多东西.<BR><BR>通过给一个气血宝珠注入虚空之力,塑以奥术之形,你创造出了一个能储存巨量生命能量的宝珠.足足有80,000,000 LP的储量.将生命能量存于不受欧几里得几何所局限的空间之内是不可能出错的!
+forbidden.research_name.ELDRITCHORB=邪术气血宝珠
+forbidden.research_text.ELDRITCHORB=噬灵者的宝珠
+forbidden.research_page.ELDRITCHORB.1=即便是神也不敢遥望的星隙之间,奇怪的低语吐诉着黑暗之力.不管其所说是否属实,它让你清楚这些空间能被注入许多东西.<BR><BR>通过给一个气血宝珠注入虚空之力,塑以奥术之形,你创造出了一个能储存巨量生命能量的宝珠.足足有80,000,000 LP的储量.将生命能量存于不受欧几里得几何所局限的空间之内是不可能出错的!
 #
 forbidden.research_name.BLOODRAPIER=血鸮西洋剑
 forbidden.research_text.BLOODRAPIER=血魔法的克星

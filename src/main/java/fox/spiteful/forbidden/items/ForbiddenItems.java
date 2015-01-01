@@ -157,8 +157,8 @@ public class ForbiddenItems {
 				bloodwell = new ItemBloodwell().setUnlocalizedName("Bloodwell");
 				GameRegistry.registerItem(bloodwell, "Bloodwell");
 
-				bloodOrb = new ItemDivineOrb().setUnlocalizedName("DivineOrb");
-				GameRegistry.registerItem(bloodOrb, "DivineOrb");
+				bloodOrb = new ItemDivineOrb().setUnlocalizedName("EldritchOrb");
+				GameRegistry.registerItem(bloodOrb, "EldritchOrb");
 
                 boundwell = new ItemBoundwell().setUnlocalizedName("Boundwell");
                 GameRegistry.registerItem(boundwell, "Boundwell");

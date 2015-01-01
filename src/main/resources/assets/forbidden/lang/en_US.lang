@@ -37,7 +37,7 @@ item.DiabolistFork.name=Diabolist Fork
 item.DiabolistSpork.name=Spork of Doom
 item.GluttonyShard.name=Gluttony Shard
 item.Bloodwell.name=Bloody Scrivener's Tools
-item.DivineOrb.name=Eldritch Blood Orb
+item.EldritchOrb.name=Eldritch Blood Orb
 item.Crystalwell.name=Crystal Scribing Tools
 item.RidingCrop.name=Riding Crop
 item.BoundShears.name=Bound Shears
@@ -260,9 +260,9 @@ forbidden.research_name.BLOODWELL=Bloody Scrivener's Tools
 forbidden.research_text.BLOODWELL="I'll complete this research if it kills me!"
 forbidden.research_page.BLOODWELL.1=There's nothing more frustrating than having to pause your research to refill your inkwell. Sometimes, you're just so desperate to complete a research you'd rather use your own blood as ink than stop to go find a refill.<BR><BR>The Bloody Scrivener's Tools will refill using Life Points from their owner's network, at a rate of 25 LP per point. This ability requires human warmth to activate, requiring you to remove the tools from the research table, but without having to actually leave the research area.
 #
-forbidden.research_name.DIVINEORB=Eldritch Blood Orb
-forbidden.research_text.DIVINEORB=Orb of Bel-Shamharoth
-forbidden.research_page.DIVINEORB.1=Strange whispers speak of power and dark energy in the spaces between the stars where even gods dare not gaze. Whether or not the whispers are telling the truth, it turns out that you can fit a lot of things in those spaces.<BR><BR>By infusing a blood orb with the essence of the void and arcane geometries, you create an orb capable of storing vast amounts of life energy. 80,000,000 LP, to be exact. Storing life energy in a space not bound by Euclidean geometry can't possibly go wrong!
+forbidden.research_name.ELDRITCHORB=Eldritch Blood Orb
+forbidden.research_text.ELDRITCHORB=Orb of Bel-Shamharoth
+forbidden.research_page.ELDRITCHORB.1=Strange whispers speak of power and dark energy in the spaces between the stars where even gods dare not gaze. Whether or not the whispers are telling the truth, it turns out that you can fit a lot of things in those spaces.<BR><BR>By infusing a blood orb with the essence of the void and arcane geometries, you create an orb capable of storing vast amounts of life energy. 80,000,000 LP, to be exact. Storing life energy in a space not bound by Euclidean geometry can't possibly go wrong!
 #
 forbidden.research_name.BLOODRAPIER=Rapier of the Strix
 forbidden.research_text.BLOODRAPIER=Destroyer of Blood Magic

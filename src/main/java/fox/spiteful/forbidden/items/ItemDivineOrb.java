@@ -22,8 +22,9 @@ import thaumcraft.api.IWarpingGear;
 
 public class ItemDivineOrb extends Item implements IBloodOrb, IBindable, IWarpingGear {
 	public ItemDivineOrb() {
-		setCreativeTab(Forbidden.tab);
-		AltarRecipeRegistry.registerAltarOrbRecipe(new ItemStack(this), 5, 140);
+		setMaxStackSize(1);
+        setCreativeTab(Forbidden.tab);
+		AltarRecipeRegistry.registerAltarOrbRecipe(new ItemStack(this), 6, 140);
 	}
 
 	@Override
@@ -77,7 +78,7 @@ public class ItemDivineOrb extends Item implements IBloodOrb, IBindable, IWarpin
 
 	@Override
 	public int getOrbLevel() {
-		return 5;
+		return 6;
 	}
 
     @Override
@@ -88,6 +89,12 @@ public class ItemDivineOrb extends Item implements IBloodOrb, IBindable, IWarpin
     @Override
     public EnumRarity getRarity(ItemStack itemstack) {
         return EnumRarity.epic;
+    }
+
+    @Override
+    public boolean hasContainerItem()
+    {
+        return true;
     }
 
     @Override

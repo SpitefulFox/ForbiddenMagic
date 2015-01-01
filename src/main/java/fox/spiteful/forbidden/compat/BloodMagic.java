@@ -29,17 +29,16 @@ import fox.spiteful.forbidden.items.ForbiddenItems;
 
 import cpw.mods.fml.common.FMLLog;
 import cpw.mods.fml.common.registry.GameRegistry;
-import thaumcraft.common.lib.potions.PotionWarpWard;
+import thaumcraft.common.config.ConfigItems;
 
 public class BloodMagic {
 	public static void stab() {
 		try {
-            AlchemicalPotionCreationHandler.addPotion(ItemApi.getItem("itemResource", 11), PotionFluxTaint.instance.getId(), 450);
+            AlchemicalPotionCreationHandler.addPotion(new ItemStack(ConfigItems.itemResource, 1, 11), PotionFluxTaint.instance.getId(), 450);
             AlchemicalPotionCreationHandler.addPotion(new ItemStack(ForbiddenItems.resource, 1, 3), DarkPotions.bloodSeal.getId(), 1200);
 
             AspectList list;
 			Item masterOrb = GameRegistry.findItem("AWWayofTime", "masterBloodOrb");
-			Item archmasterOrb = GameRegistry.findItem("AWWayofTime", "archmageBloodOrb");
 			Item imbuedSlate = GameRegistry.findItem("AWWayofTime", "imbuedSlate");
 			Item magicales = GameRegistry.findItem("AWWayofTime", "magicales");
 			Item aether = GameRegistry.findItem("AWWayofTime", "aether");
@@ -51,6 +50,7 @@ public class BloodMagic {
 			Item crapOrb = GameRegistry.findItem("AWWayofTime", "weakBloodOrb");
 			Item demonShard = GameRegistry.findItem("AWWayofTime", "demonBloodShard");
 			Item bloodBucket = GameRegistry.findItem("AWWayofTime", "bucketLife");
+            Item kamiOrb = GameRegistry.findItem("AWWayofTime", "transcendentBloodOrb");
 
 			if(Config.crossWand) {
 
@@ -72,12 +72,13 @@ public class BloodMagic {
 			(new DarkResearchItem("BLOODWELL", "FORBIDDEN", "[BM]", (new AspectList()).add(Aspect.LIFE, 5).add(Aspect.MIND, 4).add(Aspect.SENSES, 3), -10, 4, 1, new ItemStack(ForbiddenItems.bloodwell, 1, 0))).setPages(new ResearchPage[] { new ResearchPage("forbidden.research_page.BLOODWELL.1"), new ResearchPage(bloodwell_recipe) }).setParents(new String[] { "RESEARCH" }).setAspectTriggers(new Aspect[] { Aspect.LIFE }).setConcealed().registerResearchItem();
             ThaumcraftApi.addWarpToResearch("BLOODWELL", 1);
 
-            InfusionRecipe blood_rapier = ThaumcraftApi.addInfusionCraftingRecipe("BLOODRAPIER", new ItemStack(ForbiddenItems.bloodRapier, 1, 0), 8, (new AspectList()).add(Aspect.LIFE, 18).add(Aspect.HUNGER, 32).add(Aspect.WEAPON, 8), ItemApi.getItem("itemSwordVoid", 0), new ItemStack[] { ItemApi.getItem("itemResource", 12), new ItemStack(ForbiddenItems.deadlyShards, 1, 0), new ItemStack(ForbiddenItems.gluttonyShard, 1, 0), new ItemStack(Items.feather), ItemApi.getItem("itemResource", 6) });
+            InfusionRecipe blood_rapier = ThaumcraftApi.addInfusionCraftingRecipe("BLOODRAPIER", new ItemStack(ForbiddenItems.bloodRapier, 1, 0), 8, (new AspectList()).add(Aspect.LIFE, 18).add(Aspect.HUNGER, 32).add(Aspect.WEAPON, 8), ItemApi.getItem("itemSwordVoid", 0), new ItemStack[] { new ItemStack(ConfigItems.itemResource, 1, 12), new ItemStack(ForbiddenItems.deadlyShards, 1, 0), new ItemStack(ForbiddenItems.gluttonyShard, 1, 0), new ItemStack(Items.feather), new ItemStack(ConfigItems.itemResource, 1, 6) });
             (new DarkResearchItem("BLOODRAPIER", "FORBIDDEN", "[BM]", (new AspectList()).add(Aspect.LIFE, 16).add(Aspect.HUNGER, 12).add(Aspect.WEAPON, 12).add(Aspect.MAGIC, 12), -9, 8, 4, new ItemStack(ForbiddenItems.bloodRapier, 1, 0))).setPages(new ResearchPage[] { new ResearchPage("forbidden.research_page.BLOODRAPIER.1"), new ResearchPage(blood_rapier) }).setParents(new String[] { "INFAUXSION", "VOIDMETAL" }).setConcealed().registerResearchItem();
 
-            InfusionRecipe divine_orb = ThaumcraftApi.addInfusionCraftingRecipe("DIVINEORB", new ItemStack(ForbiddenItems.bloodOrb, 1, 0), 12, (new AspectList()).add(Aspect.LIFE, 64).add(Aspect.ELDRITCH, 48).add(Aspect.DARKNESS, 32).add(Aspect.VOID, 64), new ItemStack(archmasterOrb), new ItemStack[] { ItemApi.getItem("itemEldritchObject", 0), new ItemStack(Items.ender_eye), ItemApi.getItem("itemResource", 16), ItemApi.getItem("itemResource", 16), ItemApi.getItem("itemResource", 16), new ItemStack(Items.nether_star), ItemApi.getItem("itemResource", 16), ItemApi.getItem("itemResource", 16), ItemApi.getItem("itemResource", 16), new ItemStack(Items.ender_eye) });
-            (new DarkResearchItem("DIVINEORB", "FORBIDDEN", "[BM]", (new AspectList()).add(Aspect.LIFE, 24).add(Aspect.VOID, 32).add(Aspect.CRYSTAL, 24).add(Aspect.ELDRITCH, 12), -9, 6, 6, new ItemStack(ForbiddenItems.bloodOrb, 1, 0))).setPages(new ResearchPage[] { new ResearchPage("forbidden.research_page.DIVINEORB.1"), new ResearchPage(divine_orb) }).setParents(new String[] { "INFAUXSION", "ELDRITCHMAJOR", "VOIDMETAL" }).setConcealed().setSpecial().registerResearchItem();
-            ThaumcraftApi.addWarpToResearch("DIVINEORB", 4);
+            InfusionRecipe eldritch_orb = ThaumcraftApi.addInfusionCraftingRecipe("ELDRITCHORB", new ItemStack(ForbiddenItems.bloodOrb, 1, 0), 12, (new AspectList()).add(Aspect.LIFE, 64).add(Aspect.ELDRITCH, 48).add(Aspect.DARKNESS, 32).add(Aspect.VOID, 64), new ItemStack(kamiOrb), new ItemStack[] { new ItemStack(ConfigItems.itemEldritchObject, 1, 3), new ItemStack(ConfigItems.itemEldritchObject, 1, 0), new ItemStack(ConfigItems.itemShard, 1, 6), new ItemStack(ConfigItems.itemResource, 1, 16), new ItemStack(ConfigItems.itemResource, 1, 16), new ItemStack(Items.nether_star), new ItemStack(ConfigItems.itemResource, 1, 16), new ItemStack(ConfigItems.itemResource, 1, 16), new ItemStack(ConfigItems.itemShard, 1, 6), new ItemStack(ConfigItems.itemEldritchObject, 1, 0) });
+            (new DarkResearchItem("ELDRITCHORB", "FORBIDDEN", "[BM]", (new AspectList()).add(Aspect.LIFE, 24).add(Aspect.VOID, 32).add(Aspect.CRYSTAL, 24).add(Aspect.ELDRITCH, 12), -9, 6, 6, new ItemStack(ForbiddenItems.bloodOrb, 1, 0))).setPages(new ResearchPage[] { new ResearchPage("forbidden.research_page.ELDRITCHORB.1"), new ResearchPage(eldritch_orb) }).setParents(new String[] { "INFAUXSION", "PRIMPEARL", "VOIDMETAL" }).setConcealed().setSpecial().registerResearchItem();
+            ThaumcraftApi.addWarpToResearch("ELDRITCHORB", 3);
+            ThaumcraftApi.addWarpToItem(new ItemStack(ForbiddenItems.bloodOrb), 5);
 
             BindingRegistry.registerRecipe(new ItemStack(ForbiddenItems.boundwell, 1, 0), new ItemStack(ForbiddenItems.crystalwell, 1, 0));
 
@@ -100,6 +101,9 @@ public class BloodMagic {
 
 			list = (new AspectList()).add(Aspect.LIFE, 32).add(DarkAspects.NETHER, 4).add(Aspect.MAGIC, 8).add(Aspect.CRYSTAL, 4);
 			aspectBloodItem("archmageBloodOrb", -1, list);
+
+            list = (new AspectList()).add(Aspect.LIFE, 32).add(DarkAspects.NETHER, 16).add(Aspect.MAGIC, 16).add(Aspect.CRYSTAL, 16);
+            ThaumcraftApi.registerObjectTag(new ItemStack(kamiOrb, 1, OreDictionary.WILDCARD_VALUE), list);
 
 			list = (new AspectList()).add(Aspect.ELDRITCH, 5).add(Aspect.WEAPON, 5).add(DarkAspects.WRATH, 5).add(Aspect.POISON, 1);
 			aspectBloodItem("energySword", -1, list);
