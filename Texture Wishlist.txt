@@ -1,3 +1,8 @@
+New Texture Needed:
+- Tainted Planks
+- Tainted Stone
+- Tainted Stone Bricks
+
 Could Use Replacing:
 
 - Rapier of the Strix
