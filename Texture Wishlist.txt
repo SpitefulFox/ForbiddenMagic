@@ -2,6 +2,10 @@ New Texture Needed:
 - Tainted Planks
 - Tainted Stone
 - Tainted Stone Bricks
+- "Living Pickaxe" (Gross tainted fleshy thing used as a pickaxe)
+- "Living Shovel" (Gross tainted wormy thing that eats dirt as a shovel)
+- "Living Sword" (Gross spiny fleshy thing used as a sword)
+- "Living Axe" (Gross toothed fleshy thing used as an axe)
 
 Could Use Replacing:
 
