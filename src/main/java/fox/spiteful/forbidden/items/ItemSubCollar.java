@@ -85,7 +85,7 @@ public class ItemSubCollar extends ItemAmuletVis {
                 }
             }
             if(stack.stackTagCompound.hasKey("owner"))
-                list.add("Owner: " + stack.stackTagCompound.getString("owner"));
+                list.add(StatCollector.translateToLocal("tooltip.collar.owner") + stack.stackTagCompound.getString("owner"));
         }
 
     }
@@ -112,12 +112,12 @@ public class ItemSubCollar extends ItemAmuletVis {
                 itemstack.stackTagCompound.setString("owner", player.getDisplayName());
                 baubles.setInventorySlotContents(0, itemstack.copy());
                 itemstack.stackSize = 0;
-                sub.addChatMessage(new ChatComponentText(player.getDisplayName() + " places a collar around your neck."));
-                player.addChatMessage(new ChatComponentText("You place the collar around " + sub.getDisplayName() + "'s neck."));
+                sub.addChatMessage(new ChatComponentText(player.getDisplayName() + String.format(StatCollector.translateToLocal("message.collar.alreadywearing"))));
+                player.addChatMessage(new ChatComponentText(sub.getDisplayName() + String.format(StatCollector.translateToLocal("message.collar.youplacecollar"))));
                 return true;
             }
             else
-                player.addChatMessage(new ChatComponentText(sub.getDisplayName() + " is already wearing something around their neck!"));
+                player.addChatMessage(new ChatComponentText(sub.getDisplayName() + String.format(StatCollector.translateToLocal("message.collar.alreadywearing"))));
         }
         return false;
     }

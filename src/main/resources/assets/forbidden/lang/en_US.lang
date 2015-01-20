@@ -32,7 +32,7 @@ item.FMResource.2.name=Manasteel Nugget
 item.FMResource.3.name=Tainted Blood Shard
 item.FMResource.4.name=Elementium Nugget
 item.MobCrystalEmpty.name=Blank Imprinting Crystal
-item.MobCrystal.name=Imprinted Crystal
+item.MobCrystal.name=%s Imprinted Crystal
 item.DiabolistFork.name=Diabolist Fork
 item.DiabolistSpork.name=Spork of Doom
 item.GluttonyShard.name=Gluttony Shard
@@ -103,6 +103,17 @@ enchantment.impact=Impact
 #
 # Potions
 potion.blood_seal=Blood Seal
+#
+# Tooltips
+tooltip.currentowner=Current owner: 
+tooltip.divineorb=Stores raw Life Essence
+tooltip.creativeonly=Creative Only
+tooltip.collar.owner=Owner: 
+#
+# Messages
+message.collar.alreadywearing=%s is already wearing something around their neck!
+message.collar.placescollar=%s places a collar around your neck.
+message.collar.youplacecollar=You place the collar around %s's neck.
 #
 # Misc
 itemGroup.forbidden=Forbidden Magic
