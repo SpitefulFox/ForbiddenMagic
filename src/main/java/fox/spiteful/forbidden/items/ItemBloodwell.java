@@ -9,6 +9,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.StatCollector;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import thaumcraft.api.IScribeTools;
@@ -73,7 +74,7 @@ public class ItemBloodwell extends Item implements IScribeTools, IBindable {
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean z) {
 		if (stack.hasTagCompound()) {
 			list.add("");
-			list.add("Current owner: " + stack.stackTagCompound.getString("ownerName"));
+			list.add(StatCollector.translateToLocal("tooltip.currentowner") + stack.stackTagCompound.getString("ownerName"));
 		}
 	}
 

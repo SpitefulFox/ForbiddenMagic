@@ -6,9 +6,7 @@
   "mcversion": "${mcversion}",
   "url" : "http://www.minecraftforum.net/topic/2305054-/",
   "credits" : "Azanor, joshiejack, Killajoke, LycaonX, Nieue, Succubism, Vazkii, Dylan4ever, Nekosune, Kihira",
-  "authors": [
-    "SpitefulFox"
-  ],
+  "authorList": [ "SpitefulFox" ],
   "description": "Forbidden Magic is an addon to add many dark-themed things to Thaumcraft.",
   "logoFile" : "",
   "updateUrl" : "",

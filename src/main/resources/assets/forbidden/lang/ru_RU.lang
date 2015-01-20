@@ -32,7 +32,7 @@ item.FMResource.2.name=Самородок манастали
 item.FMResource.3.name=Осколок заражённой крови
 item.FMResource.4.name=Элементиевый самородок
 item.MobCrystalEmpty.name=Пустой кристалл импринтинга
-item.MobCrystal.name=Отпечатанный кристалл
+item.MobCrystal.name=Отпечатанный кристалл (%s)
 item.DiabolistFork.name=Адские вилы
 item.DiabolistSpork.name=Ложка-вилка смерти
 item.GluttonyShard.name=Осколок прожорливости
@@ -43,7 +43,7 @@ item.RidingCrop.name=Хлыст
 item.BoundShears.name=Связанные ножницы
 item.BloodRapier.name=Рапира неясыти
 item.Boundwell.name=Связанная чернильница с пером
-item.SubCollar.name=Амулет боли
+item.SubCollar.name=Ошейник боли
 #
 # Wand components
 item.Wand.tainted.rod=заражённый
@@ -52,12 +52,12 @@ item.Wand.neutronium.rod=космически нейтронный
 item.Wand.blood.rod=кровавый
 item.Wand.witchwood.rod=ведьмодревесный
 item.Wand.livingwood.rod=живодревесный
-item.Wand.dreamwood.rod=из древесины мечтаний
-item.Wand.orichalcum.cap=обитый орихалком
-item.Wand.alchemical.cap=алхимически коронованный
-item.Wand.vinteum.cap=утолщённой винтеумом
-item.Wand.manasteel.cap=обвитый манасталью
-item.Wand.elementium.cap=поцелованный элементием
+item.Wand.dreamwood.rod=мечтодревесный
+item.Wand.orichalcum.cap=Обитый орихалком
+item.Wand.alchemical.cap=Алхимически коронованный
+item.Wand.vinteum.cap=Утолщённой винтеумом
+item.Wand.manasteel.cap=Обвитый манасталью
+item.Wand.elementium.cap=Поцелованный элементием
 item.WandCores.tainted.name=Заражённый стержень
 item.WandCores.infernal.name=Адский стержень
 item.WandCores.soul.name=Древний стержень
@@ -103,6 +103,17 @@ enchantment.impact=Влияние
 #
 # Potions
 potion.blood_seal=Отпечаток крови
+#
+# Tooltips
+tooltip.currentowner=Текущий владелец: 
+tooltip.divineorb=Содержит необработанную жизненную эссенцию
+tooltip.creativeonly=Только для творческого режима
+tooltip.collar.owner=Владелец: 
+#
+# Messages
+message.collar.alreadywearing=На шеи %s уже что-то одето!
+message.collar.placescollar=%s одевает Вам на шею ошейник.
+message.collar.youplacecollar=Вы одели ошейник на шею %s.
 #
 # Misc
 itemGroup.forbidden=Forbidden Magic
@@ -292,9 +303,9 @@ forbidden.research_name.TAINTHISTLE=Чертополох
 forbidden.research_text.TAINTHISTLE=Он не опустошит Ваши пустые карманные контейнеры
 forbidden.research_page.TAINTHISTLE.1=Когда неограниченная тайная энергия сосредоточена на кончиках Ваших пальцев, небольшие хлопоты, вроде уборки заражённой слизи в Вашей лаборатории, кажутся Вам ниже Вашего достоинства.<BR><BR>К счастью, теперь у Вас есть помощник, который поможет Вам прибраться. Чертополох будет засасывать заражённую слизь, заражённый газ и будет использовать их для генерации маны.
 #
-forbidden.research_name.SUBCOLLAR=Амулет боли
+forbidden.research_name.SUBCOLLAR=Ошейник боли
 forbidden.research_text.SUBCOLLAR=Боль и Магия
-forbidden.research_page.SUBCOLLAR.1=Иногда люди просто хотят почувствовать боль. Особенно, если в этом есть выгода...<BR><BR>Амулет боли имеет все возможности амулета хранения Вис, а также небольшой бонус в виде накопления Вис при получении урона. Чем больше Ваша боль, тем больше Вис сгенерируется.
+forbidden.research_page.SUBCOLLAR.1=Иногда люди просто хотят почувствовать боль. Особенно, если в этом есть выгода...<BR><BR>Ошейник боли имеет все возможности амулета хранения Вис, а также небольшой бонус в виде накопления Вис при получении урона. Чем больше Ваша боль, тем больше Вис сгенерируется.
 #
 # Lexicon
 forbidden.lexicon.euclidaisy=Евклидова маргаритка

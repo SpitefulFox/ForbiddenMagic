@@ -39,6 +39,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.item.ItemTool;
+import net.minecraft.util.StatCollector;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
@@ -429,9 +430,9 @@ public class FMEventHandler {
 	public void onTooltip(ItemTooltipEvent event) {
 		if (event.itemStack.getItem() instanceof ItemWandCasting) {
 			if (((ItemWandCasting) event.itemStack.getItem()).getRod(event.itemStack).getTag().startsWith("blood") && !event.itemStack.stackTagCompound.getString("ownerName").equals("")) {
-				event.toolTip.add("Current owner: " + event.itemStack.stackTagCompound.getString("ownerName"));
+				event.toolTip.add(StatCollector.translateToLocal("tooltip.currentowner") + event.itemStack.stackTagCompound.getString("ownerName"));
 			} else if (((ItemWandCasting) event.itemStack.getItem()).getRod(event.itemStack).getTag().startsWith("neutronium")) {
-				event.toolTip.add("Creative Only");
+				event.toolTip.add(StatCollector.translateToLocal("tooltip.creativeonly"));
 			}
 		}
 	}

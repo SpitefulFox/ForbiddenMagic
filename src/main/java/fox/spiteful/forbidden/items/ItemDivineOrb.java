@@ -9,6 +9,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.StatCollector;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 import WayofTime.alchemicalWizardry.api.altarRecipeRegistry.AltarRecipeRegistry;
@@ -35,10 +36,10 @@ public class ItemDivineOrb extends Item implements IBloodOrb, IBindable, IWarpin
 
 	@Override
 	public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean bool) {
-		list.add("Stores raw Life Essence");
+		list.add(StatCollector.translateToLocal("tooltip.divineorb"));
 
 		if (!(stack.stackTagCompound == null)) {
-			list.add("Current owner: " + stack.stackTagCompound.getString("ownerName"));
+			list.add(StatCollector.translateToLocal("tooltip.currentowner") + stack.stackTagCompound.getString("ownerName"));
 		}
 
 	}
