@@ -9,7 +9,7 @@ New Texture Needed:
 
 Textures + Models Wanted:
 - "Wrath Demon" (Angry red demon with claws n stuff)
-- Incubus (Demon dude wearing lingerie)
+- Incubus (Demon dude wearing lingerie. Standard biped model skin.)
 - "Gluttony Demon" (Faaaaaaaaaaaaaat)
 - "Greed Demon" (Sorta fat. Greedy merchant looking?)
 - "Pride Demon" (Regal. Kinda short.)
