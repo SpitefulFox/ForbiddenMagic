@@ -269,15 +269,15 @@ forbidden.research_page.TAINTBASICS.2=Tainted Lands can be found naturally in th
 #
 forbidden.research_name.SCHOOLS=Schools of Magic
 forbidden.research_text.SCHOOLS=There's more than one path to power...
-forbidden.research_page.SCHOOLS.1=Try other things!
+forbidden.research_page.SCHOOLS.1=Many Thaumaturges scoff at the idea of dabbling in other forms of magic. Who needs anything other than the pure, miraculous power of Thaumaturgy?<BR><BR>Less judgmental Thaumaturges tell a different story, however. The other magical arts have a lot to offer a budding mage if you know where to look...
 #
 forbidden.research_name.BLOODMAGIC=Blood Magic
 forbidden.research_text.BLOODMAGIC=With great sacrifice comes great power
-forbidden.research_page.BLOODMAGIC.1=BLOOD! :D
+forbidden.research_page.BLOODMAGIC.1=Blood Magi, or "Alchemical Wizards" as some prefer to call themselves, are a strange, unsavory lot. Building strange ziggurats where they practice their bloody rites, Blood Magi use life energy to imbue items with magical power, or even craft spells.<BR><BR>A more unscrupulous Thaumaturge dabbling in blood magic may be able to get ahead in their studies, but at what cost?
 #
 forbidden.research_name.BOTANY=Botany
 forbidden.research_text.BOTANY=Power sleeps in the earth...
-forbidden.research_page.BOTANY.1=Hippy flower stuff
+forbidden.research_page.BOTANY.1=Some mad alchemists say that flowers are the universal language with which the universe was sang into being.<BR><BR>Whether this is true or not, Botanists have discovered a way to harness the energy of flowers and other plant life to accomplish great feats of magic. Some Thaumaturges might scoff at such "filthy hedge wizardry," but there is a lot of power sleeping beneath the earth for those willing to take it.
 #
 forbidden.research_name.BLOODWELL=Bloody Scrivener's Tools
 forbidden.research_text.BLOODWELL="I'll complete this research if it kills me!"
