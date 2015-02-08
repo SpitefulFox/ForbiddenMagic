@@ -267,6 +267,18 @@ forbidden.research_text.TAINTBASICS=Deep Purple
 forbidden.research_page.TAINTBASICS.1=Sometimes, Thaumaturgy goes horribly wrong. Miracles become twisted calamities and the very landscape twists into hideous forms. Tainted Lands are places infected by the sick runoff of magical workings, flux. Local flora and fauna become warped and mutated into forms hostile to normal life and the very ground of a tainted land infects those who tread upon its pulsing fibres.
 forbidden.research_page.TAINTBASICS.2=Tainted Lands can be found naturally in the world, but can also form when a careless Thaumaturge allows flux goo to stagnate for too long. They are recognizable by their telltale purple fibres and bright violet stalks. Left alone, the tainted land will gradually extend its tendrils outwards, infecting more and more of the surrounding land. Dirt becomes thick, pulpy Tainted Soil while trees and other natural materials are slowly covered in fibres and converted into structurally unsound crust which can collapse or melt into flux goo at any moment.
 #
+forbidden.research_name.SCHOOLS=Schools of Magic
+forbidden.research_text.SCHOOLS=There's more than one path to power...
+forbidden.research_page.SCHOOLS.1=Try other things!
+#
+forbidden.research_name.BLOODMAGIC=Blood Magic
+forbidden.research_text.BLOODMAGIC=With great sacrifice comes great power
+forbidden.research_page.BLOODMAGIC.1=BLOOD! :D
+#
+forbidden.research_name.BOTANY=Botany
+forbidden.research_text.BOTANY=Power sleeps in the earth...
+forbidden.research_page.BOTANY.1=Hippy flower stuff
+#
 forbidden.research_name.BLOODWELL=Bloody Scrivener's Tools
 forbidden.research_text.BLOODWELL="I'll complete this research if it kills me!"
 forbidden.research_page.BLOODWELL.1=There's nothing more frustrating than having to pause your research to refill your inkwell. Sometimes, you're just so desperate to complete a research you'd rather use your own blood as ink than stop to go find a refill.<BR><BR>The Bloody Scrivener's Tools will refill using Life Points from their owner's network, at a rate of 25 LP per point. This ability requires human warmth to activate, requiring you to remove the tools from the research table, but without having to actually leave the research area.
