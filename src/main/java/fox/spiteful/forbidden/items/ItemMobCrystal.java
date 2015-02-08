@@ -102,7 +102,7 @@ public class ItemMobCrystal extends Item {
                 String string = nbttagcompound.getString("mob");
 
                 if (string != null)
-                    return ("" + StatCollector.translateToLocal("entity." + string + ".name") + " " + String.format(StatCollector.translateToLocal("item.MobCrystal.name"))).trim();
+                    return ("" + StatCollector.translateToLocal("item.MobCrystal.name").replace("%s", StatCollector.translateToLocal("entity." + string + ".name"))).trim();
             }
         }
 
