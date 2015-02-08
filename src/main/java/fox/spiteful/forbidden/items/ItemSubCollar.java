@@ -112,12 +112,12 @@ public class ItemSubCollar extends ItemAmuletVis {
                 itemstack.stackTagCompound.setString("owner", player.getDisplayName());
                 baubles.setInventorySlotContents(0, itemstack.copy());
                 itemstack.stackSize = 0;
-                sub.addChatMessage(new ChatComponentText(player.getDisplayName() + String.format(StatCollector.translateToLocal("message.collar.alreadywearing"))));
-                player.addChatMessage(new ChatComponentText(sub.getDisplayName() + String.format(StatCollector.translateToLocal("message.collar.youplacecollar"))));
+                sub.addChatMessage(new ChatComponentText(StatCollector.translateToLocal("message.collar.placescollar").replace("%s", player.getDisplayName())));
+                player.addChatMessage(new ChatComponentText(StatCollector.translateToLocal("message.collar.youplacecollar").replace("%s", sub.getDisplayName())));
                 return true;
             }
             else
-                player.addChatMessage(new ChatComponentText(sub.getDisplayName() + String.format(StatCollector.translateToLocal("message.collar.alreadywearing"))));
+                player.addChatMessage(new ChatComponentText(StatCollector.translateToLocal("message.collar.alreadywearing").replace("%s", sub.getDisplayName())));
         }
         return false;
     }
