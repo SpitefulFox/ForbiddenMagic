@@ -20,57 +20,57 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = "ForbiddenMagic", name = "Forbidden Magic", dependencies = "required-after:Thaumcraft;after:ThaumicTinkerer;after:AWWayofTime;after:Botania")
+@Mod(modid = "ForbiddenMagic", name = "Forbidden Magic", dependencies = "required-after:Thaumcraft@[4.2.2.0,);after:ThaumicTinkerer;after:AWWayofTime;after:Botania")
 public class Forbidden {
-	@Instance("ForbiddenMagic")
-	public static Forbidden instance;
-	public static CreativeTabs tab = new CreativeTabs("forbidden"){
+    @Instance("ForbiddenMagic")
+    public static Forbidden instance;
+    public static CreativeTabs tab = new CreativeTabs("forbidden"){
         @Override
         public Item getTabIconItem() {
             return ForbiddenItems.fork;
         }
     };
-	public static CreativeTabs crysTab;
-	@SidedProxy(clientSide = "fox.spiteful.forbidden.client.ClientProxy", serverSide = "fox.spiteful.forbidden.CommonProxy")
-	public static CommonProxy proxy;
-	public static WandOverlord wandLord;
+    public static CreativeTabs crysTab;
+    @SidedProxy(clientSide = "fox.spiteful.forbidden.client.ClientProxy", serverSide = "fox.spiteful.forbidden.CommonProxy")
+    public static CommonProxy proxy;
+    public static WandOverlord wandLord;
 
-	@EventHandler
-	public void prelude(FMLPreInitializationEvent event) {
-		instance = this;
-		Config.configurate(event.getSuggestedConfigurationFile());
-		if (Config.wrathCage)
-			crysTab = new CreativeTabs("mobcrystal"){
+    @EventHandler
+    public void prelude(FMLPreInitializationEvent event) {
+        instance = this;
+        Config.configurate(event.getSuggestedConfigurationFile());
+        if (Config.wrathCage)
+            crysTab = new CreativeTabs("mobcrystal"){
                 @Override
                 public Item getTabIconItem() {
                     return ForbiddenItems.mobCrystal;
                 }
             };
-		Compat.initiate();
-		DarkAspects.initAspects();
-		Config.spawnilify();
-		ForbiddenItems.addItems();
-		ForbiddenBlocks.addBlocks();
-		DarkEnchantments.hex();
+        Compat.initiate();
+        DarkAspects.initAspects();
+        Config.spawnilify();
+        ForbiddenItems.addItems();
+        ForbiddenBlocks.addBlocks();
+        DarkEnchantments.hex();
         if(Compat.bm)
             DarkPotions.alchemize();
-		proxy.registerRenderInfo();
-	}
+        proxy.registerRenderInfo();
+    }
 
-	@EventHandler
-	public void crescendo(FMLInitializationEvent event) {
-		MinecraftForge.EVENT_BUS.register(new FMEventHandler());
-	}
+    @EventHandler
+    public void crescendo(FMLInitializationEvent event) {
+        MinecraftForge.EVENT_BUS.register(new FMEventHandler());
+    }
 
-	@EventHandler
-	public void outro(FMLPostInitializationEvent event) {
-		DarkAspects.addAspects();
-		ForbiddenRecipes.addRecipes();
-		ForbiddenResearch.addResearch();
-		Compat.compatify();
+    @EventHandler
+    public void outro(FMLPostInitializationEvent event) {
+        DarkAspects.addAspects();
+        ForbiddenRecipes.addRecipes();
+        ForbiddenResearch.addResearch();
+        Compat.compatify();
 
-		wandLord = new WandOverlord();
-		WandTriggerRegistry.registerWandBlockTrigger(wandLord, 1, Blocks.obsidian, 0);
-		WandTriggerRegistry.registerWandBlockTrigger(wandLord, 1, Blocks.netherrack, 0);
-	}
+        wandLord = new WandOverlord();
+        WandTriggerRegistry.registerWandBlockTrigger(wandLord, 1, Blocks.obsidian, 0);
+        WandTriggerRegistry.registerWandBlockTrigger(wandLord, 1, Blocks.netherrack, 0);
+    }
 }
