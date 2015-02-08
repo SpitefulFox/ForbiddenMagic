@@ -21,50 +21,50 @@ import thaumcraft.common.config.ConfigBlocks;
 
 public class ItemTaintShovel extends ItemSpade implements IRepairable
 {
-	public IIcon icon;
+    public IIcon icon;
 
-	public ItemTaintShovel(ToolMaterial enumtoolmaterial)
-	{
-		super(enumtoolmaterial);
-		this.setCreativeTab(Forbidden.tab);
-		this.setHarvestLevel("shovel", 3);
-	}
+    public ItemTaintShovel(ToolMaterial enumtoolmaterial)
+    {
+        super(enumtoolmaterial);
+        this.setCreativeTab(Forbidden.tab);
+        this.setHarvestLevel("shovel", 3);
+    }
 
-	@SideOnly(Side.CLIENT)
-	public void registerIcons(IIconRegister ir)
-	{
-		this.icon = ir.registerIcon("forbidden:taintshovel");
-	}
+    @SideOnly(Side.CLIENT)
+    public void registerIcons(IIconRegister ir)
+    {
+        this.icon = ir.registerIcon("forbidden:taintshovel");
+    }
 
-	@SideOnly(Side.CLIENT)
-	public IIcon getIconFromDamage(int par1)
-	{
-		return this.icon;
-	}
+    @SideOnly(Side.CLIENT)
+    public IIcon getIconFromDamage(int par1)
+    {
+        return this.icon;
+    }
 
-	public EnumRarity getRarity(ItemStack itemstack)
-	{
-		return EnumRarity.rare;
-	}
+    public EnumRarity getRarity(ItemStack itemstack)
+    {
+        return EnumRarity.rare;
+    }
 
-	public boolean getIsRepairable(ItemStack stack, ItemStack stack2)
-	{
-		return stack2.isItemEqual(new ItemStack(Config.thaumcraftResource.getItem(), 1, 2)) ? true : super.getIsRepairable(stack, stack2);
-	}
+    public boolean getIsRepairable(ItemStack stack, ItemStack stack2)
+    {
+        return stack2.isItemEqual(new ItemStack(Config.thaumcraftResource.getItem(), 1, 2)) ? true : super.getIsRepairable(stack, stack2);
+    }
 
-	@Override
-	public float getDigSpeed(ItemStack stack, Block block, int meta)
-	{
-		if (ForgeHooks.isToolEffective(stack, block, meta) || block.getMaterial() == Config.taintMaterial)
-		{
-			return efficiencyOnProperMaterial;
-		}
+    @Override
+    public float getDigSpeed(ItemStack stack, Block block, int meta)
+    {
+        if (ForgeHooks.isToolEffective(stack, block, meta) || block.getMaterial() == Config.taintMaterial)
+        {
+            return efficiencyOnProperMaterial;
+        }
 
-		return func_150893_a(stack, block);
-	}
-	
-	@Override
-	public boolean onItemUse(ItemStack itemstack, EntityPlayer player, World world, int x, int y, int z, int side, float par8, float par9, float par10) {
+        return func_150893_a(stack, block);
+    }
+    
+    @Override
+    public boolean onItemUse(ItemStack itemstack, EntityPlayer player, World world, int x, int y, int z, int side, float par8, float par9, float par10) {
         int purified = 0;
         for(int ex = x - 5;ex < x + 6;ex++){
             for(int wy = y - 4;wy < y + 5;wy++){
@@ -88,6 +88,6 @@ public class ItemTaintShovel extends ItemSpade implements IRepairable
             return true;
         }
         else
-		    return super.onItemUse(itemstack, player, world, x, y, z, side, par8, par9, par10);
-	}
+            return super.onItemUse(itemstack, player, world, x, y, z, side, par8, par9, par10);
+    }
 }

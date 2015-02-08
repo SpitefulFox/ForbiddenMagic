@@ -8,13 +8,13 @@ import thaumcraft.common.items.wands.ItemWandCasting;
 
 public class CreativeWandUpdate implements IWandRodOnUpdate {
 
-	Aspect primals[] = Aspect.getPrimalAspects().toArray(new Aspect[0]);
+    Aspect primals[] = Aspect.getPrimalAspects().toArray(new Aspect[0]);
 
-	public void onUpdate(ItemStack itemstack, EntityPlayer player) {
-		for (int x = 0; x < primals.length; x++) {
-			if (((ItemWandCasting) itemstack.getItem()).getVis(itemstack, primals[x]) < ((ItemWandCasting) itemstack.getItem()).getMaxVis(itemstack)) {
-				((ItemWandCasting) itemstack.getItem()).addVis(itemstack, primals[x], ((ItemWandCasting) itemstack.getItem()).getMaxVis(itemstack) - ((ItemWandCasting) itemstack.getItem()).getVis(itemstack, primals[x]), true);
-			}
-		}
-	}
+    public void onUpdate(ItemStack itemstack, EntityPlayer player) {
+        for (int x = 0; x < primals.length; x++) {
+            if (((ItemWandCasting) itemstack.getItem()).getVis(itemstack, primals[x]) < ((ItemWandCasting) itemstack.getItem()).getMaxVis(itemstack)) {
+                ((ItemWandCasting) itemstack.getItem()).addVis(itemstack, primals[x], ((ItemWandCasting) itemstack.getItem()).getMaxVis(itemstack) - ((ItemWandCasting) itemstack.getItem()).getVis(itemstack, primals[x]), true);
+            }
+        }
+    }
 }

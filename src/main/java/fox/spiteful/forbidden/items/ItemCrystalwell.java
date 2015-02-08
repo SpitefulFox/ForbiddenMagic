@@ -23,34 +23,34 @@ import thaumcraft.common.lib.research.ResearchManager;
 
 public class ItemCrystalwell extends Item implements IScribeTools {
 
-	@SideOnly(Side.CLIENT)
-	public IIcon icon;
+    @SideOnly(Side.CLIENT)
+    public IIcon icon;
 
-	public ItemCrystalwell() {
-		maxStackSize = 1;
-		canRepair = false;
-		setMaxDamage(100);
-		setCreativeTab(Forbidden.tab);
-		setHasSubtypes(false);
+    public ItemCrystalwell() {
+        maxStackSize = 1;
+        canRepair = false;
+        setMaxDamage(100);
+        setCreativeTab(Forbidden.tab);
+        setHasSubtypes(false);
 
-	}
+    }
 
-	@SideOnly(Side.CLIENT)
-	@Override
-	public void registerIcons(IIconRegister ir) {
-		this.icon = ir.registerIcon("forbidden:crystalwell");
-	}
+    @SideOnly(Side.CLIENT)
+    @Override
+    public void registerIcons(IIconRegister ir) {
+        this.icon = ir.registerIcon("forbidden:crystalwell");
+    }
 
-	@SideOnly(Side.CLIENT)
-	@Override
-	public IIcon getIconFromDamage(int par1) {
-		return this.icon;
-	}
+    @SideOnly(Side.CLIENT)
+    @Override
+    public IIcon getIconFromDamage(int par1) {
+        return this.icon;
+    }
 
-	@Override
-	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
-		if (stack.getItemDamage() >= 100) {
-			if (!world.isRemote) {
+    @Override
+    public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
+        if (stack.getItemDamage() >= 100) {
+            if (!world.isRemote) {
                 Aspect aspect;
                 short amount;
                 for(Iterator count = Aspect.getPrimalAspects().iterator(); count.hasNext(); PacketHandler.INSTANCE.sendTo(new PacketAspectPool(aspect.getTag(), Short.valueOf(amount), Short.valueOf(Thaumcraft.proxy.playerKnowledge.getAspectPoolFor(player.getCommandSenderName(), aspect))), (EntityPlayerMP)player))
@@ -60,20 +60,20 @@ public class ItemCrystalwell extends Item implements IScribeTools {
                     Thaumcraft.proxy.playerKnowledge.addAspectPool(player.getCommandSenderName(), aspect, amount);
                     ResearchManager.scheduleSave(player);
                 }
-			}
-			player.swingItem();
-			return new ItemStack(ConfigItems.itemInkwell, 1, 100);
-		} else
-			return stack;
-	}
+            }
+            player.swingItem();
+            return new ItemStack(ConfigItems.itemInkwell, 1, 100);
+        } else
+            return stack;
+    }
 
-	/**
-	 * Render Pass sensitive version of hasEffect()
-	 */
-	@SideOnly(Side.CLIENT)
-	@Override
-	public boolean hasEffect(ItemStack stack, int pass) {
-		return stack.getItemDamage() >= 100;
-	}
+    /**
+     * Render Pass sensitive version of hasEffect()
+     */
+    @SideOnly(Side.CLIENT)
+    @Override
+    public boolean hasEffect(ItemStack stack, int pass) {
+        return stack.getItemDamage() >= 100;
+    }
 
 }

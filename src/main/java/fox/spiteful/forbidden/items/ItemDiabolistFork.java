@@ -19,55 +19,55 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemDiabolistFork extends ItemSword implements IRepairable {
 
-	public IIcon icon;
+    public IIcon icon;
 
-	public ItemDiabolistFork(ToolMaterial mat) {
-		super(mat);
-		this.setCreativeTab(Forbidden.tab);
-	}
+    public ItemDiabolistFork(ToolMaterial mat) {
+        super(mat);
+        this.setCreativeTab(Forbidden.tab);
+    }
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerIcons(IIconRegister ir) {
-		if (Config.spork)
-			this.icon = ir.registerIcon("forbidden:spork");
-		else
-			this.icon = ir.registerIcon("forbidden:fork");
-	}
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void registerIcons(IIconRegister ir) {
+        if (Config.spork)
+            this.icon = ir.registerIcon("forbidden:spork");
+        else
+            this.icon = ir.registerIcon("forbidden:fork");
+    }
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public IIcon getIconFromDamage(int meta) {
-		return this.icon;
-	}
+    @Override
+    @SideOnly(Side.CLIENT)
+    public IIcon getIconFromDamage(int meta) {
+        return this.icon;
+    }
 
-	@Override
-	public float getDigSpeed(ItemStack stack, Block block, int meta) {
-		return 1.0F;
-	}
+    @Override
+    public float getDigSpeed(ItemStack stack, Block block, int meta) {
+        return 1.0F;
+    }
 
-	@Override
-	public EnumAction getItemUseAction(ItemStack stack) {
-		return EnumAction.none;
-	}
+    @Override
+    public EnumAction getItemUseAction(ItemStack stack) {
+        return EnumAction.none;
+    }
 
-	@Override
-	public int getMaxItemUseDuration(ItemStack stack) {
-		return 0;
-	}
+    @Override
+    public int getMaxItemUseDuration(ItemStack stack) {
+        return 0;
+    }
 
-	@Override
-	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
-		return stack;
-	}
+    @Override
+    public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
+        return stack;
+    }
 
-	@Override
-	public boolean getIsRepairable(ItemStack stack, ItemStack stack2) {
-		return stack2.getItem() == Items.quartz ? true : super.getIsRepairable(stack, stack2);
-	}
+    @Override
+    public boolean getIsRepairable(ItemStack stack, ItemStack stack2) {
+        return stack2.getItem() == Items.quartz ? true : super.getIsRepairable(stack, stack2);
+    }
 
-	@Override
-	public boolean canHarvestBlock(Block block, ItemStack itemStack) {
-		return false;
-	}
+    @Override
+    public boolean canHarvestBlock(Block block, ItemStack itemStack) {
+        return false;
+    }
 }

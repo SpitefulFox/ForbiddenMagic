@@ -26,80 +26,80 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemRidingCrop extends ItemSword {
 
-	public IIcon icon;
+    public IIcon icon;
 
-	public ItemRidingCrop(ToolMaterial mat) {
-		super(mat);
-		this.setCreativeTab(Forbidden.tab);
-	}
+    public ItemRidingCrop(ToolMaterial mat) {
+        super(mat);
+        this.setCreativeTab(Forbidden.tab);
+    }
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerIcons(IIconRegister ir) {
-		this.icon = ir.registerIcon("forbidden:crop");
-	}
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void registerIcons(IIconRegister ir) {
+        this.icon = ir.registerIcon("forbidden:crop");
+    }
 
-	@Override
-	public boolean hitEntity(ItemStack stack, EntityLivingBase victim, EntityLivingBase player) {
-		stack.damageItem(1, player);
-		if (victim instanceof EntityHorse || victim instanceof EntityPig)
-			victim.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 175, 5));
-		else if (victim instanceof EntityPlayer || victim instanceof EntityGolem) {
-			victim.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 75, 1));
-			victim.addPotionEffect(new PotionEffect(Potion.digSpeed.id, 75, 1));
+    @Override
+    public boolean hitEntity(ItemStack stack, EntityLivingBase victim, EntityLivingBase player) {
+        stack.damageItem(1, player);
+        if (victim instanceof EntityHorse || victim instanceof EntityPig)
+            victim.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 175, 5));
+        else if (victim instanceof EntityPlayer || victim instanceof EntityGolem) {
+            victim.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 75, 1));
+            victim.addPotionEffect(new PotionEffect(Potion.digSpeed.id, 75, 1));
             victim.addPotionEffect(new PotionEffect(Potion.damageBoost.id, 75, 1));
-		}
-		if (!player.worldObj.isRemote && !Config.noLust && player.worldObj.provider.dimensionId == -1 && player.worldObj.rand.nextInt(30) == 1) {
-			EntityItem ent = victim.entityDropItem(new ItemStack(ForbiddenItems.deadlyShards, 1, 4), 1.0F);
-			ent.motionY += player.worldObj.rand.nextFloat() * 0.05F;
-			ent.motionX += (player.worldObj.rand.nextFloat() - player.worldObj.rand.nextFloat()) * 0.1F;
-			ent.motionZ += (player.worldObj.rand.nextFloat() - player.worldObj.rand.nextFloat()) * 0.1F;
-		}
-		return true;
-	}
+        }
+        if (!player.worldObj.isRemote && !Config.noLust && player.worldObj.provider.dimensionId == -1 && player.worldObj.rand.nextInt(30) == 1) {
+            EntityItem ent = victim.entityDropItem(new ItemStack(ForbiddenItems.deadlyShards, 1, 4), 1.0F);
+            ent.motionY += player.worldObj.rand.nextFloat() * 0.05F;
+            ent.motionX += (player.worldObj.rand.nextFloat() - player.worldObj.rand.nextFloat()) * 0.1F;
+            ent.motionZ += (player.worldObj.rand.nextFloat() - player.worldObj.rand.nextFloat()) * 0.1F;
+        }
+        return true;
+    }
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public IIcon getIconFromDamage(int par1) {
-		return this.icon;
-	}
+    @Override
+    @SideOnly(Side.CLIENT)
+    public IIcon getIconFromDamage(int par1) {
+        return this.icon;
+    }
 
-	@Override
-	public float getDigSpeed(ItemStack stack, Block block, int meta) {
-		return 1.0F;
-	}
+    @Override
+    public float getDigSpeed(ItemStack stack, Block block, int meta) {
+        return 1.0F;
+    }
 
-	@Override
-	public EnumAction getItemUseAction(ItemStack stack) {
-		return EnumAction.none;
-	}
+    @Override
+    public EnumAction getItemUseAction(ItemStack stack) {
+        return EnumAction.none;
+    }
 
-	@Override
-	public int getMaxItemUseDuration(ItemStack stack) {
-		return 0;
-	}
+    @Override
+    public int getMaxItemUseDuration(ItemStack stack) {
+        return 0;
+    }
 
-	@Override
-	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
-		if (player.ridingEntity != null && player.ridingEntity instanceof EntityLivingBase) {
-			EntityLivingBase mount = (EntityLivingBase) player.ridingEntity;
-			stack.damageItem(1, player);
-			player.swingItem();
-			// mount.attackEntityFrom(DamageSource.causePlayerDamage(player),
-			// 4.0F);
-			mount.attackEntityFrom(DamageSource.generic, 1.0F);
-			mount.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 175, 5));
-		}
-		return stack;
-	}
+    @Override
+    public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
+        if (player.ridingEntity != null && player.ridingEntity instanceof EntityLivingBase) {
+            EntityLivingBase mount = (EntityLivingBase) player.ridingEntity;
+            stack.damageItem(1, player);
+            player.swingItem();
+            // mount.attackEntityFrom(DamageSource.causePlayerDamage(player),
+            // 4.0F);
+            mount.attackEntityFrom(DamageSource.generic, 1.0F);
+            mount.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 175, 5));
+        }
+        return stack;
+    }
 
-	@Override
-	public boolean getIsRepairable(ItemStack stack, ItemStack stack2) {
-		return stack2.getItem() == Items.leather ? true : super.getIsRepairable(stack, stack2);
-	}
+    @Override
+    public boolean getIsRepairable(ItemStack stack, ItemStack stack2) {
+        return stack2.getItem() == Items.leather ? true : super.getIsRepairable(stack, stack2);
+    }
 
-	@Override
-	public boolean canHarvestBlock(Block block, ItemStack itemStack) {
-		return false;
-	}
+    @Override
+    public boolean canHarvestBlock(Block block, ItemStack itemStack) {
+        return false;
+    }
 }

@@ -9,22 +9,22 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemGluttonyShard extends ItemFood {
-	IIcon icon;
+    IIcon icon;
 
-	public ItemGluttonyShard() {
-		super(2, 0.1F, false);
-		this.setCreativeTab(Forbidden.tab);
-	}
+    public ItemGluttonyShard() {
+        super(2, 0.1F, false);
+        this.setCreativeTab(Forbidden.tab);
+    }
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerIcons(IIconRegister ir) {
-		this.icon = ir.registerIcon("forbidden:gluttonyshard");
-	}
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void registerIcons(IIconRegister ir) {
+        this.icon = ir.registerIcon("forbidden:gluttonyshard");
+    }
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public IIcon getIconFromDamage(int par1) {
-		return this.icon;
-	}
+    @Override
+    @SideOnly(Side.CLIENT)
+    public IIcon getIconFromDamage(int par1) {
+        return this.icon;
+    }
 }

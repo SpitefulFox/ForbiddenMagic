@@ -22,33 +22,33 @@ import cpw.mods.fml.relauncher.SideOnly;
 import thaumcraft.api.IWarpingGear;
 
 public class ItemMorphAxe extends ItemAxe implements IRepairable, IWarpingGear {
-	public IIcon[] icon;
+    public IIcon[] icon;
 
-	public ItemMorphAxe(ToolMaterial enumtoolmaterial) {
-		super(enumtoolmaterial);
-		this.setCreativeTab(Forbidden.tab);
-		this.setHarvestLevel("axe", 4);
-	}
+    public ItemMorphAxe(ToolMaterial enumtoolmaterial) {
+        super(enumtoolmaterial);
+        this.setCreativeTab(Forbidden.tab);
+        this.setHarvestLevel("axe", 4);
+    }
 
-	@SideOnly(Side.CLIENT)
-	public void registerIcons(IIconRegister ir) {
-		icon = new IIcon[2];
-		this.icon[0] = ir.registerIcon("forbidden:chameleonaxe");
-		this.icon[1] = ir.registerIcon("forbidden:eyeaxe");
-	}
+    @SideOnly(Side.CLIENT)
+    public void registerIcons(IIconRegister ir) {
+        icon = new IIcon[2];
+        this.icon[0] = ir.registerIcon("forbidden:chameleonaxe");
+        this.icon[1] = ir.registerIcon("forbidden:eyeaxe");
+    }
 
-	@SideOnly(Side.CLIENT)
-	public IIcon getIconFromDamageForRenderPass(int par1, int renderPass) {
-		return renderPass != 1 ? icon[0] : icon[1];
-	}
+    @SideOnly(Side.CLIENT)
+    public IIcon getIconFromDamageForRenderPass(int par1, int renderPass) {
+        return renderPass != 1 ? icon[0] : icon[1];
+    }
 
-	public EnumRarity getRarity(ItemStack itemstack) {
-		return EnumRarity.epic;
-	}
+    public EnumRarity getRarity(ItemStack itemstack) {
+        return EnumRarity.epic;
+    }
 
-	public boolean getIsRepairable(ItemStack stack, ItemStack stack2) {
-		return stack2.isItemEqual(new ItemStack(ForbiddenItems.deadlyShards, 1, 1)) ? true : super.getIsRepairable(stack, stack2);
-	}
+    public boolean getIsRepairable(ItemStack stack, ItemStack stack2) {
+        return stack2.isItemEqual(new ItemStack(ForbiddenItems.deadlyShards, 1, 1)) ? true : super.getIsRepairable(stack, stack2);
+    }
 
     @Override
     public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer player) {
@@ -95,28 +95,28 @@ public class ItemMorphAxe extends ItemAxe implements IRepairable, IWarpingGear {
         return itemstack;
     }
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public int getColorFromItemStack(ItemStack itemstack, int renderpass) {
-		if (renderpass != 1)
-			return 16777215;
-		else {
-			if (!itemstack.hasTagCompound())
-				return 0x980000;
-			byte phase = itemstack.getTagCompound().getByte("phase");
-			if (phase == 1)
-				return 0x0010CC;
-			else if (phase == 2)
-				return 0xE5DA00;
-			else
-				return 0x980000;
-		}
-	}
+    @Override
+    @SideOnly(Side.CLIENT)
+    public int getColorFromItemStack(ItemStack itemstack, int renderpass) {
+        if (renderpass != 1)
+            return 16777215;
+        else {
+            if (!itemstack.hasTagCompound())
+                return 0x980000;
+            byte phase = itemstack.getTagCompound().getByte("phase");
+            if (phase == 1)
+                return 0x0010CC;
+            else if (phase == 2)
+                return 0xE5DA00;
+            else
+                return 0x980000;
+        }
+    }
 
-	@SideOnly(Side.CLIENT)
-	public boolean requiresMultipleRenderPasses() {
-		return true;
-	}
+    @SideOnly(Side.CLIENT)
+    public boolean requiresMultipleRenderPasses() {
+        return true;
+    }
 
     public void onUpdate(ItemStack stack, World world, Entity entity, int fuckObfuscation, boolean fuckObfuscation2) {
         super.onUpdate(stack, world, entity, fuckObfuscation, fuckObfuscation2);

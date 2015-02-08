@@ -14,7 +14,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemWandCaps extends Item {
 
-	public final String[] types = {
+    public final String[] types = {
             "alchemical",
             "vinteum",
             "soul",
@@ -23,39 +23,39 @@ public class ItemWandCaps extends Item {
             "elementium",
             "elementium_inert"
     };
-	public IIcon[] icon;
+    public IIcon[] icon;
 
-	public ItemWandCaps() {
-		this.setMaxStackSize(64);
-		this.setHasSubtypes(true);
-		this.setMaxDamage(0);
-		this.setCreativeTab(Forbidden.tab);
-	}
+    public ItemWandCaps() {
+        this.setMaxStackSize(64);
+        this.setHasSubtypes(true);
+        this.setMaxDamage(0);
+        this.setCreativeTab(Forbidden.tab);
+    }
 
-	@SideOnly(Side.CLIENT)
-	@Override
-	public void registerIcons(IIconRegister ir) {
-		icon = new IIcon[types.length];
-		for(int x = 0; x < types.length; x++)
-			this.icon[x] = ir.registerIcon("forbidden:wand_cap_" + types[x]);
-	}
+    @SideOnly(Side.CLIENT)
+    @Override
+    public void registerIcons(IIconRegister ir) {
+        icon = new IIcon[types.length];
+        for(int x = 0; x < types.length; x++)
+            this.icon[x] = ir.registerIcon("forbidden:wand_cap_" + types[x]);
+    }
 
-	@SideOnly(Side.CLIENT)
-	@Override
-	public IIcon getIconFromDamage(int meta) {
-		return this.icon[meta];
-	}
+    @SideOnly(Side.CLIENT)
+    @Override
+    public IIcon getIconFromDamage(int meta) {
+        return this.icon[meta];
+    }
 
-	@SideOnly(Side.CLIENT)
-	@Override
-	public void getSubItems(Item item, CreativeTabs xCreativeTabs, List list) {
-		for(int x = 0; x < types.length; x++){
-			list.add(new ItemStack(this, 1, x));
-		}
-	}
+    @SideOnly(Side.CLIENT)
+    @Override
+    public void getSubItems(Item item, CreativeTabs xCreativeTabs, List list) {
+        for(int x = 0; x < types.length; x++){
+            list.add(new ItemStack(this, 1, x));
+        }
+    }
 
-	@Override
-	public String getUnlocalizedName(ItemStack stack) {
-		return super.getUnlocalizedName() + "." + types[stack.getItemDamage()];
-	}
+    @Override
+    public String getUnlocalizedName(ItemStack stack) {
+        return super.getUnlocalizedName() + "." + types[stack.getItemDamage()];
+    }
 }

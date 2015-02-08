@@ -17,47 +17,47 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemBoundShears extends ItemSword implements IBindable {
 
-	public IIcon icon;
+    public IIcon icon;
 
-	public ItemBoundShears(ToolMaterial mat) {
-		super(mat);
-		this.setCreativeTab(Forbidden.tab);
-	}
+    public ItemBoundShears(ToolMaterial mat) {
+        super(mat);
+        this.setCreativeTab(Forbidden.tab);
+    }
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void registerIcons(IIconRegister ir) {
-		this.icon = ir.registerIcon("forbidden:bound_shears");
-	}
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void registerIcons(IIconRegister ir) {
+        this.icon = ir.registerIcon("forbidden:bound_shears");
+    }
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public IIcon getIconFromDamage(int meta) {
-		return this.icon;
-	}
+    @Override
+    @SideOnly(Side.CLIENT)
+    public IIcon getIconFromDamage(int meta) {
+        return this.icon;
+    }
 
-	@Override
-	public float getDigSpeed(ItemStack stack, Block block, int meta) {
-		return block != Blocks.web && block != Blocks.leaves && block != Blocks.leaves2 ? (block == Blocks.wool ? 5.0F : super.func_150893_a(stack, block)) : 15.0F;
-	}
+    @Override
+    public float getDigSpeed(ItemStack stack, Block block, int meta) {
+        return block != Blocks.web && block != Blocks.leaves && block != Blocks.leaves2 ? (block == Blocks.wool ? 5.0F : super.func_150893_a(stack, block)) : 15.0F;
+    }
 
-	@Override
-	public EnumAction getItemUseAction(ItemStack stack) {
-		return EnumAction.none;
-	}
+    @Override
+    public EnumAction getItemUseAction(ItemStack stack) {
+        return EnumAction.none;
+    }
 
-	@Override
-	public int getMaxItemUseDuration(ItemStack stack) {
-		return 0;
-	}
+    @Override
+    public int getMaxItemUseDuration(ItemStack stack) {
+        return 0;
+    }
 
-	@Override
-	public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
-		return stack;
-	}
+    @Override
+    public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
+        return stack;
+    }
 
-	@Override
-	public boolean canHarvestBlock(Block block, ItemStack stack) {
-		return block == Blocks.web || block == Blocks.redstone_wire || block == Blocks.tripwire;
-	}
+    @Override
+    public boolean canHarvestBlock(Block block, ItemStack stack) {
+        return block == Blocks.web || block == Blocks.redstone_wire || block == Blocks.tripwire;
+    }
 }
