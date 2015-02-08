@@ -45,8 +45,8 @@ Planned Features for FM
 		- Hellfire Caps - Created by binding a Blaze into an inert Thaumium Cap?  Applies a vis discount when used in demon binding/summoning rituals.
 	
 	- Demon Summoning - Summon different demons that don't normally spawn in the Nether.
-		- Wrath Demon - Big angry red guy.  Rawrrrrr.
-		- Lust Demon - Succubism's skin on a humanoid mob.  Probably with wings.  Stuns you and drains your health on hit.  Chance of dropping Lust shards every time it hits you.
+		- Wrath Demon - Big angry guy with a cigar.  Rawrrrrr.
+		- Lust Demon - Succubism's skin on a humanoid mob.  Probably with boobs.  Stuns you and drains your health on hit.  Chance of dropping Lust shards every time it hits you.
 		- Envy Demon - Mob that mimics the appearance and equipment of whoever it's aggroed to.
 		- Sloth Demon - Big gray slime.  Just sorta sits there and throws slimeballs at anything that comes near.  Can be used as infernal base protection.
 		- Greed Demon - Big fat demon.  Will trade various infernal goods for Greed Shards.
