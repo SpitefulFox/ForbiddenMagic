@@ -1,6 +1,11 @@
-package fox.spiteful.forbidden.items;
+package fox.spiteful.forbidden.items.tools;
 
+import fox.spiteful.forbidden.Forbidden;
+import fox.spiteful.forbidden.enchantments.DarkEnchantments;
+import fox.spiteful.forbidden.items.ForbiddenItems;
 import net.minecraft.block.Block;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.multiplayer.PlayerControllerMP;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
@@ -8,58 +13,49 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.EnumRarity;
-import net.minecraft.item.ItemPickaxe;
+import net.minecraft.item.ItemSpade;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
+import net.minecraft.network.play.client.C07PacketPlayerDigging;
+import net.minecraft.network.play.server.S23PacketBlockChange;
 import net.minecraft.util.IIcon;
-import net.minecraft.util.MathHelper;
 import net.minecraft.util.MovingObjectPosition;
-import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeHooks;
 import thaumcraft.api.IRepairable;
-import thaumcraft.common.lib.utils.BlockUtils;
-
-import fox.spiteful.forbidden.Forbidden;
-import fox.spiteful.forbidden.enchantments.DarkEnchantments;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import thaumcraft.api.IWarpingGear;
+import thaumcraft.common.lib.utils.BlockUtils;
 
-import java.util.List;
-
-public class ItemMorphPickaxe extends ItemPickaxe implements IRepairable, IWarpingGear {
+public class ItemMorphShovel extends ItemSpade implements IRepairable, IWarpingGear {
     public IIcon[] icon;
     int side;
 
-    public ItemMorphPickaxe(ToolMaterial enumtoolmaterial) {
+    public ItemMorphShovel(ToolMaterial enumtoolmaterial) {
         super(enumtoolmaterial);
         this.setCreativeTab(Forbidden.tab);
-        this.setHarvestLevel("pickaxe", 4);
+        this.setHarvestLevel("shovel", 4);
     }
 
     @SideOnly(Side.CLIENT)
-    @Override
     public void registerIcons(IIconRegister ir) {
         icon = new IIcon[2];
-        this.icon[0] = ir.registerIcon("forbidden:chameleonpick");
-        this.icon[1] = ir.registerIcon("forbidden:eyepick");
+        this.icon[0] = ir.registerIcon("forbidden:chameleonshovel");
+        this.icon[1] = ir.registerIcon("forbidden:eyeshovel");
     }
 
     @SideOnly(Side.CLIENT)
-    @Override
     public IIcon getIconFromDamageForRenderPass(int par1, int renderPass) {
         return renderPass != 1 ? icon[0] : icon[1];
     }
 
-    @Override
     public EnumRarity getRarity(ItemStack itemstack) {
         return EnumRarity.epic;
     }
 
-    @Override
     public boolean getIsRepairable(ItemStack stack, ItemStack stack2) {
         return stack2.isItemEqual(new ItemStack(ForbiddenItems.deadlyShards, 1, 1)) ? true : super.getIsRepairable(stack, stack2);
     }
@@ -109,8 +105,8 @@ public class ItemMorphPickaxe extends ItemPickaxe implements IRepairable, IWarpi
         return itemstack;
     }
 
-    @SideOnly(Side.CLIENT)
     @Override
+    @SideOnly(Side.CLIENT)
     public int getColorFromItemStack(ItemStack itemstack, int renderpass) {
         if (renderpass != 1)
             return 16777215;
@@ -128,7 +124,6 @@ public class ItemMorphPickaxe extends ItemPickaxe implements IRepairable, IWarpi
     }
 
     @SideOnly(Side.CLIENT)
-    @Override
     public boolean requiresMultipleRenderPasses() {
         return true;
     }

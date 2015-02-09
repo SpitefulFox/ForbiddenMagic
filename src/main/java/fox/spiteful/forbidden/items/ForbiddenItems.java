@@ -3,6 +3,11 @@ package fox.spiteful.forbidden.items;
 import java.util.Arrays;
 
 import fox.spiteful.forbidden.compat.Compat;
+import fox.spiteful.forbidden.items.baubles.*;
+import fox.spiteful.forbidden.items.scribes.*;
+import fox.spiteful.forbidden.items.tools.*;
+import fox.spiteful.forbidden.Config;
+import fox.spiteful.forbidden.items.wands.*;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
@@ -14,19 +19,6 @@ import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.wands.StaffRod;
 import thaumcraft.api.wands.WandCap;
 import thaumcraft.api.wands.WandRod;
-
-import fox.spiteful.forbidden.Config;
-import fox.spiteful.forbidden.items.wands.BloodStaffUpdate;
-import fox.spiteful.forbidden.items.wands.BloodWandUpdate;
-import fox.spiteful.forbidden.items.wands.CreativeWandUpdate;
-import fox.spiteful.forbidden.items.wands.DarkWandCap;
-import fox.spiteful.forbidden.items.wands.InfernalWandUpdate;
-import fox.spiteful.forbidden.items.wands.ItemWandCaps;
-import fox.spiteful.forbidden.items.wands.ItemWandCores;
-import fox.spiteful.forbidden.items.wands.ManaStaffUpdate;
-import fox.spiteful.forbidden.items.wands.ManaWandUpdate;
-import fox.spiteful.forbidden.items.wands.TaintedWandUpdate;
-import fox.spiteful.forbidden.items.wands.YandereWandUpdate;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 
@@ -49,8 +41,8 @@ public class ForbiddenItems {
     public static Item crystalwell;
     public static Item ridingCrop;
     public static Item subCollar;
+    public static Item ringFood;
 
-    public static Item boundShears;
     public static Item bloodRapier;
     public static Item bloodwell;
     public static Item bloodOrb;
@@ -181,8 +173,8 @@ public class ForbiddenItems {
             GameRegistry.registerItem(subCollar, "SubCollar");
         }
 
-        // boundShears = new ItemBoundShears(Config.boundShearsID,
-        // ThaumcraftApi.toolMatThaumium).setUnlocalizedName("BoundShears");
-        // GameRegistry.registerItem(boundShears, "BoundSHears");
+        ringFood = new ItemRingNutrition().setUnlocalizedName("RingNutrition");
+        GameRegistry.registerItem(ringFood, "RingNutrition");
+
     }
 }

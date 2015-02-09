@@ -1,14 +1,15 @@
-package fox.spiteful.forbidden.items;
+package fox.spiteful.forbidden.items.tools;
 
 import fox.spiteful.forbidden.Forbidden;
+import fox.spiteful.forbidden.items.ForbiddenItems;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumRarity;
-import net.minecraft.item.ItemAxe;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.ItemSword;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.IIcon;
@@ -21,20 +22,19 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import thaumcraft.api.IWarpingGear;
 
-public class ItemMorphAxe extends ItemAxe implements IRepairable, IWarpingGear {
+public class ItemMorphSword extends ItemSword implements IRepairable, IWarpingGear {
     public IIcon[] icon;
 
-    public ItemMorphAxe(ToolMaterial enumtoolmaterial) {
+    public ItemMorphSword(ToolMaterial enumtoolmaterial) {
         super(enumtoolmaterial);
         this.setCreativeTab(Forbidden.tab);
-        this.setHarvestLevel("axe", 4);
     }
 
     @SideOnly(Side.CLIENT)
     public void registerIcons(IIconRegister ir) {
         icon = new IIcon[2];
-        this.icon[0] = ir.registerIcon("forbidden:chameleonaxe");
-        this.icon[1] = ir.registerIcon("forbidden:eyeaxe");
+        this.icon[0] = ir.registerIcon("forbidden:chameleonsword");
+        this.icon[1] = ir.registerIcon("forbidden:eyesword");
     }
 
     @SideOnly(Side.CLIENT)
@@ -42,10 +42,12 @@ public class ItemMorphAxe extends ItemAxe implements IRepairable, IWarpingGear {
         return renderPass != 1 ? icon[0] : icon[1];
     }
 
+    @Override
     public EnumRarity getRarity(ItemStack itemstack) {
         return EnumRarity.epic;
     }
 
+    @Override
     public boolean getIsRepairable(ItemStack stack, ItemStack stack2) {
         return stack2.isItemEqual(new ItemStack(ForbiddenItems.deadlyShards, 1, 1)) ? true : super.getIsRepairable(stack, stack2);
     }
@@ -132,5 +134,4 @@ public class ItemMorphAxe extends ItemAxe implements IRepairable, IWarpingGear {
         else
             return 0;
     }
-
 }

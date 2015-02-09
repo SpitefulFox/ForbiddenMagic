@@ -1,6 +1,6 @@
 package fox.spiteful.forbidden.enchantments;
 
-import fox.spiteful.forbidden.items.ItemMorphPickaxe;
+import fox.spiteful.forbidden.items.tools.ItemMorphPickaxe;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnumEnchantmentType;
 import net.minecraft.item.ItemStack;

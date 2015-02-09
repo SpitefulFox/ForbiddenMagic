@@ -1,13 +1,13 @@
 package fox.spiteful.forbidden.enchantments;
 
-import fox.spiteful.forbidden.items.ItemMorphAxe;
-import fox.spiteful.forbidden.items.ItemMorphPickaxe;
-import fox.spiteful.forbidden.items.ItemMorphSword;
+import fox.spiteful.forbidden.items.tools.ItemMorphAxe;
+import fox.spiteful.forbidden.items.tools.ItemMorphPickaxe;
+import fox.spiteful.forbidden.items.tools.ItemMorphSword;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnumEnchantmentType;
 import net.minecraft.item.ItemStack;
 
-import fox.spiteful.forbidden.items.ItemMorphShovel;
+import fox.spiteful.forbidden.items.tools.ItemMorphShovel;
 
 public class EnchantmentVoid extends Enchantment {
     public EnchantmentVoid(int id) {

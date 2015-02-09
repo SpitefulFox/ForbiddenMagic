@@ -1,6 +1,7 @@
-package fox.spiteful.forbidden.items;
+package fox.spiteful.forbidden.items.tools;
 
 import fox.spiteful.forbidden.Forbidden;
+import fox.spiteful.forbidden.items.ForbiddenItems;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;

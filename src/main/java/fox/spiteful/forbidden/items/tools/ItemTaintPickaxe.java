@@ -1,4 +1,4 @@
-package fox.spiteful.forbidden.items;
+package fox.spiteful.forbidden.items.tools;
 
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.EnumRarity;

@@ -44,6 +44,7 @@ item.BoundShears.name=Bound Shears
 item.BloodRapier.name=Rapier of the Strix
 item.Boundwell.name=Bound Scribing Tools
 item.SubCollar.name=Collar of Pain
+item.RingNutrition.name=Ring of Nutrition
 #
 # Wand components
 item.Wand.tainted.rod=Tainted
@@ -126,11 +127,15 @@ forbidden.research_text.NETHERSHARDS=Aim to misbehave.
 forbidden.research_page.NETHERSHARDS.1=Strange energies swirl through the Nether. On occasion, they have been known to solidify into crystal shards when certain sympathetic events occur.
 forbidden.research_page.NETHERSHARDS.2=These crystals are imbued with different vices and have many uses for more unscrupulous Thaumaturges.<BR>There are seven documented types of nether shard, each attuned to a different "deadly sin."<BR><BR><IMG>forbidden:textures/misc/research.png:0:0:111:16:1</IMG><BR>
 forbidden.research_page.NETHERSHARDS.2b=These crystals are imbued with different vices and have many uses for more unscrupulous Thaumaturges.<BR>There are six documented types of nether shard, each attuned to a different "deadly sin."<BR><BR><IMG>forbidden:textures/misc/research.png:0:16:95:16:1</IMG><BR>
-forbidden.research_page.NETHERSHARDS.3=Wrath Shards crystallize around acts of violence. The more excessive the physical force used, the more likely it is for a Wrath Shard to appear.<BR><BR>Sloth Shards congeal when proxies and accidents are used to collect resources without effort.<BR><BR>Envy Shards are taken from those who have them by those that covet them.<BR><BR>Pride Shards materialize when a creature of truly great power is cut down to size.<BR><BR>More sympathetic events may reveal themselves as time goes on.
+forbidden.research_page.NETHERSHARDS.3=Wrath Shards crystallize around acts of violence. The more excessive the physical force used, the more likely it is for a Wrath Shard to appear.<BR><BR>Sloth Shards congeal when proxies and accidents are used to collect resources without effort.<BR><BR>Envy Shards are taken from those who have them by those that covet them.<BR><BR>Pride Shards materialize when a creature of truly great power is cut down to size.<BR><BR>Gluttony Shards crystallize when someone feasts.<BR><BR>Greed Shards appear when enchantment is used to turn a profit.
 #
 forbidden.research_name.SKULLAXE=Axe of the Skulltaker
 forbidden.research_text.SKULLAXE=Off with their heads!
 forbidden.research_page.SKULLAXE.1=Some monsters just really boil your blood. Skeletons! Always clacking around and using you for target practice. Or those Creepers! They just creep around blowing things up like they own the place! You wish you could just chop all their smug heads off and place them on pikes.<BR><BR>Fortunately, you've discovered an item that will let you do just that.  The Axe of the Skulltaker has a chance to remove the heads of monsters it slays. It might even work on other humans! Unfortunately, the infusion leaves the axe far too bloodthirsty to effectively cleave through boring plant matter.
+#
+forbidden.research_name.RINGFOOD=Ring of Nutrition
+forbidden.research_text.RINGFOOD=Cheese puffs prevent scurvy, right?
+forbidden.research_page.RINGFOOD.1=People keep scolding you. They insist that you can't just eat cookies all day or that "nutrition doesn't work like that." Well, you've had it with these naysayers.<BR><BR>The Ring of Nutrition provides a boost to the food and saturation values of most foods you eat as long as the ring is worn on your finger.<BR><BR>Side effects may include nausea, headaches, cramping, vertigo, diabetes, and sudden interest in homeopathy.
 #
 forbidden.research_name.ARCANECAKE=Thaumic Cake
 forbidden.research_text.ARCANECAKE=Let them eat cake.

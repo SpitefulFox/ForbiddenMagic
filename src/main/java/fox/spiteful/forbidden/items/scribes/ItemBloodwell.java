@@ -1,4 +1,4 @@
-package fox.spiteful.forbidden.items;
+package fox.spiteful.forbidden.items.scribes;
 
 import java.util.List;
 

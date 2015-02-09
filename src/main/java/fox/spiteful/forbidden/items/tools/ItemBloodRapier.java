@@ -1,4 +1,4 @@
-package fox.spiteful.forbidden.items;
+package fox.spiteful.forbidden.items.tools;
 
 import WayofTime.alchemicalWizardry.api.soulNetwork.SoulNetworkHandler;
 import cpw.mods.fml.relauncher.Side;

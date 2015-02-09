@@ -3,16 +3,13 @@ package fox.spiteful.forbidden;
 import java.util.*;
 
 import WayofTime.alchemicalWizardry.api.soulNetwork.SoulNetworkHandler;
-import baubles.api.BaublesApi;
 import baubles.common.lib.PlayerHandler;
 import cpw.mods.fml.common.eventhandler.EventPriority;
-import fox.spiteful.forbidden.blocks.BlockBlackFlower;
 import fox.spiteful.forbidden.compat.Compat;
-import fox.spiteful.forbidden.items.ItemRidingCrop;
-import fox.spiteful.forbidden.items.ItemSubCollar;
-import fox.spiteful.forbidden.items.ItemTaintPickaxe;
+import fox.spiteful.forbidden.items.tools.ItemRidingCrop;
+import fox.spiteful.forbidden.items.baubles.ItemSubCollar;
+import fox.spiteful.forbidden.items.tools.ItemTaintPickaxe;
 import fox.spiteful.forbidden.potions.DarkPotions;
-import fox.spiteful.forbidden.tiles.SubTileEuclidaisy;
 import net.minecraft.block.Block;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -30,27 +27,23 @@ import net.minecraft.entity.monster.EntitySilverfish;
 import net.minecraft.entity.monster.EntitySkeleton;
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.monster.IMob;
-import net.minecraft.entity.passive.EntityAnimal;
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemSword;
-import net.minecraft.item.ItemTool;
+import net.minecraft.item.*;
 import net.minecraft.util.StatCollector;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraftforge.client.event.TextureStitchEvent;
 import net.minecraftforge.common.util.FakePlayer;
 import net.minecraftforge.event.entity.living.*;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingUpdateEvent;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent.BreakSpeed;
+import net.minecraftforge.event.entity.player.PlayerUseItemEvent;
 import net.minecraftforge.event.world.BlockEvent.HarvestDropsEvent;
 
 import org.apache.logging.log4j.Level;
@@ -61,11 +54,9 @@ import thaumcraft.common.items.wands.ItemWandCasting;
 import thaumcraft.common.lib.utils.Utils;
 
 import com.google.common.collect.Multimap;
-import fox.spiteful.forbidden.blocks.ForbiddenBlocks;
 import fox.spiteful.forbidden.enchantments.DarkEnchantments;
 import fox.spiteful.forbidden.items.ForbiddenItems;
 
-import cpw.mods.fml.common.eventhandler.Event.Result;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
 public class FMEventHandler {
@@ -176,6 +167,7 @@ public class FMEventHandler {
         if (event.recentlyHit && event.source.getEntity() != null && event.source.getEntity() instanceof EntityPlayer && !(event.source.getEntity() instanceof FakePlayer)) {
             if (event.entityLiving instanceof IMob) {
                 int wrath = 2;
+                int greed = 0;
                 ItemStack heldItem = ((EntityPlayer) event.source.getEntity()).getCurrentEquippedItem();
                 if (heldItem != null) {
                     if (heldItem.getItem() instanceof ItemTool) {
@@ -203,6 +195,13 @@ public class FMEventHandler {
                     if (event.entityLiving.getCreatureAttribute() == EnumCreatureAttribute.ARTHROPOD) {
                         wrath += EnchantmentHelper.getEnchantmentLevel(Enchantment.baneOfArthropods.effectId, heldItem);
                     }
+
+                    if(heldItem.getItem() instanceof ItemWandCasting){
+                        wrath += ((ItemWandCasting)(heldItem.getItem())).getFocusPotency(heldItem);
+                        greed += ((ItemWandCasting)(heldItem.getItem())).getFocusTreasure(heldItem);
+                    }
+
+                    greed += EnchantmentHelper.getEnchantmentLevel(Enchantment.looting.effectId, heldItem);
                 }
 
                 if (randy.nextInt(61) <= wrath) {
@@ -211,6 +210,10 @@ public class FMEventHandler {
 
                 if (event.entityLiving instanceof IBossDisplayData) {
                     addDrop(event, new ItemStack(ForbiddenItems.deadlyShards, 2 + randy.nextInt(1 + event.lootingLevel), 3));
+                }
+
+                if(greed > 0 && randy.nextInt(20) <= greed){
+                    addDrop(event, new ItemStack(ForbiddenItems.deadlyShards, 1, 6));
                 }
             }
 
@@ -339,6 +342,32 @@ public class FMEventHandler {
                 while (current.hasNext()) {
                     event.drops.add((ItemStack) (current.next()));
                 }
+            }
+            if(player.worldObj.provider.dimensionId == -1 && event.block == Blocks.quartz_ore){
+                int fortune = EnchantmentHelper.getFortuneModifier(player);
+                if(fortune > 0 && randy.nextInt(20) <= fortune){
+                    event.drops.add(new ItemStack(ForbiddenItems.deadlyShards, 1, 6));
+                }
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public void onEat(PlayerUseItemEvent.Finish event){
+        if(event.entityPlayer.worldObj.isRemote)
+            return;
+        if(event.item.getItem() instanceof ItemFood){
+            if(event.entityPlayer.worldObj.provider.dimensionId == -1 && event.item.getItem() != ForbiddenItems.gluttonyShard
+                    && randy.nextInt(10) < 2){
+                EntityItem ent = event.entityPlayer.entityDropItem(new ItemStack(ForbiddenItems.gluttonyShard, 1), 1.0F);
+                ent.motionY += randy.nextFloat() * 0.05F;
+                ent.motionX += (randy.nextFloat() - randy.nextFloat()) * 0.1F;
+                ent.motionZ += (randy.nextFloat() - randy.nextFloat()) * 0.1F;
+            }
+            ItemStack ring = PlayerHandler.getPlayerBaubles(event.entityPlayer).getStackInSlot(1);
+            ItemStack ring2 = PlayerHandler.getPlayerBaubles(event.entityPlayer).getStackInSlot(2);
+            if((ring != null && ring.getItem() == ForbiddenItems.ringFood) || (ring2 != null && ring2.getItem() == ForbiddenItems.ringFood)){
+                event.entityPlayer.getFoodStats().addStats(2, 4.0F);
             }
         }
     }

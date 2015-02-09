@@ -1,4 +1,4 @@
-package fox.spiteful.forbidden.items;
+package fox.spiteful.forbidden.items.baubles;
 
 import baubles.common.lib.PlayerHandler;
 import cpw.mods.fml.relauncher.Side;
