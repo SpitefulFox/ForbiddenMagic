@@ -44,11 +44,11 @@ public class ItemRidingCrop extends ItemSword {
     public boolean hitEntity(ItemStack stack, EntityLivingBase victim, EntityLivingBase player) {
         stack.damageItem(1, player);
         if (victim instanceof EntityHorse || victim instanceof EntityPig)
-            victim.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 175, 5));
+            victim.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 200, 5));
         else if (victim instanceof EntityPlayer || victim instanceof EntityGolem) {
-            victim.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 75, 1));
-            victim.addPotionEffect(new PotionEffect(Potion.digSpeed.id, 75, 1));
-            victim.addPotionEffect(new PotionEffect(Potion.damageBoost.id, 75, 1));
+            victim.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 200, 1));
+            victim.addPotionEffect(new PotionEffect(Potion.digSpeed.id, 200, 1));
+            victim.addPotionEffect(new PotionEffect(Potion.damageBoost.id, 200, 1));
         }
         if (!player.worldObj.isRemote && !Config.noLust && player.worldObj.provider.dimensionId == -1 && player.worldObj.rand.nextInt(30) == 1) {
             EntityItem ent = victim.entityDropItem(new ItemStack(ForbiddenItems.deadlyShards, 1, 4), 1.0F);
@@ -89,14 +89,14 @@ public class ItemRidingCrop extends ItemSword {
             // mount.attackEntityFrom(DamageSource.causePlayerDamage(player),
             // 4.0F);
             mount.attackEntityFrom(DamageSource.generic, 1.0F);
-            mount.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 175, 5));
+            mount.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 200, 5));
         }
         return stack;
     }
 
     @Override
     public boolean getIsRepairable(ItemStack stack, ItemStack stack2) {
-        return stack2.getItem() == Items.leather ? true : super.getIsRepairable(stack, stack2);
+        return stack2.getItem() == Items.leather || super.getIsRepairable(stack, stack2);
     }
 
     @Override
