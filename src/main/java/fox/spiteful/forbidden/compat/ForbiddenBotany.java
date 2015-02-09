@@ -149,7 +149,7 @@ public class ForbiddenBotany {
         }
     }
 
-    public static ItemStack getFlower(String type) throws Compat.ItemNotFoundException {
+    private static ItemStack getFlower(String type) throws Compat.ItemNotFoundException {
         Item specialFlower = Compat.getItem("Botania", "specialFlower");
         ItemStack flower = new ItemStack(specialFlower, 1, 0);
         NBTTagCompound tag = new NBTTagCompound();
