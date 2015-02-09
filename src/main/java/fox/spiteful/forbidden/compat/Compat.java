@@ -46,6 +46,7 @@ public class Compat {
     public static boolean am2 = false;
     public static boolean botan = false;
     public static boolean special = false;
+    public static boolean twilight = false;
 
     public static void initiate() {
         if(!Config.crossMod)
@@ -57,6 +58,7 @@ public class Compat {
         am2 = Config.am2 && Loader.isModLoaded("arsmagica2");
         botan = Config.botan && Loader.isModLoaded("Botania");
         special = Config.wrathCage && Config.special && Loader.isModLoaded("SpecialMobs");
+        twilight = Config.wrathCage && Config.twilight && Loader.isModLoaded("TwilightForest");
     }
 
     public static void compatify() {
@@ -261,6 +263,49 @@ public class Compat {
             Config.spawnerMobs.put("SpecialMobs.HungryZombie", Aspect.FLESH);
             Config.spawnerMobs.put("SpecialMobs.PlagueZombie", Aspect.FLESH);
 
+        }
+
+        if(twilight){
+            Config.spawnerMobs.put("TwilightForest.Wild Boar", Aspect.BEAST);
+            Config.spawnerMobs.put("TwilightForest.Bighorn Sheep", Aspect.CLOTH);
+            Config.spawnerMobs.put("TwilightForest.Wild Deer", Aspect.BEAST);
+            Config.spawnerMobs.put("TwilightForest.Redcap", Aspect.METAL);
+            Config.spawnerMobs.put("TwilightForest.Swarm Spider", Aspect.CLOTH);
+            Config.spawnerMobs.put("TwilightForest.Skeleton Druid", Aspect.DEATH);
+            Config.spawnerMobs.put("TwilightForest.Hostile Wolf", Aspect.BEAST);
+            Config.spawnerMobs.put("TwilightForest.Twilight Wraith", Aspect.UNDEAD);
+            Config.spawnerMobs.put("TwilightForest.Hedge Spider", Aspect.CLOTH);
+            Config.spawnerMobs.put("TwilightForest.Penguin", Aspect.FLIGHT);
+            Config.spawnerMobs.put("TwilightForest.Tiny Bird", Aspect.FLIGHT);
+            Config.spawnerMobs.put("TwilightForest.Forest Squirrel", Aspect.BEAST);
+            Config.spawnerMobs.put("TwilightForest.Forest Bunny", Aspect.BEAST);
+            Config.spawnerMobs.put("TwilightForest.Forest Raven", Aspect.FLIGHT);
+            Config.spawnerMobs.put("TwilightForest.Twilight Kobold", Aspect.GREED);
+            Config.spawnerMobs.put("TwilightForest.Mosquito Swarm", DarkAspects.GLUTTONY);
+            Config.spawnerMobs.put("TwilightForest.Death Tome", Aspect.MIND);
+            Config.spawnerMobs.put("TwilightForest.Minotaur", Aspect.BEAST);
+            Config.spawnerMobs.put("TwilightForest.Minoshroom", Aspect.PLANT);
+            Config.spawnerMobs.put("TwilightForest.Fire Beetle", Aspect.FIRE);
+            Config.spawnerMobs.put("TwilightForest.Slime Beetle", Aspect.SLIME);
+            if(!Config.noLust)
+                Config.spawnerMobs.put("TwilightForest.Pinch Beetle", DarkAspects.LUST);
+            else
+                Config.spawnerMobs.put("TwilightForest.Pinch Beetle", Aspect.BEAST);
+            Config.spawnerMobs.put("TwilightForest.Maze Slime", Aspect.SLIME);
+            Config.spawnerMobs.put("TwilightForest.Redcap Sapper", Aspect.METAL);
+            Config.spawnerMobs.put("TwilightForest.Mist Wolf", Aspect.BEAST);
+            Config.spawnerMobs.put("TwilightForest.King Spider", DarkAspects.PRIDE);
+            Config.spawnerMobs.put("TwilightForest.Mini Ghast", DarkAspects.NETHER);
+            Config.spawnerMobs.put("TwilightForest.Tower Ghast", DarkAspects.NETHER);
+            Config.spawnerMobs.put("TwilightForest.Tower Golem", Aspect.METAL);
+            Config.spawnerMobs.put("TwilightForest.Tower Termite", Aspect.MAGIC);
+            Config.spawnerMobs.put("TwilightForest.Block&Chain Goblin", Aspect.METAL);
+            Config.spawnerMobs.put("TwilightForest.Upper Goblin Knight", Aspect.METAL);
+            Config.spawnerMobs.put("TwilightForest.Lower Goblin Knight", Aspect.METAL);
+            Config.spawnerMobs.put("TwilightForest.Helmet Crab", Aspect.METAL);
+            Config.spawnerMobs.put("TwilightForest.Knight Phantom", Aspect.METAL);
+            Config.spawnerMobs.put("TwilightForest.Yeti", Aspect.COLD);
+            Config.spawnerMobs.put("TwilightForest.WinterWolf", Aspect.COLD);
         }
     }
 

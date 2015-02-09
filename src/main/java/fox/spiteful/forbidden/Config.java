@@ -49,6 +49,7 @@ public class Config {
     public static boolean tt = true;
     public static boolean tc = true;
     public static boolean special = true;
+    public static boolean twilight = true;
 
     public static int wrathCost = 5;
     public static int wrathEff = 4;
@@ -93,6 +94,7 @@ public class Config {
             tt = conf.get("compatibility", "Thaumic Tinkerer Interaction", tt).getBoolean(true);
             tc = conf.get("compatibility", "Tinkers Construct Interaction", tc).getBoolean(true);
             special = conf.get("compatibility", "Special Mobs Interaction", special).getBoolean(true);
+            twilight = conf.get("compatibility", "Twilight Forest Interaction", twilight).getBoolean(true);
         } catch (Exception e) {
             LogHandler.log(Level.ERROR, e, "Had a problem loading its configuration.");
         } finally {
@@ -143,6 +145,7 @@ public class Config {
             spawnerMobs.put("Thaumcraft.Wisp", Aspect.AURA);
             spawnerMobs.put("Thaumcraft.ThaumSlime", Aspect.TAINT);
             spawnerMobs.put("Thaumcraft.BrainyZombie", Aspect.MIND);
+            spawnerMobs.put("Thaumcraft.GiantBrainyZombie", Aspect.MIND);
             spawnerMobs.put("Thaumcraft.TaintSpider", Aspect.TAINT);
             spawnerMobs.put("Thaumcraft.TaintSwarm", Aspect.TAINT);
             spawnerMobs.put("Thaumcraft.TaintedPig", Aspect.TAINT);
@@ -150,6 +153,14 @@ public class Config {
             spawnerMobs.put("Thaumcraft.TaintedCow", Aspect.TAINT);
             spawnerMobs.put("Thaumcraft.TaintedChicken", Aspect.TAINT);
             spawnerMobs.put("Thaumcraft.TaintedVillager", Aspect.TAINT);
+            spawnerMobs.put("Thaumcraft.CultistKnight", Aspect.ELDRITCH);
+            spawnerMobs.put("Thaumcraft.CultistCleric", Aspect.ELDRITCH);
+            spawnerMobs.put("Thaumcraft.EldritchCrab", Aspect.ELDRITCH);
+            spawnerMobs.put("Thaumcraft.InhabitedZombie", Aspect.ELDRITCH);
+            spawnerMobs.put("Thaumcraft.Pech", Aspect.GREED);
+            spawnerMobs.put("Thaumcraft.Pech.1", Aspect.GREED);
+            spawnerMobs.put("Thaumcraft.Pech.2", Aspect.GREED);
+            spawnerMobs.put("Thaumcraft.EldritchGuardian", Aspect.ELDRITCH);
             // spawnerMobs.put("Taintacle", DarkAspects.LUST);
         }
     }
