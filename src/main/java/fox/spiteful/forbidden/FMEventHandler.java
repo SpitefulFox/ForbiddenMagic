@@ -482,7 +482,9 @@ public class FMEventHandler {
                     else
                         lastLP.put(name, SoulNetworkHandler.getCurrentEssence(name));
                 }
-                catch(Throwable e){}
+                catch(Throwable e){
+                    Compat.bm = false;
+                }
             }
             else if(lastLP.containsKey(name))
                 lastLP.remove(name);
