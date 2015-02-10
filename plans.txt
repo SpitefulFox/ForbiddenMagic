@@ -7,19 +7,15 @@ Planned Features for FM
 		- Vault of Avarice - Chest that can hold "uberstacks" of multiple different items similar to an AE system or File Cabinet, except it will only hold items with Lucrum aspect.
 	- Wrath
 		- Katana of Fury - Quick-attack weapon that reduces invulnerability time on targets
-		- Iron Boots of the Tyrant - These boots were made for kicking. ??? Profit!
 	- Lust
 		- Crop of Punishment - Riding Crop infused with two Lust Shards and a few other things.  Applies nasty debuffs to targets on hit.  Hitting your mount with this is a bad idea.
-		- Armor of Pain - Leather armor infused with Lust Shards.  Applies buffs to the wearer on taking damage.
 	- Sloth
 		- Brimstone Gate - Portals that can be tuned to specific destinations using the Diabolist Fork
 		- Wand Focus: Blink - Teleports the bearer to the location you're looking at.  Does not throw a stupid Ender Pearl.
 	- Pride
 		- Cudgel of Authority - Does extra damage to enemies with less health than you, but little to no damage to enemies with higher health
-		- Crown of the Archfiend - ??? Profit!
 	- Envy
 		- Eyes of Envy - Goggles infused with two eyes of ender and some Invidia.  ??? Profit!
-		- Enchantment: Impact - Causes the Chameleon Pickaxe to have a 3x3 AOE mine
 	- Gluttony
 		- Wand Focus: Devour - Causes damage to target and restores a tiny bit of food to user
 	
