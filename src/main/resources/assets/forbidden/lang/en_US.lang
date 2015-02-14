@@ -106,10 +106,10 @@ enchantment.impact=Impact
 potion.blood_seal=Blood Seal
 #
 # Tooltips
-tooltip.currentowner=Current owner: 
+tooltip.currentowner=Current owner:
 tooltip.divineorb=Stores raw Life Essence
 tooltip.creativeonly=Creative Only
-tooltip.collar.owner=Owner: 
+tooltip.collar.owner=Owner:
 #
 # Messages
 message.collar.alreadywearing=%s is already wearing something around their neck!

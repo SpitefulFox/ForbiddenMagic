@@ -85,7 +85,7 @@ public class ItemSubCollar extends ItemAmuletVis {
                 }
             }
             if(stack.stackTagCompound.hasKey("owner"))
-                list.add(StatCollector.translateToLocal("tooltip.collar.owner") + stack.stackTagCompound.getString("owner"));
+                list.add(StatCollector.translateToLocal("tooltip.collar.owner") + " " + stack.stackTagCompound.getString("owner"));
         }
 
     }

@@ -74,7 +74,7 @@ public class ItemBloodwell extends Item implements IScribeTools, IBindable {
     public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean z) {
         if (stack.hasTagCompound()) {
             list.add("");
-            list.add(StatCollector.translateToLocal("tooltip.currentowner") + stack.stackTagCompound.getString("ownerName"));
+            list.add(StatCollector.translateToLocal("tooltip.currentowner") + " " + stack.stackTagCompound.getString("ownerName"));
         }
     }
 

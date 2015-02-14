@@ -39,7 +39,7 @@ public class ItemDivineOrb extends Item implements IBloodOrb, IBindable, IWarpin
         list.add(StatCollector.translateToLocal("tooltip.divineorb"));
 
         if (!(stack.stackTagCompound == null)) {
-            list.add(StatCollector.translateToLocal("tooltip.currentowner") + stack.stackTagCompound.getString("ownerName"));
+            list.add(StatCollector.translateToLocal("tooltip.currentowner") + " " + stack.stackTagCompound.getString("ownerName"));
         }
 
     }

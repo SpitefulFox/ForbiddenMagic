@@ -459,7 +459,7 @@ public class FMEventHandler {
     public void onTooltip(ItemTooltipEvent event) {
         if (event.itemStack.getItem() instanceof ItemWandCasting) {
             if (((ItemWandCasting) event.itemStack.getItem()).getRod(event.itemStack).getTag().startsWith("blood") && !event.itemStack.stackTagCompound.getString("ownerName").equals("")) {
-                event.toolTip.add(StatCollector.translateToLocal("tooltip.currentowner") + event.itemStack.stackTagCompound.getString("ownerName"));
+                event.toolTip.add(StatCollector.translateToLocal("tooltip.currentowner") + " " + event.itemStack.stackTagCompound.getString("ownerName"));
             } else if (((ItemWandCasting) event.itemStack.getItem()).getRod(event.itemStack).getTag().startsWith("neutronium")) {
                 event.toolTip.add(StatCollector.translateToLocal("tooltip.creativeonly"));
             }
