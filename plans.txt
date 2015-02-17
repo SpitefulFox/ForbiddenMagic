@@ -11,7 +11,6 @@ Planned Features for FM
 		- Crop of Punishment - Riding Crop infused with two Lust Shards and a few other things.  Applies nasty debuffs to targets on hit.  Hitting your mount with this is a bad idea.
 	- Sloth
 		- Brimstone Gate - Portals that can be tuned to specific destinations using the Diabolist Fork
-		- Wand Focus: Blink - Teleports the bearer to the location you're looking at.  Does not throw a stupid Ender Pearl.
 	- Pride
 		- Cudgel of Authority - Does extra damage to enemies with less health than you, but little to no damage to enemies with higher health
 	- Envy

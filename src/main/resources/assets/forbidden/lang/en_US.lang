@@ -148,6 +148,10 @@ forbidden.research_name.ARCANECAKE=Thaumic Cake
 forbidden.research_text.ARCANECAKE=Let them eat cake.
 forbidden.research_page.ARCANECAKE.1=If there's one thing you love, it's cake. You would eat its delicious goodness all day if you could, but it always runs out in the end.<BR><BR>To remedy this, you have devised a recipe to infuse a cake with longevity-enhancing magic.  The Thaumic Cake lasts significantly longer than a mundane one and will slowly repair itself as long as there's at least a sliver left.  The enchantments are unstable, however, and the cake cannot be moved again through conventional means once placed down.
 #
+forbidden.research_name.FOCUSBLINK=Wand Focus: Blink
+forbidden.research_text.FOCUSBLINK=Better than a stupid Ender Pearl
+forbidden.research_page.FOCUSBLINK.1=Ugh.<BR><BR>The only thing that sucks more than getting up is having to walk places. So much woooooork. What's the point of being a big fancy magician if you still have to use your feet like everyone else?<BR><BR>The Blink focus eases the hardships of having to put one foot in front of the other. Just point your wand at a distant location and wave it to teleport yourself there.<BR><BR>Now all you need is a Shower focus and you'll be all set...
+#
 forbidden.research_name.TAINTSHOVEL=Shovel of the Purifier
 forbidden.research_text.TAINTSHOVEL=Like a hot knife through really gross butter
 forbidden.research_page.TAINTSHOVEL.1=Sometimes, the easiest way to remove patches of taint is to just physically remove them.<BR><BR>By reinforcing a thaumium shovel with Silverwood and Order Shards, you have created a tool capable of combating Taint.  The Shovel of the Purifier can dig through pulpy tainted lands as effectively as it can through normal earth.<BR><BR>If held in your hand and right-clicked, the shovel will purify all flux goo and gas from a small radius at the cost of durability. You no longer have to clean up infusion mishaps with a piece of cobblestone!
@@ -186,10 +190,6 @@ forbidden.research_page.ROD_witchwood.1=By creating a wand core out of Witchwood
 forbidden.research_name.ROD_witchwood_staff=Witchwood Staff Core
 forbidden.research_text.ROD_witchwood_staff=Staff of the Arcanist
 forbidden.research_page.ROD_witchwood_staff.1=The Witchwood Wand eats far too much magical power and charges far too slowly to stand up in sustained combat. It's time for something a little more efficient at channeling arcane power.<BR><BR>Unlike most staves, the Witchwood Staff can only hold 50 vis. Its true strength lies in how quickly it recharges itself.  The staff regains vis at over twice the rate of the Witchwood Wand. Furthermore, the staff uses considerably less magical power than the Witchwood Wand, only needing 100 mana per point of vis, if used without the appropriate cap.
-#
-forbidden.research_name.ROD_totem=Totemic Wand Core
-forbidden.research_text.ROD_totem=Verdant vis storage
-forbidden.research_page.ROD_totem.1=Hunting down nodes for their power can be quite a pain sometimes. Perhaps there is another discipline you can tap for power...<BR><BR>By carving a wand core from Infused Wood, you create a wand that can draw power from plant life. The Totemic Wand Core holds 50 vis and can draw energy from Chlorophyll Crystals in your inventory to recharge its own vis.
 #
 forbidden.research_name.ROD_livingwood=Livingwood Wand Core
 forbidden.research_text.ROD_livingwood=Botanical vis storage
