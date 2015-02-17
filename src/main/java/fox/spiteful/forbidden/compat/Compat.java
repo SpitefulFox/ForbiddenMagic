@@ -292,7 +292,6 @@ public class Compat {
             else
                 Config.spawnerMobs.put("TwilightForest.Pinch Beetle", Aspect.BEAST);
             Config.spawnerMobs.put("TwilightForest.Maze Slime", Aspect.SLIME);
-            Config.spawnerMobs.put("TwilightForest.Redcap Sapper", Aspect.METAL);
             Config.spawnerMobs.put("TwilightForest.Mist Wolf", Aspect.BEAST);
             Config.spawnerMobs.put("TwilightForest.King Spider", DarkAspects.PRIDE);
             Config.spawnerMobs.put("TwilightForest.Mini Ghast", DarkAspects.NETHER);
