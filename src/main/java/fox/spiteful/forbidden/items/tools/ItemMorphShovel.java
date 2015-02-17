@@ -62,7 +62,7 @@ public class ItemMorphShovel extends ItemSpade implements IRepairable, IWarpingG
 
     @Override
     public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer player) {
-        if (player.isSneaking() && itemstack.hasTagCompound() && getMaxDamage() - itemstack.getItemDamage() > 5) {
+        if (player.isSneaking() && itemstack.hasTagCompound() && getMaxDamage(itemstack) - itemstack.getItemDamage() > 5) {
             NBTTagCompound tags = itemstack.getTagCompound();
             byte phase = tags.getByte("phase");
             if(tags.hasKey("ench")){
