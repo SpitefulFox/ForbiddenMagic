@@ -92,7 +92,7 @@ public class Config {
                 wrathEff = 4;
             wrathCrazy = conf.get("general", "Wrath Cage Cries Havoc", wrathCrazy, "Enable to let the Wrath Cage imprint on ANY non-boss mob.  May break your game or make your game Awesome.").getBoolean(false);
             spork = conf.get("silly", "Spork of Doom", spork, "What is this?  I don't even...").getBoolean(false);
-            gluttony = (byte)conf.get("silly", "Gluttony", gluttony, "Whether gluttony research is enabled. 0 = Enabled, 1 = Disabled, 2 = Hardcore").getInt(0);
+            gluttony = (byte)conf.get("general", "Gluttony", gluttony, "Whether gluttony research is enabled. 0 = Enabled, 1 = Disabled, 2 = Hardcore").getInt(0);
             if(gluttony < 0 || gluttony > 2)
                 gluttony = 0;
 
