@@ -16,6 +16,8 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.oredict.OreDictionary;
 import thaumcraft.api.ThaumcraftApi;
 import thaumcraft.api.aspects.Aspect;
+import thaumcraft.api.aspects.AspectList;
+import thaumcraft.api.wands.FocusUpgradeType;
 import thaumcraft.api.wands.StaffRod;
 import thaumcraft.api.wands.WandCap;
 import thaumcraft.api.wands.WandRod;
@@ -42,6 +44,8 @@ public class ForbiddenItems {
     public static Item ridingCrop;
     public static Item subCollar;
     public static Item ringFood;
+
+    public static Item blinkFocus;
 
     public static Item bloodRapier;
     public static Item bloodwell;
@@ -176,5 +180,17 @@ public class ForbiddenItems {
         ringFood = new ItemRingNutrition().setUnlocalizedName("RingNutrition");
         GameRegistry.registerItem(ringFood, "RingNutrition");
 
+        blinkFocus = new ItemFocusBlink().setUnlocalizedName("BlinkFocus");
+        GameRegistry.registerItem(blinkFocus, "BlinkFocus");
+
+    }
+
+    public static FocusUpgradeType getUpgrade(int id, ResourceLocation icon, String name, String text, AspectList aspects){
+        if (id >= FocusUpgradeType.types.length) {
+            FocusUpgradeType[] temp = new FocusUpgradeType[id+1];
+            System.arraycopy(FocusUpgradeType.types, 0, temp, 0, FocusUpgradeType.types.length);
+            FocusUpgradeType.types = temp;
+        }
+        return new FocusUpgradeType(id, icon, name, text, aspects);
     }
 }

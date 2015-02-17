@@ -80,6 +80,7 @@ item.WandCaps.manasteel.name=Manasteel Cap
 item.WandCaps.manasteel_inert.name=Inert Manasteel Cap
 item.WandCaps.elementium.name=Elementium Cap
 item.WandCaps.elementium_inert.name=Inert Elementium Cap
+item.BlinkFocus.name=Wand Focus: Blink
 #
 # Blocks
 tile.ArcaneCake.name=Thaumic Cake
@@ -105,11 +106,17 @@ enchantment.impact=Impact
 # Potions
 potion.blood_seal=Blood Seal
 #
+# Focus Upgrades
+forbidden.upgrade.hellfire.name=Hellfire
+forbidden.upgrade.hellfire.text=This upgrade unleashes a burst of fire upon teleporting to a location.
+forbidden.upgrade.pandemonium.name=Pandemonium
+forbidden.upgrade.pandemonium.text=This upgrade teleports all surrounding enemies to your previous location upon teleporting to a location.
+#
 # Tooltips
-tooltip.currentowner=Current owner:
+tooltip.currentowner=Current owner: 
 tooltip.divineorb=Stores raw Life Essence
 tooltip.creativeonly=Creative Only
-tooltip.collar.owner=Owner:
+tooltip.collar.owner=Owner: 
 #
 # Messages
 message.collar.alreadywearing=%s is already wearing something around their neck!
@@ -135,7 +142,7 @@ forbidden.research_page.SKULLAXE.1=Some monsters just really boil your blood. Sk
 #
 forbidden.research_name.RINGFOOD=Ring of Nutrition
 forbidden.research_text.RINGFOOD=Cheese puffs prevent scurvy, right?
-forbidden.research_page.RINGFOOD.1=People keep scolding you. They insist that you can't just eat cookies all day or that "nutrition doesn't work like that." Well, you've had it with these naysayers.<BR><BR>The Ring of Nutrition provides a boost to the food and saturation values of most foods you eat as long as the ring is worn on your finger.<BR><BR>Side effects may include nausea, headaches, cramping, vertigo, diabetes, and sudden interest in homeopathy.
+forbidden.research_page.RINGFOOD.1=People keep scolding you. They insist that you can't just eat cookies all day or that "nutrition doesn't work like that." Well, you've had it with these naysayers.<BR><BR>The Ring of Nutrition provides a boost to the food and saturation values of most foods you eat while wearing the ring on your finger.<BR><BR>(Side effects may include nausea, headaches, cramping, vertigo, diabetes, and sudden interest in homeopathy.)
 #
 forbidden.research_name.ARCANECAKE=Thaumic Cake
 forbidden.research_text.ARCANECAKE=Let them eat cake.

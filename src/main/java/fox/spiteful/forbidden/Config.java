@@ -27,6 +27,9 @@ public class Config {
 
     public static int bloodSealPotionID = 70;
 
+    public static int hellfireUpgradeID;
+    public static int pandemoniumUpgradeID;
+
     public static ItemStack thaumcraftResource;
     public static ItemStack thaumcraftTaintBlock;
     public static ItemStack thaumcraftOre;
@@ -40,6 +43,7 @@ public class Config {
     public static boolean greedyEnch = true;
     public static boolean emeraldTrans = true;
     public static boolean wrathCrazy = false;
+    public static byte gluttony = 0;
 
     public static boolean crossMod = true;
     public static boolean crossWand = true;
@@ -72,6 +76,10 @@ public class Config {
             voidEnchID = conf.get("enchantments", "Voidtouched", enchCount++).getInt();
             impactEnchID = conf.get("enchantments", "Impact", enchCount++).getInt();
 
+            int upgradeCount = 42;
+            hellfireUpgradeID = conf.get("focus upgrades", "Hellfire", upgradeCount).getInt(upgradeCount++);
+            pandemoniumUpgradeID = conf.get("focus upgrades", "Pandemonium", upgradeCount).getInt(upgradeCount++);
+
             noLust = conf.get("general", "No Lust", noLust, "Enable to remove Luxuria aspect and related items.").getBoolean(false);
             silverfishEmeralds = conf.get("general", "Silverfish Drop Emerald Nuggets", silverfishEmeralds, "Disable to prevent Silverfish from dropping emerald nuggets.").getBoolean(true);
             greedyEnch = conf.get("general", "Capitalist Enchantment", greedyEnch, "Disable to remove the recipe and effects of the Capitalist enchantment.").getBoolean(true);
@@ -84,6 +92,10 @@ public class Config {
                 wrathEff = 4;
             wrathCrazy = conf.get("general", "Wrath Cage Cries Havoc", wrathCrazy, "Enable to let the Wrath Cage imprint on ANY non-boss mob.  May break your game or make your game Awesome.").getBoolean(false);
             spork = conf.get("silly", "Spork of Doom", spork, "What is this?  I don't even...").getBoolean(false);
+            gluttony = (byte)conf.get("silly", "Gluttony", gluttony, "Whether gluttony research is enabled. 0 = Enabled, 1 = Disabled, 2 = Hardcore").getInt(0);
+            if(gluttony < 0 || gluttony > 2)
+                gluttony = 0;
+
             bloodSealPotionID = conf.get("potions", "Blood Seal", bloodSealPotionID).getInt(bloodSealPotionID);
 
             crossMod = conf.get("compatibility", "Cross-Mod Interaction", crossMod, "Disable to keep mods segregated.").getBoolean(true);
@@ -141,6 +153,7 @@ public class Config {
             spawnerMobs.put("Blaze", Aspect.FIRE);
             spawnerMobs.put("LavaSlime", Aspect.FIRE);
             spawnerMobs.put("Witch", Aspect.MAGIC);
+            spawnerMobs.put("Villager", Aspect.GREED);
             spawnerMobs.put("Thaumcraft.Firebat", Aspect.FIRE);
             spawnerMobs.put("Thaumcraft.Wisp", Aspect.AURA);
             spawnerMobs.put("Thaumcraft.ThaumSlime", Aspect.TAINT);
