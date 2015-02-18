@@ -1,5 +1,6 @@
 package fox.spiteful.forbidden;
 
+import cpw.mods.fml.common.FMLCommonHandler;
 import fox.spiteful.forbidden.potions.DarkPotions;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
@@ -34,6 +35,7 @@ public class Forbidden {
     @SidedProxy(clientSide = "fox.spiteful.forbidden.client.ClientProxy", serverSide = "fox.spiteful.forbidden.CommonProxy")
     public static CommonProxy proxy;
     public static WandOverlord wandLord;
+    public static FMEventHandler events;
 
     @EventHandler
     public void prelude(FMLPreInitializationEvent event) {
@@ -59,7 +61,9 @@ public class Forbidden {
 
     @EventHandler
     public void crescendo(FMLInitializationEvent event) {
-        MinecraftForge.EVENT_BUS.register(new FMEventHandler());
+        events = new FMEventHandler();
+        MinecraftForge.EVENT_BUS.register(events);
+        FMLCommonHandler.instance().bus().register(events);
     }
 
     @EventHandler

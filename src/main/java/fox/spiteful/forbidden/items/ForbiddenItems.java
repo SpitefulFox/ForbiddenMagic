@@ -41,6 +41,7 @@ public class ForbiddenItems {
     public static Item morphShovel;
     public static Item morphAxe;
     public static Item crystalwell;
+    public static Item primewell;
     public static Item ridingCrop;
     public static Item subCollar;
     public static Item ringFood;
@@ -168,6 +169,9 @@ public class ForbiddenItems {
 
         crystalwell = new ItemCrystalwell().setUnlocalizedName("Crystalwell");
         GameRegistry.registerItem(crystalwell, "Crystalwell");
+
+        primewell = new ItemPrimewell().setUnlocalizedName("Primewell");
+        GameRegistry.registerItem(primewell, "Primewell");
 
         ridingCrop = new ItemRidingCrop(ToolMaterial.WOOD).setUnlocalizedName("RidingCrop");
         GameRegistry.registerItem(ridingCrop, "RidingCrop");

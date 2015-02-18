@@ -5,6 +5,7 @@ import java.util.*;
 import WayofTime.alchemicalWizardry.api.soulNetwork.SoulNetworkHandler;
 import baubles.common.lib.PlayerHandler;
 import cpw.mods.fml.common.eventhandler.EventPriority;
+import cpw.mods.fml.common.gameevent.PlayerEvent.ItemCraftedEvent;
 import fox.spiteful.forbidden.compat.Compat;
 import fox.spiteful.forbidden.items.tools.ItemRidingCrop;
 import fox.spiteful.forbidden.items.baubles.ItemSubCollar;
@@ -50,6 +51,7 @@ import org.apache.logging.log4j.Level;
 
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.entities.ITaintedMob;
+import thaumcraft.common.config.ConfigItems;
 import thaumcraft.common.items.wands.ItemWandCasting;
 import thaumcraft.common.lib.utils.Utils;
 
@@ -488,6 +490,25 @@ public class FMEventHandler {
             }
             else if(lastLP.containsKey(name))
                 lastLP.remove(name);
+        }
+    }
+
+    @SubscribeEvent
+    public void onCrafting(ItemCraftedEvent event) {
+        if(event.crafting.getItem() == ForbiddenItems.primewell) {
+            for(int x = 0; x < 9; ++x) {
+                ItemStack item = event.craftMatrix.getStackInSlot(x);
+                if(item != null && item.getItem() == ConfigItems.itemEldritchObject) {
+                    ++item.stackSize;
+                    event.craftMatrix.setInventorySlotContents(x, item);
+                }
+            }
+        }
+        if(Compat.bm && event.crafting.getItem() == ForbiddenItems.bloodOrb){
+            EntityItem ent = event.player.entityDropItem(new ItemStack(ConfigItems.itemEldritchObject, 1, 3), 0);
+            ent.motionY += randy.nextFloat() * 0.05F;
+            ent.motionX += (randy.nextFloat() - randy.nextFloat()) * 0.1F;
+            ent.motionZ += (randy.nextFloat() - randy.nextFloat()) * 0.1F;
         }
     }
 

@@ -39,6 +39,7 @@ item.GluttonyShard.name=Gluttony Shard
 item.Bloodwell.name=Bloody Scrivener's Tools
 item.EldritchOrb.name=Eldritch Blood Orb
 item.Crystalwell.name=Crystal Scribing Tools
+item.Primewell.name=Primal Scribing Tools
 item.RidingCrop.name=Riding Crop
 item.BoundShears.name=Bound Shears
 item.BloodRapier.name=Rapier of the Strix
@@ -113,10 +114,10 @@ forbidden.upgrade.pandemonium.name=Pandemonium
 forbidden.upgrade.pandemonium.text=This upgrade teleports all surrounding enemies to your previous location upon teleporting to a location.
 #
 # Tooltips
-tooltip.currentowner=Current owner: 
+tooltip.currentowner=Current owner:
 tooltip.divineorb=Stores raw Life Essence
 tooltip.creativeonly=Creative Only
-tooltip.collar.owner=Owner: 
+tooltip.collar.owner=Owner:
 #
 # Messages
 message.collar.alreadywearing=%s is already wearing something around their neck!
@@ -248,7 +249,7 @@ forbidden.research_page.CLUSTER.1=You've discovered an enchantment to allow the 
 #
 forbidden.research_name.IMPACT=Enchantment: Impact
 forbidden.research_text.IMPACT=Someday that wall is gonna fall.
-forbidden.research_page.IMPACT.1=Some other tools have a much broader area of effect when mining. With the Impact enchantment, so can your Chameleon Pickaxe and Shovel.<BR><BR>A Chameleon Tool with the Impact enchantment mines a 3 x 3 area of blocks instead of just one, making exploratory mining and flattening areas much easier.
+forbidden.research_page.IMPACT.1=The Shovel of the Earthmover mines larger areas than most tools. With the Impact enchantment, so can your Chameleon Pickaxe and Shovel.<BR><BR>A Chameleon Tool with the Impact enchantment mines a 3 x 3 area of blocks instead of just one, making exploratory mining and flattening areas much easier.
 #
 forbidden.research_name.GREEDY=Enchantment: Capitalist
 forbidden.research_text.GREEDY=Unregulated enchanting
@@ -306,6 +307,10 @@ forbidden.research_page.BLOODRAPIER.1=There's nothing more dangerous than a Bloo
 forbidden.research_name.CRYSTALWELL=Crystal Scribing Tools
 forbidden.research_text.CRYSTALWELL=Arcane Research Grant
 forbidden.research_page.CRYSTALWELL.1=Combining elemental shards with your inkwell results in some interesting effects. The Crystal Scribing Tools seem to absorb knowledge as you use them to write. Once the well is empty of ink, you can absorb this knowledge for a small burst of research points by holding the tools in your hand and right clicking. Unfortunately, this burns the tool out and turns it back into a mundane Scribing Tool again.
+#
+forbidden.research_name.PRIMEWELL=Primal Scribing Tools
+forbidden.research_text.PRIMEWELL=The Epitome of Eldritch Research
+forbidden.research_page.PRIMEWELL.1=You've learned things humans weren't meant to know, seen things humans weren't meant to see, and been places humans weren't meant to go.<BR><BR>What these experiences have taught you is how to refill your inkwell.<BR><BR>By utilizing the strange properties of the Primordial Pearl, you can create a set of scribing tools that will never run out of ink. At the cold, dark end of time when the light of a million stars have died out, the Primal Scribing Tools will still be ready to scribble onwards.
 #
 forbidden.research_name.RIDINGCROP=Riding Crop
 forbidden.research_text.RIDINGCROP=Motivating Pain
