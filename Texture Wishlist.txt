@@ -7,13 +7,6 @@ New Texture Needed:
 - "Living Sword" (Gross spiny fleshy thing used as a sword)
 - "Living Axe" (Gross toothed fleshy thing used as an axe)
 
-Textures + Models Wanted:
-- "Wrath Demon" (Angry red demon with claws n stuff)
-- Incubus (Demon dude wearing lingerie. Standard biped model skin.)
-- "Gluttony Demon" (Faaaaaaaaaaaaaat)
-- "Greed Demon" (Sorta fat. Greedy merchant looking?)
-- "Pride Demon" (Regal. Kinda short.)
-
 Could Use Replacing:
 
 - Rapier of the Strix
@@ -23,3 +16,10 @@ Could Use Replacing:
 - Gluttony Shard
 - Axe of the Skulltaker
 - Spork of Doom
+
+Textures + Models Wanted:
+- "Wrath Demon" (Angry red demon with claws n stuff)
+- Incubus (Demon dude wearing lingerie. Standard biped model skin.)
+- "Gluttony Demon" (Faaaaaaaaaaaaaat)
+- "Greed Demon" (Sorta fat. Greedy merchant looking?)
+- "Pride Demon" (Regal. Kinda short.)
