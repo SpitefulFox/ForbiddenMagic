@@ -13,23 +13,30 @@ public class ForbiddenBlocks {
     public static Block wrathCage;
     public static Block starBlock;
     public static Block roseBush;
+    public static Block taintLog;
+    public static Block taintPlanks;
+    public static Block taintLeaves;
+    public static Block taintSapling;
+    public static Block taintStone;
 
     public static void addBlocks() {
-        arcaneCake = new BlockArcaneCake().setHardness(0.5F).setStepSound(Block.soundTypeCloth).setBlockName("ArcaneCake");
-        GameRegistry.registerBlock(arcaneCake, "ArcaneCake");
+        arcaneCake = GameRegistry.registerBlock(new BlockArcaneCake().setBlockName("ArcaneCake"), "ArcaneCake");
 
-        wrathCage = new BlockWrathCage().setHardness(5.0F).setResistance(2000.0F).setStepSound(Block.soundTypeMetal).setBlockTextureName("forbidden:spirit_box").setBlockName("WrathCage");
-        GameRegistry.registerBlock(wrathCage, "WrathCage");
+        wrathCage = GameRegistry.registerBlock(new BlockWrathCage().setBlockName("WrathCage"), "WrathCage");
         GameRegistry.registerTileEntity(TileEntityWrathCage.class, "WrathCage");
 
-        blackFlower = new BlockBlackFlower().setStepSound(Block.soundTypeGrass).setBlockTextureName("forbidden:flower_black").setBlockName("InkFlower");
-        GameRegistry.registerBlock(blackFlower, "InkFlower");
+        blackFlower = GameRegistry.registerBlock(new BlockBlackFlower().setBlockName("InkFlower"), "InkFlower");
 
-        starBlock = new BlockResource().setHardness(5.0F).setStepSound(Block.soundTypeMetal).setBlockTextureName("forbidden:starblock").setBlockName("StarBlock");
-        GameRegistry.registerBlock(starBlock, "StarBlock");
+        starBlock = GameRegistry.registerBlock(new BlockResource().setBlockName("StarBlock"), "StarBlock");
         OreDictionary.registerOre("blockNetherStar", new ItemStack(starBlock, 1, 0));
 
-        roseBush = new BlockRoseBush();
-        GameRegistry.registerBlock(roseBush, "UmbralBush");
+        roseBush = GameRegistry.registerBlock(new BlockRoseBush(), "UmbralBush");
+
+        taintLog = GameRegistry.registerBlock(new BlockLogTainted().setBlockName("TaintLog"), "TaintLog");
+        taintPlanks = GameRegistry.registerBlock(new BlockPlanksTainted().setBlockName("TaintPlank"), "TaintPlank");
+        taintLeaves = GameRegistry.registerBlock(new BlockLeavesTainted().setBlockName("TaintLeaves"), "TaintLeaves");
+        taintSapling = GameRegistry.registerBlock(new BlockSaplingTainted().setBlockName("TaintSapling"), "TaintSapling");
+
+        taintStone = GameRegistry.registerBlock(new BlockStoneTainted(), ItemBlockStoneTainted.class, "TaintBlock");
     }
 }

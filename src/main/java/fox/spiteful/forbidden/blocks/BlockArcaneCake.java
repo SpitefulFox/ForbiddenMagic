@@ -27,6 +27,8 @@ public class BlockArcaneCake extends Block {
     protected BlockArcaneCake() {
         super(Material.cake);
         this.setTickRandomly(true);
+        setHardness(0.5F);
+        setStepSound(Block.soundTypeCloth);
     }
 
     @Override

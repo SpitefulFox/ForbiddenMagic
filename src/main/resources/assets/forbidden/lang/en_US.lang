@@ -46,6 +46,8 @@ item.BloodRapier.name=Rapier of the Strix
 item.Boundwell.name=Bound Scribing Tools
 item.SubCollar.name=Collar of Pain
 item.RingNutrition.name=Ring of Nutrition
+item.TaintFruit.name=Tainted Fruit
+item.TaintCoal.name=Hexcoal
 #
 # Wand components
 item.Wand.tainted.rod=Tainted
@@ -89,6 +91,12 @@ tile.InkFlower.name=Umbral Rose
 tile.WrathCage.name=Wrath Cage
 tile.StarBlock.name=Nether Star Block
 tile.blackRoseBush.name=Umbral Rose Bush
+tile.TaintLog.name=Tainted Log
+tile.TaintPlank.name=Tainted Planks
+tile.TaintLeaves.name=Tainted Leaves
+tile.TaintSapling.name=Tainted Sapling
+tile.TaintStone_Smooth.name=Tainted Stone
+tile.TaintStone_Brick.name=Tainted Stone Bricks
 darkflower.euclidaisy.name=Euclidaisy
 darkflower.whisperweed.name=Whisperweed
 darkflower.tainthistle.name=Tainthistle
@@ -165,6 +173,14 @@ forbidden.research_page.TAINTPICK.1=By infusing a thaumium pickaxe with taint, y
 forbidden.research_name.ROD_tainted=Tainted Wand Core
 forbidden.research_text.ROD_tainted=Squiggly vis storage
 forbidden.research_page.ROD_tainted.1=Tainted Lands are places of great and terrible power for those Thaumaturges who know how to tap into them.<BR><BR>The Tainted Wand Core can store up to 150 vis of each type and slowly replenishes itself up to 10% in every aspect as long as it is being held inside of a Tainted Land.  While the wand is held in your hand, it can also feed off of taint coursing through your veins, randomly restoring vis every time you take damage from flux taint.
+#
+forbidden.research_name.TAINTTREE=Tainted Tree
+forbidden.research_text.TAINTTREE=The root of flux bears gross fruit
+forbidden.research_page.TAINTTREE.1=The sick, twisted runoff of magical experiments can take on a strange life of its own. Most plants are unable to survive in Tainted Lands, but you've found a way to grow one that can. By steeping a sapling in taint, you create a tree that can thrive in Tainted Lands.<BR><BR>Its wood can also be turned into planks which are resistant to fibrous taint, allowing you to build structures safe from spreading taint.<BR><BR>The tree also seems to bear fruit, but eating them is not recommended...
+#
+forbidden.research_name.TAINTSTONE=Tainted Stone
+forbidden.research_text.TAINTSTONE=The Taint rocks on
+forbidden.research_page.TAINTSTONE.1=Tainted Lands aren't very safe places to be. Fibrous Taint hungrily spreads and crawls over most surfaces, eventually enveloping them and making them unsafe to walk on. The fibers don't appear to be harmful to tainted creatures or materials, however.<BR><BR>By mixing taint in with regular stone, you've created a magical material which is structurally stable, but resistant to the spread of fibrous taint. Tainted Stone can be used to build surfaces in Tainted Lands which are safe to walk on.<BR><BR>Not that building in a Tainted Land is advised...
 #
 forbidden.research_name.ROD_infernal=Infernal Wand Core
 forbidden.research_text.ROD_infernal=Devilish vis storage
@@ -309,7 +325,7 @@ forbidden.research_text.CRYSTALWELL=Arcane Research Grant
 forbidden.research_page.CRYSTALWELL.1=Combining elemental shards with your inkwell results in some interesting effects. The Crystal Scribing Tools seem to absorb knowledge as you use them to write. Once the well is empty of ink, you can absorb this knowledge for a small burst of research points by holding the tools in your hand and right clicking. Unfortunately, this burns the tool out and turns it back into a mundane Scribing Tool again.
 #
 forbidden.research_name.PRIMEWELL=Primal Scribing Tools
-forbidden.research_text.PRIMEWELL=The Epitome of Eldritch Research
+forbidden.research_text.PRIMEWELL=Bragging Rights
 forbidden.research_page.PRIMEWELL.1=You've learned things humans weren't meant to know, seen things humans weren't meant to see, and been places humans weren't meant to go.<BR><BR>What these experiences have taught you is how to refill your inkwell.<BR><BR>By utilizing the strange properties of the Primordial Pearl, you can create a set of scribing tools that will never run out of ink. At the cold, dark end of time when the light of a million stars have died out, the Primal Scribing Tools will still be ready to scribble onwards.
 #
 forbidden.research_name.RIDINGCROP=Riding Crop

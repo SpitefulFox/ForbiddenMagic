@@ -45,6 +45,8 @@ public class ForbiddenItems {
     public static Item ridingCrop;
     public static Item subCollar;
     public static Item ringFood;
+    public static Item taintFruit;
+    public static Item taintCoal;
 
     public static Item blinkFocus;
 
@@ -179,10 +181,17 @@ public class ForbiddenItems {
         if(!Config.noLust) {
             subCollar = new ItemSubCollar().setUnlocalizedName("SubCollar");
             GameRegistry.registerItem(subCollar, "SubCollar");
+
         }
 
         ringFood = new ItemRingNutrition().setUnlocalizedName("RingNutrition");
         GameRegistry.registerItem(ringFood, "RingNutrition");
+
+        taintFruit = new ItemFruitTainted().setUnlocalizedName("TaintFruit");
+        GameRegistry.registerItem(taintFruit, "TaintFruit");
+
+        taintCoal = new ItemTaintCoal().setUnlocalizedName("TaintCoal");
+        GameRegistry.registerItem(taintCoal, "TaintCoal");
 
         blinkFocus = new ItemFocusBlink().setUnlocalizedName("BlinkFocus");
         GameRegistry.registerItem(blinkFocus, "BlinkFocus");

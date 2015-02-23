@@ -71,7 +71,9 @@ public class RitualSanity extends RitualEffect
                 PotionEffect effect = player.getActivePotionEffect(PotionWarpWard.instance);
                 if (effect == null || effect.getDuration() <= timeDelay)
                 {
-                    player.addPotionEffect(new PotionEffect(PotionWarpWard.instance.id, timeDelay + 2, 0));
+                    PotionEffect ward = new PotionEffect(PotionWarpWard.instance.id, timeDelay + 2, 0, true);
+                    effect.getCurativeItems().clear();
+                    player.addPotionEffect(ward);
                     entityCount++;
                     if(crazy && world.rand.nextInt(35) <= 3)
                         Thaumcraft.proxy.getPlayerKnowledge().addWarpTemp(player.getDisplayName(), 1 + world.rand.nextInt(3));

@@ -24,6 +24,8 @@ public class BlockBlackFlower extends BlockFlower {
         float f = 0.2F;
         this.setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, f * 2.0F, 0.5F + f);
         this.setCreativeTab(Forbidden.tab);
+        setStepSound(Block.soundTypeGrass);
+        setBlockTextureName("forbidden:flower_black");
     }
 
     public void spreadFlowers(World world, int x, int y, int z, Random rand) {

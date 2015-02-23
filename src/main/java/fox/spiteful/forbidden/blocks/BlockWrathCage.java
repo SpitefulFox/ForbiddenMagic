@@ -4,6 +4,7 @@ import java.util.Random;
 
 import fox.spiteful.forbidden.Forbidden;
 import fox.spiteful.forbidden.tiles.TileEntityWrathCage;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.item.EntityItem;
@@ -26,6 +27,10 @@ public class BlockWrathCage extends BlockContainer {
     protected BlockWrathCage() {
         super(Material.iron);
         this.setCreativeTab(Forbidden.tab);
+        setHardness(5.0F);
+        setResistance(2000.0F);
+        setStepSound(Block.soundTypeMetal);
+        setBlockTextureName("forbidden:spirit_box");
     }
 
     @Override

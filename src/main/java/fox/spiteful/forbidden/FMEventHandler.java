@@ -6,6 +6,7 @@ import WayofTime.alchemicalWizardry.api.soulNetwork.SoulNetworkHandler;
 import baubles.common.lib.PlayerHandler;
 import cpw.mods.fml.common.eventhandler.EventPriority;
 import cpw.mods.fml.common.gameevent.PlayerEvent.ItemCraftedEvent;
+import fox.spiteful.forbidden.blocks.ForbiddenBlocks;
 import fox.spiteful.forbidden.compat.Compat;
 import fox.spiteful.forbidden.items.tools.ItemRidingCrop;
 import fox.spiteful.forbidden.items.baubles.ItemSubCollar;
@@ -288,13 +289,13 @@ public class FMEventHandler {
         EntityPlayer player = event.harvester;
         if (player != null && player.inventory.getCurrentItem() != null) {
             ItemStack equip = player.inventory.getCurrentItem();
-            if (equip.getItem() == ForbiddenItems.taintShovel && event.block.getMaterial() == Config.taintMaterial && !(event.block == Block.getBlockFromItem(Config.thaumcraftTaintBlock.getItem()) && event.blockMetadata == 2)) {
+            if (equip.getItem() == ForbiddenItems.taintShovel && event.block.getMaterial() == thaumcraft.common.config.Config.taintMaterial && event.drops.size() == 0 && event.block != ForbiddenBlocks.taintLeaves) {
                 int fortune = EnchantmentHelper.getFortuneModifier(player);
                 int chance = 1 + (2 * fortune);
                 if (event.isSilkTouching)
                     chance += 6;
 
-                if (randy.nextInt(51) <= chance) {
+                if (randy.nextInt(31) <= chance) {
                     event.drops.add(new ItemStack(ForbiddenItems.deadlyShards, 1, 2));
                 }
             }
@@ -369,7 +370,7 @@ public class FMEventHandler {
             ItemStack ring = PlayerHandler.getPlayerBaubles(event.entityPlayer).getStackInSlot(1);
             ItemStack ring2 = PlayerHandler.getPlayerBaubles(event.entityPlayer).getStackInSlot(2);
             if((ring != null && ring.getItem() == ForbiddenItems.ringFood) || (ring2 != null && ring2.getItem() == ForbiddenItems.ringFood)){
-                event.entityPlayer.getFoodStats().addStats(2, 4.0F);
+                event.entityPlayer.getFoodStats().addStats(2, 2.0F);
             }
         }
     }

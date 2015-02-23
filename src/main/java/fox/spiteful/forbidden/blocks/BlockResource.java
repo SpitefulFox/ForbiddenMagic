@@ -10,6 +10,9 @@ public class BlockResource extends Block {
 
         super(Material.iron);
         this.setCreativeTab(Forbidden.tab);
+        setHardness(5.0F);
+        setStepSound(Block.soundTypeMetal);
+        this.setBlockTextureName("forbidden:starblock");
     }
 
     @Override

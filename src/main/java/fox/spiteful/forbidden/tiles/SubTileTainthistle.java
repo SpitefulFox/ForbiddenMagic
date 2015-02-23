@@ -21,6 +21,8 @@ import vazkii.botania.api.BotaniaAPI;
 import vazkii.botania.api.lexicon.LexiconEntry;
 import vazkii.botania.api.subtile.SubTileGenerating;
 
+import java.util.Random;
+
 public class SubTileTainthistle extends SubTileGenerating {
 
     private static final String TAG_BURN_TIME = "burnTime";
@@ -117,7 +119,7 @@ public class SubTileTainthistle extends SubTileGenerating {
 
     @Override
     public int getValueForPassiveGeneration() {
-        return 2;
+        return 2 + supertile.getWorldObj().rand.nextInt(5);
     }
 
     @Override

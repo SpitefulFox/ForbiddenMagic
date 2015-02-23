@@ -1,6 +1,7 @@
 package fox.spiteful.forbidden.items.tools;
 
 import fox.spiteful.forbidden.Forbidden;
+import fox.spiteful.forbidden.blocks.ForbiddenBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
@@ -55,7 +56,9 @@ public class ItemTaintShovel extends ItemSpade implements IRepairable
     @Override
     public float getDigSpeed(ItemStack stack, Block block, int meta)
     {
-        if (ForgeHooks.isToolEffective(stack, block, meta) || block.getMaterial() == Config.taintMaterial)
+        if (ForgeHooks.isToolEffective(stack, block, meta) ||
+                (block.getMaterial() == Config.taintMaterial && block != ForbiddenBlocks.taintLog && block != ForbiddenBlocks.taintPlanks
+                && block != ForbiddenBlocks.taintStone))
         {
             return efficiencyOnProperMaterial;
         }

@@ -1,12 +1,16 @@
 package fox.spiteful.forbidden;
 
 import java.util.Iterator;
+import java.util.Random;
 
+import cpw.mods.fml.common.IFuelHandler;
+import cpw.mods.fml.common.registry.GameRegistry;
 import fox.spiteful.forbidden.compat.Compat;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
+import net.minecraftforge.oredict.OreDictionary;
 import thaumcraft.api.ItemApi;
 import thaumcraft.api.ThaumcraftApi;
 import thaumcraft.api.aspects.Aspect;
@@ -23,7 +27,14 @@ public class ForbiddenRecipes {
     public static void addRecipes() {
         ForbiddenResearch.recipes.put("TaintShovel", ThaumcraftApi.addInfusionCraftingRecipe("TAINTSHOVEL", new ItemStack(ForbiddenItems.taintShovel), 5, (new AspectList()).add(Aspect.HEAL, 8).add(Aspect.CRYSTAL, 24).add(Aspect.MINE, 12), ItemApi.getItem("itemShovelThaumium", 0), new ItemStack[] { ItemApi.getItem("itemShard", 4), ItemApi.getItem("itemShard", 4), new ItemStack(Items.diamond), ItemApi.getBlock("blockMagicalLog", 1) }));
         ForbiddenResearch.recipes.put("TaintPick", ThaumcraftApi.addInfusionCraftingRecipe("TAINTPICK", new ItemStack(ForbiddenItems.taintPickaxe), 1, (new AspectList()).add(Aspect.ENTROPY, 8).add(Aspect.MINE, 8).add(Aspect.TAINT, 12), ItemApi.getItem("itemPickThaumium", 0), new ItemStack[] { ItemApi.getItem("itemShard", 5), ItemApi.getItem("itemShard", 5), new ItemStack(Items.diamond), ItemApi.getBlock("blockMagicalLog", 0) }));
-        ForbiddenResearch.recipes.put("WandRodTainted", ThaumcraftApi.addInfusionCraftingRecipe("ROD_tainted", new ItemStack(ForbiddenItems.wandCore, 1, 0), 5, (new AspectList()).add(Aspect.TAINT, 24).add(Aspect.MAGIC, 12).add(Aspect.ENTROPY, 12), ItemApi.getItem("itemResource", 12), new ItemStack[] { ItemApi.getItem("itemResource", 14), new ItemStack(ForbiddenItems.deadlyShards, 1, 2), new ItemStack(ForbiddenItems.deadlyShards, 1, 2), new ItemStack(ForbiddenItems.deadlyShards, 1, 2), new ItemStack(ForbiddenItems.deadlyShards, 1, 2), new ItemStack(ForbiddenItems.deadlyShards, 1, 2), new ItemStack(ForbiddenItems.deadlyShards, 1, 2) }));
+        ForbiddenResearch.recipes.put("WandRodTainted", ThaumcraftApi.addInfusionCraftingRecipe("ROD_tainted", new ItemStack(ForbiddenItems.wandCore, 1, 0), 5, (new AspectList()).add(Aspect.TAINT, 24).add(Aspect.MAGIC, 12).add(Aspect.ENTROPY, 12), ItemApi.getItem("itemResource", 12), new ItemStack[]{ItemApi.getItem("itemResource", 14), new ItemStack(ForbiddenItems.deadlyShards, 1, 2), new ItemStack(ForbiddenItems.deadlyShards, 1, 2), new ItemStack(ForbiddenItems.deadlyShards, 1, 2), new ItemStack(ForbiddenItems.deadlyShards, 1, 2), new ItemStack(ForbiddenItems.deadlyShards, 1, 2), new ItemStack(ForbiddenItems.deadlyShards, 1, 2)}));
+        ForbiddenResearch.recipes.put("TaintTree", ThaumcraftApi.addCrucibleRecipe("TAINTTREE", new ItemStack(ForbiddenBlocks.taintSapling, 1, 0), new ItemStack(Blocks.sapling, 1, 0), (new AspectList()).merge(Aspect.TAINT, 10).add(Aspect.POISON, 4)));
+        ForbiddenResearch.recipes.put("TaintPlank", CraftingManager.getInstance().addRecipe(new ItemStack(ForbiddenBlocks.taintPlanks, 4, 0), new Object[]{"#", Character.valueOf('#'), new ItemStack(ForbiddenBlocks.taintLog, 1, 0)}));
+        GameRegistry.addSmelting(ForbiddenBlocks.taintLog, new ItemStack(ForbiddenItems.taintCoal, 1), 0.15F);
+        OreDictionary.registerOre("resourceTaint", new ItemStack(ConfigItems.itemResource, 1, 11));
+        OreDictionary.registerOre("resourceTaint", new ItemStack(ForbiddenItems.deadlyShards, 1, 2));
+        ForbiddenResearch.recipes.put("TaintStone", ThaumcraftApi.addArcaneCraftingRecipe("TAINTSTONE", new ItemStack(ForbiddenBlocks.taintStone, 9, 0), (new AspectList()).add(Aspect.ENTROPY, 2).add(Aspect.ORDER, 1), new Object[]{"SSS", "SXS", "SSS", Character.valueOf('S'), new ItemStack(Blocks.stone, 1), Character.valueOf('X'), "resourceTaint"}));
+        ForbiddenResearch.recipes.put("TaintBrick", CraftingManager.getInstance().addRecipe(new ItemStack(ForbiddenBlocks.taintStone, 4, 1), new Object[] { "##", "##", Character.valueOf('#'), new ItemStack(ForbiddenBlocks.taintStone, 1, 0) }));
 
         ForbiddenResearch.recipes.put("SkullAxe", ThaumcraftApi.addInfusionCraftingRecipe("SKULLAXE", new ItemStack(ForbiddenItems.skullAxe), 1, (new AspectList()).add(DarkAspects.WRATH, 8).add(Aspect.WEAPON, 8).add(DarkAspects.NETHER, 8), ItemApi.getItem("itemAxeThaumium", 0), new ItemStack[] { new ItemStack(ForbiddenItems.deadlyShards, 1, 0), new ItemStack(ForbiddenItems.deadlyShards, 1, 0), new ItemStack(Items.diamond), new ItemStack(Items.skull, 1, 1) }));
         if(!Config.noLust)
@@ -52,7 +63,7 @@ public class ForbiddenRecipes {
         if (Config.emeraldTrans)
             ForbiddenResearch.recipes.put("TransEmerald", ThaumcraftApi.addCrucibleRecipe("TRANSEMERALD", new ItemStack(ForbiddenItems.resource, 4, 0), "nuggetEmerald", (new AspectList()).merge(Aspect.CRYSTAL, 2).merge(Aspect.GREED, 2)));
         ForbiddenResearch.recipes.put("BlackFlower", ThaumcraftApi.addCrucibleRecipe("BLACKFLOWER", new ItemStack(ForbiddenBlocks.roseBush, 1, 0), new ItemStack(Blocks.double_plant, 1, 4), (new AspectList()).merge(Aspect.DARKNESS, 8).merge(Aspect.LIFE, 5)));
-        ForbiddenResearch.recipes.put("BlackInk", CraftingManager.getInstance().addRecipe(new ItemStack(ForbiddenItems.resource, 2, 1), new Object[] { "#", Character.valueOf('#'), new ItemStack(ForbiddenBlocks.blackFlower, 1, 0) }));
+        ForbiddenResearch.recipes.put("BlackInk", CraftingManager.getInstance().addRecipe(new ItemStack(ForbiddenItems.resource, 2, 1), new Object[]{"#", Character.valueOf('#'), new ItemStack(ForbiddenBlocks.blackFlower, 1, 0)}));
 
         ForbiddenResearch.recipes.put("Crystalwell", ThaumcraftApi.addShapelessArcaneCraftingRecipe("CRYSTALWELL", new ItemStack(ForbiddenItems.crystalwell, 1, 0), (new AspectList()), new Object[] { new ItemStack(ConfigItems.itemInkwell, 1, 32767), "dyeBlack", new ItemStack(ConfigItems.itemShard, 1, 32767), new ItemStack(ConfigItems.itemShard, 1, 32767) }));
         ForbiddenResearch.recipes.put("Primewell", ThaumcraftApi.addShapelessArcaneCraftingRecipe("PRIMEWELL", new ItemStack(ForbiddenItems.primewell, 1, 0), (new AspectList()).add(Aspect.WATER, 50).add(Aspect.EARTH, 50).add(Aspect.FIRE, 50).add(Aspect.AIR, 50).add(Aspect.ORDER, 50).add(Aspect.ENTROPY, 50), new Object[] { new ItemStack(Items.feather, 1, 0), new ItemStack(ConfigItems.itemEldritchObject, 1, 3), new ItemStack(Items.glass_bottle, 1, 0) }));
@@ -66,14 +77,26 @@ public class ForbiddenRecipes {
 
         ForbiddenResearch.recipes.put("Cluster", ThaumcraftApi.addInfusionEnchantmentRecipe("CLUSTER", DarkEnchantments.cluster, 3, (new AspectList()).add(Aspect.FIRE, 4).add(Aspect.METAL, 4).add(Aspect.GREED, 4), new ItemStack[] { ItemApi.getItem("itemPickElemental", 0), ItemApi.getItem("itemResource", 14) }));
         ForbiddenResearch.recipes.put("Impact", ThaumcraftApi.addInfusionEnchantmentRecipe("IMPACT", DarkEnchantments.impact, 4, (new AspectList()).add(Aspect.ENTROPY, 16).add(Aspect.MINE, 16), new ItemStack[] { ItemApi.getItem("itemResource", 14), new ItemStack(ForbiddenItems.deadlyShards, 1, 1), new ItemStack(ForbiddenItems.deadlyShards, 1, 1),  new ItemStack(ConfigItems.itemShovelElemental, 1, 0)}));
-        ForbiddenResearch.recipes.put("Voidtouched", ThaumcraftApi.addInfusionEnchantmentRecipe("VOIDTOUCHED", DarkEnchantments.voidtouched, 8, (new AspectList()).add(Aspect.VOID, 16).add(Aspect.DARKNESS, 16).add(DarkAspects.ENVY, 24).add(Aspect.ELDRITCH, 16), new ItemStack[] { ItemApi.getItem("itemResource", 14), ItemApi.getItem("itemResource", 16), ItemApi.getItem("itemResource", 16), ItemApi.getItem("itemResource", 16), new ItemStack(ForbiddenItems.deadlyShards, 1, 1), new ItemStack(ForbiddenItems.deadlyShards, 1, 1), new ItemStack(ForbiddenItems.deadlyShards, 1, 1) }));
+        ForbiddenResearch.recipes.put("Voidtouched", ThaumcraftApi.addInfusionEnchantmentRecipe("VOIDTOUCHED", DarkEnchantments.voidtouched, 8, (new AspectList()).add(Aspect.VOID, 16).add(Aspect.DARKNESS, 16).add(DarkAspects.ENVY, 24).add(Aspect.ELDRITCH, 16), new ItemStack[]{ItemApi.getItem("itemResource", 14), ItemApi.getItem("itemResource", 16), ItemApi.getItem("itemResource", 16), ItemApi.getItem("itemResource", 16), new ItemStack(ForbiddenItems.deadlyShards, 1, 1), new ItemStack(ForbiddenItems.deadlyShards, 1, 1), new ItemStack(ForbiddenItems.deadlyShards, 1, 1)}));
 
         CraftingManager.getInstance().addRecipe(new ItemStack(Items.emerald, 1, 0), new Object[] { "###", "###", "###", Character.valueOf('#'), new ItemStack(ForbiddenItems.resource, 1, 0) });
         CraftingManager.getInstance().addRecipe(new ItemStack(ForbiddenItems.resource, 9, 0), new Object[] { "#", Character.valueOf('#'), new ItemStack(Items.emerald, 1, 0) });
         CraftingManager.getInstance().addRecipe(new ItemStack(ForbiddenBlocks.starBlock, 1, 0), new Object[] { "###", "###", "###", Character.valueOf('#'), new ItemStack(Items.nether_star, 1, 0) });
-        CraftingManager.getInstance().addRecipe(new ItemStack(Items.nether_star, 9, 0), new Object[] { "#", Character.valueOf('#'), new ItemStack(ForbiddenBlocks.starBlock, 1, 0) });
-        ForbiddenResearch.recipes.put("RidingCrop", CraftingManager.getInstance().addRecipe(new ItemStack(ForbiddenItems.ridingCrop, 1, 0), new Object[] { "X", "#", "#", Character.valueOf('#'), Items.stick, Character.valueOf('X'), Items.leather }));
+        CraftingManager.getInstance().addRecipe(new ItemStack(Items.nether_star, 9, 0), new Object[]{"#", Character.valueOf('#'), new ItemStack(ForbiddenBlocks.starBlock, 1, 0)});
+        ForbiddenResearch.recipes.put("RidingCrop", CraftingManager.getInstance().addRecipe(new ItemStack(ForbiddenItems.ridingCrop, 1, 0), new Object[]{"X", "#", "#", Character.valueOf('#'), Items.stick, Character.valueOf('X'), Items.leather}));
         ThaumcraftApi.addSmeltingBonus(new ItemStack(Items.emerald), new ItemStack(ForbiddenItems.resource, 0, 0));
+
+        GameRegistry.registerFuelHandler(new IFuelHandler() {
+            Random randy = new Random();
+            @Override
+            public int getBurnTime(ItemStack fuel) {
+
+                if(fuel.getItem() == ForbiddenItems.taintCoal) {
+                    return 1 + randy.nextInt(2400);
+                }
+                return 0;
+            }
+        });
 
     }
 }

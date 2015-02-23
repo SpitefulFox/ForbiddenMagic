@@ -245,5 +245,11 @@ public class DarkAspects {
         ThaumcraftApi.registerObjectTag(new ItemStack(ForbiddenBlocks.blackFlower, 1, OreDictionary.WILDCARD_VALUE), (new AspectList()).add(Aspect.PLANT, 1).add(Aspect.LIFE, 1).add(Aspect.SENSES, 1).add(Aspect.DARKNESS, 1));
         if (!Config.noLust)
             ThaumcraftApi.registerObjectTag(new ItemStack(ForbiddenItems.ridingCrop, 1, OreDictionary.WILDCARD_VALUE), (new AspectList()).add(Aspect.TREE, 2).add(Aspect.CLOTH, 2).add(Aspect.BEAST, 1).add(LUST, 1).add(Aspect.WEAPON, 1));
+        ThaumcraftApi.registerObjectTag(new ItemStack(ForbiddenItems.taintFruit, 1, OreDictionary.WILDCARD_VALUE), (new AspectList()).add(Aspect.TAINT, 2).add(Aspect.POISON, 1));
+        ThaumcraftApi.registerObjectTag(new ItemStack(ForbiddenItems.taintCoal, 1, OreDictionary.WILDCARD_VALUE), (new AspectList()).add(Aspect.TAINT, 2).add(Aspect.ENTROPY, 2));
+        ThaumcraftApi.registerObjectTag(new ItemStack(ForbiddenBlocks.taintLeaves, 1, OreDictionary.WILDCARD_VALUE), (new AspectList()).add(Aspect.TAINT, 1).add(Aspect.PLANT, 1));
+        ThaumcraftApi.registerObjectTag(new ItemStack(ForbiddenBlocks.taintLog, 1, OreDictionary.WILDCARD_VALUE), (new AspectList()).add(Aspect.TAINT, 1).add(Aspect.TREE, 3));
+        ThaumcraftApi.registerObjectTag(new ItemStack(ForbiddenBlocks.taintPlanks, 1, OreDictionary.WILDCARD_VALUE), (new AspectList()).add(Aspect.TREE, 1));
+        ThaumcraftApi.registerObjectTag(new ItemStack(ForbiddenBlocks.taintStone, 1, 1), (new AspectList()).add(Aspect.EARTH, 1));
     }
 }
