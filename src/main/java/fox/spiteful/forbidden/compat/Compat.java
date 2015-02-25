@@ -42,7 +42,6 @@ public class Compat {
     public static boolean tt = false;
     public static boolean kami = false;
     public static boolean natura = false;
-    public static boolean bm = false;
     public static boolean am2 = false;
     public static boolean botan = false;
     public static boolean special = false;
@@ -54,7 +53,6 @@ public class Compat {
         tt = Config.tt && Loader.isModLoaded("ThaumicTinkerer");
         kami = tt && Loader.isModLoaded("ThaumicTinkererKami");
         natura = Loader.isModLoaded("Natura");
-        bm = Config.bloodMagic && Loader.isModLoaded("AWWayofTime");
         am2 = Config.am2 && Loader.isModLoaded("arsmagica2");
         botan = Config.botan && Loader.isModLoaded("Botania");
         special = Config.wrathCage && Config.special && Loader.isModLoaded("SpecialMobs");
@@ -136,10 +134,6 @@ public class Compat {
             } catch (Exception e) {
                 LogHandler.log(Level.INFO, e, "Forbidden Magic had an allergic reaction to Natura.");
             }
-        }
-
-        if (bm) {
-            BloodMagic.stab();
         }
 
         if (Config.crossWand && am2) {

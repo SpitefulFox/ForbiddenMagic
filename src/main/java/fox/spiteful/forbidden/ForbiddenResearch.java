@@ -40,7 +40,7 @@ public class ForbiddenResearch {
         (new DarkResearchItem("CONSUMING", "FORBIDDEN", (new AspectList()).add(Aspect.VOID, 4).add(Aspect.ENTROPY, 3).add(Aspect.MAGIC, 2), -4, -8, 1, new ResourceLocation("forbidden", "textures/misc/consuming.png"))).setPages(new ResearchPage[] { new ResearchPage("forbidden.research_page.CONSUMING.1"), new ResearchPage((InfusionEnchantmentRecipe) recipes.get("Consuming")) }).setParents(new String[] { "INFUSIONENCHANTMENT" }).setSecondary().setConcealed().registerResearchItem();
         (new DarkResearchItem("EDUCATIONAL", "FORBIDDEN", (new AspectList()).add(Aspect.MIND, 5).add(Aspect.WEAPON, 1).add(Aspect.MAGIC, 3), -4, -7, 2, new ResourceLocation("forbidden", "textures/misc/educational.png"))).setPages(new ResearchPage[] { new ResearchPage("forbidden.research_page.EDUCATIONAL.1"), new ResearchPage((InfusionEnchantmentRecipe) recipes.get("Educational")) }).setParents(new String[] { "INFUSIONENCHANTMENT" }).setSecondary().setConcealed().registerResearchItem();
 
-        if(Compat.botan || Compat.bm || Compat.am2)
+        if(Compat.botan || Compat.am2)
             (new DarkResearchItem("SCHOOLS", "FORBIDDEN", new AspectList(), -1, 1, 0, new ItemStack(Blocks.enchanting_table))).setPages(new ResearchPage[] { new ResearchPage("forbidden.research_page.SCHOOLS.1") }).setRound().setStub().setAutoUnlock().registerResearchItem();
 
     }
