@@ -1,10 +1,12 @@
 package fox.spiteful.forbidden.compat;
 
+import WayofTime.alchemicalWizardry.api.altarRecipeRegistry.AltarRecipeRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import fox.spiteful.forbidden.Config;
 import fox.spiteful.forbidden.DarkResearchItem;
 import fox.spiteful.forbidden.LogHandler;
 import fox.spiteful.forbidden.items.ForbiddenItems;
+import fox.spiteful.forbidden.tiles.SubTileBloodthorn;
 import fox.spiteful.forbidden.tiles.SubTileEuclidaisy;
 import fox.spiteful.forbidden.tiles.SubTileTainthistle;
 import fox.spiteful.forbidden.tiles.SubTileWhisperweed;
@@ -115,6 +117,29 @@ public class ForbiddenBotany {
             ItemStack tainthistle = getFlower("tainthistle");
             InfusionRecipe thistlecraft =  ThaumcraftApi.addInfusionCraftingRecipe("TAINTHISTLE", tainthistle, 4, (new AspectList()).add(Aspect.TAINT, 8).add(Aspect.HUNGER, 4).add(Aspect.AIR, 4).add(Aspect.WATER, 4), new ItemStack(ConfigItems.itemResource, 1, 12), new ItemStack[] { new ItemStack(petal, 1, 10), new ItemStack(manaPetal, 1, 10), new ItemStack(manaPetal, 1, 10), new ItemStack(rune, 1, 10), new ItemStack(rune, 1, 8)});
             (new DarkResearchItem("TAINTHISTLE", "FORBIDDEN", "[B]", (new AspectList()).add(Aspect.PLANT, 8).add(Aspect.TAINT, 10).add(Aspect.MAGIC, 4), -2, 5, 2, tainthistle)).setPages(new ResearchPage[] { new ResearchPage("forbidden.research_page.TAINTHISTLE.1"), new ResearchPage(thistlecraft) }).setParents(new String[] { "BOTANY", "INFUSION" }).setConcealed().registerResearchItem();
+
+            if(Compat.bm){
+                BotaniaAPI.registerSubTile("bloodthorn", SubTileBloodthorn.class);
+                BotaniaAPI.registerSubTileSignature(SubTileBloodthorn.class, new DarkSignature("bloodthorn"));
+                BotaniaAPI.addSubTileToCreativeMenu("bloodthorn");
+
+                SubTileBloodthorn.lexicon = new ForbiddenLexicon("bloodthorn", functional){
+                    @Override
+                    public String getSubtitle(){
+                        return "[Forbidden Magic][Blood Magic]";
+                    }
+                };
+
+                SubTileBloodthorn.lexicon.addPage(BotaniaAPI.internalHandler.textPage("forbidden.lexicon.bloodthorn.0"));
+
+                ItemStack bloodthorn = getFlower("bloodthorn");
+                try{
+                    AltarRecipeRegistry.registerAltarRecipe(bloodthorn, new ItemStack(flower, 1, 14), 4, 15000, 25, 50, false);
+                }
+                catch(Throwable e){
+                    LogHandler.log(Level.INFO, e, "Forbidden Magic tried to do some Blood Magic, but bled out.");
+                }
+            }
 
             ThaumcraftApi.registerObjectTag(new ItemStack(Compat.getItem("Botania", "specialFlower"), 1), (new AspectList()).add(Aspect.PLANT, 4).add(Aspect.MAGIC, 1));
 

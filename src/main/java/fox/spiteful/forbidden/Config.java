@@ -25,6 +25,8 @@ public class Config {
     public static int voidEnchID;
     public static int impactEnchID;
 
+    public static int bloodSealPotionID = 70;
+
     public static int hellfireUpgradeID;
     public static int pandemoniumUpgradeID;
 
@@ -46,6 +48,7 @@ public class Config {
     public static boolean crossMod = true;
     public static boolean crossWand = true;
     public static boolean botan = true;
+    public static boolean bloodMagic = true;
     public static boolean am2 = false;
     public static boolean tt = true;
     public static boolean tc = true;
@@ -93,9 +96,12 @@ public class Config {
             if(gluttony < 0 || gluttony > 2)
                 gluttony = 0;
 
+            bloodSealPotionID = conf.get("potions", "Blood Seal", bloodSealPotionID).getInt(bloodSealPotionID);
+
             crossMod = conf.get("compatibility", "Cross-Mod Interaction", crossMod, "Disable to keep mods segregated.").getBoolean(true);
             crossWand = conf.get("compatibility", "Conversion Wands", crossWand, "Disable to remove all conversion wands.").getBoolean(true);
             botan = conf.get("compatibility", "Botania Interaction", botan).getBoolean(true);
+            bloodMagic = conf.get("compatibility", "Blood Magic Interaction", bloodMagic).getBoolean(true);
             am2 = conf.get("compatibility", "Ars Magica 2 Interaction", am2, "AM2 interaction is unsupported. Enable at your own risk.").getBoolean(false);
             tt = conf.get("compatibility", "Thaumic Tinkerer Interaction", tt).getBoolean(true);
             tc = conf.get("compatibility", "Tinkers Construct Interaction", tc).getBoolean(true);

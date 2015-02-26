@@ -82,6 +82,16 @@ public class ItemWandCores extends Item {
         ((ItemWandCasting) wand.getItem()).setCap(wand, (WandCap) WandCap.caps.get("orichalcum"));
         ((ItemWandCasting) wand.getItem()).setRod(wand, (WandRod) WandRod.rods.get("neutronium_staff"));
         list.add(wand);
+        if (Compat.bm && Config.crossWand) {
+            wand = ItemApi.getItem("itemWandCasting", 84);
+            ((ItemWandCasting) wand.getItem()).setCap(wand, (WandCap) WandCap.caps.get("alchemical"));
+            ((ItemWandCasting) wand.getItem()).setRod(wand, (WandRod) WandRod.rods.get("blood"));
+            list.add(wand);
+            wand = ItemApi.getItem("itemWandCasting", 168);
+            ((ItemWandCasting) wand.getItem()).setCap(wand, (WandCap) WandCap.caps.get("alchemical"));
+            ((ItemWandCasting) wand.getItem()).setRod(wand, (WandRod) WandRod.rods.get("blood_staff"));
+            list.add(wand);
+        }
         if (Compat.am2 && Config.crossWand) {
             wand = ItemApi.getItem("itemWandCasting", 72);
             ((ItemWandCasting) wand.getItem()).setCap(wand, (WandCap) WandCap.caps.get("vinteum"));

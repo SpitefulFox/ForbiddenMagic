@@ -2,13 +2,16 @@ package fox.spiteful.forbidden;
 
 import java.util.*;
 
+import WayofTime.alchemicalWizardry.api.soulNetwork.SoulNetworkHandler;
 import baubles.common.lib.PlayerHandler;
 import cpw.mods.fml.common.eventhandler.EventPriority;
 import cpw.mods.fml.common.gameevent.PlayerEvent.ItemCraftedEvent;
 import fox.spiteful.forbidden.blocks.ForbiddenBlocks;
+import fox.spiteful.forbidden.compat.Compat;
 import fox.spiteful.forbidden.items.tools.ItemRidingCrop;
 import fox.spiteful.forbidden.items.baubles.ItemSubCollar;
 import fox.spiteful.forbidden.items.tools.ItemTaintPickaxe;
+import fox.spiteful.forbidden.potions.DarkPotions;
 import net.minecraft.block.Block;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -88,6 +91,20 @@ public class FMEventHandler {
 
     @SubscribeEvent
     public void onLivingDrops(LivingDropsEvent event) {
+        if (event.source.getDamageType().equals("player") && event.entityLiving instanceof ITaintedMob)
+        {
+            PotionEffect effect = event.entityLiving.getActivePotionEffect(Potion.weakness);
+            if (effect != null)
+            {
+                if (effect.getAmplifier() >= 2) {
+                    double rand = Math.random();
+                    if (rand < 0.50d) {
+                        addDrop(event, new ItemStack(ForbiddenItems.resource, 1, 3));
+                    }
+                }
+            }
+        }
+
         if (Config.silverfishEmeralds && event.entityLiving instanceof EntitySilverfish) {
             if (event.entityLiving.worldObj.getBiomeGenForCoords((int) event.entityLiving.posX, (int) event.entityLiving.posZ).biomeID == BiomeGenBase.extremeHills.biomeID) {
                 if (event.recentlyHit && event.source.getEntity() != null && event.source.getEntity() instanceof EntityPlayer && randy.nextInt(30) <= (2 + event.lootingLevel * 2))
@@ -452,10 +469,30 @@ public class FMEventHandler {
         }
     }
 
-    /*@SubscribeEvent
+    @SubscribeEvent
     public void onEntityUpdate(LivingUpdateEvent event){
-
-    }*/
+        if(Compat.bm && event.entityLiving != null && event.entityLiving instanceof EntityPlayer && !event.entityLiving.worldObj.isRemote){
+            EntityPlayer player = (EntityPlayer)event.entityLiving;
+            String name = player.getDisplayName();
+            if(player.isPotionActive(DarkPotions.bloodSeal)){
+                try {
+                    if (lastLP.containsKey(name)) {
+                        if (SoulNetworkHandler.getCurrentEssence(name) > lastLP.get(name))
+                            SoulNetworkHandler.setCurrentEssence(name, lastLP.get(name));
+                        else
+                            lastLP.put(name, SoulNetworkHandler.getCurrentEssence(name));
+                    }
+                    else
+                        lastLP.put(name, SoulNetworkHandler.getCurrentEssence(name));
+                }
+                catch(Throwable e){
+                    Compat.bm = false;
+                }
+            }
+            else if(lastLP.containsKey(name))
+                lastLP.remove(name);
+        }
+    }
 
     @SubscribeEvent
     public void onCrafting(ItemCraftedEvent event) {
@@ -467,6 +504,12 @@ public class FMEventHandler {
                     event.craftMatrix.setInventorySlotContents(x, item);
                 }
             }
+        }
+        if(Compat.bm && event.crafting.getItem() == ForbiddenItems.bloodOrb){
+            EntityItem ent = event.player.entityDropItem(new ItemStack(ConfigItems.itemEldritchObject, 1, 3), 0);
+            ent.motionY += randy.nextFloat() * 0.05F;
+            ent.motionX += (randy.nextFloat() - randy.nextFloat()) * 0.1F;
+            ent.motionZ += (randy.nextFloat() - randy.nextFloat()) * 0.1F;
         }
     }
 

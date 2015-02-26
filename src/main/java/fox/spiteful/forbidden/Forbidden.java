@@ -1,6 +1,7 @@
 package fox.spiteful.forbidden;
 
 import cpw.mods.fml.common.FMLCommonHandler;
+import fox.spiteful.forbidden.potions.DarkPotions;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
@@ -20,7 +21,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(modid = "ForbiddenMagic", name = "Forbidden Magic", dependencies = "required-after:Thaumcraft@[4.2.2.0,);after:ThaumicTinkerer;after:Botania")
+@Mod(modid = "ForbiddenMagic", name = "Forbidden Magic", dependencies = "required-after:Thaumcraft@[4.2.2.0,);after:ThaumicTinkerer;after:AWWayofTime;after:Botania")
 public class Forbidden {
     @Instance("ForbiddenMagic")
     public static Forbidden instance;
@@ -53,6 +54,8 @@ public class Forbidden {
         ForbiddenItems.addItems();
         ForbiddenBlocks.addBlocks();
         DarkEnchantments.hex();
+        if(Compat.bm)
+            DarkPotions.alchemize();
         proxy.registerRenderInfo();
     }
 

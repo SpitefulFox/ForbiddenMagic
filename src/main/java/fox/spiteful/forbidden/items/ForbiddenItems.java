@@ -50,6 +50,11 @@ public class ForbiddenItems {
 
     public static Item blinkFocus;
 
+    public static Item bloodRapier;
+    public static Item bloodwell;
+    public static Item bloodOrb;
+    public static Item boundwell;
+
     public static WandRod WAND_ROD_TAINTED;
     public static WandRod WAND_ROD_INFERNAL;
     public static WandRod WAND_ROD_NEUTRONIUM;
@@ -124,11 +129,11 @@ public class ForbiddenItems {
         WAND_ROD_INFERNAL = new WandRod("infernal", 150, new ItemStack(wandCore, 1, 1), 12, new InfernalWandUpdate(), new ResourceLocation("forbidden", "textures/models/wand_rod_infernal.png"));
         WAND_ROD_NEUTRONIUM = new WandRod("neutronium", 9001, new ItemStack(Blocks.bedrock, 1), 1000, new CreativeWandUpdate(), new ResourceLocation("forbidden", "textures/models/wand_rod_neutronium.png"));
         WAND_ROD_NEUTRONIUM.setGlowing(true);
-        WAND_ROD_BLOOD = new WandRod("blood", 100, new ItemStack(wandCore, 1, 3), 12, new ResourceLocation("forbidden", "textures/models/wand_rod_blood.png"));
+        WAND_ROD_BLOOD = new WandRod("blood", 100, new ItemStack(wandCore, 1, 3), 12, new BloodWandUpdate(), new ResourceLocation("forbidden", "textures/models/wand_rod_blood.png"));
         WAND_ROD_WITCHWOOD = new WandRod("witchwood", 100, new ItemStack(wandCore, 1, 4), 12, new ManaWandUpdate(), new ResourceLocation("forbidden", "textures/models/wand_rod_witchwood.png"));
         WAND_ROD_LIVINGWOOD = new WandRod("livingwood", 100, new ItemStack(wandCore, 1, 7), 12, new YandereWandUpdate(), new ResourceLocation("forbidden", "textures/models/wand_rod_livingwood.png"));
         WAND_ROD_DREAMWOOD = new WandRod("dreamwood", 100, new ItemStack(wandCore, 1, 11), 12, new YandereWandUpdate(), new ResourceLocation("forbidden", "textures/models/wand_rod_dreamwood.png"));
-        STAFF_ROD_BLOOD = new StaffRod("blood", 50, new ItemStack(wandCore, 1, 9), 24, new ResourceLocation("forbidden", "textures/models/wand_rod_blood.png"));
+        STAFF_ROD_BLOOD = new StaffRod("blood", 50, new ItemStack(wandCore, 1, 9), 24, new BloodStaffUpdate(), new ResourceLocation("forbidden", "textures/models/wand_rod_blood.png"));
         STAFF_ROD_NEUTRONIUM = new StaffRod("neutronium", 9002, new ItemStack(Blocks.bedrock, 1), 1000, new CreativeWandUpdate(), new ResourceLocation("forbidden", "textures/models/wand_rod_neutronium.png"));
         STAFF_ROD_NEUTRONIUM.setGlowing(true);
         STAFF_ROD_WITCHWOOD = new StaffRod("witchwood", 50, new ItemStack(wandCore, 1, 10), 24, new ManaStaffUpdate(), new ResourceLocation("forbidden", "textures/models/wand_rod_witchwood.png"));
@@ -145,6 +150,24 @@ public class ForbiddenItems {
         GameRegistry.registerItem(resource, "FMResource");
         OreDictionary.registerOre("nuggetEmerald", new ItemStack(resource, 1, 0));
         OreDictionary.registerOre("dyeBlack", new ItemStack(resource, 1, 1));
+
+        if (Compat.bm) {
+            try {
+                bloodwell = new ItemBloodwell().setUnlocalizedName("Bloodwell");
+                GameRegistry.registerItem(bloodwell, "Bloodwell");
+
+                bloodOrb = new ItemDivineOrb().setUnlocalizedName("EldritchOrb");
+                GameRegistry.registerItem(bloodOrb, "EldritchOrb");
+
+                boundwell = new ItemBoundwell().setUnlocalizedName("Boundwell");
+                GameRegistry.registerItem(boundwell, "Boundwell");
+
+                bloodRapier = new ItemBloodRapier().setUnlocalizedName("BloodRapier");
+                GameRegistry.registerItem(bloodRapier, "BloodRapier");
+            } catch (Throwable e) {
+                e.printStackTrace();
+            }
+        }
 
         crystalwell = new ItemCrystalwell().setUnlocalizedName("Crystalwell");
         GameRegistry.registerItem(crystalwell, "Crystalwell");
