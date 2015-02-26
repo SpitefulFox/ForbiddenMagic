@@ -63,6 +63,8 @@ public class SpellEffectRegistry
 	
 	public static ComplexSpellEffect getSpellEffect(Class<? extends SpellParadigm> paraClass, ComplexSpellType type, ComplexSpellModifier mod, int power, int potency, int cost)
 	{
+		System.out.println("Debuging");
+
 		if(paraClass == null || type == null || mod == null)
 		{
 			return null;
@@ -145,9 +147,9 @@ public class SpellEffectRegistry
 	public static void initiateRegistry()
 	{
 		SpellEffectRegistry.registerSpellType("FIRE", ComplexSpellType.FIRE);
-		SpellEffectRegistry.registerSpellType("ICE", ComplexSpellType.ICE);
+		SpellEffectRegistry.registerSpellType("WATER", ComplexSpellType.ICE);
 		SpellEffectRegistry.registerSpellType("EARTH", ComplexSpellType.EARTH);
-		SpellEffectRegistry.registerSpellType("WIND", ComplexSpellType.WIND);
+		SpellEffectRegistry.registerSpellType("AIR", ComplexSpellType.WIND);
 
 		SpellEffectRegistry.registerSpellModifier("DEFAULT", ComplexSpellModifier.DEFAULT);
 		SpellEffectRegistry.registerSpellModifier("OFFENSIVE", ComplexSpellModifier.OFFENSIVE);

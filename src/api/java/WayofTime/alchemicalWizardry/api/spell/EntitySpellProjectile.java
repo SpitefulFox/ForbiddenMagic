@@ -1,25 +1,21 @@
 package WayofTime.alchemicalWizardry.api.spell;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.IProjectile;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
-import net.minecraft.util.AxisAlignedBB;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.MathHelper;
-import net.minecraft.util.MovingObjectPosition;
-import net.minecraft.util.Vec3;
+import net.minecraft.util.*;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.Constants;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
 
 public class EntitySpellProjectile extends Entity implements IProjectile
 {
@@ -189,7 +185,7 @@ public class EntitySpellProjectile extends Entity implements IProjectile
             var16.setBlockBoundsBasedOnState(worldObj, xTile, yTile, zTile);
             AxisAlignedBB var2 = var16.getCollisionBoundingBoxFromPool(worldObj, xTile, yTile, zTile);
 
-            if (var2 != null && var2.isVecInside(APISpellHelper.createVec3(posX, posY, posZ)))
+            if (var2 != null && var2.isVecInside(Vec3.createVectorHelper(posX, posY, posZ)))
             {
                 inGround = true;
             }
@@ -218,15 +214,15 @@ public class EntitySpellProjectile extends Entity implements IProjectile
                 }
             }
 
-            Vec3 var17 = APISpellHelper.createVec3(posX, posY, posZ);
-            Vec3 var3 = APISpellHelper.createVec3(posX + motionX, posY + motionY, posZ + motionZ);
+            Vec3 var17 = Vec3.createVectorHelper(posX, posY, posZ);
+            Vec3 var3 = Vec3.createVectorHelper(posX + motionX, posY + motionY, posZ + motionZ);
             MovingObjectPosition var4 = worldObj.func_147447_a(var17, var3, true, false, false);
-            var17 = APISpellHelper.createVec3(posX, posY, posZ);
-            var3 = APISpellHelper.createVec3(posX + motionX, posY + motionY, posZ + motionZ);
+            var17 = Vec3.createVectorHelper(posX, posY, posZ);
+            var3 = Vec3.createVectorHelper(posX + motionX, posY + motionY, posZ + motionZ);
 
             if (var4 != null)
             {
-                var3 = APISpellHelper.createVec3(var4.hitVec.xCoord, var4.hitVec.yCoord, var4.hitVec.zCoord);
+                var3 = Vec3.createVectorHelper(var4.hitVec.xCoord, var4.hitVec.yCoord, var4.hitVec.zCoord);
             }
 
             Entity var5 = null;

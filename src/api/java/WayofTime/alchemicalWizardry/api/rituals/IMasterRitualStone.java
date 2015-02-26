@@ -33,12 +33,4 @@ public interface IMasterRitualStone extends ISegmentedReagentHandler
     public NBTTagCompound getCustomRitualTag();
 
     public void setCustomRitualTag(NBTTagCompound tag);
-    
-    public boolean areTanksEmpty();
-    
-    public int getRunningTime();
-    
-    public LocalRitualStorage getLocalStorage();
-    
-    public void setLocalStorage(LocalRitualStorage storage);
 }

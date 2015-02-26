@@ -7,7 +7,6 @@ import java.util.Map;
 
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.tileentity.TileEntity;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import WayofTime.alchemicalWizardry.api.event.RitualRunEvent;
@@ -17,12 +16,12 @@ import cpw.mods.fml.common.eventhandler.Event;
 
 public class Rituals
 {
-	public final int crystalLevel;
-    public final int actCost;
-    public final RitualEffect effect;
-    public final String name;
+    private int crystalLevel;
+    private int actCost;
+    private RitualEffect effect;
+    private String name;
 
-    public final MRSRenderer customRenderer;
+    private MRSRenderer customRenderer;
 
     public static Map<String, Rituals> ritualMap = new HashMap();
     public static List<String> keyList = new LinkedList();
@@ -150,21 +149,83 @@ public class Rituals
         }
 
         Block test = null;
-        TileEntity te = null;
 
-        for (RitualComponent rc : ritual)
+        switch (direction)
         {
-            test = world.getBlock(x + rc.getX(direction), y + rc.getY(), z + rc.getZ(direction));
-            te = world.getTileEntity(x + rc.getX(direction), y + rc.getY(), z + rc.getZ(direction));
+            case 1:
+                for (RitualComponent rc : ritual)
+                {
+                    test = world.getBlock(x + rc.getX(), y + rc.getY(), z + rc.getZ());
 
-            if (!(test instanceof IRitualStone && ((IRitualStone)test).isRuneType(world, x + rc.getX(direction), y, z+ rc.getZ(direction), world.getBlockMetadata(x + rc.getX(direction), y + rc.getY(), z + rc.getZ(direction)), rc.getStoneType()))
-                    && !(te instanceof ITileRitualStone && ((ITileRitualStone)te).isRuneType(rc.getStoneType())))
-            {
-                return false;
-            }
+                    if (!(test instanceof IRitualStone))
+                    {
+                        return false;
+                    }
+
+                    if (((IRitualStone)test).getRuneType(world, x, y, z, world.getBlockMetadata(x + rc.getX(), y + rc.getY(), z + rc.getZ())) != rc.getStoneType())
+                    {
+                        return false;
+                    }
+                }
+
+                return true;
+
+            case 2:
+                for (RitualComponent rc : ritual)
+                {
+                    test = world.getBlock(x - rc.getZ(), y + rc.getY(), z + rc.getX());
+
+                    if (!(test instanceof IRitualStone))
+                    {
+                        return false;
+                    }
+
+                    if (((IRitualStone)test).getRuneType(world, x, y, z, world.getBlockMetadata(x - rc.getZ(), y + rc.getY(), z + rc.getX())) != rc.getStoneType())
+                    {
+                        return false;
+                    }
+                }
+
+                return true;
+
+            case 3:
+                for (RitualComponent rc : ritual)
+                {
+                    test = world.getBlock(x - rc.getX(), y + rc.getY(), z - rc.getZ());
+
+                    if (!(test instanceof IRitualStone))
+                    {
+                        return false;
+                    }
+
+                    if (((IRitualStone)test).getRuneType(world, x, y, z, world.getBlockMetadata(x - rc.getX(), y + rc.getY(), z - rc.getZ())) != rc.getStoneType())
+                    {
+                        return false;
+                    }
+                }
+
+                return true;
+
+            case 4:
+                for (RitualComponent rc : ritual)
+                {
+                    test = world.getBlock(x + rc.getZ(), y + rc.getY(), z - rc.getX());
+
+                    if (!(test instanceof IRitualStone))
+                    {
+                        return false;
+                    }
+
+                    if (((IRitualStone)test).getRuneType(world, x, y, z, world.getBlockMetadata(x + rc.getZ(), y + rc.getY(), z - rc.getX())) != rc.getStoneType())
+                    {
+                        return false;
+                    }
+                }
+
+                return true;
         }
 
-        return true;
+        return false;
     }
 
     public static int getDirectionOfRitual(World world, int x, int y, int z, String ritualID)
@@ -289,7 +350,9 @@ public class Rituals
             {
                 ritual.effect.onRitualBroken(ritualStone, method);
             }
-        }    
+        }
+        
+        System.out.println(method);
     }
 
     public static int getNumberOfRituals()
@@ -373,23 +436,5 @@ public class Rituals
         }
 
         return null;
-    }
-    
-    public static LocalRitualStorage getLocalStorage(String ritualID)
-    {
-    	if (ritualMap.containsKey(ritualID))
-        {
-            Rituals ritual = ritualMap.get(ritualID);
-            if (ritual != null)
-            {
-                RitualEffect eff = ritual.effect;
-                if(eff != null)
-                {
-                	return eff.getNewLocalStorage();
-                }
-            }
-        }
-    	
-    	return null;
     }
 }

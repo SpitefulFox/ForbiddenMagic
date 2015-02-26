@@ -13,13 +13,11 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import WayofTime.alchemicalWizardry.api.event.AddToNetworkEvent;
 import WayofTime.alchemicalWizardry.api.event.ItemBindEvent;
-import WayofTime.alchemicalWizardry.api.event.ItemDrainInContainerEvent;
 import WayofTime.alchemicalWizardry.api.event.ItemDrainNetworkEvent;
 
 import com.mojang.authlib.GameProfile;
 
 import cpw.mods.fml.common.eventhandler.Event;
-import cpw.mods.fml.common.eventhandler.Event.Result;
 
 public class SoulNetworkHandler
 {
@@ -34,84 +32,6 @@ public class SoulNetworkHandler
         GameProfile gameProfile;
         gameProfile = server.func_152358_ax().func_152652_a(uuid);
         return null;
-    }
-    
-    public static boolean syphonFromNetworkWhileInContainer(ItemStack ist, int damageToBeDone)
-    {
-    	String ownerName = "";
-    	if (ist.getTagCompound() != null && !(ist.getTagCompound().getString("ownerName").equals("")))
-        {
-            ownerName = ist.getTagCompound().getString("ownerName");
-        }
-    	
-    	ItemDrainInContainerEvent event = new ItemDrainInContainerEvent(ist, ownerName, damageToBeDone);
-    	
-    	if(MinecraftForge.EVENT_BUS.post(event) || event.getResult() == Result.DENY)
-    	{
-    		return false;
-    	}
-    	
-    	return syphonFromNetwork(event.ownerNetwork, event.drainAmount) >= damageToBeDone;
-    }
-    
-    public static int getCurrentMaxOrb(String ownerName)
-    {
-    	if (MinecraftServer.getServer() == null)
-        {
-            return 0;
-        }
-
-        World world = MinecraftServer.getServer().worldServers[0];
-        LifeEssenceNetwork data = (LifeEssenceNetwork) world.loadItemData(LifeEssenceNetwork.class, ownerName);
-
-        if (data == null)
-        {
-            data = new LifeEssenceNetwork(ownerName);
-            world.setItemData(ownerName, data);
-        }
-
-        return data.maxOrb;
-    }
-    
-    public static void setMaxOrbToMax(String ownerName, int maxOrb)
-    {
-    	if (MinecraftServer.getServer() == null)
-        {
-            return;
-        }
-
-        World world = MinecraftServer.getServer().worldServers[0];
-        LifeEssenceNetwork data = (LifeEssenceNetwork) world.loadItemData(LifeEssenceNetwork.class, ownerName);
-
-        if (data == null)
-        {
-            data = new LifeEssenceNetwork(ownerName);
-            world.setItemData(ownerName, data);
-        }
-        
-        data.maxOrb = Math.max(maxOrb, data.maxOrb);
-        data.markDirty();
-    }
-    
-    public static int getMaximumForOrbTier(int maxOrb)
-    {
-    	switch(maxOrb)
-    	{
-    	case 1:
-    		return 5000;
-    	case 2:
-    		return 25000;
-    	case 3:
-    		return 150000;
-    	case 4:
-    		return 1000000;
-    	case 5:
-    		return 10000000;
-    	case 6:
-    		return 30000000;
-    	default: 
-    		return 1;
-    	}
     }
 
     public static int syphonFromNetwork(ItemStack ist, int damageToBeDone)
@@ -379,34 +299,34 @@ public class SoulNetworkHandler
         }
     }
 
-    public static boolean checkAndSetItemOwner(ItemStack item, EntityPlayer player)
+    public static void checkAndSetItemOwner(ItemStack item, EntityPlayer player)
     {
-        if (item.hasTagCompound() && !item.getTagCompound().getString("ownerName").equals("")) return true;
-
-        ItemBindEvent event = new ItemBindEvent(player, SoulNetworkHandler.getUsername(player), item);
-
-        if(!MinecraftForge.EVENT_BUS.post(event))
-        {
-            if (!item.hasTagCompound())
-            {
-                item.setTagCompound(new NBTTagCompound());
-            }
-            item.getTagCompound().setString("ownerName", event.key);
-            return true;
-        }
-        return false;
-    }
-
-    public static void checkAndSetItemOwner(ItemStack item, String ownerName)
-    {
-        if (item.getTagCompound() == null)
+        if (item.stackTagCompound == null)
         {
             item.setTagCompound(new NBTTagCompound());
         }
 
-        if (item.getTagCompound().getString("ownerName").equals(""))
+        if (item.stackTagCompound.getString("ownerName").equals(""))
         {
-            item.getTagCompound().setString("ownerName", ownerName);
+        	ItemBindEvent event = new ItemBindEvent(player, SoulNetworkHandler.getUsername(player), item);
+        	
+        	if(!MinecraftForge.EVENT_BUS.post(event))
+        	{
+                item.stackTagCompound.setString("ownerName", event.key);
+        	}
+        }
+    }
+
+    public static void checkAndSetItemOwner(ItemStack item, String ownerName)
+    {
+        if (item.stackTagCompound == null)
+        {
+            item.setTagCompound(new NBTTagCompound());
+        }
+
+        if (item.stackTagCompound.getString("ownerName").equals(""))
+        {
+            item.stackTagCompound.setString("ownerName", ownerName);
         }
     }
 
@@ -448,11 +368,11 @@ public class SoulNetworkHandler
     
     public static String getOwnerName(ItemStack item)
     {
-        if (item.getTagCompound() == null)
+        if (item.stackTagCompound == null)
         {
             item.setTagCompound(new NBTTagCompound());
         }
 
-        return item.getTagCompound().getString("ownerName");
+        return item.stackTagCompound.getString("ownerName");
     }
 }
