@@ -72,7 +72,7 @@ public class RitualSanity extends RitualEffect
                 if (effect == null || effect.getDuration() <= timeDelay)
                 {
                     PotionEffect ward = new PotionEffect(PotionWarpWard.instance.id, timeDelay + 2, 0, true);
-                    effect.getCurativeItems().clear();
+                    ward.getCurativeItems().clear();
                     player.addPotionEffect(ward);
                     entityCount++;
                     if(crazy && world.rand.nextInt(35) <= 3)
