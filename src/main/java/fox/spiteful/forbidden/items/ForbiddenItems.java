@@ -137,7 +137,7 @@ public class ForbiddenItems {
         STAFF_ROD_NEUTRONIUM = new StaffRod("neutronium", 9002, new ItemStack(Blocks.bedrock, 1), 1000, new CreativeWandUpdate(), new ResourceLocation("forbidden", "textures/models/wand_rod_neutronium.png"));
         STAFF_ROD_NEUTRONIUM.setGlowing(true);
         STAFF_ROD_WITCHWOOD = new StaffRod("witchwood", 50, new ItemStack(wandCore, 1, 10), 24, new ManaStaffUpdate(), new ResourceLocation("forbidden", "textures/models/wand_rod_witchwood.png"));
-        STAFF_ROD_DREAMWOOD = new StaffRod("dreamwood", 250, new ItemStack(wandCore, 1, 13), 32, new YandereWandUpdate(), new ResourceLocation("forbidden", "textures/models/wand_rod_dreamwood.png"));
+        STAFF_ROD_DREAMWOOD = new StaffRod("dreamwood", 250, new ItemStack(wandCore, 1, 13), 25, new YandereWandUpdate(), new ResourceLocation("forbidden", "textures/models/wand_rod_dreamwood.png"));
         STAFF_ROD_DREAMWOOD.setRunes(true);
         WAND_CAP_ORICHALCUM = new DarkWandCap("orichalcum", 0.0F, new ItemStack(Blocks.command_block, 1), 1000, new ResourceLocation("forbidden", "textures/models/wand_cap_orichalcum.png"));
         WAND_CAP_ALCHEMICAL = new DarkWandCap("alchemical", 0.9F, Arrays.asList(new Aspect[] { Aspect.WATER }), 0.8F, new ItemStack(wandCap, 1, 0), 7, new ResourceLocation("forbidden", "textures/models/wand_cap_alchemical.png"));
