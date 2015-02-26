@@ -1,11 +1,14 @@
 package fox.spiteful.forbidden.items.wands;
 
+import am2.api.ArsMagicaApi;
+import am2.api.IExtendedProperties;
 import fox.spiteful.forbidden.Config;
 import fox.spiteful.forbidden.compat.Compat;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.wands.IWandRodOnUpdate;
+import thaumcraft.common.items.wands.ItemWandCasting;
 
 public class ManaStaffUpdate implements IWandRodOnUpdate {
 
@@ -16,30 +19,31 @@ public class ManaStaffUpdate implements IWandRodOnUpdate {
         {
             if(player.ticksExisted % 40 == 0){
             
-                //TODO: Readd ArsMagica Support
                 try
                 { 
-                    /* IExtendedProperties prop = ArsMagicaApi.instance.getExtendedProperties(player);
+                    IExtendedProperties prop = ArsMagicaApi.instance.getExtendedProperties(player);
                 
                     float cost;
                     if(((ItemWandCasting)itemstack.getItem()).getCap(itemstack).getTag().equals("vinteum"))
-                        cost = 50.0F;
+                        cost = 0.5F;
                     else
-                        cost = 100.0F;
+                        cost = 1.0F;
                     
                     if(prop == null || prop.getCurrentMana() <= 0)
                         return;
                 
                 
                     for(int x = 0;x < primals.length;x++){
-                        if(((ItemWandCasting)itemstack.getItem()).getVis(itemstack, primals[x]) < ((ItemWandCasting)itemstack.getItem()).getMaxVis(itemstack)) {
-                            if(prop.getCurrentMana() > cost)
-                            {                        
-                                prop.setCurrentMana(prop.getCurrentMana() - cost);
+                        int deficit = ((ItemWandCasting)itemstack.getItem()).getMaxVis(itemstack) - ((ItemWandCasting)itemstack.getItem()).getVis(itemstack, primals[x]);
+                        if(deficit > 0) {
+                            deficit = Math.min(deficit, 100);
+                            if(prop.getCurrentMana() > cost * deficit)
+                            {
+                                prop.setCurrentMana(prop.getCurrentMana() - cost * deficit);
                                 ((ItemWandCasting)itemstack.getItem()).addVis(itemstack, primals[x], 1, true);
                             }
                         }
-                    }*/
+                    }
                 } 
                 catch(Throwable e){}
             }

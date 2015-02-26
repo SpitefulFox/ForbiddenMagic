@@ -27,17 +27,19 @@ public class BloodStaffUpdate implements IWandRodOnUpdate {
                 
                 int cost;
                 if(((ItemWandCasting)itemstack.getItem()).getCap(itemstack).getTag().equals("alchemical"))
-                    cost = 900;
+                    cost = 9;
                 else
-                    cost = 1000;
-                
+                    cost = 10;
+
                 for(int x = 0;x < primals.length;x++)
                 {
-                    if(((ItemWandCasting)itemstack.getItem()).getVis(itemstack, primals[x]) < ((ItemWandCasting)itemstack.getItem()).getMaxVis(itemstack))
+                    int deficit = ((ItemWandCasting)itemstack.getItem()).getMaxVis(itemstack) - ((ItemWandCasting)itemstack.getItem()).getVis(itemstack, primals[x]);
+                    if(deficit > 0)
                     {
+                        deficit = Math.min(deficit, 100);
                         if(player.capabilities.isCreativeMode)
                             ((ItemWandCasting)itemstack.getItem()).addVis(itemstack, primals[x], 1, true);
-                        else if(SoulNetworkHandler.syphonFromNetwork(itemstack, cost) > 0)
+                        else if(SoulNetworkHandler.syphonFromNetwork(itemstack, cost * deficit) > 0)
                             ((ItemWandCasting)itemstack.getItem()).addVis(itemstack, primals[x], 1, true);
                         else if(syphonHealth(player))
                         {
