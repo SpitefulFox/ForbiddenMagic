@@ -76,20 +76,12 @@ public class ForbiddenBotany {
             BotaniaAPI.registerSubTileSignature(SubTileEuclidaisy.class, new DarkSignature("euclidaisy"));
             BotaniaAPI.addSubTileToCreativeMenu("euclidaisy");
 
-            List<LexiconCategory> cats = BotaniaAPI.getAllCategories();
-            LexiconCategory functional = null;
-            LexiconCategory generating = null;
-            for(LexiconCategory cat : cats){
-                if(cat.getUnlocalizedName().equals("botania.category.functionalFlowers"))
-                    functional = cat;
-                else if(cat.getUnlocalizedName().equals("botania.category.generationFlowers"))
-                    generating = cat;
-            }
-            SubTileEuclidaisy.lexicon = new ForbiddenLexicon("euclidaisy", functional);
+            SubTileEuclidaisy.lexicon = new ForbiddenLexicon("euclidaisy", BotaniaAPI.categoryFunctionalFlowers);
 
             SubTileEuclidaisy.lexicon.addPage(BotaniaAPI.internalHandler.textPage("forbidden.lexicon.euclidaisy.0"));
 
             ItemStack euclidaisy = getFlower("euclidaisy");
+            SubTileEuclidaisy.lexicon.setIcon(euclidaisy);
 
             InfusionRecipe euclid =  ThaumcraftApi.addInfusionCraftingRecipe("EUCLIDAISY", euclidaisy, 8, (new AspectList()).add(Aspect.AURA, 8).add(Aspect.ELDRITCH, 10).add(Aspect.MAGIC, 8), new ItemStack(flower, 1, 6), new ItemStack[] { new ItemStack(ConfigItems.itemResource, 1, 14), new ItemStack(resource, 1, 1), new ItemStack(resource, 1, 6), new ItemStack(manaPetal, 1, 6), new ItemStack(manaPetal, 1, 6), new ItemStack(rune, 1, 12), new ItemStack(rune, 1, 11) });
             (new DarkResearchItem("EUCLIDAISY", "FORBIDDEN", "[B]", (new AspectList()).add(Aspect.PLANT, 8).add(Aspect.MAGIC, 4).add(Aspect.AURA, 12), -3, 5, 2, euclidaisy)).setPages(new ResearchPage[] { new ResearchPage("forbidden.research_page.EUCLIDAISY.1"), new ResearchPage(euclid) }).setParents(new String[] { "BOTANY", "INFUSION" }).setConcealed().registerResearchItem();
@@ -98,11 +90,13 @@ public class ForbiddenBotany {
             BotaniaAPI.registerSubTileSignature(SubTileWhisperweed.class, new DarkSignature("whisperweed"));
             BotaniaAPI.addSubTileToCreativeMenu("whisperweed");
 
-            SubTileWhisperweed.lexicon = new ForbiddenLexicon("whisperweed", functional);
+            SubTileWhisperweed.lexicon = new ForbiddenLexicon("whisperweed", BotaniaAPI.categoryFunctionalFlowers);
 
             SubTileWhisperweed.lexicon.addPage(BotaniaAPI.internalHandler.textPage("forbidden.lexicon.whisperweed.0"));
 
             ItemStack whisperweed = getFlower("whisperweed");
+            SubTileWhisperweed.lexicon.setIcon(whisperweed);
+
             IArcaneRecipe whispercraft =  ThaumcraftApi.addShapelessArcaneCraftingRecipe("WHISPERWEED", whisperweed, (new AspectList()).add(Aspect.FIRE, 10).add(Aspect.WATER, 10).add(Aspect.EARTH, 10).add(Aspect.AIR, 10).add(Aspect.ORDER, 10).add(Aspect.ENTROPY, 10), new ItemStack[] { new ItemStack(Blocks.tallgrass, 1, 1), new ItemStack(resource, 1, 2), new ItemStack(resource, 1, 6), new ItemStack(ConfigItems.itemResource, 1, 9), new ItemStack(manaPetal, 1, 7), new ItemStack(manaPetal, 1, 10), new ItemStack(rune, 1, 14), new ItemStack(ConfigItems.itemResource, 1, 6) });
             (new DarkResearchItem("WHISPERWEED", "FORBIDDEN", "[B]", (new AspectList()).add(Aspect.PLANT, 8).add(Aspect.MIND, 10).add(Aspect.SENSES, 4), -4, 5, 1, whisperweed)).setPages(new ResearchPage[] { new ResearchPage("forbidden.research_page.WHISPERWEED.1"), new ResearchPage(whispercraft) }).setParents(new String[] { "BOTANY", "INFUSION" }).setConcealed().registerResearchItem();
 
@@ -110,11 +104,13 @@ public class ForbiddenBotany {
             BotaniaAPI.registerSubTileSignature(SubTileTainthistle.class, new DarkSignature("tainthistle"));
             BotaniaAPI.addSubTileToCreativeMenu("tainthistle");
 
-            SubTileTainthistle.lexicon = new ForbiddenLexicon("tainthistle", generating);
+            SubTileTainthistle.lexicon = new ForbiddenLexicon("tainthistle", BotaniaAPI.categoryGenerationFlowers);
 
             SubTileTainthistle.lexicon.addPage(BotaniaAPI.internalHandler.textPage("forbidden.lexicon.tainthistle.0"));
 
             ItemStack tainthistle = getFlower("tainthistle");
+            SubTileTainthistle.lexicon.setIcon(tainthistle);
+
             InfusionRecipe thistlecraft =  ThaumcraftApi.addInfusionCraftingRecipe("TAINTHISTLE", tainthistle, 4, (new AspectList()).add(Aspect.TAINT, 8).add(Aspect.HUNGER, 4).add(Aspect.AIR, 4).add(Aspect.WATER, 4), new ItemStack(ConfigItems.itemResource, 1, 12), new ItemStack[] { new ItemStack(petal, 1, 10), new ItemStack(manaPetal, 1, 10), new ItemStack(manaPetal, 1, 10), new ItemStack(rune, 1, 10), new ItemStack(rune, 1, 8)});
             (new DarkResearchItem("TAINTHISTLE", "FORBIDDEN", "[B]", (new AspectList()).add(Aspect.PLANT, 8).add(Aspect.TAINT, 10).add(Aspect.MAGIC, 4), -2, 5, 2, tainthistle)).setPages(new ResearchPage[] { new ResearchPage("forbidden.research_page.TAINTHISTLE.1"), new ResearchPage(thistlecraft) }).setParents(new String[] { "BOTANY", "INFUSION" }).setConcealed().registerResearchItem();
 
@@ -123,7 +119,7 @@ public class ForbiddenBotany {
                 BotaniaAPI.registerSubTileSignature(SubTileBloodthorn.class, new DarkSignature("bloodthorn"));
                 BotaniaAPI.addSubTileToCreativeMenu("bloodthorn");
 
-                SubTileBloodthorn.lexicon = new ForbiddenLexicon("bloodthorn", functional){
+                SubTileBloodthorn.lexicon = new ForbiddenLexicon("bloodthorn", BotaniaAPI.categoryFunctionalFlowers){
                     @Override
                     public String getSubtitle(){
                         return "[Forbidden Magic][Blood Magic]";
@@ -133,6 +129,7 @@ public class ForbiddenBotany {
                 SubTileBloodthorn.lexicon.addPage(BotaniaAPI.internalHandler.textPage("forbidden.lexicon.bloodthorn.0"));
 
                 ItemStack bloodthorn = getFlower("bloodthorn");
+                SubTileBloodthorn.lexicon.setIcon(bloodthorn);
                 try{
                     AltarRecipeRegistry.registerAltarRecipe(bloodthorn, new ItemStack(flower, 1, 14), 4, 15000, 25, 50, false);
                 }

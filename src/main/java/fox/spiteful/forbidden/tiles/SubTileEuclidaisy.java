@@ -25,7 +25,7 @@ public class SubTileEuclidaisy extends SubTileFunctional {
         if(redstoneSignal > 0)
             return;
 
-        if(mana >= cost && !supertile.getWorldObj().isRemote && supertile.getWorldObj().getTotalWorldTime() % 400 == 0) {
+        if(mana >= cost && !supertile.getWorldObj().isRemote && this.ticksExisted % 400 == 0) {
             Thaumcraft.proxy.burst(supertile.getWorldObj(), (double)supertile.xCoord + 0.5D, (double)supertile.yCoord + 0.5D, (double)supertile.zCoord + 0.5D, 1.0F);
             AspectList aspect;
             if(supertile.getWorldObj().rand.nextInt(10) < 4)

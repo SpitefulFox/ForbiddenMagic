@@ -28,7 +28,7 @@ public class SubTileWhisperweed extends SubTileFunctional {
         if(redstoneSignal > 0)
             return;
 
-        if(!supertile.getWorldObj().isRemote && mana >= cost && supertile.getWorldObj().getTotalWorldTime() % 300 == 0) {
+        if(!supertile.getWorldObj().isRemote && mana >= cost && this.ticksExisted % 300 == 0) {
             List<EntityPlayer> players = supertile.getWorldObj().getEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox(supertile.xCoord - range, supertile.yCoord - range, supertile.zCoord - range, supertile.xCoord + range + 1, supertile.yCoord + range + 1, supertile.zCoord + range + 1));
             if(players.size() > 0) {
                 EntityPlayer player = players.get(supertile.getWorldObj().rand.nextInt(players.size()));
