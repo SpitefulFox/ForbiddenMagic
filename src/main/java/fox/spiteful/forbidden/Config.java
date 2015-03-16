@@ -171,8 +171,6 @@ public class Config {
             spawnerMobs.put("Thaumcraft.EldritchCrab", Aspect.ELDRITCH);
             spawnerMobs.put("Thaumcraft.InhabitedZombie", Aspect.ELDRITCH);
             spawnerMobs.put("Thaumcraft.Pech", Aspect.GREED);
-            spawnerMobs.put("Thaumcraft.Pech.1", Aspect.GREED);
-            spawnerMobs.put("Thaumcraft.Pech.2", Aspect.GREED);
             spawnerMobs.put("Thaumcraft.EldritchGuardian", Aspect.ELDRITCH);
             // spawnerMobs.put("Taintacle", DarkAspects.LUST);
         }
