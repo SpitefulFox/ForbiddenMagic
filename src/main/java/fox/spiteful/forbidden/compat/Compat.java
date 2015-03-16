@@ -139,7 +139,12 @@ public class Compat {
         }
 
         if (bm) {
-            BloodMagic.stab();
+            try {
+                BloodMagic.stab();
+            } catch (Throwable e) {
+                LogHandler.log(Level.INFO, e, "Forbidden Magic tried to do some Blood Magic, but bled out.");
+                Compat.bm = false;
+            }
         }
 
         if (Config.crossWand && am2) {
@@ -152,6 +157,7 @@ public class Compat {
 
                 InfusionRecipe witchwood_recipe = ThaumcraftApi.addInfusionCraftingRecipe("ROD_witchwood", new ItemStack(ForbiddenItems.wandCore, 1, 4), 5, (new AspectList()).add(Aspect.MAGIC, 16).add(Aspect.EARTH, 9).add(Aspect.WATER, 9).add(Aspect.FIRE, 9).add(Aspect.AIR, 9), new ItemStack(witchwood), new ItemStack[]{new ItemStack(essence, 1, 0), new ItemStack(amOre, 1, 3), new ItemStack(essence, 1, 1), new ItemStack(essence, 1, 2), new ItemStack(essence, 1, 3), new ItemStack(essence, 1, 4), new ItemStack(amOre, 1, 6), new ItemStack(amOre, 1, 7), new ItemStack(amOre, 1, 2)});
                 (new DarkResearchItem("ROD_witchwood", "FORBIDDEN", "[AM2]", (new AspectList()).add(Aspect.MAGIC, 6).add(Aspect.TREE, 5).add(Aspect.MIND, 4), -3, 1, 3, new ItemStack(ForbiddenItems.wandCore, 1, 4))).setPages(new ResearchPage[]{new ResearchPage("forbidden.research_page.ROD_witchwood.1"), new ResearchPage(witchwood_recipe)}).setParents(new String[]{ "SCHOOLS", "ROD_silverwood", "INFUSION" }).setConcealed().registerResearchItem();
+                ThaumcraftApi.addWarpToResearch("ROD_witchwood", 2);
 
                 InfusionRecipe vinteum_recipe = ThaumcraftApi.addInfusionCraftingRecipe("CAP_vinteum", new ItemStack(ForbiddenItems.wandCap, 1, 1), 5, (new AspectList()).add(Aspect.ENERGY, 12).add(Aspect.MAGIC, 6), ItemApi.getItem("itemWandCap", 6), new ItemStack[]{new ItemStack(amOre, 1, 0), new ItemStack(amOre, 1, 0), new ItemStack(amOre, 1, 0)});
                 (new DarkResearchItem("CAP_vinteum", "FORBIDDEN", "[AM2]", (new AspectList()).add(Aspect.MAGIC, 4).add(Aspect.TOOL, 1).add(Aspect.ENERGY, 2), -4, -1, 1, new ItemStack(ForbiddenItems.wandCap, 1, 1))).setPages(new ResearchPage[]{new ResearchPage("forbidden.research_page.CAP_vinteum.1"), new ResearchPage(vinteum_recipe)}).setParents(new String[]{"ROD_witchwood", "CAP_thaumium"}).setSecondary().setConcealed().registerResearchItem();
@@ -165,7 +171,13 @@ public class Compat {
         }
 
         if (botan) {
-            ForbiddenBotany.flowerPowerHippymancy();
+            try {
+                ForbiddenBotany.flowerPowerHippymancy();
+            }
+            catch (Throwable e){
+                LogHandler.log(Level.INFO, e, "Forbidden Magic: Botania? Do you wanna build a snowman?");
+                Compat.botan = false;
+            }
         }
 
         if(special){
