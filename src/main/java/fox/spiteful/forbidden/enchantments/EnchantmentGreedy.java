@@ -6,7 +6,7 @@ import net.minecraft.item.ItemStack;
 
 public class EnchantmentGreedy extends Enchantment {
     public EnchantmentGreedy(int id) {
-        super(id, 0, EnumEnchantmentType.weapon);
+        super(id, 1, EnumEnchantmentType.weapon);
         setName("greedy");
     }
 

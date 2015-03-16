@@ -11,7 +11,7 @@ import fox.spiteful.forbidden.items.tools.ItemMorphShovel;
 
 public class EnchantmentVoid extends Enchantment {
     public EnchantmentVoid(int id) {
-        super(id, 0, EnumEnchantmentType.digger);
+        super(id, 1, EnumEnchantmentType.digger);
         setName("voidtouched");
     }
 

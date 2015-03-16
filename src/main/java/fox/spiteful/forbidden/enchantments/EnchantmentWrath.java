@@ -14,7 +14,7 @@ public class EnchantmentWrath extends Enchantment
 {
     public EnchantmentWrath(int id)
     {
-        super(id, 0, EnumEnchantmentType.weapon);
+        super(id, 1, EnumEnchantmentType.weapon);
         setName("wrath");
     }
 

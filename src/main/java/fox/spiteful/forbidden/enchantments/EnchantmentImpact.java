@@ -8,7 +8,7 @@ import net.minecraft.item.ItemStack;
 
 public class EnchantmentImpact extends Enchantment {
     public EnchantmentImpact(int id) {
-        super(id, 0, EnumEnchantmentType.digger);
+        super(id, 1, EnumEnchantmentType.digger);
         setName("impact");
     }
 

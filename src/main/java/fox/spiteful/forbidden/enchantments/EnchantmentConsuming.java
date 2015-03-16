@@ -8,7 +8,7 @@ import net.minecraft.item.ItemStack;
 
 public class EnchantmentConsuming extends Enchantment {
     public EnchantmentConsuming(int id) {
-        super(id, 0, EnumEnchantmentType.digger);
+        super(id, 5, EnumEnchantmentType.digger);
         setName("consuming");
     }
 

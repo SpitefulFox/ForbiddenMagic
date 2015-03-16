@@ -7,7 +7,7 @@ import net.minecraft.item.ItemStack;
 
 public class EnchantmentCorrupting extends Enchantment {
     public EnchantmentCorrupting(int id) {
-        super(id, 0, EnumEnchantmentType.digger);
+        super(id, 1, EnumEnchantmentType.digger);
         setName("corrupting");
     }
 

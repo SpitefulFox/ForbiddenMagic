@@ -7,7 +7,7 @@ import net.minecraft.item.ItemStack;
 
 public class EnchantmentCluster extends Enchantment {
     public EnchantmentCluster(int id) {
-        super(id, 0, EnumEnchantmentType.digger);
+        super(id, 1, EnumEnchantmentType.digger);
         setName("cluster");
     }
 

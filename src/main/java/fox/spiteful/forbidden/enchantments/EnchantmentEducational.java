@@ -6,7 +6,7 @@ import net.minecraft.item.ItemStack;
 
 public class EnchantmentEducational extends Enchantment {
     public EnchantmentEducational(int id) {
-        super(id, 0, EnumEnchantmentType.weapon);
+        super(id, 5, EnumEnchantmentType.weapon);
         setName("educational");
     }
 
