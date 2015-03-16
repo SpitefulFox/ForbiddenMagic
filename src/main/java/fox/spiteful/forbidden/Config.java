@@ -49,7 +49,7 @@ public class Config {
     public static boolean crossWand = true;
     public static boolean botan = true;
     public static boolean bloodMagic = true;
-    public static boolean am2 = false;
+    public static boolean am2 = true;
     public static boolean tt = true;
     public static boolean tc = true;
     public static boolean special = true;
@@ -102,7 +102,7 @@ public class Config {
             crossWand = conf.get("compatibility", "Conversion Wands", crossWand, "Disable to remove all conversion wands.").getBoolean(true);
             botan = conf.get("compatibility", "Botania Interaction", botan).getBoolean(true);
             bloodMagic = conf.get("compatibility", "Blood Magic Interaction", bloodMagic).getBoolean(true);
-            am2 = conf.get("compatibility", "Ars Magica 2 Interaction", am2, "AM2 interaction is unsupported. Enable at your own risk.").getBoolean(false);
+            am2 = conf.get("compatibility", "Ars Magica 2 Interaction", am2, "AM2 interaction is unsupported. Enable at your own risk.").getBoolean(true);
             tt = conf.get("compatibility", "Thaumic Tinkerer Interaction", tt).getBoolean(true);
             tc = conf.get("compatibility", "Tinkers Construct Interaction", tc).getBoolean(true);
             special = conf.get("compatibility", "Special Mobs Interaction", special).getBoolean(true);
