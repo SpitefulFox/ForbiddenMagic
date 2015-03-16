@@ -3,9 +3,8 @@
  * part of the Botania Mod. Get the Source Code in github:
  * https://github.com/Vazkii/Botania
  * 
- * Botania is Open Source and distributed under a
- * Creative Commons Attribution-NonCommercial-ShareAlike 3.0 License
- * (http://creativecommons.org/licenses/by-nc-sa/3.0/deed.en_GB)
+ * Botania is Open Source and distributed under the
+ * Botania License: http://botaniamod.net/license.php
  * 
  * File Created @ [Sep 2, 2014, 6:05:03 PM (GMT)]
  */
@@ -26,7 +25,7 @@ public class WikiHooks {
 
 	public static IWikiProvider getWikiFor(Block block) {
 		UniqueIdentifier mod = GameRegistry.findUniqueIdentifierFor(block);
-		return getWikiFor(mod.modId.toLowerCase());
+		return getWikiFor(mod == null ? "" : mod.modId.toLowerCase());
 	}
 
 	public static IWikiProvider getWikiFor(String mod) {

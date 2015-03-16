@@ -3,9 +3,8 @@
  * part of the Botania Mod. Get the Source Code in github:
  * https://github.com/Vazkii/Botania
  * 
- * Botania is Open Source and distributed under a
- * Creative Commons Attribution-NonCommercial-ShareAlike 3.0 License
- * (http://creativecommons.org/licenses/by-nc-sa/3.0/deed.en_GB)
+ * Botania is Open Source and distributed under the
+ * Botania License: http://botaniamod.net/license.php
  * 
  * File Created @ [Jan 14, 2014, 6:15:28 PM (GMT)]
  */
@@ -13,6 +12,7 @@ package vazkii.botania.api;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
@@ -29,12 +29,14 @@ import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraftforge.common.util.EnumHelper;
+import vazkii.botania.api.brew.Brew;
 import vazkii.botania.api.internal.DummyMethodHandler;
 import vazkii.botania.api.internal.DummySubTile;
 import vazkii.botania.api.internal.IInternalMethodHandler;
 import vazkii.botania.api.lexicon.KnowledgeType;
 import vazkii.botania.api.lexicon.LexiconCategory;
 import vazkii.botania.api.lexicon.LexiconEntry;
+import vazkii.botania.api.recipe.RecipeBrew;
 import vazkii.botania.api.recipe.RecipeElvenTrade;
 import vazkii.botania.api.recipe.RecipeManaInfusion;
 import vazkii.botania.api.recipe.RecipePetals;
@@ -56,10 +58,13 @@ public final class BotaniaAPI {
 
 	public static Map<String, KnowledgeType> knowledgeTypes = new HashMap<String, KnowledgeType>();
 
+	public static Map<String, Brew> brewMap = new LinkedHashMap<String, Brew>();
+
 	public static List<RecipePetals> petalRecipes = new ArrayList<RecipePetals>();
 	public static List<RecipeRuneAltar> runeAltarRecipes = new ArrayList<RecipeRuneAltar>();
 	public static List<RecipeManaInfusion> manaInfusionRecipes = new ArrayList<RecipeManaInfusion>();
 	public static List<RecipeElvenTrade> elvenTradeRecipes = new ArrayList<RecipeElvenTrade>();
+	public static List<RecipeBrew> brewRecipes = new ArrayList<RecipeBrew>();
 
 	private static BiMap<String, Class<? extends SubTileEntity>> subTiles = HashBiMap.<String, Class<? extends SubTileEntity>> create();
 	private static Map<Class<? extends SubTileEntity>, SubTileSignature> subTileSignatures = new HashMap<Class<? extends SubTileEntity>, SubTileSignature>();
@@ -76,9 +81,23 @@ public final class BotaniaAPI {
 	public static ToolMaterial elementiumToolMaterial = EnumHelper.addToolMaterial("B_ELEMENTIUM", 3, 720, 6.2F, 2F, 20);
 
 	public static ArmorMaterial terrasteelArmorMaterial = EnumHelper.addArmorMaterial("TERRASTEEL", 34, new int[] {3, 8, 6, 3}, 26);
-	public static ToolMaterial terrasteelToolMaterial = EnumHelper.addToolMaterial("TERRASTEEL", 3, 2300, 9F, 3F, 26);
+	public static ToolMaterial terrasteelToolMaterial = EnumHelper.addToolMaterial("TERRASTEEL", 4, 2300, 9F, 3F, 26);
 
 	public static KnowledgeType basicKnowledge, elvenKnowledge;
+
+	// All of these categories are initialized during botania's PreInit stage.
+	public static LexiconCategory categoryBasics;
+	public static LexiconCategory categoryMana;
+	public static LexiconCategory categoryFunctionalFlowers;
+	public static LexiconCategory categoryGenerationFlowers;
+	public static LexiconCategory categoryDevices;
+	public static LexiconCategory categoryTools;
+	public static LexiconCategory categoryBaubles;
+	public static LexiconCategory categoryEnder;
+	public static LexiconCategory categoryAlfhomancy;
+	public static LexiconCategory categoryMisc;
+
+	public static Brew fallbackBrew = new Brew("fallback", "botania.brew.fallback", 0, 0);
 
 	static {
 		registerSubTile("", DummySubTile.class);
@@ -97,6 +116,7 @@ public final class BotaniaAPI {
 		addOreWeight("oreCoal", 46525); // Vanilla
 		addOreWeight("oreCooperite", 5); // GregTech
 		addOreWeight("oreCopper", 8325); // IC2, Thermal Expansion, Tinkers' Construct, etc.
+		addOreWeight("oreDark", 1350); // EvilCraft
 		addOreWeight("oreDarkIron", 1700); // Factorization
 		addOreWeight("oreDiamond", 1265); // Vanilla
 		addOreWeight("oreEmerald", 780); // Vanilla
@@ -185,6 +205,24 @@ public final class BotaniaAPI {
 	}
 
 	/**
+	 * Registers a Brew and returns it.
+	 */
+	public static Brew registerBrew(Brew brew) {
+		brewMap.put(brew.getKey(), brew);
+		return brew;
+	}
+
+	/**
+	 * Gets a brew from the key passed in, returns the fallback if
+	 * it's not in the map.
+	 */
+	public static Brew getBrewFromKey(String key) {
+		if(brewMap.containsKey(key))
+			return brewMap.get(key);
+		return fallbackBrew;
+	}
+
+	/**
 	 * Registers a Petal Recipe.
 	 * @param output The ItemStack to craft.
 	 * @param inputs The objects for crafting. Can be ItemStack, MappableStackWrapper
@@ -255,6 +293,17 @@ public final class BotaniaAPI {
 	public static RecipeElvenTrade registerElvenTradeRecipe(ItemStack output, Object... inputs) {
 		RecipeElvenTrade recipe = new RecipeElvenTrade(output, inputs);
 		elvenTradeRecipes.add(recipe);
+		return recipe;
+	}
+
+	/**
+	 * Registers a Brew Recipe (for the Botanical Brewery).
+	 * @param brew The brew in to be set in this recipe.
+	 * @inputs The items used in the recipe, no more than 6.
+	 */
+	public static RecipeBrew registerBrewRecipe(Brew brew, Object... inputs) {
+		RecipeBrew recipe = new RecipeBrew(brew, inputs);
+		brewRecipes.add(recipe);
 		return recipe;
 	}
 

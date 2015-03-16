@@ -3,9 +3,8 @@
  * part of the Botania Mod. Get the Source Code in github:
  * https://github.com/Vazkii/Botania
  * 
- * Botania is Open Source and distributed under a
- * Creative Commons Attribution-NonCommercial-ShareAlike 3.0 License
- * (http://creativecommons.org/licenses/by-nc-sa/3.0/deed.en_GB)
+ * Botania is Open Source and distributed under the
+ * Botania License: http://botaniamod.net/license.php
  * 
  * File Created @ [Jan 24, 2014, 8:03:36 PM (GMT)]
  */
@@ -32,7 +31,6 @@ import vazkii.botania.api.mana.IManaCollector;
 public class SubTileGenerating extends SubTileEntity {
 
 	private static final String TAG_MANA = "mana";
-	private static final String TAG_TICKS_EXISTED = "ticksExisted";
 
 	private static final String TAG_COLLECTOR_X = "collectorX";
 	private static final String TAG_COLLECTOR_Y = "collectorY";
@@ -40,17 +38,11 @@ public class SubTileGenerating extends SubTileEntity {
 
 	protected int mana;
 
-	int ticksExisted = 0;
 	int sizeLastCheck = -1;
 	protected TileEntity linkedCollector = null;
 	public int knownMana = -1;
 
 	ChunkCoordinates cachedCollectorCoordinates = null;
-
-	@Override
-	public boolean canUpdate() {
-		return true;
-	}
 
 	@Override
 	public void onUpdate() {
@@ -60,7 +52,7 @@ public class SubTileGenerating extends SubTileEntity {
 
 		if(canGeneratePassively()) {
 			int delay = getDelayBetweenPassiveGeneration();
-			if(delay > 0 && supertile.getWorldObj().getWorldTime() % delay == 0) {
+			if(delay > 0 && ticksExisted % delay == 0 && !supertile.getWorldObj().isRemote) {
 				if(shouldSyncPassiveGeneration())
 					sync();
 				addMana(getValueForPassiveGeneration());
@@ -76,7 +68,6 @@ public class SubTileGenerating extends SubTileEntity {
 		}
 
 		if(!supertile.getWorldObj().isRemote) {
-			++ticksExisted;
 			int muhBalance = BotaniaAPI.internalHandler.getPassiveFlowerDecay();
 
 			if(isPassiveFlower() && muhBalance > 0 && ticksExisted > muhBalance) {
@@ -238,7 +229,7 @@ public class SubTileGenerating extends SubTileEntity {
 	@Override
 	public void renderHUD(Minecraft mc, ScaledResolution res) {
 		String name = StatCollector.translateToLocal("tile.botania:flower." + getUnlocalizedName() + ".name");
-		int color = 0x66000000 | getColor();
+		int color = getColor();
 		BotaniaAPI.internalHandler.drawSimpleManaHUD(color, knownMana, getMaxMana(), name, res);
 	}
 

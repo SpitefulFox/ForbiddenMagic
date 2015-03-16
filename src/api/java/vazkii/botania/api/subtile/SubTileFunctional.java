@@ -3,9 +3,8 @@
  * part of the Botania Mod. Get the Source Code in github:
  * https://github.com/Vazkii/Botania
  * 
- * Botania is Open Source and distributed under a
- * Creative Commons Attribution-NonCommercial-ShareAlike 3.0 License
- * (http://creativecommons.org/licenses/by-nc-sa/3.0/deed.en_GB)
+ * Botania is Open Source and distributed under the
+ * Botania License: http://botaniamod.net/license.php
  * 
  * File Created @ [Jan 24, 2014, 8:03:44 PM (GMT)]
  */
@@ -46,11 +45,6 @@ public class SubTileFunctional extends SubTileEntity {
 	public int knownMana = -1;
 
 	ChunkCoordinates cachedPoolCoordinates = null;
-
-	@Override
-	public boolean canUpdate() {
-		return true;
-	}
 
 	/**
 	 * If set to true, redstoneSignal will be updated every tick.
@@ -205,7 +199,7 @@ public class SubTileFunctional extends SubTileEntity {
 	@Override
 	public void renderHUD(Minecraft mc, ScaledResolution res) {
 		String name = StatCollector.translateToLocal("tile.botania:flower." + getUnlocalizedName() + ".name");
-		int color = 0x66000000 | getColor();
+		int color = getColor();
 		BotaniaAPI.internalHandler.drawSimpleManaHUD(color, knownMana, getMaxMana(), name, res);
 	}
 

@@ -3,9 +3,8 @@
  * part of the Botania Mod. Get the Source Code in github:
  * https://github.com/Vazkii/Botania
  * 
- * Botania is Open Source and distributed under a
- * Creative Commons Attribution-NonCommercial-ShareAlike 3.0 License
- * (http://creativecommons.org/licenses/by-nc-sa/3.0/deed.en_GB)
+ * Botania is Open Source and distributed under the
+ * Botania License: http://botaniamod.net/license.php
  * 
  * File Created @ [Jan 14, 2014, 6:43:03 PM (GMT)]
  */
@@ -20,9 +19,13 @@ import net.minecraft.init.Blocks;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
+import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.IIcon;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
+import vazkii.botania.api.boss.IBotaniaBoss;
 import vazkii.botania.api.lexicon.LexiconPage;
+import vazkii.botania.api.recipe.RecipeBrew;
 import vazkii.botania.api.recipe.RecipeElvenTrade;
 import vazkii.botania.api.recipe.RecipeManaInfusion;
 import vazkii.botania.api.recipe.RecipePetals;
@@ -32,6 +35,11 @@ public class DummyMethodHandler implements IInternalMethodHandler {
 
 	@Override
 	public LexiconPage textPage(String key) {
+		return dummyPage(key);
+	}
+
+	@Override
+	public LexiconPage elfPaperTextPage(String key) {
 		return dummyPage(key);
 	}
 
@@ -90,6 +98,11 @@ public class DummyMethodHandler implements IInternalMethodHandler {
 		return dummyPage(key);
 	}
 
+	@Override
+	public LexiconPage brewPage(String key, String bottomText, RecipeBrew recipe) {
+		return dummyPage(key);
+	}
+
 	private LexiconPage dummyPage(String key) {
 		return new DummyPage(key);
 	}
@@ -97,6 +110,11 @@ public class DummyMethodHandler implements IInternalMethodHandler {
 	@Override
 	public ItemStack getSubTileAsStack(String subTile) {
 		return new ItemStack(Blocks.stone, 0, 0);
+	}
+
+	@Override
+	public ItemStack getSubTileAsFloatingFlowerStack(String subTile) {
+		return getSubTileAsStack(subTile);
 	}
 
 	@Override
@@ -142,6 +160,21 @@ public class DummyMethodHandler implements IInternalMethodHandler {
 	@Override
 	public int getPassiveFlowerDecay() {
 		return 0;
+	}
+
+	@Override
+	public ResourceLocation getDefaultBossBarTexture() {
+		return null;
+	}
+
+	@Override
+	public void setBossStatus(IBotaniaBoss status) {
+		// NO-OP
+	}
+
+	@Override
+	public boolean isBuildcraftPipe(TileEntity tile) {
+		return false;
 	}
 
 }

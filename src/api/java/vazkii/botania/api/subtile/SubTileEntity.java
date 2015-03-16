@@ -3,22 +3,25 @@
  * part of the Botania Mod. Get the Source Code in github:
  * https://github.com/Vazkii/Botania
  * 
- * Botania is Open Source and distributed under a
- * Creative Commons Attribution-NonCommercial-ShareAlike 3.0 License
- * (http://creativecommons.org/licenses/by-nc-sa/3.0/deed.en_GB)
+ * Botania is Open Source and distributed under the
+ * Botania License: http://botaniamod.net/license.php
  * 
  * File Created @ [Jan 24, 2014, 3:59:06 PM (GMT)]
  */
 package vazkii.botania.api.subtile;
 
+import java.util.ArrayList;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.ScaledResolution;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.util.IIcon;
+import net.minecraft.world.World;
 import vazkii.botania.api.BotaniaAPI;
 import vazkii.botania.api.lexicon.LexiconEntry;
 import vazkii.botania.api.wand.IWandBindable;
@@ -34,18 +37,34 @@ public class SubTileEntity {
 
 	protected TileEntity supertile;
 
+	public int ticksExisted = 0;
+
 	/** The Tag items should use to store which sub tile they are. **/
 	public static final String TAG_TYPE = "type";
+	public static final String TAG_TICKS_EXISTED = "ticksExisted";
 
 	public void setSupertile(TileEntity tile) {
 		supertile = tile;
 	}
 
 	public boolean canUpdate() {
-		return false;
+		return true;
 	}
 
-	public void onUpdate() { }
+	public void onUpdate() {
+		ticksExisted++;
+	}
+
+	public final void writeToPacketNBTInternal(NBTTagCompound cmp) {
+		cmp.setInteger(TAG_TICKS_EXISTED, ticksExisted);
+		writeToPacketNBT(cmp);
+	}
+
+	public final void readFromPacketNBTInternal(NBTTagCompound cmp) {
+		if(cmp.hasKey(TAG_TICKS_EXISTED))
+			ticksExisted = cmp.getInteger(TAG_TICKS_EXISTED);
+		readFromPacketNBT(cmp);
+	}
 
 	/**
 	 * Writes some extra data to a network packet. This data is read
@@ -83,6 +102,39 @@ public class SubTileEntity {
 	 */
 	public boolean onWanded(EntityPlayer player, ItemStack wand) {
 		return false;
+	}
+
+	/**
+	 * Called when this sub tile is placed in the world (by an entity).
+	 */
+	public void onBlockPlacedBy(World world, int x, int y, int z, EntityLivingBase entity, ItemStack stack) {
+		// NO-OP
+	}
+
+	/**
+	 * Called when a player right clicks this sub tile.
+	 */
+	public boolean onBlockActivated(World world, int x, int y, int z, EntityPlayer player, int side, float hitX, float hitY, float hitZ) { return false; }
+
+	/**
+	 * Called when this sub tile is added to the world.
+	 */
+	public void onBlockAdded(World world, int x, int y, int z) {
+		//NO-OP
+	}
+
+	/**
+	 * Called when this sub tile is harvested
+	 */
+	public void onBlockHarvested(World world, int x, int y, int z, int side, EntityPlayer player) {
+		//NO-OP
+	}
+
+	/**
+	 * Allows additional processing of sub tile drops
+	 */
+	public ArrayList<ItemStack> getDrops(ArrayList<ItemStack> list) {
+		return list;
 	}
 
 	/**
