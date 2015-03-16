@@ -298,7 +298,6 @@ public class Compat {
             Config.spawnerMobs.put("TwilightForest.Tower Ghast", DarkAspects.NETHER);
             Config.spawnerMobs.put("TwilightForest.Tower Golem", Aspect.METAL);
             Config.spawnerMobs.put("TwilightForest.Tower Termite", Aspect.MAGIC);
-            Config.spawnerMobs.put("TwilightForest.Block&Chain Goblin", Aspect.METAL);
             Config.spawnerMobs.put("TwilightForest.Upper Goblin Knight", Aspect.METAL);
             Config.spawnerMobs.put("TwilightForest.Lower Goblin Knight", Aspect.METAL);
             Config.spawnerMobs.put("TwilightForest.Helmet Crab", Aspect.METAL);
