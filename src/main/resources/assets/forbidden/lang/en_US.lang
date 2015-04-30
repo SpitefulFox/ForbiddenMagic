@@ -48,6 +48,11 @@ item.SubCollar.name=Collar of Pain
 item.RingNutrition.name=Ring of Nutrition
 item.TaintFruit.name=Tainted Fruit
 item.TaintCoal.name=Hexcoal
+item.fools.0.name=Bloody Poppet
+item.fools.1.name=Wizard Poppet
+item.fools.2.name=Thaumium Arthana
+item.fools.3.name=Void Boline
+item.fools.4.name=Cornuthaum
 #
 # Wand components
 item.Wand.tainted.rod=Tainted
@@ -57,11 +62,13 @@ item.Wand.blood.rod=Blood
 item.Wand.witchwood.rod=Witchwood
 item.Wand.livingwood.rod=Livingwood
 item.Wand.dreamwood.rod=Dreamwood
+item.Wand.hawthorn.rod=Hawthorn
 item.Wand.orichalcum.cap=Orichalcum Studded
 item.Wand.alchemical.cap=Alchemically Crowned
 item.Wand.vinteum.cap=Vinteum Bossed
 item.Wand.manasteel.cap=Manasteel Entwined
 item.Wand.elementium.cap=Elementium Kissed
+item.Wand.cobalt.cap=Koboldite Veiled
 item.WandCores.tainted.name=Tainted Rod
 item.WandCores.infernal.name=Infernal Rod
 item.WandCores.soul.name=Eldritch Rod
@@ -351,6 +358,10 @@ forbidden.research_page.TAINTHISTLE.1=When you have unlimited arcane power at yo
 forbidden.research_name.SUBCOLLAR=Collar of Pain
 forbidden.research_text.SUBCOLLAR=Pain and Magic
 forbidden.research_page.SUBCOLLAR.1=Sometimes, people just want to get hurt. Especially if there's a benefit...<BR><BR>The Collar of Pain has all the capabilities of an Amulet of Vis Storage with the added bonus that it will generate vis whenever you take damage. The more you get hurt, the more vis it generates.
+#
+forbidden.research_name.FOOL=Wizard Poppet
+forbidden.research_text.FOOL=April Fools!
+forbidden.research_page.FOOL.1=The greatest threat to a skilled thaumaturge is another thaumaturge. When an opponent knows most of the same thaumaturgical tricks you do, the best way to get ahead is to utilize some less conventional magicks.<BR><BR>By dressing a poppet in the right trappings, you create a tool that uses sympathetic magic to sabotage other thaumaturges.<BR><BR>Hold a taglocked Wizard Poppet in your hand and right click to flick the hat off its head, draining vis from any wands in the targetted thaumaturge's inventory.
 #
 # Lexicon
 forbidden.lexicon.euclidaisy=Euclidaisy

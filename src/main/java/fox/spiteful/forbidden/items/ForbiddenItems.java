@@ -72,6 +72,10 @@ public class ForbiddenItems {
     public static WandCap WAND_CAP_MANASTEEL;
     public static WandCap WAND_CAP_ELEMENTIUM;
 
+    public static WandRod WAND_ROD_HAWTHORN;
+    public static WandCap WAND_CAP_COBALT;
+    public static Item fools;
+
     public static void addItems() {
         deadlyShards = new ItemDeadlyShard().setUnlocalizedName("NetherShard");
         GameRegistry.registerItem(deadlyShards, "NetherShard");
@@ -195,6 +199,11 @@ public class ForbiddenItems {
 
         blinkFocus = new ItemFocusBlink().setUnlocalizedName("BlinkFocus");
         GameRegistry.registerItem(blinkFocus, "BlinkFocus");
+
+        WAND_CAP_COBALT = new DarkWandCap("cobalt", 0.7F, new ItemStack(Blocks.command_block, 1), 1000, new ResourceLocation("forbidden", "textures/models/wand_cap_cobalt.png"));
+        WAND_ROD_HAWTHORN = new WandRod("hawthorn", 100, new ItemStack(Blocks.bedrock, 1), 1000, new ResourceLocation("forbidden", "textures/models/wand_rod_hawthorn.png"));
+        fools = new ItemFools();
+        GameRegistry.registerItem(fools, "Fools");
 
     }
 

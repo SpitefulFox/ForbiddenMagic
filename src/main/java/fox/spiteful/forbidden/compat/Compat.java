@@ -1,5 +1,6 @@
 package fox.spiteful.forbidden.compat;
 
+import WayofTime.alchemicalWizardry.api.altarRecipeRegistry.AltarRecipeRegistry;
 import fox.spiteful.forbidden.*;
 import fox.spiteful.forbidden.tiles.SubTileEuclidaisy;
 import fox.spiteful.forbidden.tiles.SubTileWhisperweed;
@@ -48,6 +49,8 @@ public class Compat {
     public static boolean special = false;
     public static boolean twilight = false;
 
+    public static boolean witchery = false;
+
     public static void initiate() {
         if(!Config.crossMod)
             return;
@@ -59,6 +62,7 @@ public class Compat {
         botan = Config.botan && Loader.isModLoaded("Botania");
         special = Config.wrathCage && Config.special && Loader.isModLoaded("SpecialMobs");
         twilight = Config.wrathCage && Config.twilight && Loader.isModLoaded("TwilightForest");
+        witchery = Loader.isModLoaded("witchery");
     }
 
     public static void compatify() {
@@ -316,6 +320,22 @@ public class Compat {
             Config.spawnerMobs.put("TwilightForest.Knight Phantom", Aspect.METAL);
             Config.spawnerMobs.put("TwilightForest.Yeti", Aspect.COLD);
             Config.spawnerMobs.put("TwilightForest.WinterWolf", Aspect.COLD);
+        }
+
+        if(witchery){
+            try {
+                Item poppet = getItem("witchery", "poppet");
+                Item ingredient = getItem("witchery", "ingredient");//35 misf 22 mandr
+
+                IArcaneRecipe wizpop = ThaumcraftApi.addArcaneCraftingRecipe("FOOL", new ItemStack(ForbiddenItems.fools, 1, 1), (new AspectList()).add(Aspect.ENTROPY, 10).add(Aspect.FIRE, 10).add(Aspect.WATER, 10).add(Aspect.AIR, 10).add(Aspect.EARTH, 10).add(Aspect.ORDER, 10), new Object[]{" C ", "SPM", " R ", Character.valueOf('C'), new ItemStack(ForbiddenItems.fools, 1, 4), Character.valueOf('S'), new ItemStack(ConfigItems.itemResource, 1, 14), Character.valueOf('M'), new ItemStack(ingredient, 1, 22),
+                Character.valueOf('P'), new ItemStack(poppet, 1), Character.valueOf('R'), new ItemStack(ingredient, 1, 35)});
+                (new DarkResearchItem("FOOL", "FORBIDDEN", "[W]", (new AspectList()), 2, -6, 0, new ItemStack(ForbiddenItems.fools, 1, 1))).setPages(new ResearchPage[]{new ResearchPage("forbidden.research_page.FOOL.1"), new ResearchPage(wizpop)}).setAutoUnlock().registerResearchItem();
+
+                AltarRecipeRegistry.registerAltarRecipe(new ItemStack(ForbiddenItems.fools, 1, 0), new ItemStack(poppet, 1, 0), 4, 20000, 15, 20, false);
+            }
+            catch(Exception e){
+                e.printStackTrace();
+            }
         }
     }
 
