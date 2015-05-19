@@ -30,6 +30,7 @@ item.FMResource.0.name=绿宝石碎片
 item.FMResource.1.name=暗影墨水
 item.FMResource.2.name=魔钢粒
 item.FMResource.3.name=腐血碎片
+item.FMResource.4.name=元素钢粒
 item.MobCrystalEmpty.name=空白留影水晶
 item.MobCrystal.name=%s 留影水晶
 item.DiabolistFork.name=妖魔之叉
@@ -42,6 +43,11 @@ item.RidingCrop.name=马鞭
 item.Divinewell.name=图特之笔
 item.BoundShears.name=绑定剪刀
 item.BloodRapier.name=血鸮西洋剑
+item.Boundwell.name=绑定笔与墨
+item.SubCollar.name=苦痛项圈
+item.RingNutrition.name=滋养指环
+item.TaintFruit.name=腐化果实
+item.TaintCoal.name=六重煤炭
 #
 # Wand components
 item.Wand.tainted.rod=腐化
@@ -52,11 +58,13 @@ item.Wand.blood.rod=血腥
 item.Wand.witchwood.rod=巫魂木
 item.Wand.totem.rod=图腾
 item.Wand.livingwood.rod=活木
+item.Wand.dreamwood.rod=梦之木
 item.Wand.orichalcum.cap=镶嵌奥利哈康杖端
 item.Wand.alchemical.cap=炼金纹饰杖端
 item.Wand.vinteum.cap=温特姆杖端
 item.Wand.soul.cap=末影覆层杖端
 item.Wand.manasteel.cap=魔钢缠绕杖端
+item.Wand.elementium.cap=元素钢亲吻杖端
 item.WandCores.tainted.name=腐化杖柄
 item.WandCores.infernal.name=炼狱杖柄
 item.WandCores.soul.name=异域杖柄
@@ -68,11 +76,17 @@ item.WandCores.livingwood.name=活木杖柄
 item.WandCores.livingwood_inert.name=休眠活木杖柄
 item.WandCores.blood_staff.name=血腥杖芯
 item.WandCores.witchwood_staff.name=巫魂木杖芯
+item.WandCores.dreamwood.name=梦之木杖柄
+item.WandCores.dreamwood_inert.name=休眠梦之木杖柄
+item.WandCores.dreamwood_staff.name=梦之木杖芯
 item.WandCaps.alchemical.name=炼金杖端
 item.WandCaps.vinteum.name=温特姆杖端
 item.WandCaps.soul.name=末影杖端
 item.WandCaps.manasteel.name=魔钢杖端
-item.WandCaps.manasteel_inert.name=惰性温特姆杖端
+item.WandCaps.manasteel_inert.name=惰性魔钢杖端
+item.WandCaps.elementium.name=元素钢杖端
+item.WandCaps.elementium_inert.name=惰性元素钢杖端
+item.BlinkFocus.name=法杖核心:闪烁
 #
 # Blocks
 tile.ArcaneCake.name=奥法蛋糕
@@ -80,7 +94,16 @@ tile.InkFlower.name=暗影玫瑰
 tile.WrathCage.name=暴怒之笼
 tile.StarBlock.name=下界之星方块
 tile.blackRoseBush.name=暗影玫瑰丛
-tile.darkflower.euclidaisy.name=欧氏菊
+tile.TaintLog.name=腐化木头
+tile.TaintPlank.name=腐化木板
+tile.TaintLeaves.name=腐化树叶
+tile.TaintSapling.name=腐化树苗
+tile.TaintStone_Smooth.name=腐化石头
+tile.TaintStone_Brick.name=腐化石砖
+darkflower.euclidaisy.name=欧氏菊
+darkflower.whisperweed.name=细语草
+darkflower.tainthistle.name=腐化蓟
+darkflower.bloodthorn.name=血荆棘
 #
 # Enchantments
 enchantment.cluster=炽心
@@ -95,12 +118,27 @@ enchantment.impact=冲击
 # Potions
 potion.blood_seal=血之印记
 #
+# Focus Upgrades
+forbidden.upgrade.hellfire.name=地狱火
+forbidden.upgrade.hellfire.text=这个升级将会在你被传送到的地方释放一团火焰.
+forbidden.upgrade.pandemonium.name=尘嚣
+forbidden.upgrade.pandemonium.text=这个升级将会把你被传送到的地方的敌人送到你之前的位置.
+#
+# Tooltips
+tooltip.currentowner=当前持有者:
+tooltip.divineorb=存储的原生生命源质:
+tooltip.creativeonly=创造模式专用
+tooltip.collar.owner=持有者:
+#
+# Messages
+message.collar.alreadywearing=%s的脖子上早已戴上了某种东西!
+message.collar.placescollar=%s将项圈戴在了你的脖子上.
+message.collar.youplacecollar=你向%s的脖子上戴上了项圈.
+#
 # Misc
 itemGroup.forbidden=禁忌魔法
 itemGroup.mobcrystal=留影水晶
 tc.research_category.FORBIDDEN=伪经
-forbidden.lexicon.euclidaisy=欧氏菊
-forbidden.lexicon.euclidaisy.0=那古怪的粉色&1欧氏菊&0十分不可思议.它耗费大量魔力变幻出一些看来只有神秘使用得着的天域精华.<br>这种手法似乎并非寻常的知识.试试查阅魔导手册?
 #
 # Research
 forbidden.research_name.NETHERSHARDS=下界之星
@@ -114,9 +152,17 @@ forbidden.research_name.SKULLAXE=啄颅斧
 forbidden.research_text.SKULLAXE=砍掉他们的脑袋!
 forbidden.research_page.SKULLAXE.1=某些怪物就是那么能让你热血沸腾.骷髅!老是咔咔作响,拿你当练箭的靶子.他们就那样来回转悠,扫荡一切彷佛主宰着这片土地.你真希望你可以一股劲儿剁掉他们自鸣得意的脑袋,将它们插在矛尖上.<BR><BR>幸运的是,你真发现一个能让你实现设想的好东西.啄颅斧有一定几率会砍掉用它杀死的怪物的头颅.在杀人的时候甚至也能发挥这效果！不幸的是,注入的魔力为了使得这柄斧头足以能割草无双,让它过于嗜血了.
 #
+forbidden.research_name.RINGFOOD=滋养指环
+forbidden.research_text.RINGFOOD=奶酪泡芙可以预防坏血病,对吧?
+forbidden.research_page.RINGFOOD.1=人们一直在责备你.他们坚持认为你不可能终日以曲奇为食,或者说"营养不是那样补充的." 好吧,但是你现在可以拿这个来回应那些反对者了.<BR><BR>当你手指上戴着滋养指环时,它就可以给你绝大多数的食物提供额外的饱食度加成.<BR><BR>(副作用可能包括反胃,头痛,痉挛,眩晕,糖尿病,以及对顺势疗法的突发兴趣.)
+#
 forbidden.research_name.ARCANECAKE=奥法蛋糕
 forbidden.research_text.ARCANECAKE=让他们吃掉蛋糕.
 forbidden.research_page.ARCANECAKE.1=若问有哪样事物为你所钟爱,那必定是指蛋糕了.愿意的话你可以一整天品尝它的美味,但也总有吃光的时候.<BR><BR>为了补救这种遗憾,你开发出一种新的配方,将长寿魔法注入到蛋糕之中.奥法蛋糕明显比普通蛋糕耐吃,且只要剩下一点点,就能随着时间推移自己复原.然而这种附魔并不稳定,放下后的蛋糕将无法用寻常手段移除.
+#
+forbidden.research_name.FOCUSBLINK=法杖核心:闪烁
+forbidden.research_text.FOCUSBLINK=比那愚蠢的末影珍珠要好
+forbidden.research_page.FOCUSBLINK.1=啊哈.<BR><BR>有一件事情比起床还令人恼火,那就是走路.简直是成吨————的工作.如果你还是像凡人一样用脚走路,那么你成为一名华丽丽的法师的意义是什么?<BR><BR>闪烁核心,解放你的双脚! 只需要将你的法杖指向远处并不断挥舞,你就被传送过去了.<BR><BR>现在你只需要一个Shower核心,然后就一切就绪了...
 #
 forbidden.research_name.TAINTSHOVEL=净化铲
 forbidden.research_text.TAINTSHOVEL=犹如火热的刀子划过真正的黄油
@@ -130,6 +176,14 @@ forbidden.research_page.TAINTPICK.1=向神秘镐中注入腐化的力量,你制�
 forbidden.research_name.ROD_tainted=腐化杖柄
 forbidden.research_text.ROD_tainted=扭曲地存储魔力
 forbidden.research_page.ROD_tainted.1=腐化的大地对那些知道如何开发它们的神秘使来说是既了不起又糟透了的地方.<BR><BR>腐化法杖核心能够存储每种魔力50 vis,且身处腐化区域时还能自动将每种要素回复到10%的水平.这种法杖被攥在手里时,还能从穿透静脉的咒波污染中汲取能量,在每次承受咒波污染伤害时随机回复魔力.
+#
+forbidden.research_name.TAINTTREE=腐化之树
+forbidden.research_text.TAINTTREE=咒流之根所蕴育的邪恶果实
+forbidden.research_page.TAINTTREE.1=那些令人作呕的,极度扭曲的魔法实验残余可以承载一些奇怪的生命.大多数植物是无法在腐化之地生存的,但是你却找到了一种可以种在那里的植物.将树苗浸泡于腐化之中,你创造出了一种能在腐化之地生长的树.<BR><BR>它的木头可以被加工成对腐化纤维有抗性的木板,这样你就可以建造出一间能抵御污染扩散的房子.<BR><BR>这种树似乎还能结出果实,但是吃掉那些果实并不是一个好主意...
+#
+forbidden.research_name.TAINTSTONE=腐化石头
+forbidden.research_text.TAINTSTONE=石头上摇滚的污染
+forbidden.research_page.TAINTSTONE.1=腐化之地并不是一个适合久留的安全地带.腐化纤维像饿疯了一样扩散,将它们的触手延伸到几乎所有物体的表面,并最终包围,使得你无法在上面行走.然而这纤维并不会对腐化的生物或材料造成危害.<BR><BR>将普通石头与污染相混合,你创造出了一种结构坚硬并且能抵抗腐化纤维扩散的魔法材料.腐化石头可用于在腐化之地铺设一条安全通行的道路.<BR><BR>然而这并不意味着在腐化之地定居是个好主意...
 #
 forbidden.research_name.ROD_infernal=炼狱杖柄
 forbidden.research_text.ROD_infernal=恶魔式存储魔力
@@ -165,6 +219,10 @@ forbidden.research_name.ROD_livingwood=活木杖柄
 forbidden.research_text.ROD_livingwood=植物存储魔力
 forbidden.research_page.ROD_livingwood.1=活木在操纵AM魔力的性能上得天独厚.当其与合适的药剂相融合,甚至可以将AM魔力转换为TC魔力.<BR><BR>活木法杖能从物品栏存储的物品中抽取AM魔力为自己充能.<BR><BR>不幸的是,注魔的过程会使活木陷入休眠,注魔后杖端需要在血池中进行充能才能重新激活.
 #
+forbidden.research_name.ROD_dreamwood_staff=梦之木杖柄
+forbidden.research_text.ROD_dreamwood_staff=甜美之梦所缔造
+forbidden.research_page.ROD_dreamwood_staff.1=活木是一种有用的材料,但它似乎无法承受制造杖柄时所用的那种奥法魔力.但是精灵族的梦之木却可以胜任.<BR><BR>梦之木所打造的法杖,相比于等价的其它法杖来说明显能容纳更多Vis,在使用法杖核心时还能增强核心的效果.<BR><BR>和活木一样,要完全激活梦之木杖柄需要将其放入魔力池中进行注魔方可.
+#
 forbidden.research_name.CAP_alchemical=炼金纹饰杖端
 forbidden.research_text.CAP_alchemical=当神秘学不够血腥时
 forbidden.research_page.CAP_alchemical.1=将神秘学与炼金巫术相结合,你开发出一种新型杖端.炼金纹饰杖端在引导Aqua要素时非常高效,与平常相比仅仅需要80%的魔力消耗量.但对其余类型的要素,效率只有90%.<BR><BR>若安装在血腥杖柄上,炼金纹饰杖端将提高生命点转换成魔力的效率,每vis只需900生命点.这种杖端还能让所有的血腥法杖发出的攻击附带虚弱效果.
@@ -180,6 +238,10 @@ forbidden.research_page.CAP_soul.1=你已经制造出一种杖端,能够安全�
 forbidden.research_name.CAP_manasteel=魔钢杖端
 forbidden.research_text.CAP_manasteel=魔力之秘
 forbidden.research_page.CAP_manasteel.1=魔钢在操纵AM魔力的特性方面得天独厚.用它来制作的杖端只有90%的魔力效率.安装在活木杖柄上后,它能够让AM魔力转换成vis的效率更高.<BR><BR>为了用于制作法杖,惰性魔钢杖端需要在血池中激活.
+#
+forbidden.research_name.CAP_elementium=元素钢杖端
+forbidden.research_text.CAP_elementium=生态友好型杖端
+forbidden.research_page.CAP_elementium.1=精灵世界似乎是一个浸透着魔力的世界,然而元素钢也不例外.当使用正确的材料处理并用于合成为杖端后,元素钢杖端正如期望中的那样获得了引导Vis的能力.若是与使用Mana的杖芯或杖柄相结合,它们还可以降低Mana的转换比率.<BR><BR>元素钢的那一抹粉色就像是凝结在蛋糕上一样.
 #
 forbidden.research_name.TRANSEMERALD=嬗变术:绿宝石
 forbidden.research_text.TRANSEMERALD=将贵重物品转换为绿宝石
@@ -241,6 +303,18 @@ forbidden.research_text.TAINTBASICS=深紫色
 forbidden.research_page.TAINTBASICS.1=有时候,神秘学会变得糟糕可怖.奇迹变成了扭曲的灾难以及大片丑陋的景观.腐化的大地是被魔法设备排出的扭曲魔力咒波污染了的地方.当地的花花草草会发生扭曲的变异,动物也会从普通的野兽转变成敌对的怪物.污染极端严重的腐化区域还会感染那些践踏它脉动的须根的家伙.
 forbidden.research_page.TAINTBASICS.2=腐化大地天然分布于世界的某些角落.但有时也会因为粗枝大叶的神秘使让咒波粘浆淤塞了过长时间而人为形成.它们很容易通过那些深紫色的须根和亮紫色的藤梗辨识.如若放置不管,腐化大地一般会将它的触手向外蔓延,感染周围越来越多的土地.树木或其他天然植渐渐会被覆盖上一层纤维状的物质,而泥土会变成稠密发紫的腐化泥土,变得结构松垮,随时可能坍塌或融化成咒波粘浆.
 #
+forbidden.research_name.SCHOOLS=魔法学园
+forbidden.research_text.SCHOOLS=条条大路通魔法...
+forbidden.research_page.SCHOOLS.1=很多神秘使嘲笑那些涉猎其它形式的魔法的想法.又有谁需要那些不同于纯净,奇迹般的秘术魔法呢?<BR><BR>然而不拘泥于常识的神秘使们却讲述了一个完全不同的故事.若你知道该从哪里下手的话,那些其他的魔法的艺术完全有能力孕育出一代全新的魔术师...
+#
+forbidden.research_name.BLOODMAGIC=血之魔法
+forbidden.research_text.BLOODMAGIC=献祭中孕育的力量
+forbidden.research_page.BLOODMAGIC.1=血魔法,或者用一些人的偏好,"炼金巫术",是个奇特但名声不好的选择.建造各种奇怪的金字塔形的神殿并练习血腥的仪式,血魔法师们使用生命源质向物品中灌注魔力,甚至是制造符咒.<BR><BR>若是一名醉心于血之魔法的,更肆无忌惮的神秘使或许可以在这个领域更加深入一些,但是代价又如何呢?
+#
+forbidden.research_name.BOTANY=花之魔法
+forbidden.research_text.BOTANY=地下长眠之力...
+forbidden.research_page.BOTANY.1=一些狂热炼金术士说花朵是宇宙于咏唱中诞生之时的超通用语言.<BR><BR>不论此论点正确与否,植物学家们确实已经发现了驾驭花和其它植物的能量的方法,并籍此达成魔法之技艺.有些神秘使嘲笑说这是"树篱中的肮脏巫术",但是在那地下的最深处,确有那强大的力量,正等候有识之人的发掘.
+#
 forbidden.research_name.BLOODWELL=血腥之笔与墨
 forbidden.research_text.BLOODWELL="如若它杀了我,我便能完成这项研究!"
 forbidden.research_page.BLOODWELL.1=没有比研究到一半却需要补充墨水更令人沮丧的事情了.有时候,你宁可使用自己的血来代替墨水也不愿意中断研究去找墨水.<BR><BR>血腥之笔与墨将能够使用生命点来补充墨水，每25个生命点补充一点墨水.但这项能力需要用体温激活,因此填充墨水时需要你从研究台中取出这个工具,但却实际上不会因此中断研究.
@@ -257,6 +331,10 @@ forbidden.research_name.CRYSTALWELL=水晶笔与墨
 forbidden.research_text.CRYSTALWELL=奥术研究授权
 forbidden.research_page.CRYSTALWELL.1=将元素碎片与你的魔瓶融合会出现有趣的效果.看起来,用水晶笔与墨书写的时候会吸收到知识.当墨水耗尽时,你可以拿起水晶笔与墨右键,吸收到的这些知识就会转变成一些研究点供你使用.遗憾的是,这会耗尽这个小玩意儿上附带的魔力,使得它又变回普通的笔与墨.
 #
+forbidden.research_name.PRIMEWELL=元始笔与墨
+forbidden.research_text.PRIMEWELL=超一流的正确选择
+forbidden.research_page.PRIMEWELL.1=你学到了一些人类不曾知晓的东西,看到了人类不曾看到的东西,并来到了人类不曾涉足的领域.<BR><BR>这些不寻常的经历教会了你一种新的装填墨水的方式.<BR><BR>利用元始珍珠的非凡性质,你可以制造出一些永不耗尽的笔与墨. 纵使有黑暗且冷酷的时间终结,纵使有百万之恒星的瞬间爆炸,元始笔与墨将始终向前记录着一切.
+#
 forbidden.research_name.RIDINGCROP=马鞭
 forbidden.research_text.RIDINGCROP=鞭策之痛
 forbidden.research_page.RIDINGCROP.1=马鞭,顾名思义,是一种让坐骑跑得更快的工具.手持马鞭骑着马匹或其他坐骑时右击,会让坐骑感到一阵疼痛,鞭策它加速奔跑一阵儿.<BR><BR>当然你也可以用这个鞭子抽打其他生物,但到底你被什么念头占据了身体才会那样子啊?
@@ -268,3 +346,25 @@ forbidden.research_page.HELLFIRE.1=身陷下界是最糟糕的体验.当你克�
 forbidden.research_name.EUCLIDAISY=欧氏菊
 forbidden.research_text.EUCLIDAISY=俺の嫁,以月亮的名义,能量超⑨千!我反正信了!
 forbidden.research_page.EUCLIDAISY.1=天域精华是源质的重要来源,也是世界盐配方中非常重要的材料.不幸的是它们很难获得.精灵并不常见,而有自尊心的神秘使很少会想要去敲碎节点.<BR><BR>融汇神秘学与植物魔法的知识你研究出一种花,能够耗费大量法力打破现实世界的藩篱.尽管这道裂隙不足以形成一个节点,但却能够维持一段时间,足以让单个的天域精华漏出.通入红石信号能够让这朵花停止运作.
+#
+forbidden.research_name.WHISPERWEED=细语草
+forbidden.research_text.WHISPERWEED=这是外号,不是替身
+forbidden.research_page.WHISPERWEED.1=相比于为了研究忙得团团转,一位神秘使其实应该去做一些更好的事情.为了拯救你那些浪费在乱七八糟的事情上的时间,你创造了一种花,它可以触碰到宇宙中那超自然的源流.拥有魔力的细语草会消耗Mana,将细碎的奥术知识低声地告诉在一旁聆听的人.<BR><BR>然而,长期暴露在它超自然的咕哝下也许会对你的心理造成负面影响...
+#
+forbidden.research_name.TAINTHISTLE=腐化蓟
+forbidden.research_text.TAINTHISTLE=它不会扫荡干净你的空百奇盒子的
+forbidden.research_page.TAINTHISTLE.1=在你的指尖拥有无尽的魔法时,像是清理你实验室地板上的咒波粘浆这样的零活就显得有些卑贱了.<BR><BR>幸运的是,现在你找到了一位可以帮你扫地的助手.腐化蓟将会吃掉它附近所有的咒波粘浆和瓦斯,并以此来产生Mana.
+#
+forbidden.research_name.SUBCOLLAR=苦痛项圈
+forbidden.research_text.SUBCOLLAR=痛苦与魔法
+forbidden.research_page.SUBCOLLAR.1=有时,人类只是想受到伤害.尤其是在有好处的时候...<BR><BR>苦痛项圈拥有作为一个魔力储存护身符的所有能力,但它会在你受到伤害时产生一定量Vis.你受到的伤害越多,产生的Vis就越多.
+#
+# Lexicon
+forbidden.lexicon.euclidaisy=欧氏菊
+forbidden.lexicon.euclidaisy.0=那古怪的粉色&1欧氏菊&0十分不可思议.它耗费大量魔力变幻出一些看来只有神秘使用得着的天域精华.<br>这种手法似乎并非寻常的知识.试试查阅魔导手册?
+forbidden.lexicon.whisperweed=细语草
+forbidden.lexicon.whisperweed.0=&1细语草&0是种不开心的植物,它总是会向哪些愿意聆听的人倾吐秘密.关于这个植物似乎并没有什么要说的,因为那些秘密和植物学的联系不大.<br>&o比万事通知道的秘密还要多&r
+forbidden.lexicon.tainthistle=腐化蓟
+forbidden.lexicon.tainthistle.0=那令人厌恶的&1腐化蓟&0原本是生长于魔法实验后产生的腐化物质中的植物.它会消灭掉它能找到的一切物质,并试图转化为Mana.因为植物学是一项环境友好型的业务,所以这里也没什么可以多说的.<br>&o比Spirit Vine更具有入侵性&r
+forbidden.lexicon.bloodthorn=血荆棘
+forbidden.lexicon.bloodthorn.0=源自一些令人作呕并且极度扭曲的血魔法师的实验,&1血荆棘&0是一种神秘红色花朵,长期浸泡于血液之中,直到它发展出了吞噬一切生命力的特性.它会消耗魔力并对周围的所有与炼金术不相配的生物施加以极高级别的虚弱.<br>&o崖昆(Yakone)的遗产&r
