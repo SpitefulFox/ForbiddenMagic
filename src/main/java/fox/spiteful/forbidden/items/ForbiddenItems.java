@@ -78,17 +78,9 @@ public class ForbiddenItems {
     public static void addItems() {
         deadlyShards = new ItemDeadlyShard().setUnlocalizedName("NetherShard");
         GameRegistry.registerItem(deadlyShards, "NetherShard");
-        OreDictionary.registerOre("shardNether", new ItemStack(deadlyShards, 1, 0));
-        OreDictionary.registerOre("shardNether", new ItemStack(deadlyShards, 1, 1));
-        OreDictionary.registerOre("shardNether", new ItemStack(deadlyShards, 1, 3));
-        if (!Config.noLust)
-            OreDictionary.registerOre("shardNether", new ItemStack(deadlyShards, 1, 4));
-        OreDictionary.registerOre("shardNether", new ItemStack(deadlyShards, 1, 5));
-        OreDictionary.registerOre("shardNether", new ItemStack(deadlyShards, 1, 6));
 
         gluttonyShard = new ItemGluttonyShard().setUnlocalizedName("GluttonyShard");
         GameRegistry.registerItem(gluttonyShard, "GluttonyShard");
-        OreDictionary.registerOre("shardNether", new ItemStack(gluttonyShard, 1, 0));
 
         taintShovel = new ItemTaintShovel(ThaumcraftApi.toolMatElemental).setUnlocalizedName("TaintShovel");
         GameRegistry.registerItem(taintShovel, "TaintShovel");
