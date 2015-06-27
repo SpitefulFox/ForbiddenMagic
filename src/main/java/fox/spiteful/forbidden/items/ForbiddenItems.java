@@ -62,6 +62,9 @@ public class ForbiddenItems {
     public static WandRod WAND_ROD_WITCHWOOD;
     public static WandRod WAND_ROD_LIVINGWOOD;
     public static WandRod WAND_ROD_DREAMWOOD;
+    public static WandRod WAND_ROD_EQUIVALENT;
+    public static WandRod WAND_ROD_PROFANE;
+    public static WandRod WAND_ROD_PROFANED;
     public static StaffRod STAFF_ROD_BLOOD;
     public static StaffRod STAFF_ROD_NEUTRONIUM;
     public static StaffRod STAFF_ROD_WITCHWOOD;
@@ -133,6 +136,9 @@ public class ForbiddenItems {
         WAND_ROD_WITCHWOOD = new WandRod("witchwood", 100, new ItemStack(wandCore, 1, 4), 12, new ManaWandUpdate(), new ResourceLocation("forbidden", "textures/models/wand_rod_witchwood.png"));
         WAND_ROD_LIVINGWOOD = new WandRod("livingwood", 100, new ItemStack(wandCore, 1, 7), 12, new YandereWandUpdate(), new ResourceLocation("forbidden", "textures/models/wand_rod_livingwood.png"));
         WAND_ROD_DREAMWOOD = new WandRod("dreamwood", 100, new ItemStack(wandCore, 1, 11), 12, new YandereWandUpdate(), new ResourceLocation("forbidden", "textures/models/wand_rod_dreamwood.png"));
+        WAND_ROD_EQUIVALENT = new WandRod("equivalent", 100, new ItemStack(wandCore, 1, 11), 12, new ResourceLocation("forbidden", "textures/models/wand_rod_equivalent.png"));
+        WAND_ROD_PROFANE = new WandRod("profane", 50, new ItemStack(wandCore, 1, 5), 12, new ProfaneWandUpdate(), new ResourceLocation("forbidden", "textures/models/wand_rod_profane.png"));
+        WAND_ROD_PROFANED = new WandRod("profaned", 50, new ItemStack(Blocks.bedrock, 1), 1000, new ResourceLocation("forbidden", "textures/models/wand_rod_profaned.png"));
         STAFF_ROD_BLOOD = new StaffRod("blood", 50, new ItemStack(wandCore, 1, 9), 24, new BloodStaffUpdate(), new ResourceLocation("forbidden", "textures/models/wand_rod_blood.png"));
         STAFF_ROD_NEUTRONIUM = new StaffRod("neutronium", 9002, new ItemStack(Blocks.bedrock, 1), 1000, new CreativeWandUpdate(), new ResourceLocation("forbidden", "textures/models/wand_rod_neutronium.png"));
         STAFF_ROD_NEUTRONIUM.setGlowing(true);

@@ -44,6 +44,8 @@ public class Config {
     public static boolean emeraldTrans = true;
     public static boolean wrathCrazy = false;
     public static byte gluttony = 0;
+    public static boolean enchanting = true;
+    public static int hereticID = 666;
 
     public static boolean crossMod = true;
     public static boolean crossWand = true;
@@ -54,6 +56,8 @@ public class Config {
     public static boolean tc = true;
     public static boolean special = true;
     public static boolean twilight = true;
+    public static boolean emc = true;
+    //public static boolean eewand = true;
 
     public static int wrathCost = 5;
     public static int wrathEff = 4;
@@ -91,10 +95,12 @@ public class Config {
             if (wrathEff < 0)
                 wrathEff = 4;
             wrathCrazy = conf.get("general", "Wrath Cage Cries Havoc", wrathCrazy, "Enable to let the Wrath Cage imprint on ANY non-boss mob.  May break your game or make your game Awesome.").getBoolean(false);
+            enchanting = conf.get("general", "Enchantments Enabled", enchanting, "Disable if you don't like enchantments.").getBoolean(true);
             spork = conf.get("silly", "Spork of Doom", spork, "What is this?  I don't even...").getBoolean(false);
             gluttony = (byte)conf.get("general", "Gluttony", gluttony, "Whether gluttony research is enabled. 0 = Enabled, 1 = Disabled, 2 = Hardcore").getInt(0);
             if(gluttony < 0 || gluttony > 2)
                 gluttony = 0;
+            hereticID = conf.get("general", "Heretic Villager ID", hereticID).getInt(hereticID);
 
             bloodSealPotionID = conf.get("potions", "Blood Seal", bloodSealPotionID).getInt(bloodSealPotionID);
 
@@ -107,6 +113,8 @@ public class Config {
             tc = conf.get("compatibility", "Tinkers Construct Interaction", tc).getBoolean(true);
             special = conf.get("compatibility", "Special Mobs Interaction", special).getBoolean(true);
             twilight = conf.get("compatibility", "Twilight Forest Interaction", twilight).getBoolean(true);
+            emc = conf.get("compatibility", "Equivalent Exchange 3 EMC", emc, "Disable if you don't want Forbidden Magic to add EMC values to items.").getBoolean(true);
+            //eewand = conf.get("compatibility", "Equivalent Exchange 3 Wand", eewand, "Disable to specifically disable the EMC to Vis wand.").getBoolean(true);
         } catch (Exception e) {
             LogHandler.log(Level.ERROR, e, "Had a problem loading its configuration.");
         } finally {

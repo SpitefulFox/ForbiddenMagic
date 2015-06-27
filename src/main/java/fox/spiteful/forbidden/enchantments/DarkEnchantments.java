@@ -20,6 +20,9 @@ public class DarkEnchantments {
     public static Enchantment impact;
 
     public static void hex() {
+        if(!Config.enchanting)
+            return;
+
         cluster = new EnchantmentCluster(Config.clusterEnchID);
         wrath = new EnchantmentWrath(Config.wrathEnchID);
         greedy = new EnchantmentGreedy(Config.greedyEnchID);

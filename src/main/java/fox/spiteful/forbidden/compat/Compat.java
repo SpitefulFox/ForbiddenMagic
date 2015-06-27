@@ -1,42 +1,26 @@
 package fox.spiteful.forbidden.compat;
 
+import com.pahimar.ee3.api.exchange.EnergyValueRegistryProxy;
 import fox.spiteful.forbidden.*;
-import fox.spiteful.forbidden.tiles.SubTileEuclidaisy;
-import fox.spiteful.forbidden.tiles.SubTileWhisperweed;
+import fox.spiteful.forbidden.blocks.ForbiddenBlocks;
 import net.minecraft.block.Block;
-import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.CraftingManager;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.oredict.OreDictionary;
-
 import org.apache.logging.log4j.Level;
-
 import thaumcraft.api.ItemApi;
 import thaumcraft.api.ThaumcraftApi;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.aspects.AspectList;
 import thaumcraft.api.crafting.IArcaneRecipe;
-import thaumcraft.api.crafting.InfusionEnchantmentRecipe;
 import thaumcraft.api.crafting.InfusionRecipe;
 import thaumcraft.api.research.ResearchPage;
+import thaumcraft.common.config.ConfigBlocks;
 import thaumcraft.common.config.ConfigItems;
-import vazkii.botania.api.BotaniaAPI;
-
-import fox.spiteful.forbidden.enchantments.DarkEnchantments;
 import fox.spiteful.forbidden.items.ForbiddenItems;
-
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.registry.GameRegistry;
-import vazkii.botania.api.lexicon.LexiconCategory;
-import vazkii.botania.api.lexicon.LexiconPage;
-import vazkii.botania.api.recipe.RecipePetals;
 
-import java.lang.reflect.Constructor;
-import java.util.List;
 
 public class Compat {
     public static boolean tt = false;
@@ -47,6 +31,7 @@ public class Compat {
     public static boolean botan = false;
     public static boolean special = false;
     public static boolean twilight = false;
+    public static boolean ee3 = false;
 
     public static void initiate() {
         if(!Config.crossMod)
@@ -59,6 +44,7 @@ public class Compat {
         botan = Config.botan && Loader.isModLoaded("Botania");
         special = Config.wrathCage && Config.special && Loader.isModLoaded("SpecialMobs");
         twilight = Config.wrathCage && Config.twilight && Loader.isModLoaded("TwilightForest");
+        ee3 = (Config.emc /* || Config.eewand*/) && Loader.isModLoaded("EE3");
     }
 
     public static void compatify() {
@@ -176,8 +162,84 @@ public class Compat {
             }
             catch (Throwable e){
                 LogHandler.log(Level.INFO, e, "Forbidden Magic: Botania? Do you wanna build a snowman?");
-                Compat.botan = false;
+                botan = false;
             }
+        }
+
+        if(ee3){
+            if(Config.emc){
+                try {
+                    for(int x = 0;x < 6;x++) {
+                        EnergyValueRegistryProxy.addPreAssignedEnergyValue(new ItemStack(ConfigItems.itemShard, 1, x), 256);
+                    }
+                    //EnergyValueRegistryProxy.addPreAssignedEnergyValue(new ItemStack(ConfigItems.itemShard, 1, 6), 354);
+                    //EnergyValueRegistryProxy.addPreAssignedEnergyValue(new ItemStack(ConfigItems.itemResource, 1, 0), 83);
+                    //EnergyValueRegistryProxy.addPreAssignedEnergyValue(new ItemStack(ConfigItems.itemResource, 1, 1), 459);
+                    //EnergyValueRegistryProxy.addPreAssignedEnergyValue(new ItemStack(ConfigItems.itemResource, 1, 2), 272);
+                    EnergyValueRegistryProxy.addPreAssignedEnergyValue(new ItemStack(ConfigItems.itemResource, 1, 3), 64);
+                    EnergyValueRegistryProxy.addPreAssignedEnergyValue(new ItemStack(ConfigItems.itemResource, 1, 4), 32);
+                    EnergyValueRegistryProxy.addPreAssignedEnergyValue(new ItemStack(ConfigItems.itemResource, 1, 6), 32);
+                    EnergyValueRegistryProxy.addPreAssignedEnergyValue(new ItemStack(ConfigItems.itemResource, 1, 7), 112);
+                    EnergyValueRegistryProxy.addPreAssignedEnergyValue(new ItemStack(ConfigItems.itemResource, 1, 8), 2056);
+                    EnergyValueRegistryProxy.addPreAssignedEnergyValue(new ItemStack(ConfigItems.itemResource, 1, 9), 5120);
+                    EnergyValueRegistryProxy.addPreAssignedEnergyValue(new ItemStack(ConfigItems.itemResource, 1, 11), 32);
+                    EnergyValueRegistryProxy.addPreAssignedEnergyValue(new ItemStack(ConfigItems.itemResource, 1, 12), 32);
+                    //EnergyValueRegistryProxy.addPreAssignedEnergyValue(new ItemStack(ConfigItems.itemResource, 1, 14), 354);
+                    //EnergyValueRegistryProxy.addPreAssignedEnergyValue(new ItemStack(ConfigItems.itemResource, 1, 15), 5986);
+                    EnergyValueRegistryProxy.addPreAssignedEnergyValue(new ItemStack(ConfigItems.itemResource, 1, 18), 227.556F);
+                    EnergyValueRegistryProxy.addPreAssignedEnergyValue(ConfigItems.itemZombieBrain, 1024);
+                    EnergyValueRegistryProxy.addPreAssignedEnergyValue(ConfigItems.itemWispEssence, 1024);
+                    EnergyValueRegistryProxy.addPreAssignedEnergyValue(ConfigItems.itemManaBean, 32);
+                    EnergyValueRegistryProxy.addPreAssignedEnergyValue(ConfigItems.itemSwordCrimson, 24580);
+                    EnergyValueRegistryProxy.addPreAssignedEnergyValue(ConfigItems.itemHelmetCultistLeaderPlate, 49152);
+                    EnergyValueRegistryProxy.addPreAssignedEnergyValue(ConfigItems.itemChestCultistLeaderPlate, 73728);
+                    EnergyValueRegistryProxy.addPreAssignedEnergyValue(ConfigItems.itemLegsCultistLeaderPlate, 65536);
+                    EnergyValueRegistryProxy.addPreAssignedEnergyValue(ConfigItems.itemBootsCultist, 1280);
+                    EnergyValueRegistryProxy.addPreAssignedEnergyValue(ConfigItems.itemChestCultistPlate, 2048);
+                    EnergyValueRegistryProxy.addPreAssignedEnergyValue(ConfigItems.itemHelmetCultistPlate, 1280);
+                    EnergyValueRegistryProxy.addPreAssignedEnergyValue(ConfigItems.itemLegsCultistPlate, 1792);
+                    EnergyValueRegistryProxy.addPreAssignedEnergyValue(ConfigItems.itemChestCultistRobe, 2304);
+                    EnergyValueRegistryProxy.addPreAssignedEnergyValue(ConfigItems.itemHelmetCultistRobe, 1536);
+                    EnergyValueRegistryProxy.addPreAssignedEnergyValue(ConfigItems.itemLegsCultistRobe, 2048);
+
+                    EnergyValueRegistryProxy.addPreAssignedEnergyValue(new ItemStack(ConfigBlocks.blockCosmeticSolid, 1, 0), 64);
+                    EnergyValueRegistryProxy.addPreAssignedEnergyValue(new ItemStack(ConfigBlocks.blockCosmeticSolid, 1, 2), 392);
+                    EnergyValueRegistryProxy.addPreAssignedEnergyValue(new ItemStack(ConfigBlocks.blockCosmeticSolid, 1, 3), 392);
+                    EnergyValueRegistryProxy.addPreAssignedEnergyValue(new ItemStack(ConfigBlocks.blockCosmeticSolid, 1, 6), 264);
+                    EnergyValueRegistryProxy.addPreAssignedEnergyValue(new ItemStack(ConfigBlocks.blockCosmeticSolid, 1, 7), 264);
+                    EnergyValueRegistryProxy.addPreAssignedEnergyValue(new ItemStack(ConfigBlocks.blockCosmeticSolid, 1, 11), 1);
+                    EnergyValueRegistryProxy.addPreAssignedEnergyValue(new ItemStack(ConfigBlocks.blockCosmeticSolid, 1, 12), 1);
+                    EnergyValueRegistryProxy.addPreAssignedEnergyValue(new ItemStack(ConfigBlocks.blockCosmeticSolid, 1, 14), 1);
+                    EnergyValueRegistryProxy.addPreAssignedEnergyValue(new ItemStack(ConfigBlocks.blockCosmeticSolid, 1, 15), 1);
+                    EnergyValueRegistryProxy.addPreAssignedEnergyValue(new ItemStack(ConfigBlocks.blockCustomPlant, 1, 0), 64);
+                    EnergyValueRegistryProxy.addPreAssignedEnergyValue(new ItemStack(ConfigBlocks.blockCustomPlant, 1, 1), 256);
+                    EnergyValueRegistryProxy.addPreAssignedEnergyValue(new ItemStack(ConfigBlocks.blockCustomPlant, 1, 2), 64);
+                    EnergyValueRegistryProxy.addPreAssignedEnergyValue(new ItemStack(ConfigBlocks.blockCustomPlant, 1, 3), 768);
+                    EnergyValueRegistryProxy.addPreAssignedEnergyValue(new ItemStack(ConfigBlocks.blockCustomPlant, 1, 5), 16);
+                    EnergyValueRegistryProxy.addPreAssignedEnergyValue(new ItemStack(ConfigBlocks.blockMetalDevice, 1, 0), 1792);
+                    EnergyValueRegistryProxy.addPreAssignedEnergyValue(new ItemStack(ConfigBlocks.blockTable, 1, 0), 28);
+                    EnergyValueRegistryProxy.addPreAssignedEnergyValue(new ItemStack(ConfigBlocks.blockTable, 1, 15), 28);
+                    EnergyValueRegistryProxy.addPreAssignedEnergyValue(new ItemStack(ConfigBlocks.blockEldritch, 1, 4), 4);
+                    for(int x = 0;x < 7;x++) {
+                        EnergyValueRegistryProxy.addPreAssignedEnergyValue(new ItemStack(ConfigBlocks.blockCrystal, 1, x), 1536);
+                    }
+                    EnergyValueRegistryProxy.addPreAssignedEnergyValue(new ItemStack(ConfigBlocks.blockMagicalLog, 1, 1), 64);
+                    EnergyValueRegistryProxy.addPreAssignedEnergyValue(new ItemStack(ConfigBlocks.blockMagicalLeaves, 1, 0), 1);
+                    EnergyValueRegistryProxy.addPreAssignedEnergyValue(new ItemStack(ConfigBlocks.blockMagicalLeaves, 1, 1), 1);
+
+                    EnergyValueRegistryProxy.addPreAssignedEnergyValue(ForbiddenBlocks.starBlock, 221184);
+
+                    for(int x = 0;x < 7;x++) {
+                        EnergyValueRegistryProxy.addPreAssignedEnergyValue(new ItemStack(ForbiddenItems.deadlyShards, 1, x), 256);
+                    }
+                    EnergyValueRegistryProxy.addPreAssignedEnergyValue(new ItemStack(ForbiddenItems.gluttonyShard, 1), 256);
+                }
+                catch(Throwable e){
+                    LogHandler.log(Level.INFO, e, "Forbidden Magic appears to be having trouble with EE3, eh?");
+                    ee3 = false;
+                }
+            }
+
         }
 
         if(special){

@@ -4,6 +4,7 @@ import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnumEnchantmentType;
 import net.minecraft.item.ItemPickaxe;
 import net.minecraft.item.ItemStack;
+import thaumcraft.common.items.equipment.ItemPrimalCrusher;
 
 public class EnchantmentCorrupting extends Enchantment {
     public EnchantmentCorrupting(int id) {
@@ -28,7 +29,7 @@ public class EnchantmentCorrupting extends Enchantment {
 
     @Override
     public boolean canApply(ItemStack item) {
-        if (item.getItem() instanceof ItemPickaxe)
+        if (item.getItem() instanceof ItemPickaxe || item.getItem() instanceof ItemPrimalCrusher)
             return true;
         else
             return false;

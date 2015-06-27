@@ -3,6 +3,7 @@ package fox.spiteful.forbidden.blocks;
 import java.util.Random;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockCake;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
@@ -133,7 +134,7 @@ public class BlockArcaneCake extends Block {
 
     @Override
     public boolean canPlaceBlockAt(World world, int x, int y, int z) {
-        return !super.canPlaceBlockAt(world, x, y, z) ? false : this.canBlockStay(world, x, y, z);
+        return super.canPlaceBlockAt(world, x, y, z) && this.canBlockStay(world, x, y, z);
     }
 
     @Override

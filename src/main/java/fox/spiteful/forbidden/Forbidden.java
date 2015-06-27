@@ -1,11 +1,13 @@
 package fox.spiteful.forbidden;
 
 import cpw.mods.fml.common.FMLCommonHandler;
+import cpw.mods.fml.common.registry.VillagerRegistry;
 import fox.spiteful.forbidden.potions.DarkPotions;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraftforge.common.MinecraftForge;
+import org.apache.logging.log4j.Level;
 import thaumcraft.api.wands.WandTriggerRegistry;
 
 import fox.spiteful.forbidden.blocks.ForbiddenBlocks;
@@ -20,6 +22,8 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+
+import java.util.Collection;
 
 @Mod(modid = "ForbiddenMagic", name = "Forbidden Magic", dependencies = "required-after:Thaumcraft@[4.2.2.0,);after:ThaumicTinkerer;after:AWWayofTime;after:Botania")
 public class Forbidden {
@@ -64,6 +68,8 @@ public class Forbidden {
         events = new FMEventHandler();
         MinecraftForge.EVENT_BUS.register(events);
         FMLCommonHandler.instance().bus().register(events);
+        VillagerRegistry.instance().registerVillagerId(Config.hereticID);
+        VillagerRegistry.instance().registerVillageTradeHandler(Config.hereticID, new VillagerHereticManager());
     }
 
     @EventHandler

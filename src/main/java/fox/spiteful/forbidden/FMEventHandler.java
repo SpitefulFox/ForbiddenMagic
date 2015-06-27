@@ -348,7 +348,7 @@ public class FMEventHandler {
             }
             if(player.worldObj.provider.dimensionId == -1 && event.block == Blocks.quartz_ore){
                 int fortune = EnchantmentHelper.getFortuneModifier(player);
-                if(fortune > 0 && randy.nextInt(20) <= fortune){
+                if(fortune > 0 && randy.nextInt(60) <= fortune){
                     event.drops.add(new ItemStack(ForbiddenItems.deadlyShards, 1, 6));
                 }
             }
@@ -465,6 +465,8 @@ public class FMEventHandler {
                 event.toolTip.add(StatCollector.translateToLocal("tooltip.currentowner") + " " + event.itemStack.stackTagCompound.getString("ownerName"));
             } else if (((ItemWandCasting) event.itemStack.getItem()).getRod(event.itemStack).getTag().startsWith("neutronium")) {
                 event.toolTip.add(StatCollector.translateToLocal("tooltip.creativeonly"));
+            } else if (((ItemWandCasting) event.itemStack.getItem()).getRod(event.itemStack).getTag().startsWith("profane")) {
+                event.toolTip.add("Contract: " + event.itemStack.getTagCompound().getInteger("contract"));
             }
         }
     }
