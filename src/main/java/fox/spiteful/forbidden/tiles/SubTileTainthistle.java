@@ -64,7 +64,7 @@ public class SubTileTainthistle extends SubTileGenerating {
 
     @Override
     public boolean isPassiveFlower() {
-        return true;
+        return false;
     }
 
     public void doBurnParticles() {
