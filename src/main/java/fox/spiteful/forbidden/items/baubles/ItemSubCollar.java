@@ -1,6 +1,6 @@
 package fox.spiteful.forbidden.items.baubles;
 
-import baubles.common.lib.PlayerHandler;
+import baubles.api.BaublesApi;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import fox.spiteful.forbidden.Forbidden;
@@ -99,7 +99,7 @@ public class ItemSubCollar extends ItemAmuletVis {
         if (entity instanceof EntityPlayer)
         {
             EntityPlayer sub = (EntityPlayer)entity;
-            IInventory baubles = PlayerHandler.getPlayerBaubles(sub);
+            IInventory baubles = BaublesApi.getBaubles(sub);
             if(baubles.getStackInSlot(0) == null) {
                 if(!itemstack.hasTagCompound()){
                     NBTTagCompound tag = new NBTTagCompound();

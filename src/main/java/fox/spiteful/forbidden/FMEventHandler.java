@@ -3,7 +3,7 @@ package fox.spiteful.forbidden;
 import java.util.*;
 
 import WayofTime.alchemicalWizardry.api.soulNetwork.SoulNetworkHandler;
-import baubles.common.lib.PlayerHandler;
+import baubles.api.BaublesApi;
 import cpw.mods.fml.common.eventhandler.EventPriority;
 import cpw.mods.fml.common.gameevent.PlayerEvent.ItemCraftedEvent;
 import fox.spiteful.forbidden.blocks.ForbiddenBlocks;
@@ -367,8 +367,8 @@ public class FMEventHandler {
                 ent.motionX += (randy.nextFloat() - randy.nextFloat()) * 0.1F;
                 ent.motionZ += (randy.nextFloat() - randy.nextFloat()) * 0.1F;
             }
-            ItemStack ring = PlayerHandler.getPlayerBaubles(event.entityPlayer).getStackInSlot(1);
-            ItemStack ring2 = PlayerHandler.getPlayerBaubles(event.entityPlayer).getStackInSlot(2);
+            ItemStack ring = BaublesApi.getBaubles(event.entityPlayer).getStackInSlot(1);
+            ItemStack ring2 = BaublesApi.getBaubles(event.entityPlayer).getStackInSlot(2);
             if((ring != null && ring.getItem() == ForbiddenItems.ringFood) || (ring2 != null && ring2.getItem() == ForbiddenItems.ringFood)){
                 event.entityPlayer.getFoodStats().addStats(2, 2.0F);
             }
@@ -434,7 +434,7 @@ public class FMEventHandler {
     public void onFeelPain(LivingHurtEvent event){
         if(!Config.noLust && event.ammount > 0 && event.entityLiving instanceof EntityPlayer){
             EntityPlayer player = (EntityPlayer)event.entityLiving;
-            ItemStack amulet = PlayerHandler.getPlayerBaubles(player).getStackInSlot(0);
+            ItemStack amulet = BaublesApi.getBaubles(player).getStackInSlot(0);
             if(amulet != null && amulet.getItem() == ForbiddenItems.subCollar){
                 int doses = 3 * (int)event.ammount;
                 if(event.source.getEntity() != null && event.source.getEntity() instanceof EntityPlayer){
