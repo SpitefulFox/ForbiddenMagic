@@ -59,6 +59,9 @@ public class Config {
     public static boolean emc = true;
     //public static boolean eewand = true;
 
+    public static int bloodvis = 5;
+    public static int manavis = 8;
+
     public static int wrathCost = 5;
     public static int wrathEff = 4;
 
@@ -115,6 +118,9 @@ public class Config {
             twilight = conf.get("compatibility", "Twilight Forest Interaction", twilight).getBoolean(true);
             emc = conf.get("compatibility", "Equivalent Exchange 3 EMC", emc, "Disable if you don't want Forbidden Magic to add EMC values to items.").getBoolean(true);
             //eewand = conf.get("compatibility", "Equivalent Exchange 3 Wand", eewand, "Disable to specifically disable the EMC to Vis wand.").getBoolean(true);
+
+            bloodvis = conf.get("power converters", "LP to Vis", bloodvis).getInt(bloodvis);
+            manavis = conf.get("power converters", "Mana to Vis", manavis).getInt(manavis);
         } catch (Exception e) {
             LogHandler.log(Level.ERROR, e, "Had a problem loading its configuration.");
         } finally {

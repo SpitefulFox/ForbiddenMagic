@@ -20,12 +20,14 @@ public class BloodWandUpdate implements IWandRodOnUpdate {
             try
             {
                 SoulNetworkHandler.checkAndSetItemOwner(itemstack, player);
-                
+
                 int cost;
                 if(((ItemWandCasting)itemstack.getItem()).getCap(itemstack).getTag().equals("alchemical"))
-                    cost = 9;
+                    cost = Config.bloodvis - 1;
                 else
-                    cost = 10;
+                    cost = Config.bloodvis;
+
+                cost = Math.max(0, cost);
                 
                 for(int x = 0;x < primals.length;x++)
                 {

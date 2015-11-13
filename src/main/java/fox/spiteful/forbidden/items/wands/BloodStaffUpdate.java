@@ -3,6 +3,7 @@ package fox.spiteful.forbidden.items.wands;
 import fox.spiteful.forbidden.Config;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.DamageSource;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.api.wands.IWandRodOnUpdate;
 import thaumcraft.common.items.wands.ItemWandCasting;
@@ -27,9 +28,11 @@ public class BloodStaffUpdate implements IWandRodOnUpdate {
                 
                 int cost;
                 if(((ItemWandCasting)itemstack.getItem()).getCap(itemstack).getTag().equals("alchemical"))
-                    cost = 9;
+                    cost = Config.bloodvis - 1;
                 else
-                    cost = 10;
+                    cost = Config.bloodvis;
+
+                cost = Math.max(0, cost);
 
                 for(int x = 0;x < primals.length;x++)
                 {
@@ -60,21 +63,23 @@ public class BloodStaffUpdate implements IWandRodOnUpdate {
         
     }
     
-    public boolean syphonHealth(EntityPlayer player)
-    {
-        if(player.getHealth() > 0)
-        {
+    public boolean syphonHealth(EntityPlayer player){
+        if(player.getHealth() > 3){
             player.setHealth(player.getHealth() - 3);
+            return true;
+        }
+        else if(player.getHealth() > 0){
+            player.func_110142_aN().func_94547_a(new DamageSource("blooderp"), 3, 3);
+            player.setHealth(0);
+            player.onDeath(new DamageSource("blooderp"));
             return true;
         }
         else
             return false;
     }
     
-    private boolean checkHotbar(ItemStack stack, EntityPlayer player)
-    {
-        for(int x = 0; x < 9; ++x)
-        {
+    private boolean checkHotbar(ItemStack stack, EntityPlayer player){
+        for(int x = 0; x < 9; ++x){
             ItemStack item = player.inventory.getStackInSlot(x);
             if(item == stack)
                 return true;

@@ -139,6 +139,7 @@ message.collar.youplacecollar=You place the collar around %s's neck.
 itemGroup.forbidden=Forbidden Magic
 itemGroup.mobcrystal=Imprinting Crystals
 tc.research_category.FORBIDDEN=Apocrypha
+death.attack.blooderp=%1$s was bled dry
 #
 # Research
 forbidden.research_name.NETHERSHARDS=Nether Shards

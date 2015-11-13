@@ -9,6 +9,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.StatCollector;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
@@ -46,8 +47,10 @@ public class ItemDivineOrb extends Item implements IBloodOrb, IBindable, IWarpin
 
     @Override
     public ItemStack onItemRightClick(ItemStack itemstack, World world, EntityPlayer player) {
-        if (Compat.bm)
-            SoulNetworkHandler.checkAndSetItemOwner(itemstack, player);
+        if (!Compat.bm)
+            return itemstack;
+
+        SoulNetworkHandler.checkAndSetItemOwner(itemstack, player);
 
         if (world != null) {
             double posX = player.posX;
@@ -55,7 +58,7 @@ public class ItemDivineOrb extends Item implements IBloodOrb, IBindable, IWarpin
             double posZ = player.posZ;
             world.playSoundEffect((double) ((float) posX + 0.5F), (double) ((float) posY + 0.5F), (double) ((float) posZ + 0.5F), "random.fizz", 0.5F, 2.6F + (world.rand.nextFloat() - world.rand.nextFloat()) * 0.8F);
         }
-        if (!world.isRemote) {
+        if (world.isRemote) {
             return itemstack;
         }
 
@@ -65,9 +68,13 @@ public class ItemDivineOrb extends Item implements IBloodOrb, IBindable, IWarpin
             return itemstack;
         }
 
-        if(!player.capabilities.isCreativeMode)
-            player.setHealth(player.getHealth() - 1);
+        if(itemTag.getString("ownerName").equals(SoulNetworkHandler.getUsername(player)))
+        {
+            SoulNetworkHandler.setMaxOrbToMax(itemTag.getString("ownerName"), 6);
+        }
+
         SoulNetworkHandler.addCurrentEssenceToMaximum(itemTag.getString("ownerName"), 200, 700000000);
+        hurtPlayer(player, 200);
 
         return itemstack;
     }
@@ -108,5 +115,36 @@ public class ItemDivineOrb extends Item implements IBloodOrb, IBindable, IWarpin
     public ItemStack getContainerItem(ItemStack itemStack)
     {
         return itemStack;
+    }
+
+    private void hurtPlayer(EntityPlayer user, int energySyphoned)
+    {
+        if (energySyphoned < 100 && energySyphoned > 0)
+        {
+            if (!user.capabilities.isCreativeMode)
+            {
+                user.setHealth((user.getHealth() - 1));
+                if (user.getHealth() <= 0.0005f)
+                {
+                    user.func_110142_aN().func_94547_a(new DamageSource("blooderp"), 1, 1);
+                    user.onDeath(new DamageSource("blooderp"));
+                }
+            }
+        } else if (energySyphoned >= 100)
+        {
+            if (!user.capabilities.isCreativeMode)
+            {
+                for (int i = 0; i < ((energySyphoned + 99) / 100); i++)
+                {
+                    user.setHealth((user.getHealth() - 1));
+                    if (user.getHealth() <= 0.0005f)
+                    {
+                        user.func_110142_aN().func_94547_a(new DamageSource("blooderp"), 1, 1);
+                        user.onDeath(new DamageSource("blooderp"));
+                        break;
+                    }
+                }
+            }
+        }
     }
 }
