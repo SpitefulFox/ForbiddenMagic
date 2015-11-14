@@ -331,6 +331,7 @@ forbidden.research_page.BLOODRAPIER.1=There's nothing more dangerous than a Bloo
 forbidden.research_name.CRYSTALWELL=Crystal Scribing Tools
 forbidden.research_text.CRYSTALWELL=Arcane Research Grant
 forbidden.research_page.CRYSTALWELL.1=Combining elemental shards with your inkwell results in some interesting effects. The Crystal Scribing Tools seem to absorb knowledge as you use them to write. Once the well is empty of ink, you can absorb this knowledge for a small burst of research points by holding the tools in your hand and right clicking. Unfortunately, this burns the tool out and turns it back into a mundane Scribing Tool again.
+forbidden.research_page.CRYSTALWELL.1b=Research can get boring and tedious sometimes. There's only so many hours you can spend taking apart bits of cobblestone in the sad hope of finding esoteric insights before you start considering a change in careers.<BR><BR>Thankfully, you've devised a way to expedite the process. The Crystal Scribing Tools will slowly transmit knowledge into your mind while carried around.<BR><BR>It's amazing what you can do with crystals!
 #
 forbidden.research_name.PRIMEWELL=Primal Scribing Tools
 forbidden.research_text.PRIMEWELL=Bragging Rights

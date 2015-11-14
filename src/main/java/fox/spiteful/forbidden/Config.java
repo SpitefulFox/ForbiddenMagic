@@ -1,6 +1,7 @@
 package fox.spiteful.forbidden;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import net.minecraft.block.Block;
@@ -15,6 +16,7 @@ import thaumcraft.api.aspects.Aspect;
 
 public class Config {
     public static HashMap<String, Aspect> spawnerMobs = new HashMap<String, Aspect>();
+    public static ArrayList<String> trash = new ArrayList<String>();
 
     public static int clusterEnchID;
     public static int wrathEnchID;
@@ -105,6 +107,12 @@ public class Config {
                 gluttony = 0;
             hereticID = conf.get("general", "Heretic Villager ID", hereticID).getInt(hereticID);
 
+            String trashlist = conf.get("general", "Garbage Blocks", "dirt;sand;gravel;cobblestone;netherrack", "List of OreDict names for garbage blocks, separated by semicolons, for the Consuming enchant to eat").getString();
+            String[] trashpile = trashlist.split(";");
+            for(String garbage : trashpile){
+                trash.add(garbage);
+            }
+
             bloodSealPotionID = conf.get("potions", "Blood Seal", bloodSealPotionID).getInt(bloodSealPotionID);
 
             crossMod = conf.get("compatibility", "Cross-Mod Interaction", crossMod, "Disable to keep mods segregated.").getBoolean(true);
@@ -119,8 +127,8 @@ public class Config {
             emc = conf.get("compatibility", "Equivalent Exchange 3 EMC", emc, "Disable if you don't want Forbidden Magic to add EMC values to items.").getBoolean(true);
             //eewand = conf.get("compatibility", "Equivalent Exchange 3 Wand", eewand, "Disable to specifically disable the EMC to Vis wand.").getBoolean(true);
 
-            bloodvis = conf.get("power converters", "LP to Vis", bloodvis).getInt(bloodvis);
-            manavis = conf.get("power converters", "Mana to Vis", manavis).getInt(manavis);
+            bloodvis = conf.get("power converters", "LP to Vis", bloodvis, "How much LP 0.01 Vis is worth").getInt(bloodvis);
+            manavis = conf.get("power converters", "Mana to Vis", manavis, "How much Mana 0.01 Vis is worth").getInt(manavis);
         } catch (Exception e) {
             LogHandler.log(Level.ERROR, e, "Had a problem loading its configuration.");
         } finally {

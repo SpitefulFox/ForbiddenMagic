@@ -29,7 +29,11 @@ public class ForbiddenResearch {
         addInfernalism();
         addTaint();
 
-        (new DarkResearchItem("CRYSTALWELL", "FORBIDDEN", (new AspectList()).add(Aspect.MIND, 3).add(Aspect.CRYSTAL, 2).add(Aspect.MAGIC, 1), -2, -8, 1, new ItemStack(ForbiddenItems.crystalwell, 1, 0))).setPages(new ResearchPage[] { new ResearchPage("forbidden.research_page.CRYSTALWELL.1"), new ResearchPage((IArcaneRecipe) recipes.get("Crystalwell")) }).setParents(new String[] { "RESEARCH" }).registerResearchItem();
+        if(thaumcraft.common.config.Config.researchDifficulty != -1)
+            (new DarkResearchItem("CRYSTALWELL", "FORBIDDEN", (new AspectList()).add(Aspect.MIND, 3).add(Aspect.CRYSTAL, 2).add(Aspect.MAGIC, 1), -2, -8, 1, new ItemStack(ForbiddenItems.crystalwell, 1, 0))).setPages(new ResearchPage[] { new ResearchPage("forbidden.research_page.CRYSTALWELL.1"), new ResearchPage((IArcaneRecipe) recipes.get("Crystalwell")) }).setParents(new String[] { "RESEARCH" }).registerResearchItem();
+        else
+            (new DarkResearchItem("CRYSTALWELL", "FORBIDDEN", (new AspectList()).add(Aspect.MIND, 3).add(Aspect.CRYSTAL, 2).add(Aspect.MAGIC, 1), -2, -8, 1, new ItemStack(ForbiddenItems.crystalwell, 1, 0))).setPages(new ResearchPage[] { new ResearchPage("forbidden.research_page.CRYSTALWELL.1b"), new ResearchPage((IArcaneRecipe) recipes.get("Crystalwell")) }).setParents(new String[] { "RESEARCH" }).registerResearchItem();
+
         (new DarkResearchItem("PRIMEWELL", "FORBIDDEN", (new AspectList()).add(Aspect.MIND, 3).add(Aspect.ELDRITCH, 6).add(Aspect.CRAFT, 1), 2, -8, 1, new ItemStack(ForbiddenItems.primewell, 1, 0))).setPages(new ResearchPage[] { new ResearchPage("forbidden.research_page.PRIMEWELL.1"), new ResearchPage((IArcaneRecipe) recipes.get("Primewell")) }).setParents(new String[] { "PRIMPEARL" }).setConcealed().registerResearchItem();
         if (Config.emeraldTrans)
             (new DarkResearchItem("TRANSEMERALD", "FORBIDDEN", (new AspectList()).add(Aspect.CRYSTAL, 2).add(Aspect.EXCHANGE, 5).add(Aspect.GREED, 4), 0, -6, 3, new ItemStack(ForbiddenItems.resource, 1, 0))).setPages(new ResearchPage[] { new ResearchPage("forbidden.research_page.TRANSEMERALD.1"), new ResearchPage((CrucibleRecipe) recipes.get("TransEmerald")) }).setSecondary().setConcealed().setParents(new String[] { "TRANSGOLD" }).registerResearchItem();

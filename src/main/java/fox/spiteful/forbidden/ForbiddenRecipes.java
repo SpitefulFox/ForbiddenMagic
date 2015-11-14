@@ -21,6 +21,7 @@ import thaumcraft.api.wands.WandCap;
 import fox.spiteful.forbidden.blocks.ForbiddenBlocks;
 import fox.spiteful.forbidden.enchantments.DarkEnchantments;
 import fox.spiteful.forbidden.items.ForbiddenItems;
+import thaumcraft.common.config.ConfigBlocks;
 import thaumcraft.common.config.ConfigItems;
 
 public class ForbiddenRecipes {
@@ -65,7 +66,11 @@ public class ForbiddenRecipes {
         ForbiddenResearch.recipes.put("BlackFlower", ThaumcraftApi.addCrucibleRecipe("BLACKFLOWER", new ItemStack(ForbiddenBlocks.roseBush, 1, 0), new ItemStack(Blocks.double_plant, 1, 4), (new AspectList()).merge(Aspect.DARKNESS, 8).merge(Aspect.LIFE, 5)));
         ForbiddenResearch.recipes.put("BlackInk", CraftingManager.getInstance().addRecipe(new ItemStack(ForbiddenItems.resource, 2, 1), new Object[]{"#", Character.valueOf('#'), new ItemStack(ForbiddenBlocks.blackFlower, 1, 0)}));
 
-        ForbiddenResearch.recipes.put("Crystalwell", ThaumcraftApi.addShapelessArcaneCraftingRecipe("CRYSTALWELL", new ItemStack(ForbiddenItems.crystalwell, 1, 0), (new AspectList()).add(Aspect.WATER, 1).add(Aspect.ORDER, 1), new Object[] { new ItemStack(ConfigItems.itemInkwell, 1, 32767), "dyeBlack", new ItemStack(ConfigItems.itemShard, 1, 32767), new ItemStack(ConfigItems.itemShard, 1, 32767) }));
+        if(thaumcraft.common.config.Config.researchDifficulty != -1)
+            ForbiddenResearch.recipes.put("Crystalwell", ThaumcraftApi.addShapelessArcaneCraftingRecipe("CRYSTALWELL", new ItemStack(ForbiddenItems.crystalwell, 1, 0), (new AspectList()).add(Aspect.WATER, 1).add(Aspect.ORDER, 1), new Object[] { new ItemStack(ConfigItems.itemInkwell, 1, 32767), "dyeBlack", new ItemStack(ConfigItems.itemShard, 1, 32767), new ItemStack(ConfigItems.itemShard, 1, 32767) }));
+        else
+            ForbiddenResearch.recipes.put("Crystalwell", ThaumcraftApi.addShapelessArcaneCraftingRecipe("CRYSTALWELL", new ItemStack(ForbiddenItems.crystalwell, 1, 0), (new AspectList()).add(Aspect.WATER, 1).add(Aspect.ORDER, 1), new Object[] { new ItemStack(ConfigItems.itemInkwell, 1, 32767), "dyeBlack", new ItemStack(ConfigBlocks.blockCrystal, 1, 6), new ItemStack(ConfigItems.itemShard, 1, 6), new ItemStack(ConfigItems.itemShard, 1, 6), new ItemStack(ConfigItems.itemShard, 1, 6) }));
+
         ForbiddenResearch.recipes.put("Primewell", ThaumcraftApi.addShapelessArcaneCraftingRecipe("PRIMEWELL", new ItemStack(ForbiddenItems.primewell, 1, 0), (new AspectList()).add(Aspect.WATER, 50).add(Aspect.EARTH, 50).add(Aspect.FIRE, 50).add(Aspect.AIR, 50).add(Aspect.ORDER, 50).add(Aspect.ENTROPY, 50), new Object[] { new ItemStack(Items.feather, 1, 0), new ItemStack(ConfigItems.itemEldritchObject, 1, 3), new ItemStack(Items.glass_bottle, 1, 0) }));
 
         if(Config.enchanting) {
@@ -99,6 +104,8 @@ public class ForbiddenRecipes {
                 return 0;
             }
         });
+
+        OreDictionary.registerOre("logWood", new ItemStack(ConfigBlocks.blockMagicalLog, 1, OreDictionary.WILDCARD_VALUE));
 
     }
 }

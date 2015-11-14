@@ -48,6 +48,7 @@ import net.minecraftforge.event.entity.player.PlayerEvent.BreakSpeed;
 import net.minecraftforge.event.entity.player.PlayerUseItemEvent;
 import net.minecraftforge.event.world.BlockEvent.HarvestDropsEvent;
 
+import net.minecraftforge.oredict.OreDictionary;
 import org.apache.logging.log4j.Level;
 
 import thaumcraft.api.aspects.Aspect;
@@ -66,6 +67,7 @@ public class FMEventHandler {
     Random randy = new Random();
     final Aspect[] primals = { Aspect.ENTROPY, Aspect.ORDER, Aspect.FIRE, Aspect.WATER, Aspect.EARTH, Aspect.AIR };
     HashMap<String, Integer> lastLP = new HashMap<String, Integer>();
+
 
     @SubscribeEvent
     public void onPlayerBreaking(BreakSpeed event) {
@@ -153,7 +155,7 @@ public class FMEventHandler {
                 ItemStack head = new ItemStack(Items.skull, 1, 3);
                 NBTTagCompound nametag = new NBTTagCompound();
                 nametag.setString("SkullOwner", ((EntityPlayer) event.entityLiving).getCommandSenderName());
-                head.setTagInfo("SkullOwner", nametag);
+                head.setTagCompound(nametag);
                 addDrop(event, head);
             }
         }
@@ -319,7 +321,7 @@ public class FMEventHandler {
             if (EnchantmentHelper.getEnchantmentLevel(DarkEnchantments.consuming.effectId, equip) > 0) {
                 for (int x = 0; x < event.drops.size(); x++) {
                     ItemStack drop = (ItemStack) event.drops.get(x);
-                    if (drop != null && (drop.getItem() == Item.getItemFromBlock(Blocks.cobblestone) || drop.getItem() == Item.getItemFromBlock(Blocks.dirt) || drop.getItem() == Item.getItemFromBlock(Blocks.netherrack) || drop.getItem() == Item.getItemFromBlock(Blocks.gravel)))
+                    if (drop != null && isGarbage(drop))
                         event.drops.remove(x);
                 }
             }
@@ -353,6 +355,16 @@ public class FMEventHandler {
                 }
             }
         }
+    }
+
+    private boolean isGarbage(ItemStack drop) {
+        for(int id : OreDictionary.getOreIDs(drop)) {
+            for(String ore : Config.trash) {
+                if(OreDictionary.getOreName(id).equals(ore))
+                    return true;
+            }
+        }
+        return false;
     }
 
     @SubscribeEvent
