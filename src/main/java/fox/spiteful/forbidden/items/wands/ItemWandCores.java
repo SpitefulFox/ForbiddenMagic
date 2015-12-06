@@ -123,6 +123,10 @@ public class ItemWandCores extends Item {
             ((ItemWandCasting) wand.getItem()).setCap(wand, (WandCap) WandCap.caps.get("elementium"));
             ((ItemWandCasting) wand.getItem()).setRod(wand, (WandRod) WandRod.rods.get("dreamwood_staff"));
             list.add(wand);
+            wand = new ItemStack(ConfigItems.itemWandCasting, 1, 1);
+            ((ItemWandCasting) wand.getItem()).setCap(wand, (WandCap) WandCap.caps.get("terrasteel"));
+            ((ItemWandCasting) wand.getItem()).setRod(wand, (WandRod) WandRod.rods.get("wood"));
+            list.add(wand);
         }
         wand = new ItemStack(ConfigItems.itemWandCasting, 1, 84);
         ((ItemWandCasting) wand.getItem()).setCap(wand, (WandCap) WandCap.caps.get("void"));

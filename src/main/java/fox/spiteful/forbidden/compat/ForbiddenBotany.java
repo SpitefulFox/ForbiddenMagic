@@ -15,8 +15,10 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
+import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraftforge.oredict.OreDictionary;
+import net.minecraftforge.oredict.ShapedOreRecipe;
 import org.apache.logging.log4j.Level;
 import thaumcraft.api.ThaumcraftApi;
 import thaumcraft.api.aspects.Aspect;
@@ -39,7 +41,6 @@ public class ForbiddenBotany {
             Block livingLog = GameRegistry.findBlock("Botania", "livingwood");
             Item flower = Compat.getItem("Botania", "flower");
             Item petal = Compat.getItem("Botania", "petal");
-            Item manaPetal = Compat.getItem("Botania", "manaPetal");
             Block dreamwood = GameRegistry.findBlock("Botania", "dreamwood");
             Item lexicon = Compat.getItem("Botania", "lexicon");
 
@@ -85,6 +86,10 @@ public class ForbiddenBotany {
                 InfusionRecipe elementium_cap = ThaumcraftApi.addInfusionCraftingRecipe("CAP_elementium", new ItemStack(ForbiddenItems.wandCap, 1, 5), 1, (new AspectList()).add(Aspect.EARTH, 18).add(Aspect.FIRE, 18).add(Aspect.WATER, 18).add(Aspect.AIR, 18), new ItemStack(ForbiddenItems.wandCap, 1, 6), new ItemStack[]{new ItemStack(resource, 1, 5), new ItemStack(rune, 1, 0), new ItemStack(rune, 1, 1), new ItemStack(rune, 1, 2), new ItemStack(rune, 1, 3)});
                 (new DarkResearchItem("CAP_elementium", "FORBIDDEN", "[B]", (new AspectList()).add(Aspect.FIRE, 8).add(Aspect.MAGIC, 12).add(Aspect.WATER, 8).add(Aspect.AIR, 8).add(Aspect.EARTH, 8), 3, 3, 4, new ItemStack(ForbiddenItems.wandCap, 1, 5))).setPages(new ResearchPage[]{new ResearchPage("forbidden.research_page.CAP_elementium.1"), new ResearchPage(elementium_cap_inert), new ResearchPage(elementium_cap)}).setParents(new String[]{"ROD_dreamwood_staff"}).setConcealed().registerResearchItem();
 
+                IRecipe terrasteel_cap = new ShapedOreRecipe(new ItemStack(ForbiddenItems.wandCap, 1, 2), new Object[]{"NNN", "N N", Character.valueOf('N'), "nuggetTerrasteel"});
+                CraftingManager.getInstance().getRecipeList().add(terrasteel_cap);
+                (new DarkResearchItem("CAP_terrasteel", "FORBIDDEN", "[B]", (new AspectList()).add(Aspect.ENERGY, 1).add(Aspect.METAL, 1), 3, 2, 1, new ItemStack(ForbiddenItems.wandCap, 1, 2))).setPages(new ResearchPage[]{new ResearchPage("forbidden.research_page.CAP_terrasteel.1"), new ResearchPage(terrasteel_cap)}).setParents(new String[]{"CAP_manasteel"}).setConcealed().setSecondary().registerResearchItem();
+
             }
 
             BotaniaAPI.registerSubTile("euclidaisy", SubTileEuclidaisy.class);
@@ -98,7 +103,7 @@ public class ForbiddenBotany {
             ItemStack euclidaisy = getFlower("euclidaisy");
             SubTileEuclidaisy.lexicon.setIcon(euclidaisy);
 
-            InfusionRecipe euclid =  ThaumcraftApi.addInfusionCraftingRecipe("EUCLIDAISY", euclidaisy, 8, (new AspectList()).add(Aspect.AURA, 8).add(Aspect.ELDRITCH, 10).add(Aspect.MAGIC, 8), new ItemStack(flower, 1, 6), new ItemStack[] { new ItemStack(ConfigItems.itemResource, 1, 14), new ItemStack(resource, 1, 1), new ItemStack(resource, 1, 6), new ItemStack(manaPetal, 1, 6), new ItemStack(manaPetal, 1, 6), new ItemStack(rune, 1, 12), new ItemStack(rune, 1, 11) });
+            InfusionRecipe euclid =  ThaumcraftApi.addInfusionCraftingRecipe("EUCLIDAISY", euclidaisy, 8, (new AspectList()).add(Aspect.AURA, 8).add(Aspect.ELDRITCH, 10).add(Aspect.MAGIC, 8), new ItemStack(flower, 1, 6), new ItemStack[] { new ItemStack(ConfigItems.itemResource, 1, 14), new ItemStack(resource, 1, 1), new ItemStack(resource, 1, 6), new ItemStack(petal, 1, 6), new ItemStack(petal, 1, 6), new ItemStack(rune, 1, 12), new ItemStack(rune, 1, 11) });
             (new DarkResearchItem("EUCLIDAISY", "FORBIDDEN", "[B]", (new AspectList()).add(Aspect.PLANT, 8).add(Aspect.MAGIC, 4).add(Aspect.AURA, 12), -3, 5, 2, euclidaisy)).setPages(new ResearchPage[] { new ResearchPage("forbidden.research_page.EUCLIDAISY.1"), new ResearchPage(euclid) }).setParents(new String[] { "BOTANY", "INFUSION" }).setConcealed().registerResearchItem();
 
             BotaniaAPI.registerSubTile("whisperweed", SubTileWhisperweed.class);
@@ -112,7 +117,7 @@ public class ForbiddenBotany {
             ItemStack whisperweed = getFlower("whisperweed");
             SubTileWhisperweed.lexicon.setIcon(whisperweed);
 
-            IArcaneRecipe whispercraft =  ThaumcraftApi.addShapelessArcaneCraftingRecipe("WHISPERWEED", whisperweed, (new AspectList()).add(Aspect.FIRE, 10).add(Aspect.WATER, 10).add(Aspect.EARTH, 10).add(Aspect.AIR, 10).add(Aspect.ORDER, 10).add(Aspect.ENTROPY, 10), new ItemStack[] { new ItemStack(Blocks.tallgrass, 1, 1), new ItemStack(resource, 1, 2), new ItemStack(resource, 1, 6), new ItemStack(ConfigItems.itemResource, 1, 9), new ItemStack(manaPetal, 1, 7), new ItemStack(manaPetal, 1, 10), new ItemStack(rune, 1, 14), new ItemStack(ConfigItems.itemResource, 1, 6) });
+            IArcaneRecipe whispercraft =  ThaumcraftApi.addShapelessArcaneCraftingRecipe("WHISPERWEED", whisperweed, (new AspectList()).add(Aspect.FIRE, 10).add(Aspect.WATER, 10).add(Aspect.EARTH, 10).add(Aspect.AIR, 10).add(Aspect.ORDER, 10).add(Aspect.ENTROPY, 10), new ItemStack[] { new ItemStack(Blocks.tallgrass, 1, 1), new ItemStack(resource, 1, 2), new ItemStack(resource, 1, 6), new ItemStack(ConfigItems.itemResource, 1, 9), new ItemStack(petal, 1, 7), new ItemStack(petal, 1, 10), new ItemStack(rune, 1, 14), new ItemStack(ConfigItems.itemResource, 1, 6) });
             (new DarkResearchItem("WHISPERWEED", "FORBIDDEN", "[B]", (new AspectList()).add(Aspect.PLANT, 8).add(Aspect.MIND, 10).add(Aspect.SENSES, 4), -4, 5, 1, whisperweed)).setPages(new ResearchPage[] { new ResearchPage("forbidden.research_page.WHISPERWEED.1"), new ResearchPage(whispercraft) }).setParents(new String[] { "BOTANY" }).setConcealed().registerResearchItem();
 
             BotaniaAPI.registerSubTile("tainthistle", SubTileTainthistle.class);
@@ -126,7 +131,7 @@ public class ForbiddenBotany {
             ItemStack tainthistle = getFlower("tainthistle");
             SubTileTainthistle.lexicon.setIcon(tainthistle);
 
-            InfusionRecipe thistlecraft =  ThaumcraftApi.addInfusionCraftingRecipe("TAINTHISTLE", tainthistle, 4, (new AspectList()).add(Aspect.TAINT, 8).add(Aspect.HUNGER, 4).add(Aspect.AIR, 4).add(Aspect.WATER, 4), new ItemStack(ConfigItems.itemResource, 1, 12), new ItemStack[] { new ItemStack(petal, 1, 10), new ItemStack(manaPetal, 1, 10), new ItemStack(manaPetal, 1, 10), new ItemStack(rune, 1, 10), new ItemStack(rune, 1, 8)});
+            InfusionRecipe thistlecraft =  ThaumcraftApi.addInfusionCraftingRecipe("TAINTHISTLE", tainthistle, 4, (new AspectList()).add(Aspect.TAINT, 8).add(Aspect.HUNGER, 4).add(Aspect.AIR, 4).add(Aspect.WATER, 4), new ItemStack(ConfigItems.itemResource, 1, 12), new ItemStack[] { new ItemStack(petal, 1, 10), new ItemStack(petal, 1, 10), new ItemStack(petal, 1, 10), new ItemStack(rune, 1, 10), new ItemStack(rune, 1, 8)});
             (new DarkResearchItem("TAINTHISTLE", "FORBIDDEN", "[B]", (new AspectList()).add(Aspect.PLANT, 8).add(Aspect.TAINT, 10).add(Aspect.MAGIC, 4), -2, 5, 2, tainthistle)).setPages(new ResearchPage[] { new ResearchPage("forbidden.research_page.TAINTHISTLE.1"), new ResearchPage(thistlecraft) }).setParents(new String[] { "BOTANY", "INFUSION" }).setConcealed().registerResearchItem();
 
             if(Compat.bm){
@@ -137,7 +142,7 @@ public class ForbiddenBotany {
                 SubTileBloodthorn.lexicon = new ForbiddenLexicon("bloodthorn", BotaniaAPI.categoryFunctionalFlowers){
                     @Override
                     public String getSubtitle(){
-                        return "[Forbidden Magic][Blood Magic]";
+                        return "[Forbidden Magic x Blood Magic x Botania]";
                     }
                 };
 

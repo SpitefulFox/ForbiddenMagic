@@ -74,6 +74,7 @@ public class ForbiddenItems {
     public static WandCap WAND_CAP_VINTEUM;
     public static WandCap WAND_CAP_MANASTEEL;
     public static WandCap WAND_CAP_ELEMENTIUM;
+    public static WandCap WAND_CAP_TERRASTEEL;
 
     public static void addItems() {
         deadlyShards = new ItemDeadlyShard().setUnlocalizedName("NetherShard");
@@ -142,6 +143,7 @@ public class ForbiddenItems {
         WAND_CAP_VINTEUM = new DarkWandCap("vinteum", 0.9F, new ItemStack(wandCap, 1, 1), 6, new ResourceLocation("forbidden", "textures/models/wand_cap_vinteum.png"));
         WAND_CAP_MANASTEEL = new DarkWandCap("manasteel", 0.9F, new ItemStack(wandCap, 1, 3), 6, new ResourceLocation("forbidden", "textures/models/wand_cap_manasteel.png"));
         WAND_CAP_ELEMENTIUM = new DarkWandCap("elementium", 0.8F, new ItemStack(wandCap, 1, 5), 9, new ResourceLocation("forbidden", "textures/models/wand_cap_elementium.png"));
+        WAND_CAP_TERRASTEEL = new DarkWandCap("terrasteel", 1.8F, new ItemStack(wandCap, 1, 5), 1, new ResourceLocation("forbidden", "textures/models/wand_cap_terrasteel.png"));
 
 
         resource = new ItemResource().setUnlocalizedName("FMResource");

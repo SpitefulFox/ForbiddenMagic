@@ -65,6 +65,7 @@ item.Wand.alchemical.cap=Alchemically Crowned
 item.Wand.vinteum.cap=Vinteum Bossed
 item.Wand.manasteel.cap=Manasteel Entwined
 item.Wand.elementium.cap=Elementium Kissed
+item.Wand.terrasteel.cap=Terrasteel Nerfed
 item.WandCores.tainted.name=Tainted Rod
 item.WandCores.infernal.name=Infernal Rod
 item.WandCores.soul.name=Eldritch Rod
@@ -86,6 +87,7 @@ item.WandCaps.manasteel.name=Manasteel Cap
 item.WandCaps.manasteel_inert.name=Inert Manasteel Cap
 item.WandCaps.elementium.name=Elementium Cap
 item.WandCaps.elementium_inert.name=Inert Elementium Cap
+item.WandCaps.terrasteel.name=Terrasteel Cap
 item.BlinkFocus.name=Wand Focus: Blink
 #
 # Blocks
@@ -243,6 +245,10 @@ forbidden.research_page.CAP_manasteel.1=Manasteel has very useful properties whe
 forbidden.research_name.CAP_elementium=Elementium Caps
 forbidden.research_text.CAP_elementium=Eco Friendly Wand Caps
 forbidden.research_page.CAP_elementium.1=Alfheim seems to be a world steeped in magical power, and Elementium is no exception. When crafted into a wand cap and treated with the right materials, Elementium Caps have an exceptional ability to channel vis. When combined with a wand or staff that uses mana, they'll also reduce the mana conversion rate.<BR><BR>Elementium's pretty pink color is just icing on the cake.
+#
+forbidden.research_name.CAP_terrasteel=Terrasteel Caps
+forbidden.research_text.CAP_terrasteel=Completion!
+forbidden.research_page.CAP_terrasteel.1=Sweet Baby Haruhi, this was a terrible idea. What were you thinking?<BR><BR>Terrasteel's oversaturation of mana gives it many of the qualities of the earth it's named after: Strength, durability, density, and... extreme resistance to energy. Terrasteel's sheer inability to channel vis causes most vis to just dissipate harmlessly against it instead of being focused out of the wand.<BR><BR>Apparently just making caps out of every material under the sun isn't a great idea.
 #
 forbidden.research_name.TRANSEMERALD=Emerald Transmutation
 forbidden.research_text.TRANSEMERALD=Transformation of valuables into emerald

@@ -162,7 +162,7 @@ public class ItemMorphPickaxe extends ItemPickaxe implements IRepairable, IWarpi
     @Override
     public boolean onBlockDestroyed(ItemStack stack, World world, Block block, int x, int y, int z, EntityLivingBase player) {
         if(EnchantmentHelper.getEnchantmentLevel(DarkEnchantments.impact.effectId, stack) <= 0)
-            return true;
+            return super.onBlockDestroyed(stack, world, block, x, y, z, player);
         if(!player.worldObj.isRemote) {
             int meta = world.getBlockMetadata(x, y, z);
             if(ForgeHooks.isToolEffective(stack, block, meta)) {
@@ -197,7 +197,7 @@ public class ItemMorphPickaxe extends ItemPickaxe implements IRepairable, IWarpi
                 return super.onBlockDestroyed(stack, world, block, x, y, z, player);
         }
 
-        return true;
+        return super.onBlockDestroyed(stack, world, block, x, y, z, player);
     }
 
 }

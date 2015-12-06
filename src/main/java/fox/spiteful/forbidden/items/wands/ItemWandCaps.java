@@ -17,7 +17,7 @@ public class ItemWandCaps extends Item {
     public final String[] types = {
             "alchemical",
             "vinteum",
-            "soul",
+            "terrasteel",
             "manasteel",
             "manasteel_inert",
             "elementium",

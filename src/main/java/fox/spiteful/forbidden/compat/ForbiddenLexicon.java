@@ -15,7 +15,7 @@ public class ForbiddenLexicon extends LexiconEntry implements IAddonEntry {
 
     @Override
     public String getSubtitle(){
-        return "[Forbidden Magic]";
+        return "[Forbidden Magic x Botania]";
     }
 
     @Override
