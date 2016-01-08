@@ -48,6 +48,7 @@ item.SubCollar.name=Collar of Pain
 item.RingNutrition.name=Ring of Nutrition
 item.TaintFruit.name=Tainted Fruit
 item.TaintCoal.name=Hexcoal
+item.Sword_Dragonslayer.name=Sword of the Dragonslayer
 #
 # Wand components
 item.Wand.tainted.rod=Tainted
@@ -119,6 +120,7 @@ enchantment.impact=Impact
 #
 # Potions
 potion.blood_seal=Blood Seal
+potion.dragonwrack=Dragonwrack
 #
 # Focus Upgrades
 forbidden.upgrade.hellfire.name=Hellfire
@@ -142,6 +144,8 @@ itemGroup.forbidden=Forbidden Magic
 itemGroup.mobcrystal=Imprinting Crystals
 tc.research_category.FORBIDDEN=Apocrypha
 death.attack.blooderp=%1$s was bled dry
+death.attack.dragonslayer=%1$s was slain by %2$s
+death.attack.dragonwrack=%1$s succumbed to a mortal wound
 #
 # Research
 forbidden.research_name.NETHERSHARDS=Nether Shards
@@ -366,6 +370,10 @@ forbidden.research_page.TAINTHISTLE.1=When you have unlimited arcane power at yo
 forbidden.research_name.SUBCOLLAR=Collar of Pain
 forbidden.research_text.SUBCOLLAR=Pain and Magic
 forbidden.research_page.SUBCOLLAR.1=Sometimes, people just want to get hurt. Especially if there's a benefit...<BR><BR>The Collar of Pain has all the capabilities of an Amulet of Vis Storage with the added bonus that it will generate vis whenever you take damage. The more you get hurt, the more vis it generates.
+#
+forbidden.research_name.DRAGONSLAYER=Sword of the Dragonslayer
+forbidden.research_text.DRAGONSLAYER=JOOR-ZAH-FRUL
+forbidden.research_page.DRAGONSLAYER.1=Myths and legends abound of valiant heroes battling against great and terrifying beasts. Dragons are some of the most terrifying creatures, and the slaying of one is spoken of in legends for generations afterwards.<BR><BR>By infusing a sword with such mythical importance, you create a blade capable of felling such terrifying opponents. The Sword of the Dragonslayer exists to slay dragons, dealing them mortal wounds and deflecting their attacks with ease.<BR><BR>Not all dragons are born as dragons. Any human using the power of dragons will find themselves reminded of their mortality.
 #
 # Lexicon
 forbidden.lexicon.euclidaisy=Euclidaisy

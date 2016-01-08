@@ -41,7 +41,7 @@ public class ItemSkullAxe extends ItemSword implements IRepairable {
 
     @Override
     public boolean getIsRepairable(ItemStack stack, ItemStack stack2) {
-        return stack2.isItemEqual(new ItemStack(Config.thaumcraftResource.getItem(), 1, 2)) ? true : super.getIsRepairable(stack, stack2);
+        return stack2.isItemEqual(new ItemStack(Config.thaumcraftResource.getItem(), 1, 2)) || super.getIsRepairable(stack, stack2);
     }
 
     @Override

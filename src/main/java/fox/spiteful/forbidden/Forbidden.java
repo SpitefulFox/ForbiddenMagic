@@ -58,7 +58,7 @@ public class Forbidden {
         ForbiddenItems.addItems();
         ForbiddenBlocks.addBlocks();
         DarkEnchantments.hex();
-        if(Compat.bm)
+        if(Compat.bm || Compat.dargon)
             DarkPotions.alchemize();
         proxy.registerRenderInfo();
     }

@@ -55,6 +55,8 @@ public class ForbiddenItems {
     public static Item bloodOrb;
     public static Item boundwell;
 
+    public static Item dragonslayer;
+
     public static WandRod WAND_ROD_TAINTED;
     public static WandRod WAND_ROD_INFERNAL;
     public static WandRod WAND_ROD_NEUTRONIUM;
@@ -143,7 +145,7 @@ public class ForbiddenItems {
         WAND_CAP_VINTEUM = new DarkWandCap("vinteum", 0.9F, new ItemStack(wandCap, 1, 1), 6, new ResourceLocation("forbidden", "textures/models/wand_cap_vinteum.png"));
         WAND_CAP_MANASTEEL = new DarkWandCap("manasteel", 0.9F, new ItemStack(wandCap, 1, 3), 6, new ResourceLocation("forbidden", "textures/models/wand_cap_manasteel.png"));
         WAND_CAP_ELEMENTIUM = new DarkWandCap("elementium", 0.8F, new ItemStack(wandCap, 1, 5), 9, new ResourceLocation("forbidden", "textures/models/wand_cap_elementium.png"));
-        WAND_CAP_TERRASTEEL = new DarkWandCap("terrasteel", 1.8F, new ItemStack(wandCap, 1, 5), 1, new ResourceLocation("forbidden", "textures/models/wand_cap_terrasteel.png"));
+        WAND_CAP_TERRASTEEL = new DarkWandCap("terrasteel", 1.8F, new ItemStack(wandCap, 1, 2), 1, new ResourceLocation("forbidden", "textures/models/wand_cap_terrasteel.png"));
 
 
         resource = new ItemResource().setUnlocalizedName("FMResource");
@@ -166,6 +168,16 @@ public class ForbiddenItems {
                 GameRegistry.registerItem(bloodRapier, "BloodRapier");
             } catch (Throwable e) {
                 e.printStackTrace();
+            }
+        }
+
+        if(Compat.dargon){
+            try {
+                dragonslayer = new ItemDragonslayer().setUnlocalizedName("Sword_Dragonslayer");
+                GameRegistry.registerItem(dragonslayer, "Dragonslayer");
+            }
+            catch (Throwable e){
+                Compat.dargon = false;
             }
         }
 

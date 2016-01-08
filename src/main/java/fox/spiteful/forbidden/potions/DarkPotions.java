@@ -1,6 +1,7 @@
 package fox.spiteful.forbidden.potions;
 
 import fox.spiteful.forbidden.Config;
+import fox.spiteful.forbidden.compat.Compat;
 import net.minecraft.potion.Potion;
 import net.minecraft.util.ResourceLocation;
 
@@ -10,6 +11,7 @@ import java.lang.reflect.Modifier;
 public class DarkPotions {
     public static final ResourceLocation icons = new ResourceLocation("forbidden", "textures/misc/potions.png");
     public static Potion bloodSeal;
+    public static Potion dragonwrack;
 
     public static void alchemize(){
         if(Potion.potionTypes.length < 256) {
@@ -33,6 +35,15 @@ public class DarkPotions {
             }
         }
 
-        bloodSeal = new PotionBloodSeal(Config.bloodSealPotionID);
+        if(Compat.bm)
+            bloodSeal = new PotionBloodSeal(Config.bloodSealPotionID);
+        if(Compat.dargon) {
+            try {
+                dragonwrack = new PotionDragonwrack(Config.dragonwrackPotionID);
+            }
+            catch (Exception e){
+                Compat.dargon = false;
+            }
+        }
     }
 }
