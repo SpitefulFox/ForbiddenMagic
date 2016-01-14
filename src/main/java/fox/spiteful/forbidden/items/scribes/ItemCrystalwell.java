@@ -6,6 +6,7 @@ import fox.spiteful.forbidden.Forbidden;
 import fox.spiteful.forbidden.LogHandler;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.Item;
@@ -33,7 +34,10 @@ public class ItemCrystalwell extends Item implements IScribeTools {
     public ItemCrystalwell() {
         maxStackSize = 1;
         canRepair = false;
-        setMaxDamage(100);
+        if(Config.researchDifficulty == -1)
+            setMaxDamage(50);
+        else
+            setMaxDamage(100);
         setCreativeTab(Forbidden.tab);
         setHasSubtypes(false);
 
@@ -53,7 +57,7 @@ public class ItemCrystalwell extends Item implements IScribeTools {
 
     @Override
     public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player) {
-        if (stack.getItemDamage() >= 100) {
+        if (Config.researchDifficulty != -1 && stack.getItemDamage() >= 100) {
             if (!world.isRemote) {
                 Aspect aspect;
                 short amount;
@@ -72,7 +76,7 @@ public class ItemCrystalwell extends Item implements IScribeTools {
     }
 
     @Override
-    public void onUpdate(ItemStack stack, World world, Entity entity, int wat, boolean isSelected) {
+    public void onUpdate(ItemStack stack, World world, Entity entity, int slot, boolean isSelected) {
 
         if(world.isRemote)
             return;
@@ -83,6 +87,9 @@ public class ItemCrystalwell extends Item implements IScribeTools {
             Thaumcraft.proxy.playerKnowledge.addAspectPool(player.getCommandSenderName(), aspect, amount);
             PacketHandler.INSTANCE.sendTo(new PacketAspectPool(aspect.getTag(), amount, Short.valueOf(Thaumcraft.proxy.playerKnowledge.getAspectPoolFor(player.getCommandSenderName(), aspect))), (EntityPlayerMP) player);
             ResearchManager.scheduleSave(player);
+            stack.setItemDamage(stack.getItemDamage() + 1);
+            if(stack.getItemDamage() >= stack.getMaxDamage())
+                ((EntityPlayer)entity).inventory.setInventorySlotContents(slot, null);
         }
     }
 
@@ -92,7 +99,7 @@ public class ItemCrystalwell extends Item implements IScribeTools {
     @SideOnly(Side.CLIENT)
     @Override
     public boolean hasEffect(ItemStack stack, int pass) {
-        return stack.getItemDamage() >= 100;
+        return Config.researchDifficulty != -1 && stack.getItemDamage() >= 100;
     }
 
 }

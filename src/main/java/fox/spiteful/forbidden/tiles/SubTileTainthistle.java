@@ -35,7 +35,7 @@ public class SubTileTainthistle extends SubTileGenerating {
         super.onUpdate();
         boolean didSomething = false;
         if(this.ticksExisted % 80 == 0) {
-            if (mana < getMaxMana() && !supertile.getWorldObj().isRemote) {
+            if (!supertile.getWorldObj().isRemote) {
                 for (int ex = supertile.xCoord - range; ex <= supertile.xCoord + range; ex++) {
                     for (int wy = supertile.yCoord - range; wy <= supertile.yCoord + range; wy++) {
                         for (int zee = supertile.zCoord - range; zee <= supertile.zCoord + range; zee++) {
@@ -43,7 +43,7 @@ public class SubTileTainthistle extends SubTileGenerating {
                                 int depth = supertile.getWorldObj().getBlockMetadata(ex, wy, zee);
                                 supertile.getWorldObj().setBlockToAir(ex, wy, zee);
                                 didSomething = true;
-                                burnTime = Math.min(burnTime + depth * (4 + supertile.getWorldObj().rand.nextInt(4)), 4000);
+                                burnTime = Math.min(burnTime + depth * (20), 4000);
                             }
                         }
                     }
@@ -119,7 +119,7 @@ public class SubTileTainthistle extends SubTileGenerating {
 
     @Override
     public int getValueForPassiveGeneration() {
-        return 2 + supertile.getWorldObj().rand.nextInt(5);
+        return 3;
     }
 
     @Override

@@ -107,6 +107,10 @@ darkflower.euclidaisy.name=Euclidaisy
 darkflower.whisperweed.name=Whisperweed
 darkflower.tainthistle.name=Tainthistle
 darkflower.bloodthorn.name=Bloodthorn
+tile.botania:flower.euclidaisy.name=Euclidaisy
+tile.botania:flower.whisperweed.name=Whisperweed
+tile.botania:flower.tainthistle.name=Tainthistle
+tile.botania:flower.bloodthorn.name=Bloodthorn
 #
 # Enchantments
 enchantment.cluster=Fiery Core
@@ -143,6 +147,7 @@ message.collar.youplacecollar=You place the collar around %s's neck.
 itemGroup.forbidden=Forbidden Magic
 itemGroup.mobcrystal=Imprinting Crystals
 tc.research_category.FORBIDDEN=Apocrypha
+description.villager.profession.forbidden.heretic=Heretic
 death.attack.blooderp=%1$s was bled dry
 death.attack.dragonslayer=%1$s was slain by %2$s
 death.attack.dragonwrack=%1$s succumbed to a mortal wound
@@ -341,7 +346,7 @@ forbidden.research_page.BLOODRAPIER.1=There's nothing more dangerous than a Bloo
 forbidden.research_name.CRYSTALWELL=Crystal Scribing Tools
 forbidden.research_text.CRYSTALWELL=Arcane Research Grant
 forbidden.research_page.CRYSTALWELL.1=Combining elemental shards with your inkwell results in some interesting effects. The Crystal Scribing Tools seem to absorb knowledge as you use them to write. Once the well is empty of ink, you can absorb this knowledge for a small burst of research points by holding the tools in your hand and right clicking. Unfortunately, this burns the tool out and turns it back into a mundane Scribing Tool again.
-forbidden.research_page.CRYSTALWELL.1b=Research can get boring and tedious sometimes. There's only so many hours you can spend taking apart bits of cobblestone in the sad hope of finding esoteric insights before you start considering a change in careers.<BR><BR>Thankfully, you've devised a way to expedite the process. The Crystal Scribing Tools will slowly transmit knowledge into your mind while carried around.<BR><BR>It's amazing what you can do with crystals!
+forbidden.research_page.CRYSTALWELL.1b=Research can get boring and tedious sometimes. There's only so many hours you can spend taking apart bits of cobblestone in the sad hope of finding esoteric insights before you start considering a change in careers.<BR><BR>Thankfully, you've devised a way to expedite the process. The Crystal Scribing Tools contain a small pool of esoteric knowledge which will slowly be transferred into your mind as you carry them around.<BR><BR>Your chakras are going to be SO aligned!
 #
 forbidden.research_name.PRIMEWELL=Primal Scribing Tools
 forbidden.research_text.PRIMEWELL=Bragging Rights
@@ -357,7 +362,7 @@ forbidden.research_page.HELLFIRE.1=Getting stranded in the Nether is the worst. 
 #
 forbidden.research_name.EUCLIDAISY=Euclidaisy
 forbidden.research_text.EUCLIDAISY=Mai waifu's power level is over 9000 in the name of the moon! Believe it!
-forbidden.research_page.EUCLIDAISY.1=Ethereal Essences are extremely useful sources of essentia and are a very important ingredient in Thaumaturge's Salt. Unfortunately, it can be very difficult to come by. Wisps aren't exactly common, and no self-respecting thaumaturge wants to stoop to smashing open a node.<BR><BR>By combining thaumaturgy and hedge magic, you've created a flower that can use mana to rip open the fabric of reality. The rip isn't stable enough to form a node, but it does stay open long enough to drop a single wispy strand of essence. Applying a redstone signal to the flower causes it to stop.
+forbidden.research_page.EUCLIDAISY.1=Ethereal Essences are an extremely useful sources of rare Auram essentia. Unfortunately, they can be very difficult to come by. Wisps aren't exactly common, and no self-respecting thaumaturge wants to stoop to smashing open a node.<BR><BR>By combining thaumaturgy and hedge magic, you've created a flower that can use mana to rip open the fabric of reality. The rip isn't stable enough to form a node, but it does stay open long enough to drop a single wispy strand of essence. Applying a redstone signal to the flower causes it to stop.
 #
 forbidden.research_name.WHISPERWEED=Whisperweed
 forbidden.research_text.WHISPERWEED=Dubbed, not Subbed

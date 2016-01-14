@@ -1,9 +1,12 @@
 package fox.spiteful.forbidden.items.baubles;
 
 import baubles.api.BaublesApi;
+import cpw.mods.fml.common.Optional;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import fox.spiteful.forbidden.Forbidden;
+import fox.spiteful.forbidden.compat.Compat;
+import net.minecraft.client.gui.GuiScreen;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
@@ -19,12 +22,14 @@ import net.minecraft.util.IIcon;
 import net.minecraft.util.StatCollector;
 import thaumcraft.api.aspects.Aspect;
 import thaumcraft.common.items.baubles.ItemAmuletVis;
+import vazkii.botania.api.item.ICosmeticAttachable;
 
 import java.text.DecimalFormat;
 import java.util.Iterator;
 import java.util.List;
 
-public class ItemSubCollar extends ItemAmuletVis {
+@Optional.Interface(iface = "vazkii.botania.api.item.ICosmeticAttachable", modid = "Botania")
+public class ItemSubCollar extends ItemAmuletVis implements ICosmeticAttachable {
 
     public IIcon icon;
     DecimalFormat myFormatter = new DecimalFormat("#######.##");
@@ -82,6 +87,10 @@ public class ItemSubCollar extends ItemAmuletVis {
             }
             if(stack.stackTagCompound.hasKey("owner"))
                 list.add(StatCollector.translateToLocal("tooltip.collar.owner") + " " + stack.stackTagCompound.getString("owner"));
+
+            if(Compat.botan && GuiScreen.isShiftKeyDown() && getCosmeticItem(stack) != null)
+                list.add(String.format(StatCollector.translateToLocal("botaniamisc.hasCosmetic"), getCosmeticItem(stack).getDisplayName()).replaceAll("&", "\u00a7"));
+
         }
 
     }
@@ -122,6 +131,31 @@ public class ItemSubCollar extends ItemAmuletVis {
     @Override
     public void getSubItems(Item item, CreativeTabs xCreativeTabs, List list) {
         list.add(new ItemStack(item, 1, 0));
+    }
+
+    @Override
+    public ItemStack getCosmeticItem(ItemStack stack) {
+        if(stack == null || stack.getTagCompound() == null)
+            return null;
+        if(!stack.getTagCompound().hasKey("cosmeticItem"))
+            return null;
+        NBTTagCompound cosmetic = stack.getTagCompound().getCompoundTag("cosmeticItem");
+        return ItemStack.loadItemStackFromNBT(cosmetic);
+    }
+
+    @Override
+    public void setCosmeticItem(ItemStack stack, ItemStack cosmetic) {
+        if(cosmetic == null || stack == null)
+            return;
+        NBTTagCompound cmp = new NBTTagCompound();
+        cosmetic.writeToNBT(cmp);
+        NBTTagCompound tag = stack.getTagCompound();
+        if(tag == null){
+            tag = new NBTTagCompound();
+            stack.setTagCompound(tag);
+        }
+
+        tag.setTag("cosmeticItem", cmp);
     }
 
 }
