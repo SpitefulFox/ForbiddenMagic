@@ -3,9 +3,7 @@ package fox.spiteful.forbidden.compat;
 import com.pahimar.ee3.api.exchange.EnergyValueRegistryProxy;
 import fox.spiteful.forbidden.*;
 import fox.spiteful.forbidden.blocks.ForbiddenBlocks;
-import fox.spiteful.forbidden.items.tools.ItemDragonslayer;
 import net.minecraft.block.Block;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
@@ -34,7 +32,6 @@ public class Compat {
     public static boolean special = false;
     public static boolean twilight = false;
     public static boolean ee3 = false;
-    public static boolean dargon = false;
 
     public static void initiate() {
         if(!Config.crossMod)
@@ -48,7 +45,6 @@ public class Compat {
         special = Config.wrathCage && Config.special && Loader.isModLoaded("SpecialMobs");
         twilight = Config.wrathCage && Config.twilight && Loader.isModLoaded("TwilightForest");
         ee3 = (Config.emc /* || Config.eewand*/) && Loader.isModLoaded("EE3");
-        dargon = Config.dargon && Loader.isModLoaded("DraconicEvolution");
     }
 
     public static void compatify() {
@@ -384,29 +380,6 @@ public class Compat {
             Config.spawnerMobs.put("TwilightForest.WinterWolf", Aspect.COLD);
         }
 
-        if(dargon){
-            try {
-
-                Item ingot = Items.iron_ingot;
-                Item sword = Items.iron_sword;
-                if(twilight){
-                    try {
-                        ingot = getItem("TwilightForest", "item.knightMetal");
-                        sword = getItem("TwilightForest", "item.knightlySword");
-                    }catch (Exception e){
-                        LogHandler.log(Level.INFO, e, "Forbidden Magic couldn't figure out Twilight Forest's progression.");
-                        twilight = false;
-                    }
-                }
-                ((ItemDragonslayer)ForbiddenItems.dragonslayer).repair = ingot;
-                InfusionRecipe dragonslayer_recipe = ThaumcraftApi.addInfusionCraftingRecipe("DRAGONSLAYER", new ItemStack(ForbiddenItems.dragonslayer, 1), 6, (new AspectList()).add(Aspect.LIGHT, 16).add(Aspect.ORDER, 8).add(Aspect.MAN, 16).add(Aspect.METAL, 32), new ItemStack(sword), new ItemStack[]{new ItemStack(Items.nether_star, 1), new ItemStack(Items.golden_helmet, 1, 0), new ItemStack(Items.writable_book, 1), new ItemStack(Items.ender_pearl, 1, 2)});
-                (new DarkResearchItem("DRAGONSLAYER", "FORBIDDEN", "[DE]", (new AspectList()).add(Aspect.WEAPON, 16).add(Aspect.ARMOR, 8).add(Aspect.MIND, 4), 2, -6, 3, new ItemStack(ForbiddenItems.dragonslayer, 1))).setPages(new ResearchPage[]{new ResearchPage("forbidden.research_page.DRAGONSLAYER.1"), new ResearchPage(dragonslayer_recipe)}).setParents("INFUSION").setConcealed().registerResearchItem();
-
-            } catch (Exception e) {
-                LogHandler.log(Level.INFO, e, "Forbidden Magic wasn't unbalanced enough for Draconic Evolution.");
-                dargon = false;
-            }
-        }
     }
 
     public static Item getItem(String mod, String item) throws ItemNotFoundException {

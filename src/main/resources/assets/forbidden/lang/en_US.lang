@@ -376,10 +376,6 @@ forbidden.research_name.SUBCOLLAR=Collar of Pain
 forbidden.research_text.SUBCOLLAR=Pain and Magic
 forbidden.research_page.SUBCOLLAR.1=Sometimes, people just want to get hurt. Especially if there's a benefit...<BR><BR>The Collar of Pain has all the capabilities of an Amulet of Vis Storage with the added bonus that it will generate vis whenever you take damage. The more you get hurt, the more vis it generates.
 #
-forbidden.research_name.DRAGONSLAYER=Sword of the Dragonslayer
-forbidden.research_text.DRAGONSLAYER=JOOR-ZAH-FRUL
-forbidden.research_page.DRAGONSLAYER.1=Myths and legends abound of valiant heroes battling against great and terrifying beasts. Dragons are some of the most terrifying creatures, and the slaying of one is spoken of in legends for generations afterwards.<BR><BR>By infusing a sword with such mythical importance, you create a blade capable of felling such terrifying opponents. The Sword of the Dragonslayer exists to slay dragons, dealing them mortal wounds and deflecting their attacks with ease.<BR><BR>Not all dragons are born as dragons. Any human using the power of dragons will find themselves reminded of their mortality.
-#
 # Lexicon
 forbidden.lexicon.euclidaisy=Euclidaisy
 forbidden.lexicon.euclidaisy.0=The eerie, pink &1Euclidaisy&0 is an oddity. It uses large amounts of mana to conjure some sort of ethereal substance that only seems useful to thaumaturges.<br>&oIt doesn't combustion bend.&r

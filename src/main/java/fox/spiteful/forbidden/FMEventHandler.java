@@ -267,7 +267,7 @@ public class FMEventHandler {
                         learning -= xp;
                         event.entityLiving.worldObj.spawnEntityInWorld(new EntityXPOrb(event.entityLiving.worldObj, event.entityLiving.posX, event.entityLiving.posY, event.entityLiving.posZ, xp));
                     }
-                } catch (Exception e) {
+                } catch (Throwable e) {
                     LogHandler.log(Level.ERROR, "Failed to educate!");
                 }
             }

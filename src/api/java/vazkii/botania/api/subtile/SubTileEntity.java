@@ -23,6 +23,7 @@ import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.World;
 import vazkii.botania.api.BotaniaAPI;
+import vazkii.botania.api.internal.VanillaPacketDispatcher;
 import vazkii.botania.api.lexicon.LexiconEntry;
 import vazkii.botania.api.wand.IWandBindable;
 import cpw.mods.fml.relauncher.Side;
@@ -38,6 +39,11 @@ public class SubTileEntity {
 	protected TileEntity supertile;
 
 	public int ticksExisted = 0;
+
+	/** true if this flower is working on Enchanted Soil **/
+	public boolean overgrowth = false;
+	/** true if this flower is working on Enchanted Soil and this is the second tick **/
+	public boolean overgrowthBoost = false;
 
 	/** The Tag items should use to store which sub tile they are. **/
 	public static final String TAG_TYPE = "type";
@@ -81,7 +87,7 @@ public class SubTileEntity {
 	public void readFromPacketNBT(NBTTagCompound cmp) { }
 
 	public void sync() {
-		supertile.getWorldObj().markBlockForUpdate(supertile.xCoord, supertile.yCoord, supertile.zCoord);
+		VanillaPacketDispatcher.dispatchTEToNearbyPlayers(supertile);
 	}
 
 	public String getUnlocalizedName() {
@@ -154,6 +160,22 @@ public class SubTileEntity {
 	}
 
 	/**
+	 * Returns a descriptor for the radius of this sub tile. This is called while a player
+	 * is looking at the block with a Manaseer Monocle (IBurstViewerBauble).
+	 */
+	@SideOnly(Side.CLIENT)
+	public RadiusDescriptor getRadius() {
+		return null;
+	}
+
+	/**
+	 * Gets a ChunkCoordinates instance with the position of this sub tile.
+	 */
+	public ChunkCoordinates toChunkCoordinates() {
+		return new ChunkCoordinates(supertile.xCoord, supertile.yCoord, supertile.zCoord);
+	}
+
+	/**
 	 * @see IWandBindable#canSelect(EntityPlayer, ItemStack, int, int, int, int)
 	 */
 	public boolean canSelect(EntityPlayer player, ItemStack wand, int x, int y, int z, int side) {
@@ -175,4 +197,47 @@ public class SubTileEntity {
 	public void renderHUD(Minecraft mc, ScaledResolution res) {
 		// NO-OP
 	}
+
+	/**
+	 * Gets the light value for this SubTileEntity, this is a int (-1 to default to the flower)
+	 */
+	public int getLightValue() {
+		return -1;
+	}
+
+	/**
+	 * Gets the comparator input value for this SubTileEntity
+	 */
+	public int getComparatorInputOverride(int side) {
+		return 0;
+	}
+
+	/**
+	 * Gets the redstone power level for this SubTileEntity
+	 */
+	public int getPowerLevel(int side) {
+		return 0;
+	}
+
+	/**
+	 * Gets if this SubTileEntity is affected by Enchanted Soil's speed boost.
+	 */
+	public boolean isOvergrowthAffected() {
+		return true;
+	}
+	
+	/**
+	 * Gets ths slowdown factor of this SubTile.
+	 * @see ISubTileSlowableContainer
+	 */
+	public int getSlowdownFactor() {
+		if(supertile instanceof ISubTileSlowableContainer) {
+			ISubTileSlowableContainer slowable = (ISubTileSlowableContainer) supertile;
+			return slowable.getSlowdownFactor();
+		}
+		
+		return 0;
+	}
+
+
 }

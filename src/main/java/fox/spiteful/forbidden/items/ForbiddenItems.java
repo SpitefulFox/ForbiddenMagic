@@ -171,16 +171,6 @@ public class ForbiddenItems {
             }
         }
 
-        if(Compat.dargon){
-            try {
-                dragonslayer = new ItemDragonslayer().setUnlocalizedName("Sword_Dragonslayer");
-                GameRegistry.registerItem(dragonslayer, "Dragonslayer");
-            }
-            catch (Throwable e){
-                Compat.dargon = false;
-            }
-        }
-
         crystalwell = new ItemCrystalwell().setUnlocalizedName("Crystalwell");
         GameRegistry.registerItem(crystalwell, "Crystalwell");
 

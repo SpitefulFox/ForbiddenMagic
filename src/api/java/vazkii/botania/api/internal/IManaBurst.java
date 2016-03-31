@@ -10,6 +10,8 @@
  */
 package vazkii.botania.api.internal;
 
+import java.util.UUID;
+
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ChunkCoordinates;
 
@@ -59,5 +61,13 @@ public interface IManaBurst {
 	public void setCollidedAt(int x, int y, int z);
 
 	public int getTicksExisted();
+
+	public void setFake(boolean fake);
+
+	public void setShooterUUID(UUID uuid);
+
+	public UUID getShooterUIID();
+
+	public void ping();
 
 }

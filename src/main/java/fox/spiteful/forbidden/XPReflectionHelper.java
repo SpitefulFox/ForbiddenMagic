@@ -2,35 +2,27 @@ package fox.spiteful.forbidden;
 
 import java.lang.reflect.Field;
 
+import cpw.mods.fml.relauncher.ReflectionHelper;
 import net.minecraft.entity.EntityLiving;
+import org.apache.logging.log4j.Level;
 
 public class XPReflectionHelper {
-    private static Field getField(Class clazz, String field) throws NoSuchFieldException {
+    public static Field stupidMojangProtectedVariable;
+
+    static {
         try {
-            return clazz.getDeclaredField(field);
-        } catch (NoSuchFieldException e) {
-            Class superClass = clazz.getSuperclass();
-            if (superClass == null) {
-                throw e;
-            } else {
-                return getField(superClass, field);
-            }
+            stupidMojangProtectedVariable = ReflectionHelper.findField(EntityLiving.class, "experienceValue", "field_70728_aV");
+            stupidMojangProtectedVariable.setAccessible(true);
+        }
+        catch(Exception e){
+            LogHandler.log(Level.ERROR, e.toString());
+            e.printStackTrace();
         }
     }
 
     public static int getXP(EntityLiving entityLiving) {
         try {
-            Field f = getField(entityLiving.getClass(), "experienceValue");
-            f.setAccessible(true);
-            return (Integer) f.get(entityLiving);
-        } catch (NoSuchFieldException e) {
-            try {
-                Field f = getField(entityLiving.getClass(), "field_70728_aV");
-                f.setAccessible(true);
-                return (Integer) f.get(entityLiving);
-            } catch (Exception e2) {
-                return 0;
-            }
+            return stupidMojangProtectedVariable.getInt(entityLiving);
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -28,6 +28,7 @@ public class Brew {
 	int cost;
 	List<PotionEffect> effects;
 	boolean canInfuseBloodPendant = true;
+	boolean canInfuseIncense = true;
 
 	/**
 	 * @param name The unlocalized name of this potion.
@@ -52,8 +53,20 @@ public class Brew {
 		return this;
 	}
 
+	/**
+	 * Sets this brew to not be able to be infused onto Incense Sticks.
+	 */
+	public Brew setNotIncenseInfusable() {
+		canInfuseIncense = false;
+		return this;
+	}
+
 	public boolean canInfuseBloodPendant() {
 		return canInfuseBloodPendant;
+	}
+
+	public boolean canInfuseIncense() {
+		return canInfuseIncense;
 	}
 
 	/**

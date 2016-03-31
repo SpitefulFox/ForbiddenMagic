@@ -37,13 +37,5 @@ public class DarkPotions {
 
         if(Compat.bm)
             bloodSeal = new PotionBloodSeal(Config.bloodSealPotionID);
-        if(Compat.dargon) {
-            try {
-                dragonwrack = new PotionDragonwrack(Config.dragonwrackPotionID);
-            }
-            catch (Exception e){
-                Compat.dargon = false;
-            }
-        }
     }
 }

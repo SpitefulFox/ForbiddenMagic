@@ -60,7 +60,6 @@ public class Config {
     public static boolean special = true;
     public static boolean twilight = true;
     public static boolean emc = true;
-    public static boolean dargon = true;
     //public static boolean eewand = true;
 
     public static int bloodvis = 5;
@@ -127,7 +126,6 @@ public class Config {
             tc = conf.get("compatibility", "Tinkers Construct Interaction", tc).getBoolean(true);
             special = conf.get("compatibility", "Special Mobs Interaction", special).getBoolean(true);
             twilight = conf.get("compatibility", "Twilight Forest Interaction", twilight).getBoolean(true);
-            dargon = conf.get("compatibility", "Draconic Evolution Interaction", dargon).getBoolean(true);
             emc = conf.get("compatibility", "Equivalent Exchange 3 EMC", emc, "Disable if you don't want Forbidden Magic to add EMC values to items.").getBoolean(true);
             //eewand = conf.get("compatibility", "Equivalent Exchange 3 Wand", eewand, "Disable to specifically disable the EMC to Vis wand.").getBoolean(true);
 

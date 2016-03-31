@@ -15,6 +15,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.WeakHashMap;
+import java.util.regex.Pattern;
 
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.ISidedInventory;
@@ -22,12 +23,21 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.World;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.util.ForgeDirection;
+import vazkii.botania.api.BotaniaAPI;
 
 public final class CorporeaHelper {
 
 	private static final List<IInventory> empty = Collections.unmodifiableList(new ArrayList());
 	private static final WeakHashMap<List<ICorporeaSpark>, List<IInventory>> cachedNetworks = new WeakHashMap();
+	private static final List<ICorporeaAutoCompleteController> autoCompleteControllers = new ArrayList<ICorporeaAutoCompleteController>();
+
+	private static final Pattern patternControlCode = Pattern.compile("(?i)\\u00A7[0-9A-FK-OR]");
+
+	public static final String[] WILDCARD_STRINGS = new String[] {
+		"...", "~", "+", "?" , "*"
+	};
 
 	/**
 	 * How many items were matched in the last request. If java had "out" params like C# this wouldn't be needed :V
@@ -114,22 +124,15 @@ public final class CorporeaHelper {
 	 * The deeper level function that use a List< IInventory > should be
 	 * called instead if the context for this exists to avoid having to get the value again.
 	 */
-	public static Map<IInventory, Integer> getInventoriesWithItemInNetwork(ItemStack stack, List<IInventory> inventories, boolean checkNBT) {
-		Map<IInventory, Integer> countMap = new HashMap();
-
-		for(IInventory inv : inventories) {
-			int count = 0;
-			for(int i = 0; i < inv.getSizeInventory(); i++) {
-				if(!isValidSlot(inv, i))
-					continue;
-
-				ItemStack stackAt = inv.getStackInSlot(i);
-				if(stacksMatch(stack, stackAt, checkNBT))
-					count += stackAt.stackSize;
+	public static Map<IInventory, Integer> getInventoriesWithItemInNetwork(ItemStack stack,List<IInventory> inventories, boolean checkNBT) {
+		Map<IInventory, Integer> countMap = new HashMap<IInventory, Integer>();
+		List<IWrappedInventory> wrappedInventories = BotaniaAPI.internalHandler.wrapInventory(inventories);
+		for (IWrappedInventory inv : wrappedInventories) {
+			CorporeaRequest request = new CorporeaRequest(stack, checkNBT, -1);
+			inv.countItems(request);
+			if (request.foundItems > 0) {
+				countMap.put(inv.getWrappedObject(), request.foundItems);
 			}
-
-			if(count > 0)
-				countMap.put(inv, count);
 		}
 
 		return countMap;
@@ -153,49 +156,48 @@ public final class CorporeaHelper {
 	 * Requests list of ItemStacks of the type passed in from the network, or tries to, checking NBT or not.
 	 * This will remove the items from the adequate inventories unless the "doit" parameter is false.
 	 * Returns a new list of ItemStacks of the items acquired or an empty list if none was found.
+	 * Case itemCount is -1 it'll find EVERY item it can.
 	 * <br><br>
 	 * The "matcher" parameter has to be an ItemStack or a String, if the first it'll check if the
 	 * two stacks are similar using the "checkNBT" parameter, else it'll check if the name of the item
 	 * equals or matches (case a regex is passed in) the matcher string.
+	 * <br><br>
+	 * When requesting counting of items, individual stacks may exceed maxStackSize for
+	 * purposes of counting huge amounts.
 	 */
 	public static List<ItemStack> requestItem(Object matcher, int itemCount, ICorporeaSpark spark, boolean checkNBT, boolean doit) {
+		List<ItemStack> stacks = new ArrayList<ItemStack>();
+		CorporeaRequestEvent event = new CorporeaRequestEvent(matcher, itemCount, spark, checkNBT, doit);
+		if(MinecraftForge.EVENT_BUS.post(event))
+			return stacks;
+
 		List<IInventory> inventories = getInventoriesOnNetwork(spark);
-		List<ItemStack> stacks = new ArrayList();
+		List<IWrappedInventory> inventoriesW = BotaniaAPI.internalHandler.wrapInventory(inventories);
+		Map<ICorporeaInterceptor, ICorporeaSpark> interceptors = new HashMap<ICorporeaInterceptor, ICorporeaSpark>();
 
-		lastRequestMatches = 0;
-		lastRequestExtractions = 0;
+		CorporeaRequest request = new CorporeaRequest(matcher, checkNBT, itemCount);
+		for(IWrappedInventory inv : inventoriesW) {
+			ICorporeaSpark invSpark = inv.getSpark();
 
-		int count = itemCount;
-		for(IInventory inv : inventories) {
-			ICorporeaSpark invSpark = getSparkForInventory(inv);
-			for(int i = inv.getSizeInventory() - 1; i >= 0; i--) {
-				if(!isValidSlot(inv, i))
-					continue;
+			Object originalInventory = inv.getWrappedObject();
+			if(originalInventory instanceof ICorporeaInterceptor) {
+				ICorporeaInterceptor interceptor = (ICorporeaInterceptor) originalInventory;
+				interceptor.interceptRequest(matcher, itemCount, invSpark, spark, stacks, inventories, doit);
+				interceptors.put(interceptor, invSpark);
+			}
 
-				ItemStack stackAt = inv.getStackInSlot(i);
-				if(matcher instanceof ItemStack ? stacksMatch((ItemStack) matcher, stackAt, checkNBT) : matcher instanceof String ? stacksMatch(stackAt, (String) matcher) : false) {
-					int rem = Math.min(stackAt.stackSize, count);
-
-					if(rem > 0) {
-						ItemStack copy = stackAt.copy();
-						if(rem < copy.stackSize)
-							copy.stackSize = rem;
-						stacks.add(copy);
-					}
-
-					lastRequestMatches += stackAt.stackSize;
-					lastRequestExtractions += rem;
-					if(doit && rem > 0) {
-						stackAt.stackSize -= rem;
-						if(stackAt.stackSize == 0)
-							inv.setInventorySlotContents(i, null);
-						if(invSpark != null)
-							invSpark.onItemExtracted(stackAt);
-					}
-					count -= rem;
-				}
+			if(doit) {
+				stacks.addAll(inv.extractItems(request));
+			} else {
+				stacks.addAll(inv.countItems(request));
 			}
 		}
+
+		lastRequestMatches = request.foundItems;
+		lastRequestExtractions = request.extractedItems;
+
+		for(ICorporeaInterceptor interceptor : interceptors.keySet())
+			interceptor.interceptRequestLast(matcher, itemCount, interceptors.get(interceptor), spark, stacks, inventories, doit);
 
 		return stacks;
 	}
@@ -232,7 +234,7 @@ public final class CorporeaHelper {
 	 * Gets if the slot passed in can be extracted from by a spark.
 	 */
 	public static boolean isValidSlot(IInventory inv, int slot) {
-		return !(inv instanceof ISidedInventory) || arrayHas(((ISidedInventory) inv).getAccessibleSlotsFromSide(ForgeDirection.UP.ordinal()), slot);
+		return !(inv instanceof ISidedInventory) || arrayHas(((ISidedInventory) inv).getAccessibleSlotsFromSide(ForgeDirection.UP.ordinal()), slot) && ((ISidedInventory) inv).canExtractItem(slot, inv.getStackInSlot(slot), ForgeDirection.UP.ordinal());
 	}
 
 	/**
@@ -250,16 +252,22 @@ public final class CorporeaHelper {
 			return false;
 
 		boolean contains = false;
-		if(s.endsWith("...")) {
-			contains = true;
-			s = s.substring(0, s.length() - 3);
-		}
-		if(s.startsWith("...")) {
-			contains = true;
-			s = s.substring(3);
+		for(String wc : WILDCARD_STRINGS) {
+			if(s.endsWith(wc)) {
+				contains = true;
+				s = s.substring(0, s.length() - wc.length());
+			}
+			else if(s.startsWith(wc)) {
+				contains = true;
+				s = s.substring(wc.length());
+			}
+
+			if(contains)
+				break;
 		}
 
-		String name = stack.getDisplayName().toLowerCase().trim();
+
+		String name = stripControlCodes(stack.getDisplayName().toLowerCase().trim());
 		return equalOrContain(name, s, contains) || equalOrContain(name + "s", s, contains) || equalOrContain(name + "es", s, contains) || name.endsWith("y") && equalOrContain(name.substring(0, name.length() - 1) + "ies", s, contains);
 	}
 
@@ -287,5 +295,27 @@ public final class CorporeaHelper {
 	 */
 	public static boolean equalOrContain(String s1, String s2, boolean contain) {
 		return contain ? s1.contains(s2) : s1.equals(s2);
+	}
+
+	/**
+	 * Registers a ICorporeaAutoCompleteController
+	 */
+	public static void registerAutoCompleteController(ICorporeaAutoCompleteController controller) {
+		autoCompleteControllers.add(controller);
+	}
+
+	/**
+	 * Returns if the auto complete helper should run
+	 */
+	public static boolean shouldAutoComplete() {
+		for(ICorporeaAutoCompleteController controller : autoCompleteControllers)
+			if(controller.shouldAutoComplete())
+				return true;
+		return false;
+	}
+
+	// Copy from StringUtils
+	public static String stripControlCodes(String str) {
+		return patternControlCode.matcher(str).replaceAll("");
 	}
 }

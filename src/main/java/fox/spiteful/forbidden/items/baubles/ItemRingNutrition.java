@@ -78,10 +78,11 @@ public class ItemRingNutrition extends Item implements IRunicArmor, IBauble, ICo
 
     @Override
     public void setCosmeticItem(ItemStack stack, ItemStack cosmetic) {
-        if(cosmetic == null || stack == null)
+        if(stack == null)
             return;
         NBTTagCompound cmp = new NBTTagCompound();
-        cosmetic.writeToNBT(cmp);
+        if(cosmetic != null)
+            cosmetic.writeToNBT(cmp);
         NBTTagCompound tag = stack.getTagCompound();
         if(tag == null){
             tag = new NBTTagCompound();
