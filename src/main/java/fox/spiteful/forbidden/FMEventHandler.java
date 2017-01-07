@@ -39,6 +39,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldProviderHell;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.util.FakePlayer;
 import net.minecraftforge.event.entity.living.*;
@@ -160,8 +161,8 @@ public class FMEventHandler {
             }
         }
 
-        if (event.entityLiving.worldObj.provider.dimensionId != -1)
-            return;
+        //if ( event.entityLiving.worldObj.provider.dimensionId != -1 )
+        if ( !(event.entityLiving.worldObj.provider instanceof WorldProviderHell) ) { return; }
 
         if (!event.recentlyHit || event.source.getEntity() == null || !(event.source.getEntity() instanceof EntityPlayer) || event.source.getEntity() instanceof FakePlayer) {
             if (randy.nextInt(30) < 4) {
@@ -348,7 +349,10 @@ public class FMEventHandler {
                     event.drops.add((ItemStack) (current.next()));
                 }
             }
-            if(player.worldObj.provider.dimensionId == -1 && event.block == Blocks.quartz_ore){
+            //if(player.worldObj.provider.dimensionId == -1 && event.block == Blocks.quartz_ore){
+            if( ( player.worldObj.provider instanceof WorldProviderHell ) && 
+        		( event.block == Blocks.quartz_ore ) )
+            {
                 int fortune = EnchantmentHelper.getFortuneModifier(player);
                 if(fortune > 0 && randy.nextInt(60) <= fortune){
                     event.drops.add(new ItemStack(ForbiddenItems.deadlyShards, 1, 6));
@@ -372,8 +376,11 @@ public class FMEventHandler {
         if(event.entityPlayer.worldObj.isRemote)
             return;
         if(event.item.getItem() instanceof ItemFood){
-            if(event.entityPlayer.worldObj.provider.dimensionId == -1 && event.item.getItem() != ForbiddenItems.gluttonyShard
-                    && randy.nextInt(10) < 2){
+            //if(event.entityPlayer.worldObj.provider.dimensionId == -1 && event.item.getItem() != ForbiddenItems.gluttonyShard&& randy.nextInt(10) < 2){
+        	if( ( event.entityPlayer.worldObj.provider instanceof WorldProviderHell ) && 
+	        	( event.item.getItem() != ForbiddenItems.gluttonyShard ) && 
+	        	( randy.nextInt(10) < 2 ) )
+        	{
                 EntityItem ent = event.entityPlayer.entityDropItem(new ItemStack(ForbiddenItems.gluttonyShard, 1), 1.0F);
                 ent.motionY += randy.nextFloat() * 0.05F;
                 ent.motionX += (randy.nextFloat() - randy.nextFloat()) * 0.1F;
@@ -409,8 +416,13 @@ public class FMEventHandler {
 
     @SubscribeEvent
     public void onSpawn(LivingSpawnEvent event) {
-        if (event.entityLiving.worldObj.provider.dimensionId == -1 && event.entityLiving instanceof EntityPigZombie && randy.nextInt(175) == 1)
+        //if (event.entityLiving.worldObj.provider.dimensionId == -1 && event.entityLiving instanceof EntityPigZombie && randy.nextInt(175) == 1)
+    	if( (event.entityLiving.worldObj.provider instanceof WorldProviderHell ) &&
+	    	( event.entityLiving instanceof EntityPigZombie) &&
+	    	( randy.nextInt(175) == 1 ) )
+    	{
             event.entityLiving.setCurrentItemOrArmor(0, new ItemStack(ForbiddenItems.deadlyShards, 1, 1));
+    	}
     }
 
     @SubscribeEvent
@@ -456,7 +468,10 @@ public class FMEventHandler {
                         doses += 3;
                         chance += 3;
                     }
-                    if(player.worldObj.provider.dimensionId == -1 && randy.nextInt(30) < chance){
+                    //if(player.worldObj.provider.dimensionId == -1 && randy.nextInt(30) < chance){
+                    if( ( player.worldObj.provider instanceof WorldProviderHell ) && 
+                		( randy.nextInt(30) < chance ) )
+                    {
                         EntityItem ent = player.entityDropItem(new ItemStack(ForbiddenItems.deadlyShards, 1, 4), 1.0F);
                         ent.motionY += player.worldObj.rand.nextFloat() * 0.05F;
                         ent.motionX += (player.worldObj.rand.nextFloat() - player.worldObj.rand.nextFloat()) * 0.1F;
